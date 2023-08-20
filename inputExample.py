@@ -1,5 +1,5 @@
 #
-# InputManager Test
+# pygame_utils -- Input Example
 #
 
 # inport modules
