@@ -6,11 +6,11 @@ import pygame
 
 class Input():
 
-    # number of frames a key needs to be held to register a long press
-    longPressDuration = 10
-
-    def __init__(self):
+    # longPressDuraton: the number of frames a key needs to be held to register a long press
+    def __init__(self, longPressDuration = 60):
         
+        self.longPressDuration = longPressDuration
+
         # set key states
         self.currentKeyStates = pygame.key.get_pressed()
         self.previousKeyStates = pygame.key.get_pressed()
@@ -60,17 +60,21 @@ class Input():
     
     # long key methods
 
+    # returns the number of frames a keyCode has been held down
+    def getKeyDownDuration(self, keyCode):
+        return self.durations[keyCode]
+
     # returns true if the key denoted by keyCode
     # is held down for a long press during the current frame
     def isKeyLongDown(self, keyCode):
-        return self.durations[keyCode] >= Input.longPressDuration
+        return self.durations[keyCode] >= self.longPressDuration
 
     # returns true if the key denoted by keyCode
     # has achieved a long press in the current frame
     def isKeyLongPressed(self, keyCode):
-        return self.durations[keyCode] == Input.longPressDuration
+        return self.durations[keyCode] == self.longPressDuration
 
     # returns keyCode progress towards a long press (0%-100%)    
     def GetKeyLongPressPercentage(self, keyCode):
-        return min(100, self.durations[keyCode] / Input.longPressDuration * 100)
+        return min(100, self.durations[keyCode] / self.longPressDuration * 100)
     
