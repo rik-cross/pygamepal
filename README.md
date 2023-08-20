@@ -16,5 +16,5 @@ input.isKeyPressed(pygame.K_RETURN)
 input.isKeyReleased(pygame.K_RETURN)
 input.isKeyLongDown(pygame.K_RETURN)
 input.isKeyLongPressed(pygame.K_RETURN)
-input.getLongKeyPressPercentage(pygame.K_RETURN)
+input.getKeyLongPressPercentage(pygame.K_RETURN)
 ```
