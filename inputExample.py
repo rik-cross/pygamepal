@@ -35,7 +35,7 @@ while running:
             ", released: " + str(input.isKeyReleased(pygame.K_RETURN)) + \
             ", long down: " + str(input.isKeyLongDown(pygame.K_RETURN)) + \
             ", long press: " + str(input.isKeyLongPressed(pygame.K_RETURN)) + \
-            ", long%: " + str(input.GetLongKeyPressPercentage(pygame.K_RETURN))
+            ", long%: " + str(input.GetKeyLongPressPercentage(pygame.K_RETURN))
 
     print(text)
 
