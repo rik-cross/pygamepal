@@ -11,11 +11,11 @@ Simply add the `pygame_utils.py` file to your project and import the module usin
 Input -- [Example](./inputExample.py)
 
 ```
-input.isKeyDown(pygame.K_RETURN)
-input.isKeyPressed(pygame.K_RETURN)
-input.isKeyReleased(pygame.K_RETURN)
-input.getKeyDownDuration(pygame.K_RETURN)
-input.isKeyLongDown(pygame.K_RETURN)
-input.isKeyLongPressed(pygame.K_RETURN)
-input.getKeyLongPressPercentage(pygame.K_RETURN)
+input.isKeyDown(keycode)
+input.isKeyPressed(keycode)
+input.isKeyReleased(keycode)
+input.getKeyDownDuration(keycode)
+input.isKeyLongDown(keycode)
+input.isKeyLongPressed(keycode)
+input.getKeyLongPressPercentage(keycode)
 ```
