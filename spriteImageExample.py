@@ -56,8 +56,7 @@ running = True
 while running:
 
     # clear screen
-    screen.fill((0, 0, 0))
-
+    screen.fill(pygame_utils.Colour.CORNFLOWER_BLUE)
     # advance clock
     clock.tick(60)
 

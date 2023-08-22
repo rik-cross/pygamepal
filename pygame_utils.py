@@ -1,5 +1,9 @@
 import pygame
 
+class Colour:
+    CORNFLOWER_BLUE = (100, 147, 237)
+    ALMOST_BLACK = (20, 20, 20)
+
 #
 # input manager
 #

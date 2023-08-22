@@ -11,7 +11,7 @@ pygame.init()
 
 # setup screen
 screen = pygame.display.set_mode((680, 460))
-pygame.display.set_caption('Input Test')
+pygame.display.set_caption('Input Example')
 clock = pygame.time.Clock() 
 
 input = pygame_utils.Input()
@@ -21,7 +21,7 @@ running = True
 while running:
 
     # clear screen
-    screen.fill((0, 0, 0))
+    screen.fill(pygame_utils.Colour.CORNFLOWER_BLUE)
 
     # advance clock (10 FPS so that text is easier to read)
     clock.tick(10)
