@@ -30,16 +30,17 @@ SpriteImage -- [Example](./spriteImageExample)
 # create new instance
 spriteImage = pygame_utils.spriteImage()
 
+# add one or more sprites, associated with a state
+spriteImage.addTextures(state, firstTexture, *moreTextures)
+
 # update() must be called once per frame
 spriteImage.update()
 
 # draw the current image/animation frame
 spriteImage.draw()
 
-# add one or more sprites, associated with a state
-spriteImage.addTextures(state, firstTexture, *moreTextures)
-
 # change the current image/animation state
+# (does not need to be called for sprite with single state)
 spriteImage.setState(state)
 
 # resets the current animation
