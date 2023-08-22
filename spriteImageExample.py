@@ -34,19 +34,19 @@ splitTextures = pygame_utils.splitTexture(texture, 96, 96)
 
 # a sprite with a single texture
 sprite1 = pygame_utils.SpriteImage()
-sprite1.addTextures('default', splitTextures[0][0])
+sprite1.addTextures(splitTextures[0][0])
 
 # an animated sprite with multiple textures
 sprite2 = pygame_utils.SpriteImage()
-sprite2.addTextures('walk_right', splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3])
+sprite2.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3])
 
 # a controllable sprite with multiple animation states
 sprite3 = pygame_utils.SpriteImage()
-sprite3.addTextures('idle', splitTextures[0][0], splitTextures[0][1])
-sprite3.addTextures('walk_down', splitTextures[0][1], splitTextures[0][2], splitTextures[0][1], splitTextures[0][3])
-sprite3.addTextures('walk_up', splitTextures[1][1], splitTextures[1][2], splitTextures[1][1], splitTextures[1][3])
-sprite3.addTextures('walk_left', splitTextures[2][1], splitTextures[2][2], splitTextures[2][1], splitTextures[2][3])
-sprite3.addTextures('walk_right', splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3])
+sprite3.addTextures(splitTextures[0][0], splitTextures[0][1], state='idle')
+sprite3.addTextures(splitTextures[0][1], splitTextures[0][2], splitTextures[0][1], splitTextures[0][3], state='walk_down')
+sprite3.addTextures(splitTextures[1][1], splitTextures[1][2], splitTextures[1][1], splitTextures[1][3], state='walk_up')
+sprite3.addTextures(splitTextures[2][1], splitTextures[2][2], splitTextures[2][1], splitTextures[2][3], state='walk_left')
+sprite3.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3], state='walk_right')
 
 # for easily getting key presses
 input = pygame_utils.Input()
@@ -112,6 +112,7 @@ while running:
     sprite2.draw(screen, 500, 150)
     pygame_utils.drawText(screen, 'Sprite 3 (arrow keys to change)', 420, 240)
     sprite3.draw(screen, 500, 250)
+
     # draw to screen
     pygame.display.flip()
 

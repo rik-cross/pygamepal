@@ -111,6 +111,16 @@ def flatten(list):
             newList.append(j)
     return newList
 
+# used for storing a list of texture (and other info)
+# for a spriteImage state
+class TextureList():
+     def __init__(self):
+        self._textures = []
+        self._loop = True
+        self._hFlip = False
+        self._vFlip = False
+        self._offset = (0, 0)
+
 # allows for one or more tetxures to be associated with a state
 class SpriteImage():
 
@@ -122,12 +132,6 @@ class SpriteImage():
         # maps a state to a list of textures
         self._sprites = {}
         self._currentState = None
-        self.loop = True
-        # horizontal and vertical flip
-        self.hFlip = False
-        self.vFlip = False
-        # allows for texture padding
-        self.offset = (0, 0)
         # keeps track of current animation frame and progress
         self._animationIndex = 0
         self.animationDelay = animationDelay
@@ -135,11 +139,25 @@ class SpriteImage():
         self.pause = False
 
     # add one or more textures, with an associated state
-    def addTextures(self, state, firstTexture, *moreTextures):
-        self._sprites[state] = []
-        self._sprites[state].append(firstTexture)
+    def addTextures(self, firstTexture, *moreTextures, state=None, loop=True, hFlip=False, vFlip=False, offset=(0,0)):
+        #
+        if state is None:
+            state = 'default'
+        # 
+        if state not in self._sprites:
+            textureList = TextureList()
+        else:
+            textureList = self._sprites[state]
+        #
+        textureList._textures.append(firstTexture)
         for texture in moreTextures:
-            self._sprites[state].append(texture)
+            textureList._textures.append(texture)
+        #
+        textureList._loop = loop
+        textureList._hFlip = hFlip
+        textureList._vFlip = vFlip
+        textureList._offset = offset
+        self._sprites[state] = textureList
         if len(self._sprites) == 1:
             self._currentState = state
 
@@ -154,11 +172,11 @@ class SpriteImage():
         if self._animationTimer >= self.animationDelay:
             self._animationTimer = 0
             self._animationIndex += 1
-            if self._animationIndex > len(self._sprites[self._currentState]) - 1:
-                if self.loop:
+            if self._animationIndex > len(self._sprites[self._currentState]._textures) - 1:
+                if self._sprites[self._currentState]._loop:
                     self._animationIndex = 0
                 else:
-                    self._animationIndex = len(self._sprites[self._currentState]) - 1
+                    self._animationIndex = len(self._sprites[self._currentState]._textures) - 1
 
 
     def setState(self, state):
@@ -172,12 +190,18 @@ class SpriteImage():
 
     def draw(self, screen, x, y):
         # don't draw if there's nothing to draw
-        if self._currentState == None:
+        if self._sprites[self._currentState] == None:
             return
         # get the current animation frame
-        currentTexture = self._sprites[self._currentState][self._animationIndex]
+        currentTexture = self._sprites[self._currentState]._textures[self._animationIndex]
         # draw (optionally flipped) texture
-        screen.blit(pygame.transform.flip(currentTexture, self.hFlip, self.vFlip), (x - self.offset[0], y - self.offset[1], currentTexture.get_width(), currentTexture.get_height()))
+        screen.blit(pygame.transform.flip(currentTexture, 
+                                             self._sprites[self._currentState]._hFlip, 
+                                             self._sprites[self._currentState]._vFlip),
+                                             (x - self._sprites[self._currentState]._offset[0], 
+                                             y - self._sprites[self._currentState]._offset[1], 
+                                             currentTexture.get_width(), 
+                                             currentTexture.get_height()))
     # puts sprite animation back to start
     def resetState(self):
         self._animationIndex = 0
