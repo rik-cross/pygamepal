@@ -77,4 +77,118 @@ class Input():
     # returns keyCode progress towards a long press (0%-100%)    
     def GetKeyLongPressPercentage(self, keyCode):
         return min(100, self.durations[keyCode] / self.longPressDuration * 100)
-    
+
+#
+# Sprites and animations
+#
+
+# returns an array of textures, split from the passed texture (spritesheet)
+# (this could be a 2-dimensional array)
+def splitTexture(texture, newTextureWidth, newTextureHeight):
+
+    # the list of textures to return
+    newTextures = []
+
+    # use texture.subsurface to loop through the image
+    for row in range(0, texture.get_height(), newTextureHeight):
+        newRow = []
+        for column in range(0, texture.get_width(), newTextureWidth):
+            # add the cropped texture to the list
+            newRow.append(texture.subsurface(column, row, newTextureWidth, newTextureHeight))
+        newTextures.append(newRow)
+
+    return newTextures
+
+# flatten a 2D or [n]D list into a single list
+def flatten(list):
+    newList = []
+    for i in list:
+        for j in i:
+            newList.append(j)
+    return newList
+
+# allows for one or more tetxures to be associated with a state
+class SpriteImage():
+
+    def __init__(self, animationDelay=12):
+        self._reset(animationDelay)
+
+    # set object to initial values
+    def _reset(self, animationDelay):
+        # maps a state to a list of textures
+        self._sprites = {}
+        self._currentState = None
+        self.loop = True
+        # horizontal and vertical flip
+        self.hFlip = False
+        self.vFlip = False
+        # allows for texture padding
+        self.offset = (0, 0)
+        # keeps track of current animation frame and progress
+        self._animationIndex = 0
+        self.animationDelay = animationDelay
+        self._animationTimer = 0
+        self.pause = False
+
+    # add one or more textures, with an associated state
+    def addTextures(self, state, firstTexture, *moreTextures):
+        self._sprites[state] = []
+        self._sprites[state].append(firstTexture)
+        for texture in moreTextures:
+            self._sprites[state].append(texture)
+        if len(self._sprites) == 1:
+            self._currentState = state
+
+    # must be called once per frame to update sprite
+    def update(self):
+        # only animate if not paused
+        if self.pause:
+            return
+        # increment timer
+        self._animationTimer += 1
+        # advance animation if timer reaches delay value
+        if self._animationTimer >= self.animationDelay:
+            self._animationTimer = 0
+            self._animationIndex += 1
+            if self._animationIndex > len(self._sprites[self._currentState]) - 1:
+                if self.loop:
+                    self._animationIndex = 0
+                else:
+                    self._animationIndex = len(self._sprites[self._currentState]) - 1
+
+
+    def setState(self, state):
+        # only change state if the new state is different
+        if self._currentState == state:
+            return
+        # set the new state
+        self._currentState = state
+        # reset index and timer for the new state
+        self.resetState()
+
+    def draw(self, screen, x, y):
+        # don't draw if there's nothing to draw
+        if self._currentState == None:
+            return
+        # get the current animation frame
+        currentTexture = self._sprites[self._currentState][self._animationIndex]
+        # draw (optionally flipped) texture
+        screen.blit(pygame.transform.flip(currentTexture, self.hFlip, self.vFlip), (x - self.offset[0], y - self.offset[1], currentTexture.get_width(), currentTexture.get_height()))
+    # puts sprite animation back to start
+    def resetState(self):
+        self._animationIndex = 0
+        self._animationTimer = 0
+
+#
+# draw utils
+#
+
+# easily draw text
+def drawText(screen, text, x, y, font=None, antialias=True, colour=(255,255,255), background=None):
+    # use 'standard' font if none specified
+    if font is None:
+        font = pygame.font.SysFont(None, 24)
+    # create text surface
+    textSurface = font.render(text, antialias, colour, background)
+    # draw text to screen
+    screen.blit(textSurface, (x, y))
