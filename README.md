@@ -11,6 +11,8 @@ Simply add the `pygame_utils.py` file to your project and import the module usin
 Input -- [Example](./inputExample.py)
 
 ```
+# create new instance
+input = pygame_utils.Input()
 # update() must be called once per frame
 input.update()
 input.isKeyDown(keycode)
@@ -24,6 +26,8 @@ input.getKeyLongPressPercentage(keycode)
 SpriteImage -- [Example](./spriteImageExample)
 
 ```
+# create new instance
+spriteImage = pygame_utils.spriteImage()
 
 # update() must be called once per frame
 spriteImage.update()
