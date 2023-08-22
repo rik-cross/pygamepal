@@ -62,12 +62,18 @@ Utility functions
 ```
 # draws text with minimal required parameters
 drawText(screen, text, x, y, font=None, antialias=True, colour=White, background=None)
+# minimal example:
+drawText(screen, 'Hello, world!')
 
 # returns a list of sub-textures from a large spritesheet/texture
 # the list has the same dimensions as the original texture, but
 # can be flattened using flatten(2dList).
 splitTexture(texture, newTextureWidth, newTextureHeight)
+# simple example, splitting a single 96x32 spritesheet into 4 separate textures:
+textureList = splitTexture(texture, 32, 32)
+firstTexture = textureList[0][0] # or firstTexture = flatten(textureList)[0]
 
 # flattens a 2d list into a single list
 flatten(2dList)
+# see above for example
 ```
