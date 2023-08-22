@@ -36,7 +36,7 @@ input.getKeyLongPressPercentage(keycode)
 spriteImage = pygame_utils.spriteImage()
 
 # add one or more sprites, associated with a state
-spriteImage.addTextures(state, firstTexture, *moreTextures)
+spriteImage.addTextures(firstTexture, *moreTextures, state=None, animationDelay=12, loop=True, hFlip=False, vFlip=False)
 
 # update() must be called once per frame
 spriteImage.update()
@@ -51,14 +51,6 @@ spriteImage.setState(state)
 # resets the current animation
 spriteImage.reset()
 
-# spriteImage parameters
-spriteImage.loop
-spriteImage.hFlip
-spriteImage.vFlip
-# number of game frames per animation frame
-spriteImage.animationDelay
-# start (x,y) position of texture, to remove padding
-spriteImage.offset
 spriteImage.pause
 ```
 
