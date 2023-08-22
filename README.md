@@ -1,5 +1,5 @@
-(Note: I'm also developing the [Gamma](https://github.com/rik-cross/gamma) Pygame ECS engine!)
-[Add suggestions and bugs here](https://github.com/rik-cross/pygame_utils/issues)!
+- (Note: I'm also developing the [Gamma](https://github.com/rik-cross/gamma) Pygame ECS engine!)
+- [Add suggestions and bugs here](https://github.com/rik-cross/pygame_utils/issues)!
 
 # Pygame Utils
 A library of classes and functions to support game development in Pygame
