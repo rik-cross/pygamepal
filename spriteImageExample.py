@@ -2,8 +2,8 @@
 # pygame_utils -- SpriteImage Example
 #
 # instructions:
-#  -- space to toggle pause middle sprite
-#  -- arrow keys to control bottom sprite
+#  -- space to toggle pause sprite 2
+#  -- arrow keys to control sprite 3
 #
 # Image credit - Cup Nooble
 #  --  cupnooble.itch.io/sprout-lands-asset-pack
