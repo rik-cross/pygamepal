@@ -13,6 +13,7 @@ Input -- [Example](./inputExample.py)
 ```
 # create new instance
 input = pygame_utils.Input()
+
 # update() must be called once per frame
 input.update()
 input.isKeyDown(keycode)
