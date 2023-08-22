@@ -28,7 +28,7 @@ input.isKeyLongDown(keycode)
 input.isKeyLongPressed(keycode)
 input.getKeyLongPressPercentage(keycode)
 ```
-<a name="spriteImage"></a>SpriteImage -- [Example](./spriteImageExample)
+<a name="spriteImage"></a>SpriteImage -- [Example](./spriteImageExample.py)
 
 ```
 # create new instance
