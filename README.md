@@ -28,14 +28,14 @@ SpriteImage -- [Example](./spriteImageExample)
 # update() must be called once per frame
 spriteImage.update()
 
+# draw the current image/animation frame
+spriteImage.draw()
+
 # add one or more sprites, associated with a state
 spriteImage.addTextures(state, firstTexture, *moreTextures)
 
 # change the current image/animation state
 spriteImage.setState(state)
-
-# draw the current image/animation frame
-spriteImage.draw()
 
 # resets the current animation
 spriteImage.reset()
