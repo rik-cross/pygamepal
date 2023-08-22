@@ -9,6 +9,7 @@ Simply add the `pygame_utils.py` file to your project and import the module usin
 ### Contents
 
 Input -- [Example](./inputExample.py)
+(input.update() must be called once per frame)
 
 ```
 input.isKeyDown(keycode)
@@ -18,4 +19,45 @@ input.getKeyDownDuration(keycode)
 input.isKeyLongDown(keycode)
 input.isKeyLongPressed(keycode)
 input.getKeyLongPressPercentage(keycode)
+```
+SpriteImage -- [Example](./spriteImageExample)
+(spriteImage.update() must be called once per frame)
+
+```
+# add one or more sprites, associated with a state
+spriteImage.addTextures(state, firstTexture, *moreTextures)
+
+# change the current image/animation state
+spriteImage.setState(state)
+
+# draw the current image/animation frame
+spriteImage.draw()
+
+# resets the current animation
+spriteImage.reset()
+
+# spriteImage parameters
+spriteImage.loop
+spriteImage.hFlip
+spriteImage.vFlip
+# number of game frames per animation frame
+spriteImage.animationDelay
+# start (x,y) position of texture, to remove padding
+spriteImage.offset
+spriteImage.pause
+```
+
+Utility functions
+
+```
+# draws text with minimal required parameters
+drawText(screen, text, x, y, font=None, antialias=True, colour=White, background=None)
+
+# returns a list of sub-textures from a large spritesheet/texture
+# the list has the same dimensions as the original texture, but
+# can be flattened using flatten(2dList).
+splitTexture(texture, newTextureWidth, newTextureHeight)
+
+# flattens a 2d list into a single list
+flatten(2dList)
 ```
