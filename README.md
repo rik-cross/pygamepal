@@ -8,7 +8,11 @@ Simply add the `pygame_utils.py` file to your project and import the module usin
 
 ### Contents
 
-Input -- [Example](./inputExample.py)
+- [Input](#input)
+- [SpriteImage](#spriteImage)
+- [Utility Functions](#functions)
+
+<a name="input"></a>Input -- [Example](./inputExample.py)
 
 ```
 # create new instance
@@ -24,7 +28,7 @@ input.isKeyLongDown(keycode)
 input.isKeyLongPressed(keycode)
 input.getKeyLongPressPercentage(keycode)
 ```
-SpriteImage -- [Example](./spriteImageExample)
+<a name="spriteImage"></a>SpriteImage -- [Example](./spriteImageExample)
 
 ```
 # create new instance
@@ -57,7 +61,7 @@ spriteImage.offset
 spriteImage.pause
 ```
 
-Utility functions
+<a name="functions"></a>Utility functions
 
 ```
 # draws text with minimal required parameters
