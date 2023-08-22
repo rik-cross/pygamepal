@@ -12,7 +12,7 @@ pygame.init()
 # setup screen
 screen = pygame.display.set_mode((680, 460))
 pygame.display.set_caption('Input Example')
-clock = pygame.time.Clock() 
+clock = pygame.time.Clock()
 
 input = pygame_utils.Input()
 
@@ -25,6 +25,8 @@ while running:
 
     # advance clock (10 FPS so that text is easier to read)
     clock.tick(10)
+
+    deltaTime = clock.get_time()
 
     # respond to quit event
     for event in pygame.event.get():
@@ -42,25 +44,27 @@ while running:
     #
 
     # update input manager
-    input.update()
+    input.update(deltaTime)
 
     #
     # draw
     #
 
     # input text
-    text =  "Return key -- down: " + str(input.isKeyDown(pygame.K_RETURN)) + \
-            ", pressed: " + str(input.isKeyPressed(pygame.K_RETURN)) + \
-            ", released: " + str(input.isKeyReleased(pygame.K_RETURN)) + \
-            ", duration: " + str(input.getKeyDownDuration(pygame.K_RETURN)) + \
-            ", long down: " + str(input.isKeyLongDown(pygame.K_RETURN)) + \
-            ", long press: " + str(input.isKeyLongPressed(pygame.K_RETURN)) + \
-            ", long%: " + str(input.GetKeyLongPressPercentage(pygame.K_RETURN))
+    key = pygame.K_RETURN
+    text = "Return key -- down: " + str(input.isKeyDown(key)) + \
+        ", pressed: " + str(input.isKeyPressed(key)) + \
+        ", released: " + str(input.isKeyReleased(key)) + \
+        ", duration: " + str(input.getKeyDownDuration(key)) + \
+        ", long down: " + str(input.isKeyLongDown(key)) + \
+        ", long press: " + str(input.isKeyLongPressed(key)) + \
+        ", long%: " + \
+        "{:.2f}".format(input.GetKeyLongPressPercentage(key))
 
     print(text)
 
     # draw to screen
     pygame.display.flip()
 
-# quit Pygame
+#  quit Pygame
 pygame.quit()
