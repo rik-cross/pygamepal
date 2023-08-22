@@ -34,11 +34,14 @@ splitTextures = pygame_utils.splitTexture(texture, 96, 96)
 
 # a sprite with a single texture
 spriteImage1 = pygame_utils.SpriteImage()
+# simple alternative for single texture: spriteImage1.addTextures(pygame.image.load('image.png'))
 spriteImage1.addTextures(splitTextures[0][0])
 
 # an animated sprite with multiple textures
 spriteImage2 = pygame_utils.SpriteImage()
 spriteImage2.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3])
+# simple alternative for single textures:
+# spriteImage1.addTextures(pygame.image.load('image1.png'), pygame.image.load('image2.png'))
 
 # a controllable sprite with multiple animation states
 spriteImage3 = pygame_utils.SpriteImage()
