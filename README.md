@@ -9,9 +9,10 @@ Simply add the `pygame_utils.py` file to your project and import the module usin
 ### Contents
 
 Input -- [Example](./inputExample.py)
-(input.update() must be called once per frame)
 
 ```
+# update() must be called once per frame
+input.update()
 input.isKeyDown(keycode)
 input.isKeyPressed(keycode)
 input.isKeyReleased(keycode)
@@ -21,9 +22,12 @@ input.isKeyLongPressed(keycode)
 input.getKeyLongPressPercentage(keycode)
 ```
 SpriteImage -- [Example](./spriteImageExample)
-(spriteImage.update() must be called once per frame)
 
 ```
+
+# update() must be called once per frame
+spriteImage.update()
+
 # add one or more sprites, associated with a state
 spriteImage.addTextures(state, firstTexture, *moreTextures)
 
