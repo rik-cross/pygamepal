@@ -130,7 +130,7 @@ class SpriteImage():
     # set object to initial values
     def _reset(self, animationDelay):
         # maps a state to a list of textures
-        self._sprites = {}
+        self._textureLists = {}
         self._currentState = None
         # keeps track of current animation frame and progress
         self._animationIndex = 0
@@ -140,25 +140,25 @@ class SpriteImage():
 
     # add one or more textures, with an associated state
     def addTextures(self, firstTexture, *moreTextures, state=None, loop=True, hFlip=False, vFlip=False, offset=(0,0)):
-        #
+        # allow textures with no attached state (for single-state images/animations)
         if state is None:
             state = 'default'
-        # 
-        if state not in self._sprites:
+        # get existing textureList or create a new one
+        if state not in self._textureLists:
             textureList = TextureList()
         else:
             textureList = self._sprites[state]
-        #
+        # add textures to list
         textureList._textures.append(firstTexture)
         for texture in moreTextures:
             textureList._textures.append(texture)
-        #
+        # add attributes for the current state
         textureList._loop = loop
         textureList._hFlip = hFlip
         textureList._vFlip = vFlip
         textureList._offset = offset
-        self._sprites[state] = textureList
-        if len(self._sprites) == 1:
+        self._textureLists[state] = textureList
+        if len(self._textureLists) == 1:
             self._currentState = state
 
     # must be called once per frame to update sprite
@@ -172,11 +172,11 @@ class SpriteImage():
         if self._animationTimer >= self.animationDelay:
             self._animationTimer = 0
             self._animationIndex += 1
-            if self._animationIndex > len(self._sprites[self._currentState]._textures) - 1:
-                if self._sprites[self._currentState]._loop:
+            if self._animationIndex > len(self._textureLists[self._currentState]._textures) - 1:
+                if self._textureLists[self._currentState]._loop:
                     self._animationIndex = 0
                 else:
-                    self._animationIndex = len(self._sprites[self._currentState]._textures) - 1
+                    self._animationIndex = len(self._textureLists[self._currentState]._textures) - 1
 
 
     def setState(self, state):
@@ -190,16 +190,16 @@ class SpriteImage():
 
     def draw(self, screen, x, y):
         # don't draw if there's nothing to draw
-        if self._sprites[self._currentState] == None:
+        if self._textureLists[self._currentState] == None:
             return
         # get the current animation frame
-        currentTexture = self._sprites[self._currentState]._textures[self._animationIndex]
+        currentTexture = self._textureLists[self._currentState]._textures[self._animationIndex]
         # draw (optionally flipped) texture
         screen.blit(pygame.transform.flip(currentTexture, 
-                                             self._sprites[self._currentState]._hFlip, 
-                                             self._sprites[self._currentState]._vFlip),
-                                             (x - self._sprites[self._currentState]._offset[0], 
-                                             y - self._sprites[self._currentState]._offset[1], 
+                                             self._textureLists[self._currentState]._hFlip, 
+                                             self._textureLists[self._currentState]._vFlip),
+                                             (x - self._textureLists[self._currentState]._offset[0], 
+                                             y - self._textureLists[self._currentState]._offset[1], 
                                              currentTexture.get_width(), 
                                              currentTexture.get_height()))
     # puts sprite animation back to start

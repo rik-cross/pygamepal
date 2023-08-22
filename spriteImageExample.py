@@ -33,20 +33,20 @@ texture = pygame.transform.scale(texture, (texture.get_width()*2,texture.get_hei
 splitTextures = pygame_utils.splitTexture(texture, 96, 96)
 
 # a sprite with a single texture
-sprite1 = pygame_utils.SpriteImage()
-sprite1.addTextures(splitTextures[0][0])
+spriteImage1 = pygame_utils.SpriteImage()
+spriteImage1.addTextures(splitTextures[0][0])
 
 # an animated sprite with multiple textures
-sprite2 = pygame_utils.SpriteImage()
-sprite2.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3])
+spriteImage2 = pygame_utils.SpriteImage()
+spriteImage2.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3])
 
 # a controllable sprite with multiple animation states
-sprite3 = pygame_utils.SpriteImage()
-sprite3.addTextures(splitTextures[0][0], splitTextures[0][1], state='idle')
-sprite3.addTextures(splitTextures[0][1], splitTextures[0][2], splitTextures[0][1], splitTextures[0][3], state='walk_down')
-sprite3.addTextures(splitTextures[1][1], splitTextures[1][2], splitTextures[1][1], splitTextures[1][3], state='walk_up')
-sprite3.addTextures(splitTextures[2][1], splitTextures[2][2], splitTextures[2][1], splitTextures[2][3], state='walk_left')
-sprite3.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3], state='walk_right')
+spriteImage3 = pygame_utils.SpriteImage()
+spriteImage3.addTextures(splitTextures[0][0], splitTextures[0][1], state='idle')
+spriteImage3.addTextures(splitTextures[0][1], splitTextures[0][2], splitTextures[0][1], splitTextures[0][3], state='walk_down')
+spriteImage3.addTextures(splitTextures[1][1], splitTextures[1][2], splitTextures[1][1], splitTextures[1][3], state='walk_up')
+spriteImage3.addTextures(splitTextures[2][1], splitTextures[2][2], splitTextures[2][1], splitTextures[2][3], state='walk_left')
+spriteImage3.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3], state='walk_right')
 
 # for easily getting key presses
 input = pygame_utils.Input()
@@ -71,29 +71,29 @@ while running:
 
     # space to toggle pause s2 sprite
     if input.isKeyPressed(pygame.K_SPACE):
-        sprite2.pause = not sprite2.pause
+        spriteImage2.pause = not spriteImage2.pause
 
     # arrow keys to change state of s3 sprite
     if input.isKeyDown(pygame.K_UP):
-        sprite3.setState('walk_up')
+        spriteImage3.setState('walk_up')
     elif input.isKeyDown(pygame.K_DOWN):
-        sprite3.setState('walk_down')
+        spriteImage3.setState('walk_down')
     elif input.isKeyDown(pygame.K_LEFT):
-        sprite3.setState('walk_left')
+        spriteImage3.setState('walk_left')
     elif input.isKeyDown(pygame.K_RIGHT):
-        sprite3.setState('walk_right')
+        spriteImage3.setState('walk_right')
     # idle state is the default
     else:
-        sprite3.setState('idle')
+        spriteImage3.setState('idle')
 
     #
     # update
     #
 
     input.update()
-    sprite1.update()
-    sprite2.update()
-    sprite3.update()
+    spriteImage1.update()
+    spriteImage2.update()
+    spriteImage3.update()
 
     #
     # draw
@@ -107,11 +107,11 @@ while running:
 
     # draw sprites and accompanying text
     pygame_utils.drawText(screen, 'Sprite 1 (single texture)', 420, 40)
-    sprite1.draw(screen, 500, 50)
+    spriteImage1.draw(screen, 500, 50)
     pygame_utils.drawText(screen, 'Sprite 2 (space to pause/play)', 420, 140)
-    sprite2.draw(screen, 500, 150)
+    spriteImage2.draw(screen, 500, 150)
     pygame_utils.drawText(screen, 'Sprite 3 (arrow keys to change)', 420, 240)
-    sprite3.draw(screen, 500, 250)
+    spriteImage3.draw(screen, 500, 250)
 
     # draw to screen
     pygame.display.flip()
