@@ -1,5 +1,5 @@
 #
-# pygame_utils -- Image Example
+# pygame_utils -- SpriteImage Example
 #
 # instructions:
 #  -- space to toggle pause middle sprite
@@ -19,14 +19,15 @@ pygame.init()
 
 # setup screen
 screen = pygame.display.set_mode((680, 460))
-pygame.display.set_caption('SpriteImage Test')
+pygame.display.set_caption('SpriteImage Example')
 clock = pygame.time.Clock() 
 
+# add input, to easily query keys
 input = pygame_utils.Input()
 
 # load a texture
 texture = pygame.image.load(os.path.join('images','character.png'))
-# double texture size
+# double the texture size
 texture = pygame.transform.scale(texture, (texture.get_width()*2,texture.get_height()*2))
 # split texture into a 2D list of sub-textures
 splitTextures = pygame_utils.splitTexture(texture, 96, 96)
