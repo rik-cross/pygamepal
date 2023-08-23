@@ -71,6 +71,6 @@ textureList = splitTexture(texture, 32, 32)
 firstTexture = textureList[0][0] # or firstTexture = flatten(textureList)[0]
 
 # flattens a 2d list into a single list
-flatten(2dList)
+newList = flatten(2dList)
 # see above for example
 ```
