@@ -119,6 +119,7 @@ def flatten(list):
 class TextureList():
     def __init__(self):
         self._textures = []
+        self._animationDelay = 12
         self._loop = True
         self._hFlip = False
         self._vFlip = False
@@ -129,22 +130,21 @@ class TextureList():
 
 class SpriteImage():
 
-    def __init__(self, animationDelay=12):
-        self._reset(animationDelay)
+    def __init__(self):
+        self._reset()
 
     # set object to initial values
-    def _reset(self, animationDelay):
+    def _reset(self):
         # maps a state to a list of textures
         self._textureLists = {}
         self._currentState = None
         # keeps track of current animation frame and progress
         self._animationIndex = 0
-        self.animationDelay = animationDelay
         self._animationTimer = 0
         self.pause = False
 
     # add one or more textures, with an associated state
-    def addTextures(self, firstTexture, *moreTextures, state=None, loop=True, hFlip=False, vFlip=False, offset=(0, 0)):
+    def addTextures(self, firstTexture, *moreTextures, state=None, animationDelay=12, loop=True, hFlip=False, vFlip=False, offset=(0,0)):
         # allow textures with no attached state (for single-state images/animations)
         if state is None:
             state = 'default'
@@ -158,6 +158,7 @@ class SpriteImage():
         for texture in moreTextures:
             textureList._textures.append(texture)
         # add attributes for the current state
+        textureList._animationDelay = animationDelay
         textureList._loop = loop
         textureList._hFlip = hFlip
         textureList._vFlip = vFlip
@@ -174,7 +175,7 @@ class SpriteImage():
         # increment timer
         self._animationTimer += 1
         # advance animation if timer reaches delay value
-        if self._animationTimer >= self.animationDelay:
+        if self._animationTimer >= self._textureLists[self._currentState]._animationDelay:
             self._animationTimer = 0
             self._animationIndex += 1
             if self._animationIndex > len(self._textureLists[self._currentState]._textures) - 1:

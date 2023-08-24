@@ -36,7 +36,7 @@ input.getKeyLongPressPercentage(keycode)
 spriteImage = pygame_utils.spriteImage()
 
 # add one or more sprites, associated with a state
-spriteImage.addTextures(firstTexture, *moreTextures, state=None, loop=True, hFlip=False, vFlip=False)
+spriteImage.addTextures(firstTexture, *moreTextures, state=None, animationDelay=12, loop=True, hFlip=False, vFlip=False)
 
 # update() must be called once per frame
 spriteImage.update()
@@ -71,6 +71,6 @@ textureList = splitTexture(texture, 32, 32)
 firstTexture = textureList[0][0] # or firstTexture = flatten(textureList)[0]
 
 # flattens a 2d list into a single list
-flatten(2dList)
+newList = flatten(2dList)
 # see above for example
 ```
