@@ -21,7 +21,7 @@ running = True
 while running:
 
     # clear screen
-    screen.fill(pygame_utils.Colour.CORNFLOWER_BLUE)
+    screen.fill('cornflowerblue')
 
     # advance clock (10 FPS so that text is easier to read)
     clock.tick(10)

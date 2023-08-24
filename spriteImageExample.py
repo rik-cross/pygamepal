@@ -59,7 +59,7 @@ running = True
 while running:
 
     # clear screen
-    screen.fill(pygame_utils.Colour.CORNFLOWER_BLUE)
+    screen.fill('cornflowerblue')
     # advance clock
     clock.tick(60)
 
@@ -105,7 +105,7 @@ while running:
     # draw split texture
     for col in range(len(splitTextures)):
         for row in range(len(splitTextures[0])):
-            pygame.draw.rect(screen, (50, 50, 50), (col * 100, row * 100, 96, 96), False)
+            pygame.draw.rect(screen, 'gray10', (col * 100, row * 100, 96, 96), False)
             screen.blit(splitTextures[row][col], (col * 100, row * 100, 96, 96))
 
     # draw sprites and accompanying text
