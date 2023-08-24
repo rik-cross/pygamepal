@@ -15,7 +15,7 @@ class Input():
         # set long press durations
         self._durations = [0 for _ in range(len(self.currentKeyStates))]
 
-    def update(self, deltaTime=1):
+    def update(self, deltaTime=60):
         # update key presses
         self.previousKeyStates = self.currentKeyStates
         self.currentKeyStates = pygame.key.get_pressed()
