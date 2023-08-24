@@ -1,44 +1,40 @@
 import pygame
 
+
 class Colour:
     CORNFLOWER_BLUE = (100, 147, 237)
     ALMOST_BLACK = (20, 20, 20)
 
+
 #
 # input manager
 #
-
 class Input():
 
-    # longPressDuraton: the number of frames a key needs to be held to register a long press
-    def __init__(self, longPressDuration = 60):
-        
+    # longPressDuraton: the number of milliseconds/frames a key needs to be held to register a long press
+    def __init__(self, longPressDuration=1000):
+
         self.longPressDuration = longPressDuration
 
         # set key states
         self.currentKeyStates = pygame.key.get_pressed()
         self.previousKeyStates = pygame.key.get_pressed()
-        
+
         # set long press durations
-        self.durations = []
-        for i in range(len(self.currentKeyStates)):
-            self.durations.append(0)
+        self._durations = [0 for _ in range(len(self.currentKeyStates))]
 
-    def update(self):
-
+    def update(self, deltaTime=1):
         # update key presses
         self.previousKeyStates = self.currentKeyStates
         self.currentKeyStates = pygame.key.get_pressed()
 
         # update press durations
-        newDurations = []
-        for i in range(len(self.currentKeyStates)):
-            if self.currentKeyStates[i] and self.previousKeyStates[i]:
-                newDurations.append(self.durations[i]+1)
+        for i in range(len(self._durations)):
+            if self.currentKeyStates[i]:
+                self._durations[i] += deltaTime
             else:
-                newDurations.append(0)
-        self.durations = newDurations
-    
+                self._durations[i] = 0
+
     # key methods
 
     # returns true if the key denoted by keyCode
@@ -61,26 +57,26 @@ class Input():
         if self.currentKeyStates is None or self.previousKeyStates is None:
             return False
         return self.currentKeyStates[keyCode] == False and self.previousKeyStates[keyCode] == True
-    
+
     # long key methods
 
     # returns the number of frames a keyCode has been held down
     def getKeyDownDuration(self, keyCode):
-        return self.durations[keyCode]
+        return self._durations[keyCode]
 
     # returns true if the key denoted by keyCode
     # is held down for a long press during the current frame
     def isKeyLongDown(self, keyCode):
-        return self.durations[keyCode] >= self.longPressDuration
+        return self._durations[keyCode] >= self.longPressDuration
 
     # returns true if the key denoted by keyCode
     # has achieved a long press in the current frame
     def isKeyLongPressed(self, keyCode):
-        return self.durations[keyCode] == self.longPressDuration
+        return self._durations[keyCode] == self.longPressDuration
 
-    # returns keyCode progress towards a long press (0%-100%)    
+    # returns keyCode progress towards a long press (0%-100%)
     def GetKeyLongPressPercentage(self, keyCode):
-        return min(100, self.durations[keyCode] / self.longPressDuration * 100)
+        return min(100, self._durations[keyCode] / self.longPressDuration * 100)
 
 #
 # Sprites and animations
@@ -88,6 +84,8 @@ class Input():
 
 # returns an array of textures, split from the passed texture (spritesheet)
 # (this could be a 2-dimensional array)
+
+
 def splitTexture(texture, newTextureWidth, newTextureHeight):
 
     # the list of textures to return
@@ -98,12 +96,15 @@ def splitTexture(texture, newTextureWidth, newTextureHeight):
         newRow = []
         for column in range(0, texture.get_width(), newTextureWidth):
             # add the cropped texture to the list
-            newRow.append(texture.subsurface(column, row, newTextureWidth, newTextureHeight))
+            newRow.append(texture.subsurface(
+                column, row, newTextureWidth, newTextureHeight))
         newTextures.append(newRow)
 
     return newTextures
 
 # flatten a 2D or [n]D list into a single list
+
+
 def flatten(list):
     newList = []
     for i in list:
@@ -113,8 +114,10 @@ def flatten(list):
 
 # used for storing a list of texture (and other info)
 # for a spriteImage state
+
+
 class TextureList():
-     def __init__(self):
+    def __init__(self):
         self._textures = []
         self._animationDelay = 12
         self._loop = True
@@ -123,6 +126,8 @@ class TextureList():
         self._offset = (0, 0)
 
 # allows for one or more tetxures to be associated with a state
+
+
 class SpriteImage():
 
     def __init__(self):
@@ -177,8 +182,8 @@ class SpriteImage():
                 if self._textureLists[self._currentState]._loop:
                     self._animationIndex = 0
                 else:
-                    self._animationIndex = len(self._textureLists[self._currentState]._textures) - 1
-
+                    self._animationIndex = len(
+                        self._textureLists[self._currentState]._textures) - 1
 
     def setState(self, state):
         # only change state if the new state is different
@@ -196,14 +201,15 @@ class SpriteImage():
         # get the current animation frame
         currentTexture = self._textureLists[self._currentState]._textures[self._animationIndex]
         # draw (optionally flipped) texture
-        screen.blit(pygame.transform.flip(currentTexture, 
-                                             self._textureLists[self._currentState]._hFlip, 
-                                             self._textureLists[self._currentState]._vFlip),
-                                             (x - self._textureLists[self._currentState]._offset[0], 
-                                             y - self._textureLists[self._currentState]._offset[1], 
-                                             currentTexture.get_width(), 
-                                             currentTexture.get_height()))
+        screen.blit(pygame.transform.flip(currentTexture,
+                                          self._textureLists[self._currentState]._hFlip,
+                                          self._textureLists[self._currentState]._vFlip),
+                    (x - self._textureLists[self._currentState]._offset[0],
+                     y - self._textureLists[self._currentState]._offset[1],
+                     currentTexture.get_width(),
+                     currentTexture.get_height()))
     # puts sprite animation back to start
+
     def resetState(self):
         self._animationIndex = 0
         self._animationTimer = 0
@@ -213,7 +219,9 @@ class SpriteImage():
 #
 
 # easily draw text
-def drawText(screen, text, x, y, font=None, antialias=True, colour=(255,255,255), background=None):
+
+
+def drawText(screen, text, x, y, font=None, antialias=True, colour=(255, 255, 255), background=None):
     # use 'standard' font if none specified
     if font is None:
         font = pygame.font.SysFont(None, 24)
