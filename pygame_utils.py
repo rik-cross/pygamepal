@@ -1,25 +1,21 @@
 import pygame
 
-
 class Colour:
     CORNFLOWER_BLUE = (100, 147, 237)
     ALMOST_BLACK = (20, 20, 20)
 
-
 #
 # input manager
 #
+
 class Input():
 
     # longPressDuraton: the number of milliseconds/frames a key needs to be held to register a long press
     def __init__(self, longPressDuration=1000):
-
         self.longPressDuration = longPressDuration
-
         # set key states
         self.currentKeyStates = pygame.key.get_pressed()
         self.previousKeyStates = pygame.key.get_pressed()
-
         # set long press durations
         self._durations = [0 for _ in range(len(self.currentKeyStates))]
 
@@ -27,7 +23,6 @@ class Input():
         # update key presses
         self.previousKeyStates = self.currentKeyStates
         self.currentKeyStates = pygame.key.get_pressed()
-
         # update press durations
         for i in range(len(self._durations)):
             if self.currentKeyStates[i]:
@@ -85,7 +80,6 @@ class Input():
 # returns an array of textures, split from the passed texture (spritesheet)
 # (this could be a 2-dimensional array)
 
-
 def splitTexture(texture, newTextureWidth, newTextureHeight):
 
     # the list of textures to return
@@ -104,7 +98,6 @@ def splitTexture(texture, newTextureWidth, newTextureHeight):
 
 # flatten a 2D or [n]D list into a single list
 
-
 def flatten(list):
     newList = []
     for i in list:
@@ -114,7 +107,6 @@ def flatten(list):
 
 # used for storing a list of texture (and other info)
 # for a spriteImage state
-
 
 class TextureList():
     def __init__(self):
@@ -126,7 +118,6 @@ class TextureList():
         self._offset = (0, 0)
 
 # allows for one or more tetxures to be associated with a state
-
 
 class SpriteImage():
 
@@ -219,7 +210,6 @@ class SpriteImage():
 #
 
 # easily draw text
-
 
 def drawText(screen, text, x, y, font=None, antialias=True, colour=(255, 255, 255), background=None):
     # use 'standard' font if none specified
