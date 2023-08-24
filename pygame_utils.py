@@ -7,7 +7,7 @@ import pygame
 class Input():
 
     # longPressDuraton: the number of milliseconds/frames a key needs to be held to register a long press
-    def __init__(self, longPressDuration=1000):
+    def __init__(self, longPressDuration=100):
         self.longPressDuration = longPressDuration
         # set key states
         self.currentKeyStates = pygame.key.get_pressed()
@@ -15,7 +15,7 @@ class Input():
         # set long press durations
         self._durations = [0 for _ in range(len(self.currentKeyStates))]
 
-    def update(self, deltaTime=60):
+    def update(self, deltaTime=1):
         # update key presses
         self.previousKeyStates = self.currentKeyStates
         self.currentKeyStates = pygame.key.get_pressed()
