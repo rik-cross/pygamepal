@@ -238,11 +238,13 @@ class Camera:
         # fill the surface to the background colour
         destSurface.fill(self.backgroundColour)
         # blit the (zoomed) surface to the destination, and set the target as the center
-        x = 0 - (self.size[0]/2 - self.target[0]*self._zoom)
-        y = 0 - (self.size[1]/2 - self.target[1]*self._zoom)
+        x = 0 - (self.size[0]/2 - self.target[0] * self._zoom)
+        y = 0 - (self.size[1]/2 - self.target[1] * self._zoom)
+        # clamp to clampRect coordinates
         if self.clamp:
-            x = max(self.clampRect[0], min(self.clampRect[2], x))
-            y = max(self.clampRect[1], min(self.clampRect[3], y))
+            x = max(self.clampRect[0] * self.zoom, min(self.clampRect[2] * self.zoom - self.size[0], x))
+            y = max(self.clampRect[1] * self.zoom, min(self.clampRect[3] * self.zoom - self.size[1], y))
+        # draw the surface to the destination using the correct position, size, center and zoom
         destSurface.blit(pygame.transform.scale(surface, (surface.get_width()*self._zoom, surface.get_height()*self._zoom)), 
                          self.position, 
                          (x, y,
