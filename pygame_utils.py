@@ -209,7 +209,8 @@ class Camera:
 
     def __init__(self, position=(0, 0), size=(640, 480),
                  target=(0, 0), zoom=1, backgroundColour='gray30',
-                 borderColour='black', borderThickness=2):
+                 borderColour='black', borderThickness=2, 
+                 clamp=False, clampRect=(0, 0, 1000, 1000)):
         self.position = position
         self.size = size
         # sets the camera center
@@ -218,6 +219,8 @@ class Camera:
         self.backgroundColour = backgroundColour
         self.borderColour = borderColour
         self.borderThickness = borderThickness
+        self.clamp = clamp
+        self.clampRect = clampRect
 
     # todo
     def update(self, deltaTime=1):
@@ -235,12 +238,15 @@ class Camera:
         # fill the surface to the background colour
         destSurface.fill(self.backgroundColour)
         # blit the (zoomed) surface to the destination, and set the target as the center
+        x = 0 - (self.size[0]/2 - self.target[0]*self._zoom)
+        y = 0 - (self.size[1]/2 - self.target[1]*self._zoom)
+        if self.clamp:
+            x = max(self.clampRect[0], min(self.clampRect[2], x))
+            y = max(self.clampRect[1], min(self.clampRect[3], y))
         destSurface.blit(pygame.transform.scale(surface, (surface.get_width()*self._zoom, surface.get_height()*self._zoom)), 
                          self.position, 
-                         (0 - (self.size[0]/2 - self.target[0]*self._zoom),
-                          0 - (self.size[1]/2 - self.target[1]*self._zoom),
-                          self.size[0], 
-                          self.size[1]))
+                         (x, y,
+                          self.size[0], self.size[1]))
         # reset surface clipping
         destSurface.set_clip()
 
