@@ -202,6 +202,58 @@ class SpriteImage():
         self._animationTimer = 0
 
 #
+#
+#
+
+class Camera:
+
+    def __init__(self, position=(0,0), size=(640,480),
+                 target=(0,0), zoom=1, backgroundColour='gray30',
+                 borderColour='black', borderThickness=2):
+        self.position = position
+        self.size = size
+        # sets the camera center
+        self.target = target
+        self._zoom = zoom
+        self.backgroundColour = backgroundColour
+        self.borderColour = borderColour
+        self.borderThickness = borderThickness
+
+    # todo
+    def update(self, deltaTime=1):
+        pass
+
+    # draws the surface to the destination surface
+    # using the camera attributes
+    def draw(self, surface, destSurface):
+        # draw border
+        pygame.draw.rect(destSurface, self.borderColour, 
+                         (self.position[0] - self.borderThickness, self.position[1] - self.borderThickness, 
+                          self.size[0] + self.borderThickness*2, self.size[1] + self.borderThickness*2))
+        # ensure that the surface is clipped to the camera dimensions
+        destSurface.set_clip((self.position[0], self.position[1], self.size[0], self.size[1]))
+        # fill the surface to the background colour
+        destSurface.fill(self.backgroundColour)
+        # blit the (zoomed) surface to the destination, and set the target as the center
+        destSurface.blit(pygame.transform.scale(surface, (surface.get_width()*self._zoom, surface.get_height()*self._zoom)), 
+                         self.position, 
+                         (0 - (self.size[0]/2 - self.target[0]*self._zoom),
+                          0 - (self.size[1]/2 - self.target[1]*self._zoom),
+                          self.size[0], 
+                          self.size[1]))
+        # reset surface clipping
+        destSurface.set_clip()
+
+    # zoom property, to avoid zoom of < 0.1
+    @property
+    def zoom(self):
+        return self._zoom
+    
+    @zoom.setter
+    def zoom(self, value):
+        self._zoom = max(value, 0.1)
+
+#
 # draw utils
 #
 

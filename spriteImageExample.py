@@ -26,7 +26,7 @@ clock = pygame.time.Clock()
 input = pygame_utils.Input()
 
 # load a texture
-texture = pygame.image.load(os.path.join('images','character.png'))
+texture = pygame.image.load(os.path.join('images','character_spritesheet.png'))
 # double the texture size
 texture = pygame.transform.scale(texture, (texture.get_width()*2,texture.get_height()*2))
 # split texture into a 2D list of sub-textures
