@@ -55,7 +55,7 @@ spriteImage.reset()
 spriteImage.pause
 ```
 
-<a name="input"></a>Input -- [Example](./cameraExample.py)
+<a name="camera"></a>Camera -- [Example](./cameraExample.py)
 
 ```
 # creates a new camera instance
