@@ -11,6 +11,7 @@ Simply add the `pygame_utils.py` file to your project and import the module usin
 
 - [Input](#input)
 - [SpriteImage](#spriteImage)
+- [Camera](#camera)
 - [Utility Functions](#functions)
 
 <a name="input"></a>Input -- [Example](./inputExample.py)
@@ -52,6 +53,13 @@ spriteImage.setState(state)
 spriteImage.reset()
 
 spriteImage.pause
+```
+
+<a name="input"></a>Input -- [Example](./cameraExample.py)
+
+```
+# draws surface to the destinationSurface, using camera attributes
+camera.draw(surface, destinationSurface)
 ```
 
 <a name="functions"></a>Utility functions
