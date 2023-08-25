@@ -202,13 +202,13 @@ class SpriteImage():
         self._animationTimer = 0
 
 #
-#
+# Camera
 #
 
 class Camera:
 
-    def __init__(self, position=(0,0), size=(640,480),
-                 target=(0,0), zoom=1, backgroundColour='gray30',
+    def __init__(self, position=(0, 0), size=(640, 480),
+                 target=(0, 0), zoom=1, backgroundColour='gray30',
                  borderColour='black', borderThickness=2):
         self.position = position
         self.size = size

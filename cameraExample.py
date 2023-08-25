@@ -93,7 +93,7 @@ while running:
     # draw the instructions
     pygame_utils.drawText(screen, 'Arrow keys to pan, z/x to zoom', 300, 60)
 
-    # use the camera to draw the images
+    # use the camera to draw the images on the cameraSurface to the screen
     camera.draw(cameraSurface, screen)
 
     # draw to the screen
