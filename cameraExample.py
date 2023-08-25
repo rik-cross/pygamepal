@@ -5,6 +5,7 @@
 #
 
 import pygame
+import pygame_utils
 
 # initialise Pygame
 pygame.init()
@@ -13,6 +14,8 @@ pygame.init()
 screen = pygame.display.set_mode((680, 460))
 pygame.display.set_caption('[Caption]')
 clock = pygame.time.Clock() 
+
+s = pygame_utils.SpriteImage()
 
 # game loop
 running = True
@@ -39,13 +42,13 @@ while running:
     # update
     #
 
-    # add code here
+    s.update()
 
     #
     # draw
     #
 
-    # add code here
+    s.draw(screen, 10, 10)
 
     # draw to the screen
     pygame.display.flip()

@@ -156,8 +156,8 @@ class SpriteImage():
 
     # must be called once per frame to update sprite
     def update(self):
-        # only animate if not paused
-        if self.pause:
+        # only animate if there's at least one image and it's not paused
+        if self._currentState is None or self.pause:
             return
         # increment timer
         self._animationTimer += 1
@@ -183,7 +183,7 @@ class SpriteImage():
 
     def draw(self, screen, x, y):
         # don't draw if there's nothing to draw
-        if self._textureLists[self._currentState] == None:
+        if self._currentState is None or self._textureLists[self._currentState] == None:
             return
         # get the current animation frame
         currentTexture = self._textureLists[self._currentState]._textures[self._animationIndex]
