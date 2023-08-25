@@ -18,10 +18,10 @@ Simply add the `pygame_utils.py` file to your project and import the module usin
 
 ```
 # create new instance
-input = pygame_utils.Input()
+input = pygame_utils.Input(longPressDuration=60)
 
 # update() must be called once per frame
-input.update()
+input.update(deltaTime=1)
 input.isKeyDown(keycode)
 input.isKeyPressed(keycode)
 input.isKeyReleased(keycode)
@@ -58,6 +58,12 @@ spriteImage.pause
 <a name="input"></a>Input -- [Example](./cameraExample.py)
 
 ```
+# creates a new camera instance
+camera = pygame_utils.Camera(position=(0, 0), size=(640, 480), target=(0, 0), zoom=1, backgroundColour='gray30', borderColour='black', borderThickness=2)
+
+# not yet required
+camera.update(deltaTime=1)
+
 # draws surface to the destinationSurface, using camera attributes
 camera.draw(surface, destinationSurface)
 ```
