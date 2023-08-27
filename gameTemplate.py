@@ -1,3 +1,9 @@
+#
+# pygame_utils -- Game Template
+# part of the pygame_utils library
+#  -- github.com/rik-cross/pygame_utils
+#
+
 import pygame
 import pygame_utils
 

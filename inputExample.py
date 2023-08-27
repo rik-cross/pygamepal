@@ -1,5 +1,10 @@
 #
 # pygame_utils -- Input Example
+# part of the pygame_utils library
+#  -- github.com/rik-cross/pygame_utils
+#
+# Instructions
+#  -- press the 'return' key and watch console output
 #
 
 # import modules

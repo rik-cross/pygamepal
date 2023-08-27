@@ -1,5 +1,7 @@
 #
 # pygame_utils -- Camera Example
+# part of the pygame_utils library
+#  -- github.com/rik-cross/pygame_utils
 #
 # instructions:
 #  -- arrow keys to pan
@@ -36,6 +38,7 @@ camera = pygame_utils.Camera(position=(300, 100),
                         # the camera center
                         target=(0, 0),
                         borderThickness=4,
+                        backgroundColour='gray10',
                         # lazy follow
                         followDelay=0.9)
 
@@ -85,6 +88,9 @@ while running:
     #
     # draw
     #
+
+    # don't forget to clear the camera surface!
+    cameraSurface.fill((0, 0, 0, 0))
 
     # draw multiple images to the surface to be rendered by the camera
     for i in range(0, 200, 25):

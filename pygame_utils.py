@@ -1,3 +1,10 @@
+#
+# pygame_utils
+#  -- developed by Rik Cross
+#  -- github.com/rik-cross/pygame_utils
+#  -- MIT licenced, free to use, modify and distribute
+#
+
 import pygame
 
 #
@@ -211,6 +218,13 @@ class SpriteImage():
         self._textureLists[state] = textureList
         if len(self._textureLists) == 1:
             self._currentState = state
+
+    def getCenter(self):
+        if self._currentState is None or self.pause:
+            return (0, 0)
+        # get the current animation frame
+        currentTexture = self._textureLists[self._currentState]._textures[self._animationIndex]
+        return (currentTexture.get_width()/2, currentTexture.get_height()/2)
 
     # must be called once per frame to update sprite
     def update(self):

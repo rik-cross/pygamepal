@@ -1,5 +1,7 @@
 #
 # pygame_utils -- Game Example
+# part of the pygame_utils library
+#  -- github.com/rik-cross/pygame_utils
 #
 # Image credit - Cup Nooble
 #  --  cupnooble.itch.io/sprout-lands-asset-pack

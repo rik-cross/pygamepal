@@ -1,5 +1,7 @@
 #
 # pygame_utils -- SpriteImage Example
+# part of the pygame_utils library
+# github.com/rik-cross/pygame_utils
 #
 # instructions:
 #  -- space to toggle pause sprite 2
