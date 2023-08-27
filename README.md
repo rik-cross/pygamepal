@@ -6,7 +6,8 @@ A library of classes and functions to support game development in Pygame
 
 ### Usage
 Simply add the `pygame_utils.py` file to your project and import the module using `import pygame_utils` to use!
-[Full example](./fullExample), using all pytgame_utils classes
+
+- [Full example](./fullExample.py), using all pytgame_utils classes
 
 ### Contents
 
