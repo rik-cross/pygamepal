@@ -14,6 +14,7 @@ Simply add the `pygame_utils.py` file to your project and import the module usin
 - [SpriteImage](#spriteImage)
 - [Camera](#camera)
 - [Utility Functions](#functions)
+- [General Pygame examples](#examples)
 
 <a name="game"></a>Game (create a game with minimal setup) -- [Template](./gameTemplate.py) // [Example](./gameExample.py)
 
@@ -91,3 +92,7 @@ firstTexture = textureList[0][0] # or firstTexture = flatten(textureList)[0]
 newList = flatten(2dList)
 # see above for example
 ```
+
+<a name="examples"></a>General Pygame example code
+
+- Camera -- [Simple example](./pygame_examples/pygame_simple_camera.py) // [Full example](./pygame_examples/pygame_full_camera.py)
