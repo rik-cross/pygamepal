@@ -26,7 +26,7 @@ texture = pygame.transform.scale(texture, (texture.get_width()*2,texture.get_hei
 splitTextures = pygame_utils.splitTexture(texture, 96, 96)
 
 #
-# chest
+# chest (just an image)
 #
 
 chestImage = pygame.image.load(os.path.join('images', 'chest.png'))
@@ -124,12 +124,15 @@ class MyGame(pygame_utils.Game):
         self.camera.target = (self.player.rect.x + self.player.rect.w/2, 
                               self.player.rect.y + self.player.rect.h/2)
         
-        
-
     def draw(self):
+
+        # clear the world surface
         self.worldSurface.fill((0, 0, 0, 0))
+        # draw the player sprite image to the world surface
         self.player.spriteImage.draw(self.worldSurface, self.player.rect.x, self.player.rect.y)
+        # draw the chest to the world surface
         self.worldSurface.blit(chestImage, chestPosition)
+        # use the camera to draw the world surface to the screen
         self.camera.draw(self.worldSurface, self.screen)
 
 #
