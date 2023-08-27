@@ -37,21 +37,21 @@ splitTextures = pygame_utils.splitTexture(texture, 96, 96)
 # a sprite with a single texture
 spriteImage1 = pygame_utils.SpriteImage()
 # simple alternative for single texture: spriteImage1.addTextures(pygame.image.load('image.png'))
-spriteImage1.addTextures(splitTextures[0][0])
+spriteImage1.addTextures(splitTextures[0][0], offset=(17*2, 16*2))
 
 # an animated sprite with multiple textures
 spriteImage2 = pygame_utils.SpriteImage()
-spriteImage2.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3])
+spriteImage2.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3], offset=(17*2, 16*2))
 # simple alternative for single textures:
 # spriteImage1.addTextures(pygame.image.load('image1.png'), pygame.image.load('image2.png'))
 
 # a controllable sprite with multiple animation states
 spriteImage3 = pygame_utils.SpriteImage()
-spriteImage3.addTextures(splitTextures[0][0], splitTextures[0][1], state='idle')
-spriteImage3.addTextures(splitTextures[0][1], splitTextures[0][2], splitTextures[0][1], splitTextures[0][3], state='walk_down')
-spriteImage3.addTextures(splitTextures[1][1], splitTextures[1][2], splitTextures[1][1], splitTextures[1][3], state='walk_up')
-spriteImage3.addTextures(splitTextures[2][1], splitTextures[2][2], splitTextures[2][1], splitTextures[2][3], state='walk_left')
-spriteImage3.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3], state='walk_right')
+spriteImage3.addTextures(splitTextures[0][0], splitTextures[0][1], state='idle', offset=(17*2, 16*2))
+spriteImage3.addTextures(splitTextures[0][1], splitTextures[0][2], splitTextures[0][1], splitTextures[0][3], state='walk_down', offset=(17*2, 16*2))
+spriteImage3.addTextures(splitTextures[1][1], splitTextures[1][2], splitTextures[1][1], splitTextures[1][3], state='walk_up', offset=(17*2, 16*2))
+spriteImage3.addTextures(splitTextures[2][1], splitTextures[2][2], splitTextures[2][1], splitTextures[2][3], state='walk_left', offset=(17*2, 16*2))
+spriteImage3.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3], state='walk_right', offset=(17*2, 16*2))
 
 # for easily getting key presses
 input = pygame_utils.Input()
@@ -112,11 +112,11 @@ while running:
 
     # draw sprites and accompanying text
     pygame_utils.drawText(screen, 'Sprite 1 (single texture)', 420, 40)
-    spriteImage1.draw(screen, 500, 50)
+    spriteImage1.draw(screen, 500, 70)
     pygame_utils.drawText(screen, 'Sprite 2 (space to pause/play)', 420, 140)
-    spriteImage2.draw(screen, 500, 150)
+    spriteImage2.draw(screen, 500, 170)
     pygame_utils.drawText(screen, 'Sprite 3 (arrow keys to change)', 420, 240)
-    spriteImage3.draw(screen, 500, 250)
+    spriteImage3.draw(screen, 500, 270)
 
     # draw to screen
     pygame.display.flip()
