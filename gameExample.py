@@ -7,6 +7,7 @@
 
 import pygame
 import pygame_utils
+import os
 
 #
 # create a new game
@@ -18,7 +19,7 @@ class MyGame(pygame_utils.Game):
         # this code is optional and can be removed or replaced
         self.size = (640, 480)
         self.caption = 'Example Game'
-        self.icon = pygame.image.load('images\character.png')
+        self.icon = pygame.image.load(os.path.join('images', 'character.png'))
         self.blue = 0
 
     def update(self):
