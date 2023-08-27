@@ -1,6 +1,54 @@
 import pygame
 
 #
+# game abstraction
+#
+
+class Game:
+
+    def __init__(self, caption='', fps=60):
+        pygame.init()
+        self.caption = caption
+        self.fps = fps
+        self.init()
+        self.screen = pygame.display.set_mode((680, 460))
+        pygame.display.set_caption(self.caption)
+        self.clock = pygame.time.Clock() 
+        
+        self.running = False
+
+    def init(self):
+        pass
+
+    def _update(self):
+        # respond to quit event
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.running = False
+        # run user update method
+        self.update()
+        # update clock
+        self.clock.tick(self.fps)
+
+    def update(self):
+        pass
+
+    def _draw(self):
+        self.draw()
+        # present the screen
+        pygame.display.flip()
+
+    def draw(self):
+        pass
+
+    def run(self):
+        self.running = True
+        while self.running:
+            self._update()
+            self._draw()
+        pygame.quit()
+
+#
 # input manager
 #
 
