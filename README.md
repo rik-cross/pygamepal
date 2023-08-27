@@ -67,7 +67,7 @@ spriteImage.pause
 # creates a new camera instance
 camera = pygame_utils.Camera(position=(0, 0), size=(640, 480), target=(0, 0), zoom=1, backgroundColour='gray30', borderColour='black', borderThickness=2, clamp=False, clampRect=(0, 0, 1000, 1000), followDelay=0)
 
-# not yet required
+# update() must be called once per frame
 camera.update(deltaTime=1)
 
 # draws surface to the destinationSurface, using camera attributes
