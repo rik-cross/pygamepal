@@ -62,8 +62,9 @@ class MyGame(pygame_utils.Game):
         self.player.spriteImage.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3], state='walk_right', offset=(17*2, 16*2))
         
         # set player position and size
-        self.player.position = [160, 160]
-        self.player.size = (28, 32)
+        #self.player.position = [160, 160]
+        #self.player.size = (28, 32)
+        self.player.rect = pygame.Rect(160, 160, 28, 32)
 
         #
         # create a camera object
@@ -72,8 +73,8 @@ class MyGame(pygame_utils.Game):
         self.camera = pygame_utils.Camera(position=(50, 50),
                                           size=(700, 400),
                                           # center the camera on the player
-                                          target=(self.player.position[0] + self.player.size[0]/2, 
-                                                  self.player.position[1] + self.player.size[1]/2),
+                                          target=(self.player.rect.x + self.player.rect.w/2, 
+                                                  self.player.rect.y + self.player.rect.h/2),
                                           zoom=3,
                                           backgroundColour='darkgreen',
                                           # clamp the camera to the world
@@ -99,16 +100,16 @@ class MyGame(pygame_utils.Game):
         # - change player sprite position (clamped to world)
         if self.input.isKeyDown(pygame.K_UP):
             self.player.spriteImage.setState('walk_up')
-            self.player.position[1] = max(0, self.player.position[1] - 1)
+            self.player.rect.y = max(0, self.player.rect.y - 1)
         elif self.input.isKeyDown(pygame.K_DOWN):
             self.player.spriteImage.setState('walk_down')
-            self.player.position[1] = min (500-self.player.size[1], self.player.position[1] + 1)
+            self.player.rect.y = min (500 - self.player.rect.h, self.player.rect.y + 1)
         elif self.input.isKeyDown(pygame.K_LEFT):
             self.player.spriteImage.setState('walk_left')
-            self.player.position[0] = max(0, self.player.position[0] - 1)
+            self.player.rect.x = max(0, self.player.rect.x - 1)
         elif self.input.isKeyDown(pygame.K_RIGHT):
             self.player.spriteImage.setState('walk_right')
-            self.player.position[0] = min(500-self.player.size[0], self.player.position[0] + 1)
+            self.player.rect.x = min(500 - self.player.rect.w, self.player.rect.x + 1)
         # idle state is the default
         else:
             self.player.spriteImage.setState('idle')
@@ -120,14 +121,14 @@ class MyGame(pygame_utils.Game):
         self.camera.update()
         
         # track the player with the camera
-        self.camera.target = (self.player.position[0] + self.player.size[0]/2, 
-                              self.player.position[1] + self.player.size[1]/2)
+        self.camera.target = (self.player.rect.x + self.player.rect.w/2, 
+                              self.player.rect.y + self.player.rect.h/2)
         
         
 
     def draw(self):
         self.worldSurface.fill((0, 0, 0, 0))
-        self.player.spriteImage.draw(self.worldSurface, self.player.position[0], self.player.position[1])
+        self.player.spriteImage.draw(self.worldSurface, self.player.rect.x, self.player.rect.y)
         self.worldSurface.blit(chestImage, chestPosition)
         self.camera.draw(self.worldSurface, self.screen)
 
