@@ -32,8 +32,12 @@ cameraSurface = pygame.Surface((200, 200), pygame.SRCALPHA, 32)
 
 camera = pygame_utils.Camera(position=(300, 100),
                         size=(300, 300),
-                        zoom=5, target=(0, 0),
-                        borderThickness=4)
+                        zoom=5,
+                        # the camera center
+                        target=(0, 0),
+                        borderThickness=4,
+                        # lazy follow
+                        followDelay=0.9)
 
 input = pygame_utils.Input()
 
