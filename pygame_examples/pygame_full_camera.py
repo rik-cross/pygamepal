@@ -23,6 +23,10 @@ character.image = pygame.image.load('character.png')
 character.position = (100, 100)
 character.size = (36, 48)
 
+cameraPosition = (50, 50)
+cameraSize = (360, 360)
+cameraZoom = 4
+
 # game loop
 running = True
 while running:
@@ -39,16 +43,30 @@ while running:
             running = False
 
     # camera is focused on the center of the player
-    cameraCenter = (character.position[0] + character.size[0] / 2,
-                    character.position[1] + character.size[1] / 2)
+    cameraCenter = (character.position[0] + character.size[0] / 2 * cameraZoom,
+                    character.position[1] + character.size[1] / 2 * cameraZoom)
 
     # camera offset = screen center - camera center
-    cameraOffset = (screen_size[0] / 2 - cameraCenter[0],
-                    screen_size[1] / 2 - cameraCenter[1])
+    cameraOffset = (cameraPosition[0] + cameraSize[0] / 2 - cameraCenter[0],
+                    cameraPosition[1] + cameraSize[1] / 2 - cameraCenter[1])
 
+    # clip the drawing area to the camera
+    screen.set_clip((cameraPosition[0], cameraPosition[1], cameraSize[0], cameraSize[1]))
+
+    # draw camera background
+    # (no need to worry about the camera size as the drawing area is clipped)
+    screen.fill('gray10')
+    
     # player position doesn't change, instead the offset is added to the position
-    screen.blit(character.image, (character.position[0] + cameraOffset[0], 
-                                  character.position[1] + cameraOffset[1]))
+    screen.blit(
+        # scale the image
+        pygame.transform.scale(character.image, (character.size[0] * cameraZoom, character.size[1] * cameraZoom)), 
+        # position the image
+        (character.position[0] + cameraOffset[0], 
+         character.position[1] + cameraOffset[1]))
+
+    # reset screen clip
+    screen.set_clip()
 
     # draw to the screen
     pygame.display.flip()
