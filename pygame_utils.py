@@ -6,13 +6,15 @@ import pygame
 
 class Game:
 
-    def __init__(self, caption='', fps=60):
+    def __init__(self):
         pygame.init()
-        self.caption = caption
-        self.fps = fps
+        self.size = (640, 480)
+        self.caption = ''
+        self.fps = 60
         self.init()
-        self.screen = pygame.display.set_mode((680, 460))
+        self.screen = pygame.display.set_mode(self.size)
         pygame.display.set_caption(self.caption)
+        #pygame.display.set_icon(pygame.image.load('images\character.png'))
         self.clock = pygame.time.Clock() 
         
         self.running = False
@@ -47,6 +49,15 @@ class Game:
             self._update()
             self._draw()
         pygame.quit()
+
+    @property
+    def icon(self):
+        return self._icon
+    
+    @icon.setter
+    def icon(self, value):
+        self._icon = value
+        pygame.display.set_icon(self._icon)
 
 #
 # input manager

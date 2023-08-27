@@ -1,3 +1,11 @@
+#
+# pygame_utils -- Game Example
+#
+# Image credit - Cup Nooble
+#  --  cupnooble.itch.io/sprout-lands-asset-pack
+#
+
+import pygame
 import pygame_utils
 
 #
@@ -8,7 +16,9 @@ class MyGame(pygame_utils.Game):
 
     def init(self):
         # this code is optional and can be removed or replaced
+        self.size = (640, 480)
         self.caption = 'Example Game'
+        self.icon = pygame.image.load('images\character.png')
         self.blue = 0
 
     def update(self):
