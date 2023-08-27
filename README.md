@@ -9,10 +9,14 @@ Simply add the `pygame_utils.py` file to your project and import the module usin
 
 ### Contents
 
+- [Game](#game)
 - [Input](#input)
 - [SpriteImage](#spriteImage)
 - [Camera](#camera)
 - [Utility Functions](#functions)
+
+
+<a name="game"></a>Game -- [Template](./gameTemplate.py) // [Example](./gameExample.py)
 
 <a name="input"></a>Input -- [Example](./inputExample.py)
 
