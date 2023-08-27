@@ -13,7 +13,7 @@ class MyGame(pygame_utils.Game):
 
     def update(self):
         # this code is optional and can be removed or replaced
-        # ...
+        # cycle a value between 0 and 255
         self.blue = (self.blue + 1) % 255
 
     def draw(self):
