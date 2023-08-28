@@ -1,22 +1,22 @@
 #
-# pygamewrapper, by Rik Cross
-#  -- homepage: github.com/rik-cross/pygamewrapper
+# pygamepal, by Rik Cross
+#  -- homepage: github.com/rik-cross/pygamepal
 #  -- MIT licenced, free to use, modify and distribute
-#  -- run 'pip install pygamewrapper' to use
+#  -- run 'pip install pygamepal' to use
 #
 # Image credit - Cup Nooble
 #  --  cupnooble.itch.io/sprout-lands-asset-pack
 #
 
 import pygame
-import pygamewrapper
+import pygamepal
 import os
 
 #
 # create a new game
 #
 
-class MyGame(pygamewrapper.Game):
+class MyGame(pygamepal.Game):
 
     def init(self):
         # this code is optional and can be removed or replaced
@@ -33,8 +33,8 @@ class MyGame(pygamewrapper.Game):
     def draw(self):
         # this code is optional and can be removed or replaced
         self.screen.fill('cornflowerblue')
-        pygamewrapper.drawText(self.screen, 'pygamewrapper example game!', 25, 25, colour=(0, 0, self.blue))
-        pygamewrapper.drawText(self.screen, 'Add code to init(), update() and draw() methods.', 25, 50)
+        pygamepal.drawText(self.screen, 'pygamepal example game!', 25, 25, colour=(0, 0, self.blue))
+        pygamepal.drawText(self.screen, 'Add code to init(), update() and draw() methods.', 25, 50)
 
 #
 # create a new game instance

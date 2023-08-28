@@ -1,8 +1,8 @@
 #
-# pygamewrapper, by Rik Cross
-#  -- homepage: github.com/rik-cross/pygamewrapper
+# pygamepal, by Rik Cross
+#  -- homepage: github.com/rik-cross/pygamepal
 #  -- MIT licenced, free to use, modify and distribute
-#  -- run 'pip install pygamewrapper' to use
+#  -- run 'pip install pygamepal' to use
 #
 # instructions:
 #  -- arrow keys to pan
@@ -13,7 +13,7 @@
 #
 
 import pygame
-import pygamewrapper
+import pygamepal
 import os
 
 # initialise Pygame
@@ -25,7 +25,7 @@ pygame.display.set_caption('Camera Example')
 clock = pygame.time.Clock() 
 
 # add input, to allow camera control
-input = pygamewrapper.Input()
+input = pygamepal.Input()
 
 # load a texture
 texture = pygame.image.load(os.path.join('images','character.png'))
@@ -33,7 +33,7 @@ texture = pygame.image.load(os.path.join('images','character.png'))
 # create surface for the camera to draw
 cameraSurface = pygame.Surface((200, 200), pygame.SRCALPHA, 32)
 
-camera = pygamewrapper.Camera(position=(300, 100),
+camera = pygamepal.Camera(position=(300, 100),
                         size=(300, 300),
                         zoom=5,
                         # the camera center
@@ -43,7 +43,7 @@ camera = pygamewrapper.Camera(position=(300, 100),
                         # lazy follow
                         followDelay=0.9)
 
-input = pygamewrapper.Input()
+input = pygamepal.Input()
 
 # game loop
 running = True
@@ -102,7 +102,7 @@ while running:
     screen.blit(cameraSurface, (0, 0))
 
     # draw the instructions
-    pygamewrapper.drawText(screen, 'Arrow keys to pan, z/x to zoom', 300, 60)
+    pygamepal.drawText(screen, 'Arrow keys to pan, z/x to zoom', 300, 60)
 
     # use the camera to draw the images on the cameraSurface to the screen
     camera.draw(cameraSurface, screen)

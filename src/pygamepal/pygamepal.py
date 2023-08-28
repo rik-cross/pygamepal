@@ -1,8 +1,8 @@
 #
-# pygamewrapper, by Rik Cross
-#  -- homepage: github.com/rik-cross/pygamewrapper
+# pygamepal, by Rik Cross
+#  -- homepage: github.com/rik-cross/pygamepal
 #  -- MIT licenced, free to use, modify and distribute
-#  -- run 'pip install pygamewrapper' to use
+#  -- run 'pip install pygamepal' to use
 #
 
 import pygame

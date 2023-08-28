@@ -1,11 +1,11 @@
 - (Note: I'm also developing the [Gamma](https://github.com/rik-cross/gamma) Pygame ECS engine!)
-- [Add suggestions and bugs here](https://github.com/rik-cross/pygamewrapper/issues)!
+- [Add suggestions and bugs here](https://github.com/rik-cross/pygamepal/issues)!
 
-# pygamewrapper
+# pygamepal
 A library of classes and functions to support game development in Pygame
 
 ### Usage
-- `pip install pygamewrapper`
+- `pip install pygamepal`
 
 - [Full example](examples/fullExample.py), using all pytgame_utils classes
 
@@ -24,7 +24,7 @@ A library of classes and functions to support game development in Pygame
 
 ```
 # create new instance
-input = pygamewrapper.Input(longPressDuration=60)
+input = pygamepal.Input(longPressDuration=60)
 
 # update() must be called once per frame
 input.update(deltaTime=1)
@@ -40,7 +40,7 @@ input.getKeyLongPressPercentage(keycode)
 
 ```
 # create new instance
-spriteImage = pygamewrapper.spriteImage()
+spriteImage = pygamepal.spriteImage()
 
 # add one or more sprites, associated with a state
 spriteImage.addTextures(firstTexture, *moreTextures, state=None, animationDelay=12, loop=True, hFlip=False, vFlip=False)
@@ -65,7 +65,7 @@ spriteImage.pause
 
 ```
 # creates a new camera instance
-camera = pygamewrapper.Camera(position=(0, 0), size=(640, 480), target=(0, 0), zoom=1, backgroundColour='gray30', borderColour='black', borderThickness=2, clamp=False, clampRect=(0, 0, 1000, 1000), followDelay=0)
+camera = pygamepal.Camera(position=(0, 0), size=(640, 480), target=(0, 0), zoom=1, backgroundColour='gray30', borderColour='black', borderThickness=2, clamp=False, clampRect=(0, 0, 1000, 1000), followDelay=0)
 
 # update() must be called once per frame
 camera.update(deltaTime=1)

@@ -1,8 +1,8 @@
 #
-# pygamewrapper, by Rik Cross
-#  -- homepage: github.com/rik-cross/pygamewrapper
+# pygamepal, by Rik Cross
+#  -- homepage: github.com/rik-cross/pygamepal
 #  -- MIT licenced, free to use, modify and distribute
-#  -- run 'pip install pygamewrapper' to use
+#  -- run 'pip install pygamepal' to use
 #
 # Instructions
 #  -- press the 'return' key and watch console output
@@ -10,7 +10,7 @@
 
 # import modules
 import pygame
-import pygamewrapper
+import pygamepal
 
 # initialise Pygame
 pygame.init()
@@ -20,7 +20,7 @@ screen = pygame.display.set_mode((680, 460))
 pygame.display.set_caption('Input Example')
 clock = pygame.time.Clock()
 
-input = pygamewrapper.Input()
+input = pygamepal.Input()
 
 # game loop
 running = True

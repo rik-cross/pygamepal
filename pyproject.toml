@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pygamewrapper"
+name = "pygamepal"
 version = "0.1"
 authors = [
   { name="Rik Cross", email="rik.j.cross@gmail.com" },
@@ -18,5 +18,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/rik-cross/pygamewrapper"
-"Suggestions and bugs" = "https://github.com/rik-cross/pygamewrapper/issues"
+"Homepage" = "https://github.com/rik-cross/pygamepal"
+"Suggestions and bugs" = "https://github.com/rik-cross/pygamepal/issues"
