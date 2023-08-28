@@ -22,8 +22,8 @@ class MyGame(pygame_utils.Game):
         pass
 
     def draw(self):
-        # replace 'pass' below with your code
-        pass
+        # replace the code below with your code
+        self.screen.fill('cornflowerblue')
 
 #
 # create a new game instance
