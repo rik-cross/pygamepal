@@ -25,7 +25,7 @@ class MyGame(pygamepal.Game):
         self.icon = pygame.image.load(os.path.join('images', 'character.png'))
         self.blue = 0
 
-    def update(self):
+    def update(self, deltaTime):
         # this code is optional and can be removed or replaced
         # cycle a value between 0 and 255
         self.blue = (self.blue + 1) % 255

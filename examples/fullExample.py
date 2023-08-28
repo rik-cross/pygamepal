@@ -88,7 +88,7 @@ class MyGame(pygamepal.Game):
         self.worldSurface = pygame.surface.Surface((500, 500), pygame.SRCALPHA, 32)
         
 
-    def update(self):
+    def update(self, deltaTime):
 
         # fill the screen
         self.screen.fill('cornflowerblue')
@@ -96,21 +96,24 @@ class MyGame(pygamepal.Game):
         # update the input
         self.input.update()
 
+        # calculate distance
+        dist = 60 * deltaTime
+
         # arrow keys to:
         # - change state of player sprite
         # - change player sprite position (clamped to world)
         if self.input.isKeyDown(pygame.K_UP):
             self.player.spriteImage.setState('walk_up')
-            self.player.rect.y = max(0, self.player.rect.y - 1)
+            self.player.rect.y = max(0, self.player.rect.y - dist)
         elif self.input.isKeyDown(pygame.K_DOWN):
             self.player.spriteImage.setState('walk_down')
-            self.player.rect.y = min (500 - self.player.rect.h, self.player.rect.y + 1)
+            self.player.rect.y = min (500 - self.player.rect.h, self.player.rect.y + dist)
         elif self.input.isKeyDown(pygame.K_LEFT):
             self.player.spriteImage.setState('walk_left')
-            self.player.rect.x = max(0, self.player.rect.x - 1)
+            self.player.rect.x = max(0, self.player.rect.x - dist)
         elif self.input.isKeyDown(pygame.K_RIGHT):
             self.player.spriteImage.setState('walk_right')
-            self.player.rect.x = min(500 - self.player.rect.w, self.player.rect.x + 1)
+            self.player.rect.x = min(500 - self.player.rect.w, self.player.rect.x + dist)
         # idle state is the default
         else:
             self.player.spriteImage.setState('idle')

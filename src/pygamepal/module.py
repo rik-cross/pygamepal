@@ -22,7 +22,6 @@ class Game:
         self.screen = pygame.display.set_mode(self.size)
         pygame.display.set_caption(self.caption)
         self.clock = pygame.time.Clock() 
-        
         self.running = False
 
     def init(self):
@@ -33,12 +32,14 @@ class Game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
+        # calculate delta time
+        deltaTime = self.clock.tick(self.fps) / 1000
         # run user update method
-        self.update()
+        self.update(deltaTime)
         # update clock
         self.clock.tick(self.fps)
 
-    def update(self):
+    def update(self, deltaTime):
         pass
 
     def _draw(self):

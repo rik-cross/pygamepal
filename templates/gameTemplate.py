@@ -18,7 +18,7 @@ class MyGame(pygamepal.Game):
         # replace 'pass' below with your code
         pass
 
-    def update(self):
+    def update(self, deltaTime):
         # replace 'pass' below with your code
         pass
 
