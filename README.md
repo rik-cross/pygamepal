@@ -19,6 +19,19 @@ A library of classes and functions to support game development in Pygame
 
 <a name="game"></a>Game (create a game with minimal setup) -- [Template](templates/gameTemplate.py) // [Example](examples/gameExample.py)
 
+``` 
+self.size = (x, y)
+self.caption = 'text'
+self.icon = pygame.image.load('imageURL')
+self.fps = x
+self.gameTime
+
+self.init()
+self.update(gameTime)
+self.draw()
+self.quit()
+```
+
 <a name="input"></a>Input -- [Example](examples/inputExample.py)
 
 ```

@@ -30,7 +30,7 @@ class Game:
         # total elapsed game time
         self.startTime = pygame.time.get_ticks()
         self.gameTime = self.startTime
-        self.running = False
+        self._running = False
 
     def init(self):
         pass
@@ -39,7 +39,7 @@ class Game:
         # respond to quit event
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                self.running = False
+                self._running = False
         # calculate delta time
         deltaTime = self.clock.tick(self.fps) / 1000
         # calculate total elapsed time
@@ -61,11 +61,14 @@ class Game:
         pass
 
     def run(self):
-        self.running = True
-        while self.running:
+        self._running = True
+        while self._running:
             self._update()
             self._draw()
         pygame.quit()
+
+    def quit(self):
+        self._running = False
 
     @property
     def icon(self):

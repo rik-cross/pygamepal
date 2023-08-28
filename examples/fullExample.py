@@ -127,6 +127,9 @@ class MyGame(pygamepal.Game):
         # track the player with the camera
         self.camera.target = (self.player.rect.x + self.player.rect.w/2, 
                               self.player.rect.y + self.player.rect.h/2)
+
+        if self.input.isKeyPressed(pygame.K_ESCAPE):
+            self.quit()
         
     def draw(self):
 
