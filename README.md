@@ -1,13 +1,13 @@
 - (Note: I'm also developing the [Gamma](https://github.com/rik-cross/gamma) Pygame ECS engine!)
-- [Add suggestions and bugs here](https://github.com/rik-cross/pygame_utils/issues)!
+- [Add suggestions and bugs here](https://github.com/rik-cross/pygamewrapper/issues)!
 
-# Pygame Utils
+# pygamewrapper
 A library of classes and functions to support game development in Pygame
 
 ### Usage
-Simply add the `pygame_utils.py` file to your project and import the module using `import pygame_utils` to use!
+- `pip install pygamewrapper`
 
-- [Full example](./fullExample.py), using all pytgame_utils classes
+- [Full example](examples/fullExample.py), using all pytgame_utils classes
 
 ### Contents
 
@@ -18,13 +18,13 @@ Simply add the `pygame_utils.py` file to your project and import the module usin
 - [Utility Functions](#functions)
 - [General Pygame examples](#examples)
 
-<a name="game"></a>Game (create a game with minimal setup) -- [Template](./gameTemplate.py) // [Example](./gameExample.py)
+<a name="game"></a>Game (create a game with minimal setup) -- [Template](templates/gameTemplate.py) // [Example](examples/gameExample.py)
 
-<a name="input"></a>Input -- [Example](./inputExample.py)
+<a name="input"></a>Input -- [Example](examples/inputExample.py)
 
 ```
 # create new instance
-input = pygame_utils.Input(longPressDuration=60)
+input = pygamewrapper.Input(longPressDuration=60)
 
 # update() must be called once per frame
 input.update(deltaTime=1)
@@ -36,11 +36,11 @@ input.isKeyLongDown(keycode)
 input.isKeyLongPressed(keycode)
 input.getKeyLongPressPercentage(keycode)
 ```
-<a name="spriteImage"></a>SpriteImage -- [Example](./spriteImageExample.py)
+<a name="spriteImage"></a>SpriteImage -- [Example](examples/spriteImageExample.py)
 
 ```
 # create new instance
-spriteImage = pygame_utils.spriteImage()
+spriteImage = pygamewrapper.spriteImage()
 
 # add one or more sprites, associated with a state
 spriteImage.addTextures(firstTexture, *moreTextures, state=None, animationDelay=12, loop=True, hFlip=False, vFlip=False)
@@ -61,11 +61,11 @@ spriteImage.reset()
 spriteImage.pause
 ```
 
-<a name="camera"></a>Camera -- [Example](./cameraExample.py)
+<a name="camera"></a>Camera -- [Example](examples/cameraExample.py)
 
 ```
 # creates a new camera instance
-camera = pygame_utils.Camera(position=(0, 0), size=(640, 480), target=(0, 0), zoom=1, backgroundColour='gray30', borderColour='black', borderThickness=2, clamp=False, clampRect=(0, 0, 1000, 1000), followDelay=0)
+camera = pygamewrapper.Camera(position=(0, 0), size=(640, 480), target=(0, 0), zoom=1, backgroundColour='gray30', borderColour='black', borderThickness=2, clamp=False, clampRect=(0, 0, 1000, 1000), followDelay=0)
 
 # update() must be called once per frame
 camera.update(deltaTime=1)
@@ -94,7 +94,3 @@ firstTexture = textureList[0][0] # or firstTexture = flatten(textureList)[0]
 newList = flatten(2dList)
 # see above for example
 ```
-
-<a name="examples"></a>General Pygame example code
-
-- Camera -- [Simple example](./pygame_examples/pygame_simple_camera.py) // [Full example](./pygame_examples/pygame_full_camera.py)

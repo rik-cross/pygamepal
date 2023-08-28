@@ -1,7 +1,8 @@
 #
-# pygame_utils -- Full Game Example
-# part of the pygame_utils library
-#  -- github.com/rik-cross/pygame_utils
+# pygamewrapper, by Rik Cross
+#  -- homepage: github.com/rik-cross/pygamewrapper
+#  -- MIT licenced, free to use, modify and distribute
+#  -- run 'pip install pygamewrapper' to use
 #
 # Instructions
 #  -- arrow keys to move player
@@ -11,7 +12,7 @@
 #
 
 import pygame
-import pygame_utils
+import pygamewrapper
 import os
 
 #
@@ -23,7 +24,7 @@ texture = pygame.image.load(os.path.join('images','character_spritesheet.png'))
 # double the texture size
 texture = pygame.transform.scale(texture, (texture.get_width()*2,texture.get_height()*2))
 # split texture into a 2D list of sub-textures
-splitTextures = pygame_utils.splitTexture(texture, 96, 96)
+splitTextures = pygamewrapper.splitTexture(texture, 96, 96)
 
 #
 # chest (just an image)
@@ -36,7 +37,7 @@ chestPosition = (200, 200)
 # create a new game
 #
 
-class MyGame(pygame_utils.Game):
+class MyGame(pygamewrapper.Game):
 
     def init(self):
 
@@ -45,7 +46,7 @@ class MyGame(pygame_utils.Game):
         self.caption = 'Full game example'
         
         # create an input object
-        self.input = pygame_utils.Input()
+        self.input = pygamewrapper.Input()
 
         #
         # create a player sprite
@@ -54,7 +55,7 @@ class MyGame(pygame_utils.Game):
         self.player = pygame.sprite.Sprite()
         
         # add a spriteImage to the player sprite, including 5 different states
-        self.player.spriteImage = pygame_utils.SpriteImage()
+        self.player.spriteImage = pygamewrapper.SpriteImage()
         self.player.spriteImage.addTextures(splitTextures[0][0], splitTextures[0][1], state='idle', offset=(17*2, 16*2))
         self.player.spriteImage.addTextures(splitTextures[0][1], splitTextures[0][2], splitTextures[0][1], splitTextures[0][3], state='walk_down', offset=(17*2, 16*2))
         self.player.spriteImage.addTextures(splitTextures[1][1], splitTextures[1][2], splitTextures[1][1], splitTextures[1][3], state='walk_up', offset=(17*2, 16*2))
@@ -70,7 +71,7 @@ class MyGame(pygame_utils.Game):
         # create a camera object
         #
 
-        self.camera = pygame_utils.Camera(position=(50, 50),
+        self.camera = pygamewrapper.Camera(position=(50, 50),
                                           size=(700, 400),
                                           # center the camera on the player
                                           target=(self.player.rect.x + self.player.rect.w/2, 

@@ -1,21 +1,22 @@
 #
-# pygame_utils -- Game Example
-# part of the pygame_utils library
-#  -- github.com/rik-cross/pygame_utils
+# pygamewrapper, by Rik Cross
+#  -- homepage: github.com/rik-cross/pygamewrapper
+#  -- MIT licenced, free to use, modify and distribute
+#  -- run 'pip install pygamewrapper' to use
 #
 # Image credit - Cup Nooble
 #  --  cupnooble.itch.io/sprout-lands-asset-pack
 #
 
 import pygame
-import pygame_utils
+import pygamewrapper
 import os
 
 #
 # create a new game
 #
 
-class MyGame(pygame_utils.Game):
+class MyGame(pygamewrapper.Game):
 
     def init(self):
         # this code is optional and can be removed or replaced
@@ -32,8 +33,8 @@ class MyGame(pygame_utils.Game):
     def draw(self):
         # this code is optional and can be removed or replaced
         self.screen.fill('cornflowerblue')
-        pygame_utils.drawText(self.screen, 'pygame_utils example game!', 25, 25, colour=(0, 0, self.blue))
-        pygame_utils.drawText(self.screen, 'Add code to init(), update() and draw() methods.', 25, 50)
+        pygamewrapper.drawText(self.screen, 'pygamewrapper example game!', 25, 25, colour=(0, 0, self.blue))
+        pygamewrapper.drawText(self.screen, 'Add code to init(), update() and draw() methods.', 25, 50)
 
 #
 # create a new game instance

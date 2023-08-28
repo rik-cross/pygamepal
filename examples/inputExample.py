@@ -1,7 +1,8 @@
 #
-# pygame_utils -- Input Example
-# part of the pygame_utils library
-#  -- github.com/rik-cross/pygame_utils
+# pygamewrapper, by Rik Cross
+#  -- homepage: github.com/rik-cross/pygamewrapper
+#  -- MIT licenced, free to use, modify and distribute
+#  -- run 'pip install pygamewrapper' to use
 #
 # Instructions
 #  -- press the 'return' key and watch console output
@@ -9,7 +10,7 @@
 
 # import modules
 import pygame
-import pygame_utils
+import pygamewrapper
 
 # initialise Pygame
 pygame.init()
@@ -19,7 +20,7 @@ screen = pygame.display.set_mode((680, 460))
 pygame.display.set_caption('Input Example')
 clock = pygame.time.Clock()
 
-input = pygame_utils.Input()
+input = pygamewrapper.Input()
 
 # game loop
 running = True

@@ -1,8 +1,8 @@
 #
-# pygame_utils
-#  -- developed by Rik Cross
-#  -- github.com/rik-cross/pygame_utils
+# pygamewrapper, by Rik Cross
+#  -- homepage: github.com/rik-cross/pygamewrapper
 #  -- MIT licenced, free to use, modify and distribute
+#  -- run 'pip install pygamewrapper' to use
 #
 
 import pygame

@@ -1,17 +1,18 @@
 #
-# pygame_utils -- Game Template
-# part of the pygame_utils library
-#  -- github.com/rik-cross/pygame_utils
+# pygamewrapper, by Rik Cross
+#  -- homepage: github.com/rik-cross/pygamewrapper
+#  -- MIT licenced, free to use, modify and distribute
+#  -- run 'pip install pygamewrapper' to use
 #
 
 import pygame
-import pygame_utils
+import pygamewrapper
 
 #
 # create a new game
 #
 
-class MyGame(pygame_utils.Game):
+class MyGame(pygamewrapper.Game):
 
     def init(self):
         # replace 'pass' below with your code
