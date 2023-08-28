@@ -16,7 +16,6 @@ A library of classes and functions to support game development in Pygame
 - [SpriteImage](#spriteImage)
 - [Camera](#camera)
 - [Utility Functions](#functions)
-- [General Pygame examples](#examples)
 
 <a name="game"></a>Game (create a game with minimal setup) -- [Template](templates/gameTemplate.py) // [Example](examples/gameExample.py)
 
