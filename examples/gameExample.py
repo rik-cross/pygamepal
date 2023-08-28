@@ -24,7 +24,7 @@ class MyGame(pygamepal.Game):
         self.caption = 'Example Game'
         self.icon = pygame.image.load(os.path.join('images', 'character.png'))
         self.blue = 0
-
+        
     def update(self, deltaTime):
         # this code is optional and can be removed or replaced
         # cycle a value between 0 and 255
@@ -35,6 +35,7 @@ class MyGame(pygamepal.Game):
         self.screen.fill('cornflowerblue')
         pygamepal.drawText(self.screen, 'pygamepal example game!', 25, 25, colour=(0, 0, self.blue))
         pygamepal.drawText(self.screen, 'Add code to init(), update() and draw() methods.', 25, 50)
+        pygamepal.drawText(self.screen, str(round(self.gameTime / 1000, 2)), 25, 75)
 
 #
 # create a new game instance

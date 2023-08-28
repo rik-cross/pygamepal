@@ -18,10 +18,18 @@ class Game:
         self.size = (640, 480)
         self.caption = ''
         self.fps = 60
+        self.fullscreen = False
         self.init()
-        self.screen = pygame.display.set_mode(self.size)
+        # start window in windowed or fullscreen mode
+        if self.fullscreen:
+            self.screen = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
+        else:
+            self.screen = pygame.display.set_mode(self.size)
         pygame.display.set_caption(self.caption)
         self.clock = pygame.time.Clock() 
+        # total elapsed game time
+        self.startTime = pygame.time.get_ticks()
+        self.gameTime = self.startTime
         self.running = False
 
     def init(self):
@@ -34,6 +42,8 @@ class Game:
                 self.running = False
         # calculate delta time
         deltaTime = self.clock.tick(self.fps) / 1000
+        # calculate total elapsed time
+        self.gameTime = pygame.time.get_ticks() - self.startTime
         # run user update method
         self.update(deltaTime)
         # update clock
