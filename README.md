@@ -90,7 +90,7 @@ camera.draw(surface, destinationSurface)
 
 ```
 # draws text with minimal required parameters
-drawText(screen, text, x, y, font=None, antialias=True, colour=White, background=None)
+drawText(screen, text, x, y, font=None, antialias=True, color=White, background=None)
 # minimal example:
 drawText(screen, 'Hello, world!')
 

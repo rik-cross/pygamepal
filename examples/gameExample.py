@@ -33,7 +33,7 @@ class MyGame(pygamepal.Game):
     def draw(self):
         # this code is optional and can be removed or replaced
         self.screen.fill('cornflowerblue')
-        pygamepal.drawText(self.screen, 'pygamepal example game!', 25, 25, colour=(0, 0, self.blue))
+        pygamepal.drawText(self.screen, 'pygamepal example game!', 25, 25, color=(0, 0, self.blue))
         pygamepal.drawText(self.screen, 'Add code to init(), update() and draw() methods.', 25, 50)
         pygamepal.drawText(self.screen, str(round(self.gameTime / 1000, 2)), 25, 75)
 

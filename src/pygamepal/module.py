@@ -326,7 +326,7 @@ class Camera:
                           self.size[0] + self.borderThickness*2, self.size[1] + self.borderThickness*2))
         # ensure that the surface is clipped to the camera dimensions
         destSurface.set_clip((self.position[0], self.position[1], self.size[0], self.size[1]))
-        # fill the surface to the background colour
+        # fill the surface to the background color
         destSurface.fill(self.backgroundColour)
         # blit the (zoomed) surface to the destination, and set the target as the center
         x = 0 - (self.size[0]/2 - self._currentTarget[0] * self._zoom)
@@ -367,11 +367,11 @@ class Camera:
 
 # easily draw text
 
-def drawText(screen, text, x, y, font=None, antialias=True, colour=(255, 255, 255), background=None):
+def drawText(screen, text, x, y, font=None, antialias=True, color=(255, 255, 255), background=None):
     # use 'standard' font if none specified
     if font is None:
         font = pygame.font.SysFont(None, 24)
     # create text surface
-    textSurface = font.render(text, antialias, colour, background)
+    textSurface = font.render(text, antialias, color, background)
     # draw text to screen
     screen.blit(textSurface, (x, y))
