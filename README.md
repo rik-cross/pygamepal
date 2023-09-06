@@ -89,7 +89,7 @@ camera.draw(surface, destinationSurface)
 
 <a name="transitions"></a>Transitions -- [Example](examples/transitionExample.py) // [Showcase](examples/transitionShowcase.py)
 
-Transitions:
+Transition types:
 - TransitionFade
 - TransitionFadeToBlack
 - TransitionWipeLeft
