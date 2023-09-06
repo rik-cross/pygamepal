@@ -15,6 +15,7 @@ A library of classes and functions to support game development in Pygame
 - [Input](#input)
 - [SpriteImage](#spriteImage)
 - [Camera](#camera)
+- [Transitions](#transitions)
 - [Utility Functions](#functions)
 
 <a name="game"></a>Game (create a game with minimal setup) -- [Template](templates/gameTemplate.py) // [Example](examples/gameExample.py)
@@ -84,6 +85,21 @@ camera.update(deltaTime=1)
 
 # draws surface to the destinationSurface, using camera attributes
 camera.draw(surface, destinationSurface)
+```
+
+<a name="transitions"></a>Transitions -- [Example](examples/transitionExample.py) // [Showcase](examples/transitionShowcase.py)
+
+```
+# creates a new transition instance
+transition = pygamepal.TransitionFade(fromSurface=None, toSurface=None, duration=100, easingFunction=linear)
+
+# update() and draw() should be called each game loop frame
+transition.update(deltaTime=1)
+transition.draw(surface)
+
+# transition properties
+transition.duration = x # number of frames (default) / game time in ms
+transition.easingFunction = pygame.linear | pygame.bounceEaseOut
 ```
 
 <a name="functions"></a>Utility functions
