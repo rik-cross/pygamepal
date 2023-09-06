@@ -89,6 +89,22 @@ camera.draw(surface, destinationSurface)
 
 <a name="transitions"></a>Transitions -- [Example](examples/transitionExample.py) // [Showcase](examples/transitionShowcase.py)
 
+Transitions:
+- TransitionFade
+- TransitionFadeToBlack
+- TransitionWipeLeft
+- TransitionWipeRight
+- TransitionWipeUp
+- TransitionWipeDown
+- TransitionMoveLeft
+- TransitionMoveRight
+- TransitionMoveUp
+- TransitionMoveDown
+
+Easing functions
+- linear
+- bounceEaseOut
+
 ```
 # creates a new transition instance
 transition = pygamepal.TransitionFade(fromSurface=None, toSurface=None, duration=100, easingFunction=linear)
