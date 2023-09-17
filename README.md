@@ -25,6 +25,7 @@ self.size = (x, y)
 self.caption = 'text'
 self.icon = pygame.image.load('imageURL')
 self.fps = x
+self.screen
 self.gameTime
 
 self.init()
@@ -49,7 +50,7 @@ input.isKeyLongDown(keycode)
 input.isKeyLongPressed(keycode)
 input.getKeyLongPressPercentage(keycode)
 ```
-<a name="spriteImage"></a>SpriteImage -- [Example](examples/spriteImageExample.py)
+<a name="spriteImage"></a>SpriteImage -- [Example](examples/spriteImageExample.py) // [Showcase](examples/spriteImageShowcase.py)
 
 ```
 # create new instance
@@ -122,7 +123,7 @@ transition.easingFunction = pygame.linear | pygame.bounceEaseOut
 
 ```
 # draws text with minimal required parameters
-drawText(screen, text, x, y, font=None, antialias=True, color=White, background=None)
+drawText(screen, text, x, y, font=None, antialias=True, color='white', background=None)
 # minimal example:
 drawText(screen, 'Hello, world!')
 
