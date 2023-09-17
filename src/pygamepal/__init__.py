@@ -1,4 +1,6 @@
 __version__ = "0.2.0"
+__author__ = 'Rik Cross'
+__license__ = 'MIT'
 
 import pygame
 from .game import *
