@@ -1,5 +1,5 @@
 #
-# pygamepal, by Rik Cross
+# PygamePal, by Rik Cross
 #  -- homepage: github.com/rik-cross/pygamepal
 #  -- MIT licenced, free to use, modify and distribute
 #  -- run 'pip install pygamepal' to use
