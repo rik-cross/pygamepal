@@ -1,6 +1,6 @@
 # PygamePal
-A library of classes and functions to support game development in Pygame
-[Add suggestions and bugs here](https://github.com/rik-cross/pygamepal/issues)!
+A library of classes and functions to support game development in Pygame.
+- [Add suggestions and bugs here](https://github.com/rik-cross/pygamepal/issues)!
 
 ### Usage
 - `pip install pygamepal`
