@@ -1,4 +1,3 @@
-- (Note: I'm also developing the [Gamma](https://github.com/rik-cross/gamma) Pygame ECS engine!)
 - [Add suggestions and bugs here](https://github.com/rik-cross/pygamepal/issues)!
 
 # PygamePal
