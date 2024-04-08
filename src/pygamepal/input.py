@@ -62,5 +62,5 @@ class Input():
         return self._durations[keyCode] == self.longPressDuration
 
     # returns keyCode progress towards a long press (0%-100%)
-    def GetKeyLongPressPercentage(self, keyCode):
+    def getKeyLongPressPercentage(self, keyCode):
         return min(100, self._durations[keyCode] / self.longPressDuration * 100)
