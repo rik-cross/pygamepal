@@ -4,7 +4,7 @@
 #  -- MIT licenced, free to use, modify and distribute
 #  -- run 'pip install pygamepal' to use
 #
-# instructions:
+# Instructions:
 #  -- up / down arrow to change transition
 #  -- left / right arrow to change duration
 #  -- w / s to change easing function
@@ -90,9 +90,6 @@ input = pygamepal.Input()
 running = True
 while running:
 
-    # clear screen to Cornflower Blue
-    screen.fill('cornflowerblue')
-
     # advance clock at 60 FPS
     clock.tick(60)
 
@@ -156,6 +153,9 @@ while running:
         circlePos = (xPos, 410)
         calculatedPercentage = (xPos - 100) / (480) * 100
         transitionList[transitionIndex].currentPercentage = calculatedPercentage
+
+    # clear screen to Cornflower Blue
+    screen.fill('cornflowerblue')
     
     currentTransition.draw(screen)
     
