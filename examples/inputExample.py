@@ -26,9 +26,6 @@ input = pygamepal.Input()
 running = True
 while running:
 
-    # clear screen
-    screen.fill('cornflowerblue')
-
     # advance clock (10 FPS so that text is easier to read)
     clock.tick(10)
 
@@ -56,6 +53,9 @@ while running:
     # draw
     #
 
+    # clear screen
+    screen.fill('cornflowerblue')
+    
     # input text
     key = pygame.K_RETURN
     text = "Return key -- down: " + str(input.isKeyDown(key)) + \
