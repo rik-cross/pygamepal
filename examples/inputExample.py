@@ -65,7 +65,7 @@ while running:
         ", long down: " + str(input.isKeyLongDown(key)) + \
         ", long press: " + str(input.isKeyLongPressed(key)) + \
         ", long%: " + \
-        "{:.2f}".format(input.GetKeyLongPressPercentage(key))
+        "{:.2f}".format(input.getKeyLongPressPercentage(key))
 
     print(text)
 
