@@ -54,9 +54,6 @@ input = pygamepal.Input()
 running = True
 while running:
 
-    # clear screen to Cornflower Blue
-    screen.fill('cornflowerblue')
-
     # advance clock at 60 FPS
     clock.tick(60)
 
@@ -95,7 +92,10 @@ while running:
     #
     # draw
     #
-
+  
+    # clear screen to Cornflower Blue
+    screen.fill('cornflowerblue')
+  
     # don't forget to clear the camera surface!
     cameraSurface.fill((0, 0, 0, 0))
 
