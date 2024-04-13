@@ -21,18 +21,37 @@ class Camera:
         # follow delay: value between 0 (instant snap to target) and 1 (no movement)
         self.followDelay = followDelay
 
-    def update(self, deltaTime=1):
-        # update the target using the follow amount
+    def update(self, deltaTime=1):        
+        # clamp the camera to the clampRect if required
+        if self.clamp:
+            # clamp x
+            if (self.clampRect[2] - self.clampRect[0]) * self._zoom > self.size[0]:
+                left = ((self.size[0]/2) / self._zoom) + self.clampRect[0]
+                right = ((self.size[0]/2) / self._zoom * -1) + self.clampRect[2]
+                self.target = (max(left, min(right, self.target[0])),
+                               self.target[1])
+            else:
+                self.target = (self.clampRect[2] / 2, self.target[1])
+            # clamp y
+            if (self.clampRect[3] - self.clampRect[1]) * self._zoom > self.size[1]:
+                top = ((self.size[1]/2) / self._zoom) + self.clampRect[1]
+                bottom = ((self.size[1]/2) / self._zoom * -1) + self.clampRect[3]
+                self.target = (self.target[0],
+                               max(top, min(bottom, self.target[1])))
+            else:
+                self.target = (self.target[0], self.clampRect[3] / 2)
+        # update the target using the 'lazy follow' amount
         self._currentTarget = (self._currentTarget[0]*self._followDelay + self.target[0]*(1-self._followDelay),
                          self._currentTarget[1]*self._followDelay + self.target[1]*(1-self._followDelay))
-
+        
+                                  
     # draws the surface to the destination surface
-    # using the camera attributes
+    # using the camera's attributes
     def draw(self, surface, destSurface):
         # draw border
         pygame.draw.rect(destSurface, self.borderColour, 
                          (self.position[0] - self.borderThickness, self.position[1] - self.borderThickness, 
-                          self.size[0] + self.borderThickness*2, self.size[1] + self.borderThickness*2))
+                          self.size[0] + self.borderThickness*2, self.size[1] + self.borderThickness*2), self.borderThickness, border_radius=1)
         # ensure that the surface is clipped to the camera dimensions
         destSurface.set_clip((self.position[0], self.position[1], self.size[0], self.size[1]))
         # fill the surface to the background color
@@ -40,10 +59,6 @@ class Camera:
         # blit the (zoomed) surface to the destination, and set the target as the center
         x = 0 - (self.size[0]/2 - self._currentTarget[0] * self._zoom)
         y = 0 - (self.size[1]/2 - self._currentTarget[1] * self._zoom)
-        # clamp to clampRect coordinates
-        if self.clamp:
-            x = max(self.clampRect[0] * self.zoom, min(self.clampRect[2] * self.zoom - self.size[0], x))
-            y = max(self.clampRect[1] * self.zoom, min(self.clampRect[3] * self.zoom - self.size[1], y))
         # draw the surface to the destination using the correct position, size, center and zoom
         destSurface.blit(pygame.transform.scale(surface, (surface.get_width()*self._zoom, surface.get_height()*self._zoom)), 
                          self.position, 
