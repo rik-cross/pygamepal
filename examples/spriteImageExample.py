@@ -38,8 +38,6 @@ spriteImage.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[
 running = True
 while running:
 
-    # clear screen
-    screen.fill('cornflowerblue')
     # advance clock
     clock.tick(60)
 
@@ -58,6 +56,9 @@ while running:
     # draw
     #
 
+    # clear screen
+    screen.fill('cornflowerblue')
+    
     # draw sprites and accompanying text
     spriteImage.draw(screen, 50, 50)
 
