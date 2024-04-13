@@ -4,7 +4,7 @@
 #  -- MIT licenced, free to use, modify and distribute
 #  -- run 'pip install pygamepal' to use
 #
-# instructions:
+# Instructions:
 #  -- arrow keys to pan
 #  -- z/x to zoom
 #
