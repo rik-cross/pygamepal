@@ -5,7 +5,7 @@
 #  -- run 'pip install pygamepal' to use
 #
 # Instructions
-#  -- press the 'return' key and watch console output
+#  -- press / hold / release the 'return' key and watch console output
 #
 
 # import modules
