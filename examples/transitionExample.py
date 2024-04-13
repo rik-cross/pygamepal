@@ -44,9 +44,6 @@ transition = pygamepal.TransitionWipeRight(surface1,
 running = True
 while running:
 
-    # clear screen to Cornflower Blue
-    screen.fill('cornflowerblue')
-
     # advance clock at 60 FPS
     clock.tick(60)
 
@@ -67,6 +64,9 @@ while running:
     # draw
     #
 
+    # clear screen to Cornflower Blue
+    screen.fill('cornflowerblue')
+  
     # draw the transition if it isn't finished...
     if transition.finished is False:
         transition.draw(screen)
