@@ -4,7 +4,7 @@
 #  -- MIT licenced, free to use, modify and distribute
 #  -- run 'pip install pygamepal' to use
 #
-# instructions:
+# Instructions:
 #  -- space to toggle pause sprite 2
 #  -- arrow keys to control sprite 3
 #
@@ -60,9 +60,7 @@ input = pygamepal.Input()
 # game loop
 running = True
 while running:
-
-    # clear screen
-    screen.fill('cornflowerblue')
+    
     # advance clock
     clock.tick(60)
 
@@ -105,6 +103,9 @@ while running:
     # draw
     #
 
+    # clear screen
+    screen.fill('cornflowerblue')
+    
     # draw split texture
     for col in range(len(splitTextures)):
         for row in range(len(splitTextures[0])):
