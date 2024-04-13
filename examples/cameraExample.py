@@ -33,7 +33,7 @@ texture = pygame.image.load(os.path.join('images','character.png'))
 # create surface for the camera to draw
 cameraSurface = pygame.Surface((200, 200), pygame.SRCALPHA, 32)
 
-camera = pygamepal.Camera(position=(300, 100),
+camera = pygamepal.Camera(position=(190, 100),
                           size=(300, 300),
                           zoom=5,
                           # the camera center
@@ -104,11 +104,8 @@ while running:
         for j in range(0, 200, 25):
                 cameraSurface.blit(texture, (i, j))
 
-    # draw the images (without the camera) 
-    screen.blit(cameraSurface, (0, 0))
-
     # draw the instructions
-    pygamepal.drawText(screen, 'Arrow keys to pan, z/x to zoom', 300, 60)
+    pygamepal.drawText(screen, 'Arrow keys to pan, z/x to zoom', 190, 60)
 
     # use the camera to draw the images on the cameraSurface to the screen
     camera.draw(cameraSurface, screen)
