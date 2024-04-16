@@ -41,13 +41,13 @@ class Particles():
                  emitterPosition=(0, 0), emitterSize=(0, 0),
                  emitterLifetime=100,
                  emitterVelocity=(0, 0), emitterAcceleration=(0, 0),
-                 emitterParticleDelay=200,
+                 emitterParticleDelay=5,
                  # particle attributes
                  particleVelocityMin=(-1,-1), particleVelocityMax=(1,1),
                  particleAccelerationMin=(0,0), particleAccelerationMax=(0,0),
-                 particleLifetime=20,
+                 particleLifetime=100,
                  particleSize=20,
-                 particleSizeDecay=1,
+                 particleSizeDecay=0.2,
                  particleColors=None
                 ):
         
