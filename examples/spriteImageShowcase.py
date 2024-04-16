@@ -31,14 +31,14 @@ input = pygamepal.Input()
 # load a texture
 texture = pygame.image.load(os.path.join('images','character_spritesheet.png'))
 # double the texture size
-texture = pygame.transform.scale(texture, (texture.get_width()*2,texture.get_height()*2))
+texture = pygame.transform.scale(texture, (texture.get_width() * 2, texture.get_height() * 2))
 # split texture into a 2D list of sub-textures
 splitTextures = pygamepal.splitTexture(texture, 96, 96)
 
 # a sprite with a single texture
 spriteImage1 = pygamepal.SpriteImage()
 # simple alternative for single texture: spriteImage1.addTextures(pygame.image.load('image.png'))
-spriteImage1.addTextures(splitTextures[0][0], offset=(17*2, 16*2))
+spriteImage1.addTextures(splitTextures[0][0], offset=(17 * 2, 16 * 2))
 
 # an animated sprite with multiple textures
 spriteImage2 = pygamepal.SpriteImage()
@@ -48,7 +48,7 @@ spriteImage2.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures
 
 # a controllable sprite with multiple animation states
 spriteImage3 = pygamepal.SpriteImage()
-spriteImage3.addTextures(splitTextures[0][0], splitTextures[0][1], state='idle', offset=(17*2, 16*2))
+spriteImage3.addTextures(splitTextures[0][0], splitTextures[0][1], state='idle', offset=(17 * 2, 16 * 2))
 spriteImage3.addTextures(splitTextures[0][1], splitTextures[0][2], splitTextures[0][1], splitTextures[0][3], state='walk_down', offset=(17*2, 16*2))
 spriteImage3.addTextures(splitTextures[1][1], splitTextures[1][2], splitTextures[1][1], splitTextures[1][3], state='walk_up', offset=(17*2, 16*2))
 spriteImage3.addTextures(splitTextures[2][1], splitTextures[2][2], splitTextures[2][1], splitTextures[2][3], state='walk_left', offset=(17*2, 16*2))

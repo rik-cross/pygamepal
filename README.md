@@ -51,6 +51,8 @@ input.getKeyLongPressPercentage(keycode)
 ```
 <a name="spriteImage"></a>SpriteImage -- [Example](examples/spriteImageExample.py) // [Showcase](examples/spriteImageShowcase.py)
 
+![](examples/gifs/spriteImageExample.gif)
+
 ```
 # create new instance
 spriteImage = pygamepal.spriteImage()
@@ -76,6 +78,8 @@ spriteImage.pause
 
 <a name="camera"></a>Camera -- [Example](examples/cameraExample.py)
 
+![](examples/gifs/cameraExample.gif)
+
 ```
 # creates a new camera instance
 camera = pygamepal.Camera(position=(0, 0), size=(640, 480), target=(0, 0), zoom=1, backgroundColour='gray30', borderColour='black', borderThickness=2, clamp=False, clampRect=(0, 0, 1000, 1000), followDelay=0)
@@ -95,9 +99,9 @@ camera.draw(surface, destinationSurface)
 # creates a new particle emitter
 particles = pygamepal.particles(
     # emitter attributes
-    emitterPosition=(0, 0), emitterSize=(0, 0),
+    emitterPosition=(0,0), emitterSize=(0,0),
     emitterLifetime=100,
-    emitterVelocity=(0, 0), emitterAcceleration=(0, 0),
+    emitterVelocity=(0,0), emitterAcceleration=(0,0),
     emitterParticleDelay=5,
     # particle attributes
     particleVelocityMin=(-1,-1), particleVelocityMax=(1,1),
@@ -116,6 +120,8 @@ particles.draw(surface)
 ```
 
 <a name="transitions"></a>Transitions -- [Example](examples/transitionExample.py) // [Showcase](examples/transitionShowcase.py)
+
+![](examples/gifs/transitionExample.gif)
 
 Transition types:
 - TransitionFade
@@ -143,7 +149,7 @@ transition.draw(surface)
 
 # transition properties
 transition.duration = x # number of frames (default) / game time in ms
-transition.easingFunction = pygame.linear | pygame.bounceEaseOut
+transition.easingFunction = pygampal.bounceEaseOut
 ```
 
 <a name="functions"></a>Utility functions

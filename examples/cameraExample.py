@@ -33,20 +33,21 @@ texture = pygame.image.load(os.path.join('images','character.png'))
 # create surface for the camera to draw
 cameraSurface = pygame.Surface((200, 200), pygame.SRCALPHA, 32)
 
-camera = pygamepal.Camera(position=(190, 100),
-                          size=(300, 300),
-                          zoom=5,
-                          # the camera center
-                          target=(0, 0),
-                          borderThickness=4,
-                          borderColour='white',
-                          backgroundColour='gray10',
-                          # set a clamp rectangle that is the size of
-                          # the set of images to be drawn
-                          clamp = True,
-                          clampRect = (0, 0, 200-13, 200-9),
-                          # lazy follow (between 0 and 1)
-                          followDelay=0.9)
+camera = pygamepal.Camera(
+    position = (190, 100),
+    size = (300, 300),
+    zoom = 5,
+    # the camera center
+    target = (0, 0),
+    borderThickness = 4,
+    borderColour = 'white',
+    backgroundColour = 'gray10',
+    # set a clamp rectangle that is the size of
+    # the set of images to be drawn
+    clamp = True,
+    clampRect = (0, 0, 200 - 13, 200 - 9),
+    # lazy follow (between 0 and 1)
+    followDelay = 0.9)
 
 input = pygamepal.Input()
 
@@ -68,13 +69,13 @@ while running:
 
     # arrow keys to pan
     if input.isKeyDown(pygame.K_LEFT):
-        camera.target = (camera.target[0]-1, camera.target[1])
+        camera.target = (camera.target[0] - 1, camera.target[1])
     if input.isKeyDown(pygame.K_RIGHT):
-        camera.target = (camera.target[0]+1, camera.target[1])
+        camera.target = (camera.target[0] + 1, camera.target[1])
     if input.isKeyDown(pygame.K_UP):
-        camera.target = (camera.target[0], camera.target[1]-1)
+        camera.target = (camera.target[0], camera.target[1] - 1)
     if input.isKeyDown(pygame.K_DOWN):
-        camera.target = (camera.target[0], camera.target[1]+1)
+        camera.target = (camera.target[0], camera.target[1] + 1)
     
     # z/x to zoom
     if input.isKeyDown(pygame.K_z):

@@ -23,18 +23,18 @@ clock = pygame.time.Clock()
 
 snow = pygamepal.Particles(
     # positioned at the top of the screen
-    emitterPosition=(0, 0),
+    emitterPosition = (0, 0),
     # the particle emitter is the width of the screen
-    emitterSize=(680, 0),
+    emitterSize = (680, 0),
     # particle emitter never expires
-    emitterLifetime=-1,
-    emitterParticleDelay=5,
-    particleLifetime=250,
-    particleVelocityMin=(0, 3),
-    particleVelocityMax=(0, 3.5),
-    particleSize=2,
-    particleSizeDecay=0,
-    particleColors=['white']
+    emitterLifetime = -1,
+    emitterParticleDelay = 5,
+    particleLifetime = 250,
+    particleVelocityMin = (0, 3),
+    particleVelocityMax = (0, 3.5),
+    particleSize = 2,
+    particleSizeDecay= 0 ,
+    particleColors = ['white']
 )
 
 #
@@ -42,19 +42,19 @@ snow = pygamepal.Particles(
 #
 
 confetti = pygamepal.Particles(
-    emitterPosition=(340, 460),
+    emitterPosition = (340, 460),
     # particle emitter never expires
-    emitterLifetime=-1,
-    emitterParticleDelay=2,
-    particleLifetime=150,
+    emitterLifetime = -1,
+    emitterParticleDelay = 2,
+    particleLifetime = 150,
     # particles have downwawrd acceleration (gravity)
-    particleAccelerationMin=(0, 0.2),
-    particleAccelerationMax=(0, 0.2),
+    particleAccelerationMin = (0, 0.2),
+    particleAccelerationMax = (0, 0.2),
     # particles have upwards velocity, and some horizontal variance
-    particleVelocityMin=(-3, -10),
-    particleVelocityMax=(3, -10),
-    particleSize=5,
-    particleSizeDecay=0,
+    particleVelocityMin = (-3, -10),
+    particleVelocityMax = (3, -10),
+    particleSize = 5,
+    particleSizeDecay = 0,
     # particles can be any valid pygame colour
     particleColors= [c for c in pygame.color.THECOLORS.keys()]
 )
@@ -64,16 +64,16 @@ confetti = pygamepal.Particles(
 #
 
 dust = pygamepal.Particles(
-    emitterPosition=(340, 100),
-    emitterLifetime=-1,
-    emitterParticleDelay=5,
-    particleLifetime=50,
+    emitterPosition = (340, 100),
+    emitterLifetime = -1,
+    emitterParticleDelay = 5,
+    particleLifetime = 50,
     # particles have a small amount of random velocity
-    particleVelocityMin=(-2, -2),
-    particleVelocityMax=(2, 2),
-    particleSize=15,
-    particleSizeDecay=0.4,
-    particleColors=['gray60', 'gray70', 'gray80']
+    particleVelocityMin = (-2, -2),
+    particleVelocityMax = (2, 2),
+    particleSize = 15,
+    particleSizeDecay = 0.4,
+    particleColors = ['gray60', 'gray70', 'gray80']
 )
 
 # game loop

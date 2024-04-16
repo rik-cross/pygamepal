@@ -24,13 +24,13 @@ clock = pygame.time.Clock()
 # load a texture
 texture = pygame.image.load(os.path.join('images','character_spritesheet.png'))
 # double the texture size
-texture = pygame.transform.scale(texture, (texture.get_width()*2,texture.get_height()*2))
+texture = pygame.transform.scale(texture, (texture.get_width() * 2,texture.get_height() * 2))
 # split texture into a 2D list of sub-textures
 splitTextures = pygamepal.splitTexture(texture, 96, 96)
 
 # an animated sprite with multiple textures
 spriteImage = pygamepal.SpriteImage()
-spriteImage.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3], offset=(17*2, 16*2))
+spriteImage.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3], offset=(17 * 2, 16 * 2))
 # simple alternative for single textures:
 # spriteImage1.addTextures(pygame.image.load('image1.png'), pygame.image.load('image2.png'))
 

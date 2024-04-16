@@ -2,11 +2,13 @@ import pygame
 
 class Camera:
 
-    def __init__(self, position=(0, 0), size=(640, 480),
-                 target=(0, 0), zoom=1, backgroundColour='gray30',
-                 borderColour='black', borderThickness=2, 
-                 clamp=False, clampRect=(0, 0, 1000, 1000),
-                 followDelay=0):
+    def __init__(
+            self, position = (0, 0), size = (640, 480),
+            target = (0, 0), zoom = 1, backgroundColour = 'gray30',
+            borderColour='black', borderThickness = 2, 
+            clamp = False, clampRect = (0, 0, 1000, 1000),
+            followDelay = 0):
+        
         self.position = position
         self.size = size
         # sets the camera center
@@ -41,8 +43,8 @@ class Camera:
             else:
                 self.target = (self.target[0], self.clampRect[3] / 2)
         # update the target using the 'lazy follow' amount
-        self._currentTarget = (self._currentTarget[0]*self._followDelay + self.target[0]*(1-self._followDelay),
-                         self._currentTarget[1]*self._followDelay + self.target[1]*(1-self._followDelay))
+        self._currentTarget = (self._currentTarget[0] * self._followDelay + self.target[0] * (1-self._followDelay),
+                               self._currentTarget[1] * self._followDelay + self.target[1] * (1-self._followDelay))
         
                                   
     # draws the surface to the destination surface
@@ -57,10 +59,10 @@ class Camera:
         # fill the surface to the background color
         destSurface.fill(self.backgroundColour)
         # blit the (zoomed) surface to the destination, and set the target as the center
-        x = 0 - (self.size[0]/2 - self._currentTarget[0] * self._zoom)
-        y = 0 - (self.size[1]/2 - self._currentTarget[1] * self._zoom)
+        x = 0 - (self.size[0] / 2 - self._currentTarget[0] * self._zoom)
+        y = 0 - (self.size[1] / 2 - self._currentTarget[1] * self._zoom)
         # draw the surface to the destination using the correct position, size, center and zoom
-        destSurface.blit(pygame.transform.scale(surface, (surface.get_width()*self._zoom, surface.get_height()*self._zoom)), 
+        destSurface.blit(pygame.transform.scale(surface, (surface.get_width() * self._zoom, surface.get_height() * self._zoom)), 
                          self.position, 
                          (x, y,
                           self.size[0], self.size[1]))

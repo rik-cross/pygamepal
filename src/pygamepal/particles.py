@@ -38,9 +38,9 @@ class Particles():
 
     def __init__(self,
                  # emitter attributes
-                 emitterPosition=(0, 0), emitterSize=(0, 0),
+                 emitterPosition=(0,0), emitterSize=(0,0),
                  emitterLifetime=100,
-                 emitterVelocity=(0, 0), emitterAcceleration=(0, 0),
+                 emitterVelocity=(0,0), emitterAcceleration=(0,0),
                  emitterParticleDelay=5,
                  # particle attributes
                  particleVelocityMin=(-1,-1), particleVelocityMax=(1,1),

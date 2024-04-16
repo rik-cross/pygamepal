@@ -35,10 +35,11 @@ surface2.fill('goldenrod')
 surface2.blit(texture, (100, 100))
 
 # transition
-transition = pygamepal.TransitionWipeRight(surface1, 
-                                           surface2, 
-                                           duration=200, 
-                                           easingFunction=pygamepal.bounceEaseOut)
+transition = pygamepal.TransitionWipeRight(
+    surface1, 
+    surface2, 
+    duration = 200, 
+    easingFunction=pygamepal.bounceEaseOut)
 
 # game loop
 running = True
