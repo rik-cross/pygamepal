@@ -13,6 +13,7 @@ A library of classes and functions to support game development in Pygame.
 - [Input](#input)
 - [SpriteImage](#spriteImage)
 - [Camera](#camera)
+- [Particles](#particles)
 - [Transitions](#transitions)
 - [Utility Functions](#functions)
 
@@ -84,6 +85,35 @@ camera.update(deltaTime=1)
 
 # draws surface to the destinationSurface, using camera attributes
 camera.draw(surface, destinationSurface)
+```
+
+<a name="particles"></a>Particles -- [Example](examples/particlesExample.py) 
+
+![](examples/gifs/particlesExample.gif)
+
+```
+# creates a new particle emitter
+particles = pygamepal.particles(
+    # emitter attributes
+    emitterPosition=(0, 0), emitterSize=(0, 0),
+    emitterLifetime=100,
+    emitterVelocity=(0, 0), emitterAcceleration=(0, 0),
+    emitterParticleDelay=200,
+    # particle attributes
+    particleVelocityMin=(-1,-1), particleVelocityMax=(1,1),
+    particleAccelerationMin=(0,0), particleAccelerationMax=(0,0),
+    particleLifetime=20,
+    particleSize=20,
+    particleSizeDecay=1,
+    # a list of colours
+    particleColors=None
+)
+
+# update() must be called once per frame
+particles.update(deltaTime=1)
+
+# call draw() once per frame to draw all particles
+particles.draw(deltaTime=1)
 ```
 
 <a name="transitions"></a>Transitions -- [Example](examples/transitionExample.py) // [Showcase](examples/transitionShowcase.py)

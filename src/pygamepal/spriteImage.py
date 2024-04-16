@@ -17,7 +17,7 @@ class SpriteImage():
         self.pause = False
 
     # add one or more textures, with an associated state
-    def addTextures(self, firstTexture, *moreTextures, state=None, animationDelay=12, loop=True, hFlip=False, vFlip=False, offset=(0,0)):
+    def addTextures(self, firstTexture, *moreTextures, state=None, animationDelay=8, loop=True, hFlip=False, vFlip=False, offset=(0,0)):
         # allow textures with no attached state (for single-state images/animations)
         if state is None:
             state = 'default'
