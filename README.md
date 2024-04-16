@@ -112,7 +112,7 @@ particles = pygamepal.particles(
 particles.update(deltaTime=1)
 
 # call draw() once per frame to draw all particles
-particles.draw(deltaTime=1)
+particles.draw(surface)
 ```
 
 <a name="transitions"></a>Transitions -- [Example](examples/transitionExample.py) // [Showcase](examples/transitionShowcase.py)
