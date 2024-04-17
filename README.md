@@ -51,7 +51,7 @@ input.getKeyLongPressPercentage(keycode)
 ```
 <a name="spriteImage"></a>SpriteImage -- [Example](examples/spriteImageExample.py) // [Showcase](examples/spriteImageShowcase.py)
 
-![](examples/gifs/spriteImageExample.gif)
+<img src="examples/gifs/spriteImageExample.gif" width="480">
 
 ```
 # create new instance
@@ -78,7 +78,7 @@ spriteImage.pause
 
 <a name="camera"></a>Camera -- [Example](examples/cameraExample.py)
 
-![](examples/gifs/cameraExample.gif)
+<img src="examples/gifs/cameraExample.gif" width="480">
 
 ```
 # creates a new camera instance
@@ -93,7 +93,7 @@ camera.draw(surface, destinationSurface)
 
 <a name="particles"></a>Particles -- [Example](examples/particlesExample.py) 
 
-![](examples/gifs/particlesExample.gif)
+<img src="examples/gifs/particlesExample.gif" width="480">
 
 ```
 # creates a new particle emitter
@@ -121,7 +121,7 @@ particles.draw(surface)
 
 <a name="transitions"></a>Transitions -- [Example](examples/transitionExample.py) // [Showcase](examples/transitionShowcase.py)
 
-![](examples/gifs/transitionExample.gif)
+<img src="examples/gifs/transitionExample.gif" width="480">
 
 Transition types:
 - TransitionFade
