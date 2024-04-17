@@ -28,23 +28,23 @@ class Camera:
         if self.clamp:
             # clamp x
             if (self.clampRect[2] - self.clampRect[0]) * self._zoom > self.size[0]:
-                left = ((self.size[0]/2) / self._zoom) + self.clampRect[0]
-                right = ((self.size[0]/2) / self._zoom * -1) + self.clampRect[2]
+                left = ((self.size[0] / 2) / self._zoom) + self.clampRect[0]
+                right = ((self.size[0] / 2) / self._zoom * -1) + self.clampRect[2]
                 self.target = (max(left, min(right, self.target[0])),
                                self.target[1])
             else:
                 self.target = (self.clampRect[2] / 2, self.target[1])
             # clamp y
             if (self.clampRect[3] - self.clampRect[1]) * self._zoom > self.size[1]:
-                top = ((self.size[1]/2) / self._zoom) + self.clampRect[1]
-                bottom = ((self.size[1]/2) / self._zoom * -1) + self.clampRect[3]
+                top = ((self.size[1] / 2) / self._zoom) + self.clampRect[1]
+                bottom = ((self.size[1] / 2) / self._zoom * -1) + self.clampRect[3]
                 self.target = (self.target[0],
                                max(top, min(bottom, self.target[1])))
             else:
                 self.target = (self.target[0], self.clampRect[3] / 2)
         # update the target using the 'lazy follow' amount
-        self._currentTarget = (self._currentTarget[0] * self._followDelay + self.target[0] * (1-self._followDelay),
-                               self._currentTarget[1] * self._followDelay + self.target[1] * (1-self._followDelay))
+        self._currentTarget = (self._currentTarget[0] * self._followDelay + self.target[0] * (1 - self._followDelay),
+                               self._currentTarget[1] * self._followDelay + self.target[1] * (1 - self._followDelay))
         
                                   
     # draws the surface to the destination surface
@@ -53,7 +53,7 @@ class Camera:
         # draw border
         pygame.draw.rect(destSurface, self.borderColour, 
                          (self.position[0] - self.borderThickness, self.position[1] - self.borderThickness, 
-                          self.size[0] + self.borderThickness*2, self.size[1] + self.borderThickness*2), self.borderThickness, border_radius=1)
+                          self.size[0] + self.borderThickness * 2, self.size[1] + self.borderThickness * 2), self.borderThickness, border_radius = 1)
         # ensure that the surface is clipped to the camera dimensions
         destSurface.set_clip((self.position[0], self.position[1], self.size[0], self.size[1]))
         # fill the surface to the background color

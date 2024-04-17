@@ -45,7 +45,7 @@ class SpriteImage():
             return (0, 0)
         # get the current animation frame
         currentTexture = self._textureLists[self._currentState]._textures[self._animationIndex]
-        return (currentTexture.get_width()/2, currentTexture.get_height()/2)
+        return (currentTexture.get_width() / 2, currentTexture.get_height() / 2)
 
     # must be called once per frame to update sprite
     def update(self):

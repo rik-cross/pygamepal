@@ -103,7 +103,7 @@ while running:
     # draw multiple images to the surface to be rendered by the camera
     for i in range(0, 200, 25):
         for j in range(0, 200, 25):
-                cameraSurface.blit(texture, (i, j))
+            cameraSurface.blit(texture, (i, j))
 
     # draw the instructions
     pygamepal.drawText(screen, 'Arrow keys to pan, z/x to zoom', 190, 60)

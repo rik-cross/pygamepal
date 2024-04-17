@@ -22,7 +22,7 @@ import os
 # load a texture
 texture = pygame.image.load(os.path.join('images','character_spritesheet.png'))
 # double the texture size
-texture = pygame.transform.scale(texture, (texture.get_width()*2,texture.get_height()*2))
+texture = pygame.transform.scale(texture, (texture.get_width()*2,texture.get_height() * 2))
 # split texture into a 2D list of sub-textures
 splitTextures = pygamepal.splitTexture(texture, 96, 96)
 
@@ -56,11 +56,11 @@ class MyGame(pygamepal.Game):
         
         # add a spriteImage to the player sprite, including 5 different states
         self.player.spriteImage = pygamepal.SpriteImage()
-        self.player.spriteImage.addTextures(splitTextures[0][0], splitTextures[0][1], state='idle', offset=(17*2, 16*2))
-        self.player.spriteImage.addTextures(splitTextures[0][1], splitTextures[0][2], splitTextures[0][1], splitTextures[0][3], state='walk_down', offset=(17*2, 16*2))
-        self.player.spriteImage.addTextures(splitTextures[1][1], splitTextures[1][2], splitTextures[1][1], splitTextures[1][3], state='walk_up', offset=(17*2, 16*2))
-        self.player.spriteImage.addTextures(splitTextures[2][1], splitTextures[2][2], splitTextures[2][1], splitTextures[2][3], state='walk_left', offset=(17*2, 16*2))
-        self.player.spriteImage.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3], state='walk_right', offset=(17*2, 16*2))
+        self.player.spriteImage.addTextures(splitTextures[0][0], splitTextures[0][1], state='idle', offset=(17 * 2, 16 * 2))
+        self.player.spriteImage.addTextures(splitTextures[0][1], splitTextures[0][2], splitTextures[0][1], splitTextures[0][3], state='walk_down', offset=(17 * 2, 16 * 2))
+        self.player.spriteImage.addTextures(splitTextures[1][1], splitTextures[1][2], splitTextures[1][1], splitTextures[1][3], state='walk_up', offset=(17 * 2, 16 * 2))
+        self.player.spriteImage.addTextures(splitTextures[2][1], splitTextures[2][2], splitTextures[2][1], splitTextures[2][3], state='walk_left', offset=(17 * 2, 16 * 2))
+        self.player.spriteImage.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3], state='walk_right', offset=(17 * 2, 16 * 2))
         
         # set player position and size
         #self.player.position = [160, 160]
@@ -71,17 +71,17 @@ class MyGame(pygamepal.Game):
         # create a camera object
         #
 
-        self.camera = pygamepal.Camera(position=(50, 50),
-                                          size=(700, 400),
-                                          # center the camera on the player
-                                          target=(self.player.rect.x + self.player.rect.w/2, 
-                                                  self.player.rect.y + self.player.rect.h/2),
-                                          zoom=3,
-                                          backgroundColour='darkgreen',
-                                          # clamp the camera to the world
-                                          clamp=True,
-                                          clampRect=(0, 0, 500, 500),
-                                          followDelay=0.9)
+        self.camera = pygamepal.Camera(position = (50, 50),
+                                       size = (700, 400),
+                                       # center the camera on the player
+                                       target = (self.player.rect.x + self.player.rect.w / 2, 
+                                                 self.player.rect.y + self.player.rect.h / 2),
+                                       zoom = 3,
+                                       backgroundColour = 'darkgreen',
+                                       # clamp the camera to the world
+                                       clamp = True,
+                                       clampRect = (0, 0, 500, 500),
+                                       followDelay = 0.9)
         
         # create a separate surface for drawing the world
         # this surface will be used by the camera
@@ -125,8 +125,8 @@ class MyGame(pygamepal.Game):
         self.camera.update()
         
         # track the player with the camera
-        self.camera.target = (self.player.rect.x + self.player.rect.w/2, 
-                              self.player.rect.y + self.player.rect.h/2)
+        self.camera.target = (self.player.rect.x + self.player.rect.w / 2,
+        self.player.rect.y + self.player.rect.h / 2)
         
     def draw(self):
 

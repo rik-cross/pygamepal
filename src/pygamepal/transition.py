@@ -15,7 +15,7 @@ def bounceEaseOut(x):
 
 class Transition:
 
-    def __init__(self, fromSurface=None, toSurface=None, duration=100, drawMethod=None, easingFunction=None):
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
 
         self.fromSurface = fromSurface
         self.toSurface = toSurface
@@ -49,7 +49,7 @@ class Transition:
 
 class TransitionFade(Transition):
 
-    def __init__(self, fromSurface=None, toSurface=None, duration=100, drawMethod=None, easingFunction=linear):
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = linear):
         super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
 
     def draw(self, surface):
@@ -66,7 +66,7 @@ class TransitionFade(Transition):
 
 class TransitionFadeToBlack(Transition):
 
-    def __init__(self, fromSurface=None, toSurface=None, duration=100, drawMethod=None, easingFunction=None):
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
         super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
         self.blacksurface = pygame.Surface((self.fromSurface.get_width(), self.fromSurface.get_height()), pygame.SRCALPHA, 32)
         self.blacksurface.fill('black')
@@ -87,7 +87,7 @@ class TransitionFadeToBlack(Transition):
 
 class TransitionWipeLeft(Transition):
 
-    def __init__(self, fromSurface=None, toSurface=None, duration=100, drawMethod=None, easingFunction=None):
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
         super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
 
     def draw(self, surface):
@@ -104,7 +104,7 @@ class TransitionWipeLeft(Transition):
 
 class TransitionWipeRight(Transition):
 
-    def __init__(self, fromSurface=None, toSurface=None, duration=100, drawMethod=None, easingFunction=None):
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
         super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
 
     def draw(self, surface):
@@ -121,7 +121,7 @@ class TransitionWipeRight(Transition):
 
 class TransitionWipeUp(Transition):
 
-    def __init__(self, fromSurface=None, toSurface=None, duration=100, drawMethod=None, easingFunction=None):
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
         super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
 
     def draw(self, surface):
@@ -138,7 +138,7 @@ class TransitionWipeUp(Transition):
 
 class TransitionWipeDown(Transition):
 
-    def __init__(self, fromSurface=None, toSurface=None, duration=100, drawMethod=None, easingFunction=None):
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
         super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
 
     def draw(self, surface):
@@ -155,7 +155,7 @@ class TransitionWipeDown(Transition):
 
 class TransitionMoveLeft(Transition):
 
-    def __init__(self, fromSurface=None, toSurface=None, duration=100, drawMethod=None, easingFunction=None):
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
         super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
 
     def draw(self, surface):
@@ -174,7 +174,7 @@ class TransitionMoveLeft(Transition):
 
 class TransitionMoveRight(Transition):
 
-    def __init__(self, fromSurface=None, toSurface=None, duration=100, drawMethod=None, easingFunction=None):
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
         super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
 
     def draw(self, surface):
@@ -193,7 +193,7 @@ class TransitionMoveRight(Transition):
 
 class TransitionMoveUp(Transition):
 
-    def __init__(self, fromSurface=None, toSurface=None, duration=100, drawMethod=None, easingFunction=None):
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
         super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
 
     def draw(self, surface):
@@ -212,7 +212,7 @@ class TransitionMoveUp(Transition):
 
 class TransitionMoveDown(Transition):
 
-    def __init__(self, fromSurface=None, toSurface=None, duration=100, drawMethod=None, easingFunction=None):
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
         super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
 
     def draw(self, surface):
