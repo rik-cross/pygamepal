@@ -33,7 +33,7 @@ self.draw()
 self.quit()
 ```
 
-<a name="input"></a>Input -- [Example](examples/inputExample.py)
+<a name="input"></a>Input -- [Key Example](examples/keyInputExample.py) // [Mouse Example](examples/mouseInputExample.py)
 
 ```
 # create new instance
@@ -41,13 +41,24 @@ input = pygamepal.Input(longPressDuration=60)
 
 # update() must be called once per frame
 input.update(deltaTime=1)
+# key press methods
 input.isKeyDown(keycode)
 input.isKeyPressed(keycode)
+input.isKeyDoublePressed(keycode)
 input.isKeyReleased(keycode)
 input.getKeyDownDuration(keycode)
 input.isKeyLongDown(keycode)
 input.isKeyLongPressed(keycode)
 input.getKeyLongPressPercentage(keycode)
+# mouse button methods
+input.isMouseButtonDown(mouseButton)
+input.isMouseButtonPressed(mouseButton)
+input.isMouseButtonDoublePressed(mouseButton)
+input.isMouseButtonReleased(mouseButton)
+input.getMouseButtonDownDuration(mouseButton)
+input.isMouseButtonLongDown(mouseButton)
+input.isMouseButtonLongPressed(mouseButton)
+input.getMouseButtonLongPressPercentage(mouseButton)
 ```
 <a name="spriteImage"></a>SpriteImage -- [Example](examples/spriteImageExample.py) // [Showcase](examples/spriteImageShowcase.py)
 

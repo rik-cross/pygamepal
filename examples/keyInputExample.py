@@ -17,7 +17,7 @@ pygame.init()
 
 # setup screen
 screen = pygame.display.set_mode((680, 460))
-pygame.display.set_caption('Input Example')
+pygame.display.set_caption('Key Input Example')
 clock = pygame.time.Clock()
 
 input = pygamepal.Input()
@@ -26,8 +26,8 @@ input = pygamepal.Input()
 running = True
 while running:
 
-    # advance clock (10 FPS so that text is easier to read)
-    clock.tick(10)
+    # advance clock
+    clock.tick(60)
 
     deltaTime = clock.get_time()
 
@@ -47,7 +47,7 @@ while running:
     #
 
     # update input manager
-    input.update(deltaTime)
+    input.update()
 
     #
     # draw
@@ -60,6 +60,7 @@ while running:
     key = pygame.K_RETURN
     text = "Return key -- down: " + str(input.isKeyDown(key)) + \
         ", pressed: " + str(input.isKeyPressed(key)) + \
+        ", double pressed: " + str(input.isKeyDoublePressed(key)) + \
         ", released: " + str(input.isKeyReleased(key)) + \
         ", duration: " + str(input.getKeyDownDuration(key)) + \
         ", long down: " + str(input.isKeyLongDown(key)) + \
