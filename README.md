@@ -164,9 +164,9 @@ transition.duration = x # number of frames (default) / game time in ms
 transition.easingFunction = pygampal.bounceEaseOut
 ```
 
-<a name="triggers"></a>Triggers -- [Example](examples/triggersExample.py)
+<a name="triggers"></a>Triggers -- [Example](examples/triggerExample.py)
 
-<img src="examples/gifs/triggersExample.gif" width="480">
+<img src="examples/gifs/triggerExample.gif" width="480">
 
 ```
 # creates a new trigger
