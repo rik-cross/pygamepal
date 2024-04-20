@@ -37,7 +37,7 @@ self.quit()
 
 ```
 # create new instance
-input = pygamepal.Input(longPressDuration=60)
+input = pygamepal.Input(longPressDuration=60, doublePressTimeout=30)
 
 # update() must be called once per frame
 input.update(deltaTime=1)
