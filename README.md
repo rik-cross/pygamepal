@@ -15,6 +15,7 @@ A library of classes and functions to support game development in Pygame.
 - [Camera](#camera)
 - [Particles](#particles)
 - [Transitions](#transitions)
+- [Triggers](#triggers)
 - [Utility Functions](#functions)
 
 <a name="game"></a>Game (create a game with minimal setup) -- [Template](templates/gameTemplate.py) // [Example](examples/gameExample.py)
@@ -161,6 +162,25 @@ transition.draw(surface)
 # transition properties
 transition.duration = x # number of frames (default) / game time in ms
 transition.easingFunction = pygampal.bounceEaseOut
+```
+
+<a name="triggers"></a>Triggers -- [Example](examples/triggersExample.py)
+
+<img src="examples/gifs/triggersExample.gif" width="480">
+
+```
+# creates a new trigger
+# onCollide is executed every frame that this trigger collides with another
+# onEnter is executed once on collision
+# onExit is executed once when triggers are no longer colliding
+# these functions should be of the form, e.g.:
+# def onEnter(thisTrigger, otherTrigger):
+#     ...
+trigger = pygamepal.Trigger(x=0, y=0, w=10, h=10, onEnter=None, onCollide=None, onExit=None)
+# update() must be called once per frame
+trigger.update(deltaTime=1)
+# you can call draw() to see triggers
+trigger.draw(screen)
 ```
 
 <a name="functions"></a>Utility functions

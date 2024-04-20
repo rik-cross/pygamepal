@@ -63,8 +63,6 @@ class MyGame(pygamepal.Game):
         self.player.spriteImage.addTextures(splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3], state='walk_right', offset=(17 * 2, 16 * 2))
         
         # set player position and size
-        #self.player.position = [160, 160]
-        #self.player.size = (28, 32)
         self.player.rect = pygame.Rect(160, 160, 28, 32)
 
         #
