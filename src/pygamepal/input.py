@@ -15,6 +15,10 @@ class Input():
         self.currentMouseButtonStates = pygame.mouse.get_pressed()
         self.previousMouseButtonStates = pygame.mouse.get_pressed()
 
+        # store previous mouse position
+        self.currentMousePosition = pygame.mouse.get_pos()
+        self.previousMousePosition = pygame.mouse.get_pos()
+
         # set long press durations
         self._keyPressDurations = [0 for _ in range(len(self.currentKeyStates))]
         self._mouseButtonDurations = [0 for _ in range(len(self.currentMouseButtonStates))]
@@ -75,6 +79,10 @@ class Input():
         # update mouse presses
         self.previousMouseButtonStates = self.currentMouseButtonStates
         self.currentMouseButtonStates = pygame.mouse.get_pressed()
+
+        # update mouse position
+        self.previousMousePosition = self.currentMousePosition
+        self.currentMousePosition = pygame.mouse.get_pos()
         
         # update mouse button press durations
         for i in range(len(self._mouseButtonDurations)):
@@ -160,7 +168,22 @@ class Input():
 
     # returns the pygame mouse pointer position
     def getMouseCursorPosition(self):
-        return pygame.mouse.get_pos()
+        return self.currentMousePosition
+
+    # returns the (x,y) movement of the mouse
+    def getMouseDirection(self):
+        direction = (0, 0)
+        currentPosition = self.currentMousePosition
+        if currentPosition[0] < self.previousMousePosition[0]:
+            direction = (-1, direction[1])
+        elif currentPosition[0] > self.previousMousePosition[0]:
+            direction = (1, direction[1])
+        if currentPosition[1] < self.previousMousePosition[1]:
+            direction = (direction[0], -1)
+        elif currentPosition[1] > self.previousMousePosition[1]:
+            direction = (direction[0], 1)
+        return direction
+        
 
     # returns true if the mouse button specified
     # is held down during the current frame

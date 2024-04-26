@@ -21,17 +21,25 @@ A library of classes and functions to support game development in Pygame.
 <a name="game"></a>Game (create a game with minimal setup) -- [Template](templates/gameTemplate.py) // [Example](examples/gameExample.py)
 
 ``` 
+# create new game subclass and instance
+class MyGame(pygamepal.Game):
+    # add init(), update() and draw() methods
+myGame = MyGame()
+myGame.run()
+
+# properties
 self.size = (x, y)
 self.caption = 'text'
 self.icon = pygame.image.load('imageURL')
 self.fps = x
 self.screen
 self.gameTime
+self.events
 
+# methods to create in subclass
 self.init()
 self.update(gameTime)
 self.draw()
-self.quit()
 ```
 
 <a name="input"></a>Input -- [Key Example](examples/keyInputExample.py) // [Mouse Example](examples/mouseInputExample.py)
@@ -94,7 +102,22 @@ spriteImage.pause
 
 ```
 # creates a new camera instance
-camera = pygamepal.Camera(position=(0, 0), size=(640, 480), target=(0, 0), zoom=1, backgroundColour='gray30', borderColour='black', borderThickness=2, clamp=False, clampRect=(0, 0, 1000, 1000), followDelay=0)
+camera = pygamepal.Camera(
+    self, position = (0, 0), size = (640, 480),
+    target = (0, 0),
+    # follow delay is a (clamped) value between
+    # 0 (instant snap to target) and 1 (no movement)
+    lazyFollow = 0,
+    # passed value for 'zoom' will be clamped
+    # between 'minZoom' and 'maxZoom' values
+    zoom = 1, minZoom = 0.1, maxZoom = 10,
+    # zoom follow delay is a (clamped) value between
+    # 0 (instant zoom) and 1 (no zoom)
+    lazyZoom = 0,
+    backgroundColour = 'gray30',
+    borderColour='black', borderThickness = 2, 
+    clamp = False, clampRect = (0, 0, 1000, 1000)
+)
 
 # update() must be called once per frame
 camera.update(deltaTime=1)

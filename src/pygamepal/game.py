@@ -2,33 +2,45 @@ import pygame
 
 class Game:
 
-    def __init__(self):
+    def __init__(self, size = (640, 480), caption = '', fps = 60, fullscreen = False):
+       
         pygame.init()
-        self.size = (640, 480)
-        self.caption = ''
-        self.fps = 60
-        self.fullscreen = False
+        self.size = size
+        self.caption = caption
+        self.fps = fps
+        self.fullscreen = fullscreen
+
         self.init()
+
         # start window in windowed or fullscreen mode
         if self.fullscreen:
             self.screen = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
         else:
             self.screen = pygame.display.set_mode(self.size)
+
         pygame.display.set_caption(self.caption)
         self.clock = pygame.time.Clock() 
+
         # total elapsed game time
         self.startTime = pygame.time.get_ticks()
         self.gameTime = self.startTime
         self._running = False
+        
+        # store events so that they aren't 'consumed' by the class
+        self.events = []
 
     def init(self):
         pass
 
     def _update(self):
+        # reset events
+        self.events = []
         # respond to quit event
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self._running = False
+            else:
+                self.events.append(event)
         # calculate delta time
         deltaTime = self.clock.tick(self.fps) / 1000
         # calculate total elapsed time

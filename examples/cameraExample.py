@@ -28,26 +28,27 @@ clock = pygame.time.Clock()
 input = pygamepal.Input()
 
 # load a texture
-texture = pygame.image.load(os.path.join('images','character.png'))
+mapTexture = pygame.image.load(os.path.join('images','map.png'))
 
 # create surface for the camera to draw
-cameraSurface = pygame.Surface((200, 200), pygame.SRCALPHA, 32)
+cameraSurface = pygame.Surface(mapTexture.get_size(), pygame.SRCALPHA, 32)
 
 camera = pygamepal.Camera(
     position = (190, 100),
     size = (300, 300),
-    zoom = 5,
     # the camera center
-    target = (0, 0),
-    borderThickness = 4,
-    borderColour = 'white',
+    target = (100, 100),
+    # lazy follow target (between 0 and 1)
+    lazyFollow = 0.9,
+    zoom = 5,
     backgroundColour = 'gray10',
+    borderColour = 'white',
+    borderThickness = 4,
     # set a clamp rectangle that is the size of
     # the set of images to be drawn
     clamp = True,
-    clampRect = (0, 0, 200 - 13, 200 - 9),
-    # lazy follow (between 0 and 1)
-    followDelay = 0.9)
+    clampRect = (0, 0, mapTexture.get_size()[0], mapTexture.get_size()[0])
+    )
 
 input = pygamepal.Input()
 
@@ -100,10 +101,8 @@ while running:
     # don't forget to clear the camera surface!
     cameraSurface.fill((0, 0, 0, 0))
 
-    # draw multiple images to the surface to be rendered by the camera
-    for i in range(0, 200, 25):
-        for j in range(0, 200, 25):
-            cameraSurface.blit(texture, (i, j))
+    # draw the map
+    cameraSurface.blit(mapTexture, (0, 0))
 
     # draw the instructions
     pygamepal.drawText(screen, 'Arrow keys to pan, z/x to zoom', 190, 60)
