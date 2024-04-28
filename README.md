@@ -240,6 +240,20 @@ button = pygamepal.Button(
 # call update() and draw() each frame
 button.update(deltaTime = 1)
 button.draw(screen)
+
+# if creating your own update method, you
+# may want to use the following methods
+# to set the button state
+self.setHighlighted()
+self.setSelected()
+
+# if creating your own draw method, you
+# may want to use the following methods
+# to draw the button components
+self.drawBackground(screen)
+self.drawImage(screen)
+self.drawText(screen)
+self.drawBorder(screen)
 ```
 
 <a name="functions"></a>Utility functions
