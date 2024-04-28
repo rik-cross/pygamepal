@@ -1,4 +1,4 @@
-__version__ = "0.4.1"
+__version__ = "0.5.0"
 __author__ = 'Rik Cross'
 __license__ = 'MIT'
 
@@ -11,6 +11,7 @@ from .camera import *
 from .particles import *
 from .spriteImage import *
 from .trigger import *
+from .button import *
 
 from .textureList import *
 from .splitTexture import *
