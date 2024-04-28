@@ -16,6 +16,7 @@ A library of classes and functions to support game development in Pygame.
 - [Particles](#particles)
 - [Transitions](#transitions)
 - [Triggers](#triggers)
+- [Buttons](#buttons)
 - [Utility Functions](#functions)
 
 <a name="game"></a>Game (create a game with minimal setup) -- [Template](templates/gameTemplate.py) // [Example](examples/gameExample.py)
@@ -206,6 +207,39 @@ trigger.update(deltaTime=1)
 
 # you can call draw() to see triggers
 trigger.draw(screen)
+```
+
+<a name="buttons"></a>Buttons -- [Example](examples/buttonExample.py)
+
+<img src="examples/gifs/buttonExample.gif" width="480">
+
+```
+# create a new button
+button = pygamepal.Button(
+    # input is not optional
+    input,
+    position = (0,0), size = (100,50),
+    label = None,
+    fgColor = 'white', bgColor = 'black',
+    borderWidth = 1,
+    borderColor = 'white',
+    image = None,
+    # this method called when highlighted
+    onHighlighted = None,
+    # this method is called when selected
+    onSelected = None,
+    # updateMethod and drawMethod give the ability
+    # to override default button befaviour
+    updateMethod = None,
+    drawMethod = None,
+    # a keycode can also be associated with a button
+    # (only works if pygamepal.input is specified)
+    keyCode = None
+)
+
+# call update() and draw() each frame
+button.update(deltaTime = 1)
+button.draw(screen)
 ```
 
 <a name="functions"></a>Utility functions

@@ -68,7 +68,6 @@ def button2Draw(button, screen):
 # button 1 is a simple button implementation
 button1 = pygamepal.Button(input=input,
                            position = (100, 100),
-                           size = (100, 50),
                            label = 'Button 1',
                            onSelected = buttonClicked,
                            keyCode = pygame.K_1)
@@ -76,7 +75,6 @@ button1 = pygamepal.Button(input=input,
 # button 2 demonstrates more advanced features
 button2 = pygamepal.Button(input = input,
                            position = (100, 300),
-                           size = (100, 50),
                            label = 'Button 2',
                            updateMethod = button2Update,
                            drawMethod = button2Draw,

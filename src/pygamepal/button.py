@@ -6,7 +6,7 @@ class Button:
     def __init__(self,
                  # input is not optional
                  input,
-                 position = (0,0), size = (32,32),
+                 position = (0, 0), size = (100, 50),
                  label = None,
                  fgColor = 'white', bgColor = 'black',
                  borderWidth = 1,
