@@ -183,7 +183,6 @@ class Input():
         elif currentPosition[1] > self.previousMousePosition[1]:
             direction = (direction[0], 1)
         return direction
-        
 
     # returns true if the mouse button specified
     # is held down during the current frame
