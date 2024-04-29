@@ -1,11 +1,13 @@
 # PygamePal
 A library of classes and functions to support game development in Pygame.
-- [Add suggestions and bugs here](https://github.com/rik-cross/pygamepal/issues)!
+- Simple, beginner-friendly interface.
+- Choose the bits you want to use, and continue to use Pygame for everything else!
 
 ### Usage
 - `pip install pygamepal` or `pip install --upgrade pygamepal`
-
 - [Full example](examples/fullExample.py), using lots of pygamepal functionality
+
+[Add suggestions and bugs here](https://github.com/rik-cross/pygamepal/issues)!
 
 ### Contents
 
