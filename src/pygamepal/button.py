@@ -43,8 +43,8 @@ class Button:
         self.drawMethod = drawMethod
         self.keyCode = keyCode
 
-        self.highlighted = False
-        self.selected = False
+        self._isHighlighted = False
+        self._isSelected = False
     
     def update(self):
 
@@ -76,10 +76,10 @@ class Button:
 
     def setHighlighted(self):
         # button is highlighted if mouse is within button bounds
-        self.highlighted = False
+        self._isHighlighted = False
         cursor = self.input.getMouseCursorPosition()
         if self._isWithinBounds(cursor, (self.position[0], self.position[1], self.size[0], self.size[1])):
-            self.highlighted = True
+            self._isHighlighted = True
             if self.onHighlighted is not None:
                 self.onHighlighted(self)
 
@@ -87,12 +87,12 @@ class Button:
         # button is selected if either
         # -- key is pressed, or
         # -- mouse button is pressed and within bounds
-        self.selected = False
+        self._isSelected = False
         cursor = self.input.getMouseCursorPosition()
         if (self.keyCode is not None and self.input.isKeyPressed(self.keyCode)) or \
             (self._isWithinBounds(cursor, (self.position[0], self.position[1], self.size[0], self.size[1])) and \
             self.input.isMouseButtonPressed(0)):
-            self.selected = True
+            self._isSelected = True
             if self.onSelected is not None:
                 self.onSelected(self)
 
@@ -114,7 +114,9 @@ class Button:
 
     def drawText(self, screen):
         # draw text
-        drawText(screen, text = self.label, x = self.position[0] + self.size[0] / 2, y = self.position[1] + self.size[1] / 2, color = self.fgColor, centerX = True, centerY = True)
+        drawText(screen, text = self.label,
+                 position = (self.position[0] + self.size[0] / 2, self.position[1] + self.size[1] / 2),
+                 color = self.fgColor, centerX = True, centerY = True)
 
     def drawBorder(self, screen):
         # draw border
@@ -123,3 +125,17 @@ class Button:
                              self.fgColor,
                              (self.position[0], self.position[1], self.size[0], self.size[1]),
                              width = 1)
+    
+    #
+    # properties
+    #
+
+    # True when the button is hoghlighted
+    @property
+    def isHighlighted(self):
+        return self._isHighlighted
+    
+    # True when the button is selected
+    @property
+    def isSelected(self):
+        return self._isSelected   

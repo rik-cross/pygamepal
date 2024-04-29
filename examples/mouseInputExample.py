@@ -38,12 +38,6 @@ while running:
             running = False
 
     #
-    # input
-    #
-
-    # none
-
-    #
     # update
     #
 

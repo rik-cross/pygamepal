@@ -159,11 +159,11 @@ while running:
     
     currentTransition.draw(screen)
     
-    pygamepal.drawText(screen, str(currentTransition), 20, 20)
-    pygamepal.drawText(screen, 'Duration: ' + str(currentTransition.duration), 20, 40)
-    pygamepal.drawText(screen, 'Easing function: ' + str(currentTransition.easingFunction), 20, 60)
-    pygamepal.drawText(screen, '% complete: ' + str(round(currentTransition.currentPercentage, 2)), 20, 80)
-    pygamepal.drawText(screen, 'Playing: ' + str(play), 20, 100)
+    pygamepal.drawText(screen, str(currentTransition), (20, 20))
+    pygamepal.drawText(screen, 'Duration: ' + str(currentTransition.duration), (20, 40))
+    pygamepal.drawText(screen, 'Easing function: ' + str(currentTransition.easingFunction), (20, 60))
+    pygamepal.drawText(screen, '% complete: ' + str(round(currentTransition.currentPercentage, 2)), (20, 80))
+    pygamepal.drawText(screen, 'Playing: ' + str(play), (20, 100))
 
     # draw scrubber
     pygame.draw.line(screen, 'white', (100, 410), (580, 410), width=4)

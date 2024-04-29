@@ -11,8 +11,6 @@
 import pygame
 import pygamepal
 
-import pygamepal
-
 #
 # collision functions
 #
@@ -89,7 +87,7 @@ while running:
     trigger1.draw(screen)
     trigger2.draw(screen)
 
-    pygamepal.drawText(screen, "Arrow keys to move trigger 1", 10, 10)
+    pygamepal.drawText(screen, "Arrow keys to move trigger 1", (10, 10))
 
     # draw to the screen
     pygame.display.flip()

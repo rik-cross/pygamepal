@@ -39,7 +39,7 @@ def button2Update(button):
     # update a counter for drawing an arrow
     button.counter += 0.15
     # change the foreground and border if highlighted
-    if button.highlighted:
+    if button.isHighlighted:
         button.fgColor = 'white'
         button.borderWidth = 1
     else:
@@ -56,7 +56,7 @@ def button2Draw(button, screen):
     button.drawBorder(screen)
     # add another image to the highlighted button
     # that moved in a cosine wave left-to-right
-    if button.highlighted:
+    if button.isHighlighted:
         position = (button.position[0] - button.arrow.get_width() + cos(button.counter) * 8,
                     button.position[1] + button.size[1] / 2 - button.arrow.get_height() / 2)
         screen.blit(button.arrow, position)
@@ -117,8 +117,8 @@ while running:
     button2.draw(screen)
 
     # draw instructions
-    pygamepal.drawText(screen, 'Click or press [1]', 100, 60)
-    pygamepal.drawText(screen, 'Click or press [2]', 100, 260)
+    pygamepal.drawText(screen, 'Click or press [1]', (100, 60))
+    pygamepal.drawText(screen, 'Click or press [2]', (100, 260))
 
     # draw to the screen
     pygame.display.flip()

@@ -4,7 +4,12 @@ import pygame
 pygame.font.init()
 sysFont = pygame.font.SysFont(None, 24)
 
-def drawText(screen, text, x = 0, y = 0, font = None, antialias = True, color = (255, 255, 255), background = None, centerX = False, centerY = False):
+def drawText(screen, text,
+             position = [0, 0],
+             font = None,
+             antialias = True,
+             color = 'white', background = None,
+             centerX = False, centerY = False):
     
     # use the default 'system' font if none specified
     if font is None:
@@ -15,9 +20,9 @@ def drawText(screen, text, x = 0, y = 0, font = None, antialias = True, color = 
 
     # center
     if centerX == True:
-        x -= textSurface.get_rect().width // 2
+        position = (position[0] - textSurface.get_rect().width // 2, position[1])
     if centerY == True:
-        y -= textSurface.get_rect().height // 2
+        position = (position[0], position[1] - textSurface.get_rect().height // 2)
 
     # draw text to screen
-    screen.blit(textSurface, (x, y))
+    screen.blit(textSurface, position)

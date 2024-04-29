@@ -79,7 +79,7 @@ class MyGame(pygamepal.Game):
                                        # clamp the camera to the world
                                        clamp = True,
                                        clampRect = (0, 0, 500, 500),
-                                       followDelay = 0.9)
+                                       lazyFollow = 0.9)
         
         # create a separate surface for drawing the world
         # this surface will be used by the camera

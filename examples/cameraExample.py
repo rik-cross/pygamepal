@@ -27,8 +27,9 @@ clock = pygame.time.Clock()
 # add input, to allow camera control
 input = pygamepal.Input()
 
-# load a texture
+# load textures
 mapTexture = pygame.image.load(os.path.join('images','map.png'))
+playerTexture = pygame.image.load(os.path.join('images','character.png'))
 
 # create surface for the camera to draw
 cameraSurface = pygame.Surface(mapTexture.get_size(), pygame.SRCALPHA, 32)
@@ -78,9 +79,9 @@ while running:
     
     # z/x to zoom
     if input.isKeyDown(pygame.K_z):
-        camera.zoom -= 0.1
+        camera.zoom -= 0.05
     if input.isKeyDown(pygame.K_x):
-        camera.zoom += 0.1
+        camera.zoom += 0.05
 
     #
     # update
@@ -99,11 +100,12 @@ while running:
     # don't forget to clear the camera surface!
     cameraSurface.fill((0, 0, 0, 0))
 
-    # draw the map
+    # draw the map and player
     cameraSurface.blit(mapTexture, (0, 0))
+    cameraSurface.blit(playerTexture, (100, 100))
 
     # draw the instructions
-    pygamepal.drawText(screen, 'Arrow keys to pan, z/x to zoom', 190, 60)
+    pygamepal.drawText(screen, 'Arrow keys to pan, z/x to zoom', (190, 60))
 
     # use the camera to draw the images on the cameraSurface to the screen
     camera.draw(cameraSurface, screen)
