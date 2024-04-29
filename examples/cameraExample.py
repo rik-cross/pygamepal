@@ -50,8 +50,6 @@ camera = pygamepal.Camera(
     clampRect = (0, 0, mapTexture.get_size()[0], mapTexture.get_size()[0])
     )
 
-input = pygamepal.Input()
-
 # game loop
 running = True
 while running:
