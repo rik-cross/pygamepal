@@ -30,7 +30,7 @@ class Camera:
             # shake dampening (0 = none, 1 = lots)
             shakeDampening = 0.4,
             # shake noise (0 = none, 10 = lots)
-            shakeNoise = 0.8,
+            shakeNoise = 0.8
             ):
         
         self.position = position
