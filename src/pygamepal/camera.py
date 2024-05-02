@@ -1,4 +1,6 @@
 import pygame
+from math import sin
+from random import uniform
 
 class Camera:
 
@@ -15,8 +17,20 @@ class Camera:
             # 0 (instant zoom) and 1 (no zoom)
             lazyZoom = 0,
             backgroundColour = 'gray30',
-            borderColour='black', borderThickness = 2, 
-            clamp = False, clampRect = (0, 0, 1000, 1000)
+            borderColour='black', borderThickness = 2,
+            # camera doesn't move outside of the clamp
+            clamp = False, clampRect = (0, 0, 1000, 1000),
+            # camera shake
+            # oscillate speed (0 = no movement, 1 = fast)
+            oscillateSpeed = 0.2,
+            # amount of movement
+            shakeMagnitude = 30,
+            # movement vector
+            shakeDirection = (1, 0),
+            # shake dampening (0 = none, 1 = lots)
+            shakeDampening = 0.4,
+            # shake noise (0 = none, 10 = lots)
+            shakeNoise = 0.8,
             ):
         
         self.position = position
@@ -45,9 +59,22 @@ class Camera:
         self.clamp = clamp
         self.clampRect = clampRect
 
+        # screen shake
+        self.oscillateSpeed = oscillateSpeed
+        self.shakeMagnitude = shakeMagnitude
+        self.shakeDirection = shakeDirection
+        self.shakeDampening = shakeDampening
+        self.shakeNoise = shakeNoise
+        self._shakeTime = 0
+        self._shakeCurrent = (0, 0)
+        self._shakeCurrentMagnitude = 0
+
     def update(self, deltaTime=1):
 
+        #
         # clamp the camera to the clampRect if required
+        #
+
         if self.clamp:
 
             # clamp x
@@ -67,10 +94,35 @@ class Camera:
                                max(top, min(bottom, self.target[1])))
             else:
                 self.target = (self.target[0], self.clampRect[3] / 2)
-
+        
+        #
         # update the current target using the target and 'lazy follow' values
+        #
+
         self._currentTarget = (self._currentTarget[0] * self._lazyFollow + self.target[0] * (1 - self._lazyFollow),
                                self._currentTarget[1] * self._lazyFollow + self.target[1] * (1 - self._lazyFollow))
+        
+        #
+        # update screen shake
+        #
+
+        # oscillate in a sin wave over time, based on the oscillate speed
+        self._shakeTime += deltaTime * self.oscillateSpeed
+        shakeOffset = (sin(self._shakeTime), sin(self._shakeTime))
+        # add some randomness, based on the noise
+        dx = uniform(-1, 1) * self.shakeNoise
+        dy = uniform(-1, 1) * self.shakeNoise
+        shakeOffset = (shakeOffset[0] + dx, shakeOffset[1] + dy)
+        # clamp the offset to the maximum shake offset
+        shakeOffset = (max(-1, min(1, shakeOffset[0])), max(-1, min(1, shakeOffset[1])))
+        self._shakeCurrent = (shakeOffset[0] * self._shakeCurrentMagnitude * self.shakeDirection[0],
+                              shakeOffset[1] * self._shakeCurrentMagnitude * self.shakeDirection[1])
+        # reduce the shake magnitude by the dampening amount
+        self._shakeCurrentMagnitude = max(0, self._shakeCurrentMagnitude - self.shakeDampening)
+        # reset the shake time once the shake is complete
+        if self._shakeCurrentMagnitude == 0:
+            self._shakeTime = 0
+
         # update the current zoom amount using the target and 'lazy zoom' values
         self._currentZoom = self._currentZoom * self._lazyZoom + self.zoom * (1 - self._lazyZoom)
                                   
@@ -89,6 +141,9 @@ class Camera:
         # blit the (zoomed) surface to the destination, and set the target as the center
         x = 0 - (self.size[0] / 2 - self._currentTarget[0] * self._currentZoom)
         y = 0 - (self.size[1] / 2 - self._currentTarget[1] * self._currentZoom)
+        # add screen shake
+        x += self._shakeCurrent[0]
+        y += self._shakeCurrent[1]
         # draw the surface to the destination using the correct position, size, center and zoom
         destSurface.blit(pygame.transform.scale(surface, (surface.get_width() * self._currentZoom, surface.get_height() * self._currentZoom)), 
                          self.position, 
@@ -96,6 +151,11 @@ class Camera:
                           self.size[0], self.size[1]))
         # reset surface clipping
         destSurface.set_clip()
+
+    def shake(self, direction = None):
+        if direction is not None:
+            self.shakeDirection = direction
+        self._shakeCurrentMagnitude = self.shakeMagnitude
 
     #
     # properties

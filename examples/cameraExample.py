@@ -7,6 +7,7 @@
 # Instructions:
 #  -- arrow keys to pan
 #  -- z/x to zoom
+#  -- s to shake
 #
 # Image credit - Cup Nooble
 #  --  cupnooble.itch.io/sprout-lands-asset-pack
@@ -15,6 +16,7 @@
 import pygame
 import pygamepal
 import os
+from random import choice
 
 # initialise Pygame
 pygame.init()
@@ -38,7 +40,7 @@ camera = pygamepal.Camera(
     position = (190, 100),
     size = (300, 300),
     # the camera center
-    target = (100, 100),
+    target = (100 + playerTexture.get_width() / 2, 100 + playerTexture.get_height() / 2),
     # lazy follow target (between 0 and 1)
     lazyFollow = 0.9,
     zoom = 5,
@@ -50,6 +52,9 @@ camera = pygamepal.Camera(
     clamp = True,
     clampRect = (0, 0, mapTexture.get_size()[0], mapTexture.get_size()[0])
     )
+
+# canera shake direction choices
+cameraShakeDirections = ((-0.8, 0.2), (0.6, -0.5), (0.4, 0.7))
 
 # game loop
 running = True
@@ -83,6 +88,10 @@ while running:
     if input.isKeyDown(pygame.K_x):
         camera.zoom += 0.05
 
+    # s to shake
+    if input.isKeyPressed(pygame.K_s):
+        camera.shake(direction = choice(cameraShakeDirections))
+
     #
     # update
     #
@@ -105,7 +114,7 @@ while running:
     cameraSurface.blit(playerTexture, (100, 100))
 
     # draw the instructions
-    pygamepal.drawText(screen, 'Arrow keys to pan, z/x to zoom', (190, 60))
+    pygamepal.drawText(screen, 'Arrow keys to pan, z/x to zoom, s to shake', (190, 60))
 
     # use the camera to draw the images on the cameraSurface to the screen
     camera.draw(cameraSurface, screen)
