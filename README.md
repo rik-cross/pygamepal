@@ -120,6 +120,17 @@ camera = pygamepal.Camera(
     backgroundColour = 'gray30',
     borderColour='black', borderThickness = 2, 
     clamp = False, clampRect = (0, 0, 1000, 1000)
+    # camera shake
+    # oscillate speed (0 = no movement, 1 = fast)
+    oscillateSpeed = 0.2,
+    # amount of movement
+    shakeMagnitude = 30,
+    # movement vector
+    shakeDirection = (1, 0),
+    # shake dampening (0 = none, 1 = lots)
+    shakeDampening = 0.4,
+    # shake noise (0 = none, 10 = lots)
+    shakeNoise = 0.8
 )
 
 # update() must be called once per frame
@@ -127,6 +138,9 @@ camera.update(deltaTime=1)
 
 # draws surface to the destinationSurface, using camera attributes
 camera.draw(surface, destinationSurface)
+
+# shakes the camera
+camera.shake(direction=(1, 0))
 ```
 
 <a name="particles"></a>Particles -- [Example](examples/particlesExample.py) 
