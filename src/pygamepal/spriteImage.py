@@ -3,8 +3,10 @@ from .textureList import *
 
 class SpriteImage():
 
-    def __init__(self):
+    def __init__(self, firstTexture = None, *moreTextures, state = None, animationDelay = 8, loop = True, hFlip = False, vFlip = False, offset = (0, 0)):
         self._reset()
+        if firstTexture is not None:
+            self.addTextures(firstTexture, *moreTextures, state = state, animationDelay = animationDelay, loop = loop, hFlip = hFlip, vFlip = vFlip, offset = offset)
 
     # set object to initial values
     def _reset(self):
@@ -88,8 +90,8 @@ class SpriteImage():
                      y - self._textureLists[self._currentState]._offset[1],
                      currentTexture.get_width(),
                      currentTexture.get_height()))
-    # puts sprite animation back to start
 
+    # puts sprite animation back to start
     def resetState(self):
         self._animationIndex = 0
         self._animationTimer = 0
