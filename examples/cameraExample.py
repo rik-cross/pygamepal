@@ -39,7 +39,7 @@ cameraSurface = pygame.Surface(mapTexture.get_size(), pygame.SRCALPHA, 32)
 camera = pygamepal.Camera(
     position = (190, 100),
     size = (300, 300),
-    # the camera center
+    # the camera center is the player center
     target = (100 + playerTexture.get_width() / 2, 100 + playerTexture.get_height() / 2),
     # lazy follow target (between 0 and 1)
     lazyFollow = 0.9,
