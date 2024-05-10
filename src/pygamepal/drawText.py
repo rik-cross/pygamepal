@@ -8,7 +8,7 @@ def drawText(screen, text,
              position = [0, 0],
              font = None,
              antialias = True,
-             color = 'white', background = None,
+             color = 'white', backgroundColor = None,
              centerX = False, centerY = False):
     
     # use the default 'system' font if none specified
@@ -16,7 +16,7 @@ def drawText(screen, text,
         font = sysFont
 
     # create text surface
-    textSurface = font.render(text, antialias, color, background)
+    textSurface = font.render(text, antialias, color, backgroundColor)
 
     # center
     if centerX == True:

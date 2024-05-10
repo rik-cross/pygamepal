@@ -5,13 +5,15 @@ A library of classes and functions to support game development in Pygame.
 
 ### Usage
 - `pip install pygamepal` or `pip install --upgrade pygamepal`
-- [Full example](examples/fullExample.py), using lots of pygamepal functionality
+- COMING SOON [Full example](examples/fullExample.py), using lots of pygamepal functionality
 
 [Add suggestions and bugs here](https://github.com/rik-cross/pygamepal/issues)!
 
 ### Contents
 
 - [Game](#game)
+- [Scene](#scene)
+- [Sprite](#sprite)
 - [Input](#input)
 - [SpriteImage](#spriteImage)
 - [Camera](#camera)
@@ -29,6 +31,7 @@ class MyGame(pygamepal.Game):
     # add init(), update() and draw() methods
 myGame = MyGame()
 myGame.run()
+myGame.quit()
 
 # properties
 self.size = (x, y)
@@ -37,12 +40,72 @@ self.icon = pygame.image.load('imageURL')
 self.fps = x
 self.screen
 self.gameTime
+self.currentScene
+self.input
 self.events
 
 # methods to create in subclass
 self.init()
 self.update(gameTime)
 self.draw()
+
+# optional other methods
+self.addSprite(sprite)
+self.removeSprite(sprite)
+```
+
+<a name="scene"></a>Scene -- [Scene Example](examples/sceneExample.py)
+
+```
+# class structure
+class MyScene(pygamepal.Scene):
+    def init(self):
+        pass
+    def update(self):
+        pass
+    def draw(self):
+        pass
+    def onActive(self):
+        pass
+    def onInactive(self):
+        pass
+
+# create instance, passing in game object
+myScene = MyScene(game)
+# optional methods
+myScene.addSprite(sprite)
+myScene.removeSprite(sprite)
+```
+
+<a name="sprite"></a>Sprite -- [Sprite Example](examples/spriteExample.py)
+
+```
+# class structure
+# (pygamepal.Sprite inherits from pygame.Sprite)
+class MySprite(pygamepal.Sprite):
+    def init(self):
+        pass
+    def update(self):
+        pass
+    def onAddedToScene(self):
+        pass
+    def onRemovedFromScene(self):
+        pass
+
+# create instance
+mysprite = MySprite(imageName=None, texture=None, position=(0, 0), size=(0, 0), z=0, collider=None, scaleImage=False)
+# optional methods
+mySprite.getCenter()
+mySprite.touching(sprite)
+mySprite.getCollidingSprites(newPosition)
+
+# properties
+self.position
+self.z
+self.size
+self.collider
+self.spriteImage
+self.currentScene
 ```
 
 <a name="input"></a>Input -- [Key Example](examples/keyInputExample.py) // [Mouse Example](examples/mouseInputExample.py)

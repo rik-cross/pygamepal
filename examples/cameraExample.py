@@ -44,8 +44,8 @@ camera = pygamepal.Camera(
     # lazy follow target (between 0 and 1)
     lazyFollow = 0.9,
     zoom = 5,
-    backgroundColour = 'gray10',
-    borderColour = 'white',
+    backgroundColor = (0, 0, 0, 0),
+    borderColor = 'white',
     borderThickness = 4,
     # set a clamp rectangle that is the size of
     # the set of images to be drawn

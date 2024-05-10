@@ -1,14 +1,23 @@
 import pygame
+import pygamepal
 
 class Game:
+
+    DEBUG = False
 
     def __init__(self, size = (640, 480), caption = '', fps = 60, fullscreen = False):
        
         pygame.init()
+
         self.size = size
         self.caption = caption
         self.fps = fps
         self.fullscreen = fullscreen
+
+        self.input = pygamepal.Input()
+        self.currentScene = None
+        self.previousScene = None
+        self.currentScene = pygamepal.Scene(self)
 
         self.init()
 
@@ -29,10 +38,19 @@ class Game:
         # store events so that they aren't 'consumed' by the class
         self.events = []
 
-    def init(self):
-        pass
+    #
+    # core methods
+    #
 
     def _update(self):
+
+        self.previousScene = self.currentScene
+
+        # update clock and calculate delta time
+        deltaTime = self.clock.tick(self.fps) / 1000
+        # calculate total elapsed time
+        self.gameTime = pygame.time.get_ticks() - self.startTime
+
         # reset events
         self.events = []
         # respond to quit event
@@ -41,26 +59,31 @@ class Game:
                 self._running = False
             else:
                 self.events.append(event)
-        # calculate delta time
-        deltaTime = self.clock.tick(self.fps) / 1000
-        # calculate total elapsed time
-        self.gameTime = pygame.time.get_ticks() - self.startTime
-        # run user update method
-        self.update(deltaTime)
-        # update clock
-        self.clock.tick(self.fps)
 
-    def update(self, deltaTime):
-        pass
+        # call user-defined update method
+        self.update(deltaTime) 
+
+        # update input
+        if self.input is not None:
+            self.input.update()
+
+        # update the current scene
+        if self.currentScene is not None:
+            self.currentScene._update()
+        
+        # call user-defined active methods
+        if self.currentScene is not self.previousScene:
+            self.previousScene.onInactive()
+            self.currentScene.onActive()
 
     def _draw(self):
+        if self.currentScene is not None:
+            self.currentScene._draw()
+        # call user-defined draw() method
         self.draw()
-        # present the screen
         pygame.display.flip()
 
-    def draw(self):
-        pass
-
+    # call run() to start the game
     def run(self):
         self._running = True
         while self._running:
@@ -68,8 +91,39 @@ class Game:
             self._draw()
         pygame.quit()
 
+    # call quit() to end the game
     def quit(self):
         self._running = False
+
+    #
+    # user-defined methods
+    #
+
+    def init(self):
+        pass
+
+    def update(self, deltaTime):
+        pass
+
+    def draw(self):
+        pass
+
+    #
+    # alternative methods to add / remove a sprite
+    # from the current scene, via the game
+    #
+
+    def addSprite(self, sprite):
+        if self.currentScene is not None:
+            self.currentScene.addSprite(sprite)
+    
+    def removeSprite(self, sprite):
+        if self.currentScene is not None:
+            self.currentScene.removeSprite(sprite)
+
+    #
+    # properties
+    #
 
     @property
     def icon(self):

@@ -16,8 +16,8 @@ class Camera:
             # zoom follow delay is a (clamped) value between
             # 0 (instant zoom) and 1 (no zoom)
             lazyZoom = 0,
-            backgroundColour = 'gray30',
-            borderColour='black', borderThickness = 2,
+            backgroundColor = 'cornflowerblue',
+            borderColor='black', borderThickness = 2,
             # camera doesn't move outside of the clamp
             clamp = False, clampRect = (0, 0, 1000, 1000),
             # camera shake
@@ -49,10 +49,10 @@ class Camera:
         self._lazyZoom = lazyZoom
         
         # background
-        self.backgroundColour = backgroundColour
+        self.backgroundColor = backgroundColor
 
         # border
-        self.borderColour = borderColour
+        self.borderColor = borderColor
         self.borderThickness = borderThickness
         
         # clamp
@@ -76,7 +76,6 @@ class Camera:
         #
 
         if self.clamp:
-
             # clamp x
             if (self.clampRect[2] - self.clampRect[0]) * self._currentZoom > self.size[0]:
                 left = ((self.size[0] / 2) / self._currentZoom) + self.clampRect[0]
@@ -131,13 +130,14 @@ class Camera:
     def draw(self, surface, destSurface):
 
         # draw border
-        pygame.draw.rect(destSurface, self.borderColour, 
+        pygame.draw.rect(destSurface, self.borderColor, 
                          (self.position[0] - self.borderThickness, self.position[1] - self.borderThickness, 
                           self.size[0] + self.borderThickness * 2, self.size[1] + self.borderThickness * 2), self.borderThickness, border_radius = 1)
         # ensure that the surface is clipped to the camera dimensions
         destSurface.set_clip((self.position[0], self.position[1], self.size[0], self.size[1]))
         # fill the surface to the background color
-        destSurface.fill(self.backgroundColour)
+        destSurface.fill(self.backgroundColor)
+
         # blit the (zoomed) surface to the destination, and set the target as the center
         x = 0 - (self.size[0] / 2 - self._currentTarget[0] * self._currentZoom)
         y = 0 - (self.size[1] / 2 - self._currentTarget[1] * self._currentZoom)
@@ -160,15 +160,6 @@ class Camera:
     #
     # properties
     #
-
-    # zoom property, clamped between minZoom and maxZoom
-    @property
-    def zoom(self):
-        return self._zoom
-    
-    @zoom.setter
-    def zoom(self, value):
-        self._zoom = max(min(value, self.maxZoom), self.minZoom)
 
     # lazyZoom property, clamped between 0 and 1
     @property

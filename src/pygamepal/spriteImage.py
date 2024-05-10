@@ -3,7 +3,7 @@ from .textureList import *
 
 class SpriteImage():
 
-    def __init__(self, firstTexture = None, *moreTextures, state = None, animationDelay = 8, loop = True, hFlip = False, vFlip = False, offset = (0, 0)):
+    def __init__(self, firstTexture=None, *moreTextures, state = None, animationDelay = 8, loop = True, hFlip = False, vFlip = False, offset = (0, 0)):
         self._reset()
         if firstTexture is not None:
             self.addTextures(firstTexture, *moreTextures, state = state, animationDelay = animationDelay, loop = loop, hFlip = hFlip, vFlip = vFlip, offset = offset)
@@ -28,6 +28,10 @@ class SpriteImage():
             textureList = TextureList()
         else:
             textureList = self._sprites[state]
+        
+        #if type(firstTexture) is list:
+            
+
         # add textures to list
         textureList._textures.append(firstTexture)
         for texture in moreTextures:
@@ -90,6 +94,7 @@ class SpriteImage():
                      y - self._textureLists[self._currentState]._offset[1],
                      currentTexture.get_width(),
                      currentTexture.get_height()))
+        #pygame.draw.rect(screen, 'white', (x - self._textureLists[self._currentState]._offset[0], y - self._textureLists[self._currentState]._offset[1], currentTexture.get_width(), currentTexture.get_height()), 1)
 
     # puts sprite animation back to start
     def resetState(self):
