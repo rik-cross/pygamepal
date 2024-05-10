@@ -75,6 +75,9 @@ myScene = MyScene(game)
 # optional methods
 myScene.addSprite(sprite)
 myScene.removeSprite(sprite)
+
+# properties
+myScene.sortKey = [myScene.sortByZ | myScene.sortByLeft | myScene.sortByRight | myScene.sortByTop | myScene.sortByBottom]
 ```
 
 <a name="sprite"></a>Sprite -- [Sprite Example](examples/spriteExample.py)

@@ -8,7 +8,7 @@ class Collider:
 
 class Sprite(pygame.sprite.Sprite):
 
-    def __init__(self, imageName=None, texture=None, position=(0, 0), size=(0, 0), z=0, collider=None, scaleImage=False):
+    def __init__(self, imageName = None, texture = None, position = (0, 0), size = (0, 0), z = 0, collider = None, scaleImage = False):
 
         # importing here to avoid a circular dependency
         from pygamepal import SpriteImage

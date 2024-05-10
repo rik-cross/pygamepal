@@ -77,11 +77,11 @@ class MyGame(pygamepal.Game):
 # create sprites
 #
 
-player = Player(imageName=os.path.join('images', 'character.png'), position=pygame.math.Vector2(140, 128), collider=pygamepal.Collider(offset=(0, 10), size=(12, 6)))
+player = Player(imageName = os.path.join('images', 'character.png'), position = pygame.math.Vector2(140, 128), collider = pygamepal.Collider(offset = (0, 10), size = (12, 6)))
 trees = []
 for x in range(10, 250, 50):
     for y in range(10, 250, 50):
-        trees.append(pygamepal.Sprite(imageName=os.path.join('images', 'tree.png'), position=(x, y), collider=pygamepal.Collider(offset=(6, 25), size=(12, 5))))
+        trees.append(pygamepal.Sprite(imageName = os.path.join('images', 'tree.png'), position = (x, y), collider = pygamepal.Collider(offset = (6, 25), size = (12, 5))))
 
 # uncomment the line below to see sprite sizes and colliders
 #pygamepal.Game.DEBUG = True
