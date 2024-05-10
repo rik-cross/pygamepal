@@ -79,6 +79,8 @@ myScene.removeSprite(sprite)
 
 <a name="sprite"></a>Sprite -- [Sprite Example](examples/spriteExample.py)
 
+<img src="examples/gifs/spriteExample.gif" width="480">
+
 ```
 # class structure
 # (pygamepal.Sprite inherits from pygame.Sprite)
