@@ -20,7 +20,7 @@ class Sprite(pygame.sprite.Sprite):
 
         # use image name to create a texture if defined
         if imageName is not None:
-            texture = pygame.image.load(imageName)
+            texture = pygame.image.load(imageName).convert_alpha()
         
         # create a spriteImage if a texture is specified
         if texture is not None:

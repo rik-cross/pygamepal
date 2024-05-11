@@ -1,15 +1,17 @@
 import pygame
-from .textureList import *
+from .textureList import TextureList
 
 class SpriteImage():
 
-    def __init__(self, firstTexture=None, *moreTextures, state = None, animationDelay = 8, loop = True, hFlip = False, vFlip = False, offset = (0, 0)):
+    def __init__(self, firstTexture=None, *moreTextures, state = None, animationDelay = 8, loop = True, hFlip = False, vFlip = False, offset = (0, 0), visible = True, alpha = 255):
         self._reset()
         if firstTexture is not None:
             self.addTextures(firstTexture, *moreTextures, state = state, animationDelay = animationDelay, loop = loop, hFlip = hFlip, vFlip = vFlip, offset = offset)
 
     # set object to initial values
     def _reset(self):
+        self.visible = True
+        self.alpha = 255
         # maps a state to a list of textures
         self._textureLists = {}
         self._currentState = None
@@ -27,10 +29,12 @@ class SpriteImage():
         if state not in self._textureLists:
             textureList = TextureList()
         else:
-            textureList = self._sprites[state]
-        
-        #if type(firstTexture) is list:
-            
+            textureList = self._sprites[state] 
+
+        # set texture alpha
+        firstTexture = firstTexture.convert_alpha()
+        for texture in moreTextures:
+            texture = texture.convert_alpha()
 
         # add textures to list
         textureList._textures.append(firstTexture)
@@ -82,10 +86,12 @@ class SpriteImage():
 
     def draw(self, screen, x, y):
         # don't draw if there's nothing to draw
-        if self._currentState is None or self._textureLists[self._currentState] == None:
+        if self._currentState is None or self._textureLists[self._currentState] is None or self.visible is False:
             return
         # get the current animation frame
         currentTexture = self._textureLists[self._currentState]._textures[self._animationIndex]
+        # set the texture alpha
+        currentTexture.set_alpha(self.alpha)
         # draw (optionally flipped) texture
         screen.blit(pygame.transform.flip(currentTexture,
                                           self._textureLists[self._currentState]._hFlip,
@@ -94,7 +100,6 @@ class SpriteImage():
                      y - self._textureLists[self._currentState]._offset[1],
                      currentTexture.get_width(),
                      currentTexture.get_height()))
-        #pygame.draw.rect(screen, 'white', (x - self._textureLists[self._currentState]._offset[0], y - self._textureLists[self._currentState]._offset[1], currentTexture.get_width(), currentTexture.get_height()), 1)
 
     # puts sprite animation back to start
     def resetState(self):

@@ -32,7 +32,7 @@ class Player(pygamepal.Sprite):
         #
 
         # load a texture
-        playerSpritesheet = pygame.image.load(os.path.join('images','character_spritesheet.png'))
+        playerSpritesheet = pygame.image.load(os.path.join('images','character_spritesheet.png')).convert_alpha()
         # split texture into a 2D list of sub-textures
         splitTextures = pygamepal.splitTexture(playerSpritesheet, 48, 48)
         
@@ -134,7 +134,7 @@ class GameScene(pygamepal.Scene):
         # add textures
         #
 
-        self.map = pygame.image.load(os.path.join('images', 'map.png'))
+        self.map = pygame.image.load(os.path.join('images', 'map.png')).convert_alpha()
 
         #
         # add sprites
@@ -172,7 +172,7 @@ class GameScene(pygamepal.Scene):
         # chest
 
         # load a texture
-        chestSpritesheet = pygame.image.load(os.path.join('images','chest_spritesheet.png'))
+        chestSpritesheet = pygame.image.load(os.path.join('images','chest_spritesheet.png')).convert_alpha()
         # split texture into a 2D list of sub-textures
         splitTextures = pygamepal.splitTexture(chestSpritesheet, 48, 48)
         
