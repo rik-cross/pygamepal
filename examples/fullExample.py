@@ -8,6 +8,7 @@
 #  -- WASD to move player
 #  -- Enter to move to game scene
 #  -- Esc to move to menu scene
+#  -- Q to quit
 # 
 # Image credit - Cup Nooble
 #  --  cupnooble.itch.io/sprout-lands-asset-pack
