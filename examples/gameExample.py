@@ -4,9 +4,6 @@
 #  -- MIT licenced, free to use, modify and distribute
 #  -- run 'pip install pygamepal' to use
 #
-# Image credit - Cup Nooble
-#  --  cupnooble.itch.io/sprout-lands-asset-pack
-#
 
 import pygame
 import pygamepal
