@@ -169,7 +169,7 @@ class Camera:
     @lazyZoom.setter
     def lazyZoom(self, value):
         self._lazyZoom = max(0, min(1, value))
-
+        
     # lazyFollow property, clamped between 0 and 1
     @property
     def lazyFollow(self):

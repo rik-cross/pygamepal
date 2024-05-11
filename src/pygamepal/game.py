@@ -61,7 +61,7 @@ class Game:
                 self.events.append(event)
 
         # call user-defined update method
-        self.update(deltaTime) 
+        self.update() 
 
         # update input
         if self.input is not None:
@@ -102,7 +102,7 @@ class Game:
     def init(self):
         pass
 
-    def update(self, deltaTime):
+    def update(self):
         pass
 
     def draw(self):

@@ -5,7 +5,7 @@ A library of classes and functions to support game development in Pygame.
 
 ### Usage
 - `pip install pygamepal` or `pip install --upgrade pygamepal`
-- COMING SOON [Full example](examples/fullExample.py), using lots of pygamepal functionality
+- [Full example](examples/fullExample.py), using lots of pygamepal functionality
 
 [Add suggestions and bugs here](https://github.com/rik-cross/pygamepal/issues)!
 

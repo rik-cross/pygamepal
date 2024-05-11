@@ -18,7 +18,7 @@ class Scene:
 
     @staticmethod
     def sortByBottom(s):
-        if s.position is None or s.size is None:
+        if hasattr(s, 'position') is False or s.position is None or hasattr(s, 'size') is False or s.size is None:
             return 1
         return s.position[1] + s.size[1]
     

@@ -13,6 +13,8 @@ class Sprite(pygame.sprite.Sprite):
         # importing here to avoid a circular dependency
         from pygamepal import SpriteImage
 
+        self.trigger = None
+
         self.spriteImage = None
         self.position = position
 
@@ -41,15 +43,13 @@ class Sprite(pygame.sprite.Sprite):
 
         # call the user-defined init() method
         self.init()
-    
-    
         
     def _update(self):
         if self.spriteImage is not None:
             self.spriteImage.update()
+        if self.trigger is not None:
+            self.trigger.update()
         self.update()
-    
-    
     
     def _draw(self, screen):
 
@@ -59,11 +59,14 @@ class Sprite(pygame.sprite.Sprite):
             self.spriteImage.draw(screen, self.position[0], self.position[1])
         if Game.DEBUG is True:
             # DEBUG draw sprite size box
-            if self.position is not None and self.size is not None:
+            if hasattr(self, 'position') is True and self.position is not None and hasattr(self, 'size') is True and self.size is not None:
                 pygame.draw.rect(screen, 'white', (self.position[0], self.position[1], self.size[0], self.size[1]), 1)
             # DEBUG draw sprite collider box
             if self.collider is not None and self.position is not None:
                 pygame.draw.rect(screen, 'red', (self.position[0] + self.collider.offset[0], self.position[1] + self.collider.offset[1], self.collider.size[0], self.collider.size[1]), 1)
+            # DEBUG draw trigger
+            if self.trigger is not None:
+                self.trigger.draw(screen)
 
     #
     # user-defined methods
