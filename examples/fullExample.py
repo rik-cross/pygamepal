@@ -102,14 +102,23 @@ class Player(pygamepal.Sprite):
 
 class MenuScene(pygamepal.Scene):
     
+    def startGameScene(self, button):
+        self.game.currentScene = gameScene
+
+    def init(self):
+        self.startButton = pygamepal.Button(self.game.input,position = (350, 275), label = 'Start', onSelected = self.startGameScene)
+
     def update(self):
 
         if self.game.input.isKeyPressed(pygame.K_RETURN):
             self.game.currentScene = gameScene
+        
+        self.startButton.update()
     
     def draw(self):
 
         pygamepal.drawText(self.overlaySurface, '[RETURN] to play, [Q] to quit', (20, 20), backgroundColor='black')
+        self.startButton.draw(self.overlaySurface)
 
 class GameScene(pygamepal.Scene):
     
