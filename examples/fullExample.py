@@ -82,19 +82,18 @@ class Player(pygamepal.Sprite):
         # WASD to move and change state
         if gameExample.input.isKeyDown(pygame.K_w):
             self.y -= 1
-            self.spriteImage.setState('up')
+            self.spriteImage.state = 'up'
         elif gameExample.input.isKeyDown(pygame.K_a):
             self.x -= 1
-            self.spriteImage.setState('left')
+            self.spriteImage.state = 'left'
         elif gameExample.input.isKeyDown(pygame.K_s):
             self.y += 1
-            self.spriteImage.setState('down')
+            self.spriteImage.state = 'down'
         elif gameExample.input.isKeyDown(pygame.K_d):
             self.x += 1
-            self.spriteImage.setState('right')
+            self.spriteImage.state = 'right'
         else:
-            self.spriteImage.setState('idle')
-
+            self.spriteImage.state = 'idle'
 
 #
 # create scene subclasses
@@ -126,7 +125,8 @@ class GameScene(pygamepal.Scene):
         self.camera.zoom = zoom
     
     def setChestState(self, this, other, state):
-        self.chest.spriteImage.setState(state)
+        self.chest.spriteImage.pause = False
+        self.chest.spriteImage.state = state
 
     def init(self):
         
@@ -179,9 +179,9 @@ class GameScene(pygamepal.Scene):
         self.chest = pygamepal.Sprite(position = (175, 175), size = (16, 14))
         self.chest.collider = pygamepal.Collider(offset = (0, 8), size = (16, 6))
         self.chest.spriteImage = pygamepal.SpriteImage()
-        self.chest.spriteImage.addTextures(splitTextures[0][0], offset = (16, 18), state = 'idle')
         self.chest.spriteImage.addTextures(splitTextures[0][0], splitTextures[0][1], splitTextures[0][2], splitTextures[0][3], offset = (16, 18), state = 'open', animationDelay = 4, loop = False)
         self.chest.spriteImage.addTextures(splitTextures[0][3], splitTextures[0][2], splitTextures[0][1], splitTextures[0][0], offset = (16, 18), state = 'close', animationDelay = 4, loop = False)
+        self.chest.spriteImage.pause = True
         self.chest.trigger = pygamepal.Trigger(ox = -5, oy = -5, w = 26, h = 24, sprite = self.chest,
             onEnter = lambda this, other, state='open': self.setChestState(this, other, state),
             onExit = lambda this, other, state='close': self.setChestState(this, other, state))

@@ -1,4 +1,4 @@
-__version__ = "0.6.1"
+__version__ = "0.6.2"
 __author__ = 'Rik Cross'
 __license__ = 'MIT'
 
@@ -17,6 +17,6 @@ from .particles import *
 from .transition import *
 
 from .drawText import *
-from .textureList import *
+from .spriteTextureList import *
 from .splitTexture import *
 from .flatten import *

@@ -79,16 +79,16 @@ while running:
 
     # arrow keys to change state of s3 sprite
     if input.isKeyDown(pygame.K_UP):
-        spriteImage3.setState('walk_up')
+        spriteImage3.state = 'walk_up'
     elif input.isKeyDown(pygame.K_DOWN):
-        spriteImage3.setState('walk_down')
+        spriteImage3.state = 'walk_down'
     elif input.isKeyDown(pygame.K_LEFT):
-        spriteImage3.setState('walk_left')
+        spriteImage3.state = 'walk_left'
     elif input.isKeyDown(pygame.K_RIGHT):
-        spriteImage3.setState('walk_right')
+        spriteImage3.state = 'walk_right'
     # idle state is the default
     else:
-        spriteImage3.setState('idle')
+        spriteImage3.state = 'idle'
 
     #
     # update

@@ -1,12 +1,31 @@
+#
+# PygamePal, by Rik Cross
+#  -- homepage: github.com/rik-cross/pygamepal
+#  -- MIT licenced, free to use, modify and distribute
+#  -- run 'pip install pygamepal' to use
+#
+
 import pygame
 
-# each sprite can optionally have a collider
 class Collider:
+
+    '''
+    A sprite can optionally have a collider.
+    Movement is only possible if two colliders
+    would not overlap as a result.
+    '''
+
     def __init__(self, offset, size):
         self.offset = offset
         self.size = size
 
 class Sprite(pygame.sprite.Sprite):
+
+    '''
+    A Sprite is a subclass of pygame.Sprite.
+    Sprites can be added to scenes, and can have
+    a position, size, collider and SpriteImage.
+    '''
 
     def __init__(self, imageName = None, texture = None, position = (0, 0), size = (0, 0), z = 0, collider = None, scaleImage = False):
 
@@ -20,7 +39,7 @@ class Sprite(pygame.sprite.Sprite):
 
         # use image name to create a texture if defined
         if imageName is not None:
-            texture = pygame.image.load(imageName).convert_alpha()
+            texture = pygame.image.load(imageName)
         
         # create a spriteImage if a texture is specified
         if texture is not None:
@@ -28,7 +47,7 @@ class Sprite(pygame.sprite.Sprite):
             if scaleImage == True and size is not None:
                 texture = pygame.transform.scale(texture, size)
             # create the spriteImage
-            self.spriteImage = SpriteImage(firstTexture=texture)
+            self.spriteImage = SpriteImage(texture)
 
         # use the texture size if no size is specified
         if size == (0, 0):
