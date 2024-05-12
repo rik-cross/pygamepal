@@ -4,17 +4,16 @@ class Trigger:
 
     _allTriggers = []
 
-    def __init__(self, x = 0, y = 0, w = 10, h = 10, sprite = None, ox = 0, oy = 0, onEnter = None, onCollide = None, onExit = None):
+    def __init__(self, position = (0, 0), size = (10, 10), sprite = None, spriteOffset = (0, 0), onEnter = None, onCollide = None, onExit = None):
         Trigger._allTriggers.append(self)
         self._triggers = []
         # associated sprite
         self.sprite = sprite
-        self.ox = ox
-        self.oy = oy
-        if self.sprite is not None and self.sprite.position is not None:
-            self._rect = pygame.rect.Rect(self.sprite.x + ox, self.sprite.y + oy, w, h)
+        self.spriteOffset = spriteOffset
+        if self.sprite is not None and hasattr(self.sprite, 'position') is True and self.sprite.position is not None:
+            self._rect = pygame.rect.Rect(self.sprite.x + self.spriteOffset[0], self.sprite.y + self.spriteOffset[1], size[0], size[1])
         else:
-            self._rect = pygame.rect.Rect(x - ox, y - oy, w, h)
+            self._rect = pygame.rect.Rect(position[0], position[1], size[0], size[1])
         # onCollide is called every frame that another
         # trigger collides with this one
         self.onCollide = onCollide
@@ -32,8 +31,8 @@ class Trigger:
     def update(self, deltaTime = 1):
         # update position if attached to a sprite
         if self.sprite is not None and self.sprite.position is not None:
-            self.x = self.sprite.x + self.ox
-            self.y = self.sprite.y + self.oy
+            self.x = self.sprite.x + self.spriteOffset[0]
+            self.y = self.sprite.y + self.spriteOffset[1]
         # for other triggers
         for t in Trigger._allTriggers:
             if t is not self:

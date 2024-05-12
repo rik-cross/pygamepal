@@ -34,8 +34,8 @@ pygame.display.set_caption('Triggers Example')
 clock = pygame.time.Clock() 
 
 # create 2 triggers
-trigger1 = pygamepal.Trigger(100, 100, 50, 50)
-trigger2 = pygamepal.Trigger(200, 200, 100, 100,
+trigger1 = pygamepal.Trigger(position = (100, 100), size = (50, 50))
+trigger2 = pygamepal.Trigger(position = (200, 200), size = (100, 100),
                              onEnter = trigger2OnEnter,
                              onCollide = None,
                              onExit = trigger2OnExit)

@@ -22,7 +22,6 @@ import os
 # create sprite subclasses
 #
 
-
 class Player(pygamepal.Sprite):
 
     def init(self):
@@ -32,8 +31,8 @@ class Player(pygamepal.Sprite):
         #
 
         # load a texture
-        playerSpritesheet = pygame.image.load(os.path.join('images','character_spritesheet.png')).convert_alpha()
-        # split texture into a 2D list of sub-textures
+        playerSpritesheet = pygame.image.load(os.path.join('images','character_spritesheet.png'))
+        # split texture into a 2D list of 48x48 sub-textures
         splitTextures = pygamepal.splitTexture(playerSpritesheet, 48, 48)
         
         #
@@ -41,7 +40,7 @@ class Player(pygamepal.Sprite):
         #
 
         self.size = (14, 16)
-        self.position = (126 - 7, 128 - 8)
+        self.position = (119, 120)
         self.collider = pygamepal.Collider(offset = (2, 12), size = (10, 4))
 
         self.spriteImage = pygamepal.SpriteImage()
@@ -49,33 +48,33 @@ class Player(pygamepal.Sprite):
         self.spriteImage.addTextures(
             splitTextures[0][0], splitTextures[0][1],
             state = 'idle',
-            offset=(17, 16)
+            offset = (17, 16)
         )
         self.spriteImage.addTextures(
             splitTextures[1][1], splitTextures[1][2], splitTextures[1][1], splitTextures[1][3],
             state = 'up',
             animationDelay = 4,
-            offset=(17, 16)
+            offset = (17, 16)
         )
         self.spriteImage.addTextures(
             splitTextures[0][1], splitTextures[0][2], splitTextures[0][1], splitTextures[0][3],
             state = 'down',
             animationDelay = 4,
-            offset=(17, 16)
+            offset = (17, 16)
         )
         self.spriteImage.addTextures(
             splitTextures[2][1], splitTextures[2][2], splitTextures[2][1], splitTextures[2][3],
             state = 'left',
             animationDelay = 4,
-            offset=(17, 16)
+            offset =(17, 16)
         )
         self.spriteImage.addTextures(
             splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3],
             state = 'right',
             animationDelay = 4,
-            offset=(17, 16)
+            offset = (17, 16)
         )
-        self.trigger = pygamepal.Trigger(ox = -5, oy = -5, w = 24, h = 26, sprite = self)
+        self.trigger = pygamepal.Trigger(size = (24, 26), sprite = self, spriteOffset = (-5, -5))
     
     def update(self):
 
@@ -182,7 +181,7 @@ class GameScene(pygamepal.Scene):
         self.chest.spriteImage.addTextures(splitTextures[0][0], splitTextures[0][1], splitTextures[0][2], splitTextures[0][3], offset = (16, 18), state = 'open', animationDelay = 4, loop = False)
         self.chest.spriteImage.addTextures(splitTextures[0][3], splitTextures[0][2], splitTextures[0][1], splitTextures[0][0], offset = (16, 18), state = 'close', animationDelay = 4, loop = False)
         self.chest.spriteImage.pause = True
-        self.chest.trigger = pygamepal.Trigger(ox = -5, oy = -5, w = 26, h = 24, sprite = self.chest,
+        self.chest.trigger = pygamepal.Trigger(size = (26, 24), sprite = self.chest, spriteOffset = (-5, -5),
             onEnter = lambda this, other, state='open': self.setChestState(this, other, state),
             onExit = lambda this, other, state='close': self.setChestState(this, other, state))
         self.addSprite(self.chest)
@@ -210,7 +209,7 @@ class GameScene(pygamepal.Scene):
         # add triggers for the camera
         #
 
-        self.forestTrigger = pygamepal.Trigger(10, 20, 100, 70,
+        self.forestTrigger = pygamepal.Trigger(position = (10, 20), size = (100, 70),
             onEnter = lambda this, other, zoom = 6 : self.zoomCamera(this, other, zoom),
             onExit = lambda this, other, zoom = 4 : self.zoomCamera(this, other, zoom))
 
