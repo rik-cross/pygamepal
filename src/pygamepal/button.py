@@ -25,6 +25,8 @@ class Button:
                  keyCode = None
                  ):
         
+        self._scene = None
+
         self.input = input
         self.position = position
         self.size = size

@@ -6,8 +6,9 @@
 #
 # Instructions
 #  -- WASD to move player
-#  -- Enter to move to game scene
+#  -- Enter (or click button) to move to game scene
 #  -- Esc to move to menu scene
+#  -- Z to toggle debug mode
 #  -- Q to quit
 # 
 # Image credit - Cup Nooble
@@ -74,7 +75,7 @@ class Player(pygamepal.Sprite):
             animationDelay = 4,
             offset = (17, 16)
         )
-        self.trigger = pygamepal.Trigger(size = (24, 26), sprite = self, spriteOffset = (-5, -5))
+        self.trigger = pygamepal.Trigger(size = (24, 26), offset = (-5, -5))
     
     def update(self):
 
@@ -104,19 +105,12 @@ class MenuScene(pygamepal.Scene):
         self.game.currentScene = gameScene
 
     def init(self):
-        self.startButton = pygamepal.Button(self.game.input,position = (350, 275), label = 'Start', onSelected = self.startGameScene)
+        self.addButton(pygamepal.Button(self.game.input,position = (350, 275), label = 'Start', onSelected = self.startGameScene))
 
     def update(self):
 
         if self.game.input.isKeyPressed(pygame.K_RETURN):
             self.game.currentScene = gameScene
-        
-        self.startButton.update()
-    
-    def draw(self):
-
-        pygamepal.drawText(self.overlaySurface, '[RETURN] to play, [Q] to quit', (20, 20), backgroundColor='black')
-        self.startButton.draw(self.overlaySurface)
 
 class GameScene(pygamepal.Scene):
     
@@ -133,7 +127,7 @@ class GameScene(pygamepal.Scene):
         # add textures
         #
 
-        self.map = pygame.image.load(os.path.join('images', 'map.png')).convert_alpha()
+        self.map = pygame.image.load(os.path.join('images', 'map.png'))
 
         #
         # add sprites
@@ -171,7 +165,7 @@ class GameScene(pygamepal.Scene):
         # chest
 
         # load a texture
-        chestSpritesheet = pygame.image.load(os.path.join('images','chest_spritesheet.png')).convert_alpha()
+        chestSpritesheet = pygame.image.load(os.path.join('images','chest_spritesheet.png'))
         # split texture into a 2D list of sub-textures
         splitTextures = pygamepal.splitTexture(chestSpritesheet, 48, 48)
         
@@ -181,9 +175,9 @@ class GameScene(pygamepal.Scene):
         self.chest.spriteImage.addTextures(splitTextures[0][0], splitTextures[0][1], splitTextures[0][2], splitTextures[0][3], offset = (16, 18), state = 'open', animationDelay = 4, loop = False)
         self.chest.spriteImage.addTextures(splitTextures[0][3], splitTextures[0][2], splitTextures[0][1], splitTextures[0][0], offset = (16, 18), state = 'close', animationDelay = 4, loop = False)
         self.chest.spriteImage.pause = True
-        self.chest.trigger = pygamepal.Trigger(size = (26, 24), sprite = self.chest, spriteOffset = (-5, -5),
-            onEnter = lambda this, other, state='open': self.setChestState(this, other, state),
-            onExit = lambda this, other, state='close': self.setChestState(this, other, state))
+        self.chest.trigger = pygamepal.Trigger(size = (26, 24), offset = (-5, -5),
+            onEnter = lambda this, other, state = 'open': self.setChestState(this, other, state),
+            onExit = lambda this, other, state = 'close': self.setChestState(this, other, state))
         self.addSprite(self.chest)
 
         #
@@ -212,6 +206,20 @@ class GameScene(pygamepal.Scene):
         self.forestTrigger = pygamepal.Trigger(position = (10, 20), size = (100, 70),
             onEnter = lambda this, other, zoom = 6 : self.zoomCamera(this, other, zoom),
             onExit = lambda this, other, zoom = 4 : self.zoomCamera(this, other, zoom))
+        self.addTrigger(self.forestTrigger)
+
+        #
+        # add map bounds colliders
+        #
+
+        # top
+        self.addCollider(pygamepal.Collider((0, 0), (256, 2)))
+        # bottom
+        self.addCollider(pygamepal.Collider((0, 254), (256, 2)))
+        # left
+        self.addCollider(pygamepal.Collider((0, 0), (2, 256)))
+        # right
+        self.addCollider(pygamepal.Collider((254, 0), (2, 256)))
 
     def update(self):
 
@@ -219,18 +227,12 @@ class GameScene(pygamepal.Scene):
         if self.game.input.isKeyPressed(pygame.K_ESCAPE):
             self.game.currentScene = menuScene
         
-        # update triggers
-        self.forestTrigger.update()
-
         # camera tracks the player
         self.camera.target = self.player.getCenter()
 
     def draw(self):
 
         self.sceneSurface.blit(self.map, (0, 0))
-        if pygamepal.Game.DEBUG:
-            self.forestTrigger.draw(self.sceneSurface)
-        pygamepal.drawText(self.overlaySurface, '[WASD] to move, [ESC] to return to main menu, [Q] to quit', (20, 20), backgroundColor='black')
 
 #
 # create game subclass
@@ -243,13 +245,15 @@ class GameExample(pygamepal.Game):
         # press [q] qt any time to quit
         if self.input.isKeyPressed(pygame.K_q):
             self.quit()
+        
+        # press 'z' to toggle debug mode
+        if self.input.isKeyPressed(pygame.K_z):
+            pygamepal.DEBUG = not pygamepal.DEBUG
 
 #
 # create game and scenes
 #
 
-# uncomment the line below to show debug info
-#pygamepal.Game.DEBUG = True
 gameExample = GameExample(size=(800, 600), caption = 'Full game example')
 menuScene = MenuScene(gameExample)
 gameScene = GameScene(gameExample)

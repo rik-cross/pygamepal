@@ -3,6 +3,7 @@ import pygame
 # create a default 'system' font
 pygame.font.init()
 sysFont = pygame.font.SysFont(None, 24)
+smallFont = pygame.font.SysFont(None, 14)
 
 def drawText(screen, text,
              position = [0, 0],

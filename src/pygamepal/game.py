@@ -3,8 +3,6 @@ import pygamepal
 
 class Game:
 
-    DEBUG = False
-
     def __init__(self, size = (640, 480), caption = '', fps = 60, fullscreen = False):
        
         pygame.init()
@@ -109,9 +107,12 @@ class Game:
         pass
 
     #
-    # alternative methods to add / remove a sprite
+    # alternative methods to add / remove
+    # sprites, triggers, colliders and buttons
     # from the current scene, via the game
     #
+
+    # sprite
 
     def addSprite(self, sprite):
         if self.currentScene is not None:
@@ -120,6 +121,36 @@ class Game:
     def removeSprite(self, sprite):
         if self.currentScene is not None:
             self.currentScene.removeSprite(sprite)
+    
+    # trigger
+
+    def addTrigger(self, trigger):
+        if self.currentScene is not None:
+            self.currentScene.addTrigger(trigger)
+    
+    def removeTrigger(self, trigger):
+        if self.currentScene is not None:
+            self.currentScene.removeTrigger(trigger)
+
+    # collider
+
+    def addCollider(self, collider):
+        if self.currentScene is not None:
+            self.currentScene.addCollider(collider)
+    
+    def removeCollider(self, collider):
+        if self.currentScene is not None:
+            self.currentScene.removeCollider(collider)
+    
+    # button
+
+    def addButton(self, button):
+        if self.currentScene is not None:
+            self.currentScene.addButton(button)
+    
+    def removeButton(self, button):
+        if self.currentScene is not None:
+            self.currentScene.removeButton(button)
 
     #
     # properties

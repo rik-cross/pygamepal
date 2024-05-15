@@ -11,6 +11,7 @@ from .sprite import *
 from .input import *
 from .camera import *
 from .spriteImage import *
+from .collider import *
 from .trigger import *
 from .button import *
 from .particles import *
@@ -20,3 +21,5 @@ from .drawText import *
 from .spriteTextureList import *
 from .splitTexture import *
 from .flatten import *
+
+DEBUG = False

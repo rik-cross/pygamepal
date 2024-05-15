@@ -7,35 +7,27 @@
 
 import pygame
 
-class Collider:
-
-    '''
-    A sprite can optionally have a collider.
-    Movement is only possible if two colliders
-    would not overlap as a result.
-    '''
-
-    def __init__(self, offset, size):
-        self.offset = offset
-        self.size = size
-
 class Sprite(pygame.sprite.Sprite):
 
-    '''
-    A Sprite is a subclass of pygame.Sprite.
-    Sprites can be added to scenes, and can have
-    a position, size, collider and SpriteImage.
-    '''
-
-    def __init__(self, imageName = None, texture = None, position = (0, 0), size = (0, 0), z = 0, collider = None, scaleImage = False):
+    # add trigger to constructor
+    def __init__(self,
+                 imageName = None, texture = None,
+                 position = (0, 0), size = (0, 0), z = 0,
+                 scaleImage = False,
+                 collider = None,
+                 trigger = None,
+                 drawColor = 'white'):
 
         # importing here to avoid a circular dependency
         from pygamepal import SpriteImage
 
-        self.trigger = None
-
-        self.spriteImage = None
         self.position = position
+
+        self.collider = collider
+        self.trigger = trigger
+        
+        self.spriteImage = None
+        
 
         # use image name to create a texture if defined
         if imageName is not None:
@@ -57,36 +49,68 @@ class Sprite(pygame.sprite.Sprite):
             self.size = size
         
         self.z = z
-        self.collider = collider
+
         self.currentScene = None
+
+        self.drawColor = drawColor
 
         # call the user-defined init() method
         self.init()
         
     def _update(self):
+
+        from pygamepal import Trigger, Collider
+
+        # 
+        # update the sprite of colliders
+        #
+
+        if self.collider is not None:
+            self.collider._sprite = self
+            self.collider.update()
+
+        # 
+        # update the sprite of triggers
+        #
+
+        if self.trigger is not None:
+            self.trigger._sprite = self
+            self.trigger.update()
+
         if self.spriteImage is not None:
             self.spriteImage.update()
-        if self.trigger is not None:
-            self.trigger.update()
+       
         self.update()
     
     def _draw(self, screen):
 
-        from pygamepal import Game
+        from pygamepal import Game, drawText, smallFont, DEBUG
 
         if self.spriteImage is not None:
             self.spriteImage.draw(screen, self.position[0], self.position[1])
-        if Game.DEBUG is True:
-            # DEBUG draw sprite size box
+
+        if DEBUG is True:
+            
+            # draw sprite size box
             if hasattr(self, 'position') is True and self.position is not None and hasattr(self, 'size') is True and self.size is not None:
+                # draw bounding box
                 pygame.draw.rect(screen, 'white', (self.position[0], self.position[1], self.size[0], self.size[1]), 1)
-            # DEBUG draw sprite collider box
-            if self.collider is not None and self.position is not None:
-                pygame.draw.rect(screen, 'red', (self.position[0] + self.collider.offset[0], self.position[1] + self.collider.offset[1], self.collider.size[0], self.collider.size[1]), 1)
-            # DEBUG draw trigger
+                # draw position and size info
+                drawText(
+                    screen,
+                    '[' + str(self.x) + ', ' + str(self.y) + ', ' + str(self.size[0]) + ', ' + str(self.size[1])  + ']',
+                    (self.x + self.size[0] + 2, self.y + self.size[1] / 2 - 5),
+                    font = smallFont,
+                    color = self.drawColor)
+            
+            # draw sprite collider
+            if self.collider is not None:
+                self.collider.draw(screen)
+
+            # draw sprite trigger
             if self.trigger is not None:
                 self.trigger.draw(screen)
-
+    
     #
     # user-defined methods
     #
@@ -115,35 +139,6 @@ class Sprite(pygame.sprite.Sprite):
     # uses the position and size to return the center
     def getCenter(self):
         return (self.position[0] + self.size[0] / 2, self.position[1] + self.size[1] / 2)
-    
-    #
-    # helper methods
-    #
-
-    # returns a list of sprite whose colliders are
-    # colliding with this sprite's collider
-    # newPosition is used to check sprite before moving
-    def getCollidingSprites(self, newPosition):
-        # list of colliding sprites
-        cs = []
-        # don't check if this sprite doesn't have a collider
-        if hasattr(self, 'collider') is False or self.collider is None:
-            return cs
-        # create a collider rect object to test
-        thisRect = pygame.Rect(newPosition[0] + self.collider.offset[0], newPosition[1] + self.collider.offset[1], self.collider.size[0], self.collider.size[1])
-        # check against all other sprites...
-        for sprite in self.currentScene.sprites:
-            # ...that aren't this sprite...
-            if sprite is not self:
-                # ...that have a collider
-                if hasattr(sprite, 'collider') is True and sprite.collider is not None:
-                    # create a collider rect object to test against
-                    otherRect = pygame.Rect(sprite.position[0] + sprite.collider.offset[0], sprite.position[1] + sprite.collider.offset[1], sprite.collider.size[0], sprite.collider.size[1])
-                    # add sptite to the list if colliders are colliding
-                    if thisRect.colliderect(otherRect):
-                        cs.append(sprite)
-        # returh the list of colliding sprites
-        return cs
 
     #
     # properties
@@ -158,68 +153,67 @@ class Sprite(pygame.sprite.Sprite):
     # setting the position checks colliders
     @position.setter
     def position(self, value):
-        
-        # allow movement if there's no collider to check 
+
+        from pygamepal import Collider
+    
         if hasattr(self, 'collider') is False or self.collider is None:
+            # convert the new position to a Vector2
             self._position = pygame.math.Vector2(value[0], value[1])
-            return    
         
-        #
-        # check x
-        #
-
-        # calculate the travel distance to get the direction
-        direction = [value[0] - self._position[0], 0]
-        # only check the x movement
-        newXPos = [value[0], self.position[1]]
-        # get a list of colliding sprites
-        collisionList = self.getCollidingSprites(newXPos)
-        # find the closes collided sprite
-        closestX = None
-        closestS = None
-        for c in collisionList:
-            d = ((c.position[0] + c.collider.offset[0]) - (self.position[0] + self.collider.offset[0]))
-            if closestX is None or d < closestX:
-                closestX = d
-                closestS = c
-        # move towards the closest collider if one exists
-        if closestX is not None:
-            if direction[0] > 0:
-                self._position[0] = self._position[0] + closestX - self.collider.size[0]
-            elif direction[0] < 0:
-                self._position[0] = self._position[0] + closestX + c.collider.size[0]
         else:
-            self._position[0] = value[0]
         
-        #
-        # check y
-        #
+            #
+            # check x
+            #
 
-        # calculate the travel distance to get the direction
-        direction = [0, value[1] - self._position[1]]
-        # only check the y movement
-        newYPos = [self.position[0], value[1]]
-        # get a list of colliding sprites
-        collisionList = self.getCollidingSprites(newYPos)
-        # find the closes collided sprite
-        closestY = None
-        closestS = None
-        for c in collisionList:
-            d = ((c.position[1] + c.collider.offset[1]) - (self.position[1] + self.collider.offset[1]))
-            if closestY is None or d < closestY:
-                closestY = d
-                closestS = c
-        # move towards the closest collider if one exists
-        if closestY is not None:
-            if direction[1] > 0:
-                self._position[1] = self._position[1] + closestY - self.collider.size[1]
-            elif direction[1] < 0:
-                self._position[1] = self._position[1] + closestY + c.collider.size[1]
-        else:
-            self._position[1] = value[1]
-        
-        # convert the new position to a Vector2
-        self._position = pygame.math.Vector2(self._position[0], self._position[1])
+            # calculate the travel distance to get the direction
+            direction = [value[0] - self._position[0], 0]
+            # only check the x movement
+            newXPos = [value[0], self.position[1]]
+            # get a list of colliding sprites
+            collisionList = self.collider._getCollisions(newXPos)
+            # find the closes collided sprite
+            closestX = None
+            for c in collisionList:
+                d = c._rect.x - self.collider._rect.x
+                if closestX is None or d < closestX:
+                    closestX = d
+            # move towards the closest collider if one exists
+            if closestX is not None:
+                if direction[0] > 0:
+                    self._position[0] = self._position[0] + closestX - self.collider.size[0]
+                elif direction[0] < 0:
+                    self._position[0] = self._position[0] + closestX + c._rect[2]
+            else:
+                self._position[0] = value[0]
+            
+            #
+            # check y
+            #
+            
+            # calculate the travel distance to get the direction
+            direction = [0, value[1] - self._position[1]]
+            # only check the x movement
+            newYPos = [self.position[0], value[1]]
+            # get a list of colliding sprites
+            collisionList = self.collider._getCollisions(newYPos)
+            # find the closes collided sprite
+            closestY = None
+            for c in collisionList:
+                d = c._rect.y - self.collider._rect.y
+                if closestY is None or d < closestY:
+                    closestY = d
+            # move towards the closest collider if one exists
+            if closestY is not None:
+                if direction[1] > 0:
+                    self._position[1] = self._position[1] + closestY - self.collider.size[1]
+                elif direction[1] < 0:
+                    self._position[1] = self._position[1] + closestY + c._rect[3]
+            else:
+                self._position[1] = value[1]
+            
+            # convert the new position to a Vector2
+            self._position = pygame.math.Vector2(self._position[0], self._position[1])
 
     @property
     def x(self):

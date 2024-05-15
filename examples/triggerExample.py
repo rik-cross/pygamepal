@@ -74,6 +74,9 @@ while running:
     #
 
     input.update()
+
+    # the trigger update method needs to be explicitly called
+    # if it isn't added to a scene or a sprite
     trigger1.update()
     trigger2.update()
 
@@ -84,6 +87,9 @@ while running:
     # clear screen to Cornflower Blue
     screen.fill('cornflowerblue')
   
+    # the trigger draw method needs to be explicitly called
+    # if it isn't added to a scene or a sprite
+
     trigger1.draw(screen)
     trigger2.draw(screen)
 
