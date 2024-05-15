@@ -13,7 +13,7 @@ A library of classes and functions to support game development in Pygame.
 
 ### Getting started
 
-- See the [contents(#contents) below
+- See the [contents](#contents) below
 - See the [Full example](examples/fullExample.py), using lots of pygamepal functionality
 
 ### Licence
