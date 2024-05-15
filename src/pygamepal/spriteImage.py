@@ -17,36 +17,36 @@ class SpriteImage():
 
     def __init__(self,
 
-                #
-                # parameters for first SpriteTextureList
-                #
+        #
+        # parameters for first SpriteTextureList
+        #
 
-                # a list of 0 or more textures
-                *textures,
-                # state to associate with textures
-                state = None,
-                # delay between animation frames
-                animationDelay = 8,
-                # looping animation
-                loop = True,
-                # horizontal and vertical texture flip
-                hFlip = False,
-                vFlip = False,
-                # offset is used to discount part of the image
-                # when specifying a drawing position
-                # useful for sprites with whitespace or characters
-                # holding tools, etc.
-                offset = (0, 0),
+        # a list of 0 or more textures
+        *textures,
+        # state to associate with textures
+        state = None,
+        # delay between animation frames
+        animationDelay = 8,
+        # looping animation
+        loop = True,
+        # horizontal and vertical texture flip
+        hFlip = False,
+        vFlip = False,
+        # offset is used to discount part of the image
+        # when specifying a drawing position
+        # useful for sprites with whitespace or characters
+        # holding tools, etc.
+        offset = (0, 0),
 
-                #
-                # parameters for all states and image lists
-                #
+        #
+        # parameters for all states and image lists
+        #
 
-                # spriteImage visibility
-                visible = True,
-                # spriteImage alpha transparency (between 0 and 255)
-                alpha = 255,
-                pause = False):
+        # spriteImage visibility
+        visible = True,
+        # spriteImage alpha transparency (between 0 and 255)
+        alpha = 255,
+        pause = False):
 
         # reset the object
         self.reset()
@@ -83,7 +83,7 @@ class SpriteImage():
                 else:
                     self._animationIndex = len(self._textureLists[self._currentState]._textures) - 1
 
-    def draw(self, screen, x, y):
+    def draw(self, surface, x, y):
 
         '''
         Draws the current frame of the current state's animation.
@@ -98,7 +98,7 @@ class SpriteImage():
         # set the texture alpha
         currentTexture.set_alpha(self.alpha)
         # draw (optionally flipped) texture
-        screen.blit(pygame.transform.flip(currentTexture,
+        surface.blit(pygame.transform.flip(currentTexture,
                                           self._textureLists[self._currentState]._hFlip,
                                           self._textureLists[self._currentState]._vFlip),
                     (x - self._textureLists[self._currentState]._offset[0],

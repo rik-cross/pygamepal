@@ -60,16 +60,16 @@ class Button:
         self.setHighlighted()
         self.setSelected()
 
-    def draw(self, screen):
+    def draw(self, surface):
 
         if self.drawMethod is not None:
-            self.drawMethod(self, screen)
+            self.drawMethod(self, surface)
             return
 
-        self.drawBackground(screen)
-        self.drawImage(screen)
-        self.drawText(screen)
-        self.drawBorder(screen)
+        self.drawBackground(surface)
+        self.drawImage(surface)
+        self.drawText(surface)
+        self.drawBorder(surface)
 
     #
     # draw helper methods

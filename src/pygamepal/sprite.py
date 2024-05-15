@@ -82,22 +82,22 @@ class Sprite(pygame.sprite.Sprite):
        
         self.update()
     
-    def _draw(self, screen):
+    def _draw(self, surface):
 
         from pygamepal import Game, drawText, smallFont, DEBUG
 
         if self.spriteImage is not None:
-            self.spriteImage.draw(screen, self.position[0], self.position[1])
+            self.spriteImage.draw(surface, self.position[0], self.position[1])
 
         if DEBUG is True:
             
             # draw sprite size box
             if hasattr(self, 'position') is True and self.position is not None and hasattr(self, 'size') is True and self.size is not None:
                 # draw bounding box
-                pygame.draw.rect(screen, 'white', (self.position[0], self.position[1], self.size[0], self.size[1]), 1)
+                pygame.draw.rect(surface, 'white', (self.position[0], self.position[1], self.size[0], self.size[1]), 1)
                 # draw position and size info
                 drawText(
-                    screen,
+                    surface,
                     '[' + str(self.x) + ', ' + str(self.y) + ', ' + str(self.size[0]) + ', ' + str(self.size[1])  + ']',
                     (self.x + self.size[0] + 2, self.y + self.size[1] / 2 - 5),
                     font = smallFont,
@@ -105,11 +105,11 @@ class Sprite(pygame.sprite.Sprite):
             
             # draw sprite collider
             if self.collider is not None:
-                self.collider.draw(screen)
+                self.collider.draw(surface)
 
             # draw sprite trigger
             if self.trigger is not None:
-                self.trigger.draw(screen)
+                self.trigger.draw(surface)
     
     #
     # user-defined methods

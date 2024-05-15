@@ -5,7 +5,7 @@ pygame.font.init()
 sysFont = pygame.font.SysFont(None, 24)
 smallFont = pygame.font.SysFont(None, 14)
 
-def drawText(screen, text,
+def drawText(surface, text,
              position = [0, 0],
              font = None,
              antialias = True,
@@ -25,5 +25,5 @@ def drawText(screen, text,
     if centerY == True:
         position = (position[0], position[1] - textSurface.get_rect().height // 2)
 
-    # draw text to screen
-    screen.blit(textSurface, position)
+    # draw text to surface
+    surface.blit(textSurface, position)

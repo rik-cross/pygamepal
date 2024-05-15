@@ -27,9 +27,9 @@ class Particle():
             self.position[1] + self.velocity[1] * deltaTime 
         )
 
-    def draw(self, screen):
+    def draw(self, surface):
         pygame.draw.circle(
-            screen,
+            surface,
             self.color,
             self.position,
             self.size)
@@ -139,10 +139,10 @@ class Particles():
             if p.size <= 0 or p.lifetime <= 0:
                 self.particleList.remove(p)
 
-    def draw(self, screen):
+    def draw(self, surface):
 
         if self.finished:
             return
 
         for p in self.particleList:
-            p.draw(screen)
+            p.draw(surface)
