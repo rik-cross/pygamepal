@@ -168,6 +168,15 @@ class Camera:
     # properties
     #
 
+    # zoom property, clamped between 0 and 1
+    @property
+    def zoom(self):
+        return self._zoom
+    
+    @zoom.setter
+    def zoom(self, value):
+        self._zoom = max(self.minZoom, min(self.maxZoom, value))    
+
     # lazyZoom property, clamped between 0 and 1
     @property
     def lazyZoom(self):

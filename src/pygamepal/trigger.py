@@ -70,6 +70,10 @@ class Trigger:
                 if self._scene == t._scene:
                     # if triggers collide
                     if self._rect.colliderect(t._rect):
+
+                        # calculate distance between trigger centers
+                        
+
                         if t not in self._collidedTriggers:
                             # onEnter
                             if self.onEnter is not None:
