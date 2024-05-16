@@ -192,9 +192,9 @@ class GameScene(pygamepal.Scene):
         #
         
         self.camera.backgroundColor = 'black'
-        self.camera.target = self.player.getCenter()
+        self.camera.setTarget(self.player.getCenter(), instant = True)
         self.camera.lazyFollow = 0.9
-        self.camera.zoom = 4
+        self.camera.setZoom(4, instant = True)
         self.camera.lazyZoom = 0.9
         self.camera.clamp = True
         self.camera.clampRect = (0, 0, 256, 256)

@@ -163,6 +163,18 @@ class Camera:
         if direction is not None:
             self.shakeDirection = direction
         self._shakeCurrentMagnitude = self.shakeMagnitude
+    
+    # permits the instant setting of target value
+    def setTarget(self, value, instant = False):
+        self.target = value
+        if instant is True:
+            self._currentTarget = value
+
+    # permits the instant setting of zoom value
+    def setZoom(self, value, instant = False):
+        self.zoom = value
+        if instant is True:
+            self._currentZoom = value
 
     #
     # properties
