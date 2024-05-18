@@ -196,8 +196,8 @@ camera = pygamepal.Camera(
     # zoom follow delay is a (clamped) value between
     # 0 (instant zoom) and 1 (no zoom)
     lazyZoom = 0,
-    backgroundColour = 'gray30',
-    borderColour='black', borderThickness = 2, 
+    backgroundColor = 'gray30',
+    borderColor='black', borderThickness = 2, 
     clamp = False, clampRect = (0, 0, 1000, 1000)
     # camera shake
     # oscillate speed (0 = no movement, 1 = fast)
