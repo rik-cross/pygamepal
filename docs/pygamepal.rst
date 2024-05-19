@@ -1,5 +1,5 @@
-pygamepal
-=========
+pygamepal package
+=================
 
 pygamepal.button
 ----------------
