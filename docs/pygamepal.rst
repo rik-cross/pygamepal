@@ -120,3 +120,11 @@ pygamepal.trigger
    :members:
    :undoc-members:
    :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: pygamepal
+   :members:
+   :undoc-members:
+   :show-inheritance:
