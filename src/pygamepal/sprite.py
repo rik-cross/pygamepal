@@ -32,9 +32,11 @@ class Sprite(pygame.sprite.Sprite):
         # use image name to create a texture if defined
         if imageName is not None:
             texture = pygame.image.load(imageName)
+            texture = texture.convert_alpha()
         
         # create a spriteImage if a texture is specified
         if texture is not None:
+            texture = texture.convert_alpha()
             # set the texture size to the sprite size if specified
             if scaleImage == True and size is not None:
                 texture = pygame.transform.scale(texture, size)

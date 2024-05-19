@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pygamepal package &mdash; PygamePal 0.6.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8fa8b3e9"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to PygamePal’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PygamePal
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pygamepal package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.button">pygamepal.button</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.button.Button"><code class="docutils literal notranslate"><span class="pre">Button</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.button.Button.draw"><code class="docutils literal notranslate"><span class="pre">Button.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.button.Button.drawBackground"><code class="docutils literal notranslate"><span class="pre">Button.drawBackground()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.button.Button.drawBorder"><code class="docutils literal notranslate"><span class="pre">Button.drawBorder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.button.Button.drawImage"><code class="docutils literal notranslate"><span class="pre">Button.drawImage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.button.Button.drawText"><code class="docutils literal notranslate"><span class="pre">Button.drawText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.button.Button.isHighlighted"><code class="docutils literal notranslate"><span class="pre">Button.isHighlighted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.button.Button.isSelected"><code class="docutils literal notranslate"><span class="pre">Button.isSelected</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.button.Button.setHighlighted"><code class="docutils literal notranslate"><span class="pre">Button.setHighlighted()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.button.Button.setSelected"><code class="docutils literal notranslate"><span class="pre">Button.setSelected()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.button.Button.update"><code class="docutils literal notranslate"><span class="pre">Button.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.camera">pygamepal.camera</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.camera.Camera"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.camera.Camera.draw"><code class="docutils literal notranslate"><span class="pre">Camera.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.camera.Camera.lazyFollow"><code class="docutils literal notranslate"><span class="pre">Camera.lazyFollow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.camera.Camera.lazyZoom"><code class="docutils literal notranslate"><span class="pre">Camera.lazyZoom</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.camera.Camera.setTarget"><code class="docutils literal notranslate"><span class="pre">Camera.setTarget()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.camera.Camera.setZoom"><code class="docutils literal notranslate"><span class="pre">Camera.setZoom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.camera.Camera.shake"><code class="docutils literal notranslate"><span class="pre">Camera.shake()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.camera.Camera.update"><code class="docutils literal notranslate"><span class="pre">Camera.update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.camera.Camera.zoom"><code class="docutils literal notranslate"><span class="pre">Camera.zoom</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.collider">pygamepal.collider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.collider.Collider"><code class="docutils literal notranslate"><span class="pre">Collider</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.collider.Collider.draw"><code class="docutils literal notranslate"><span class="pre">Collider.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.collider.Collider.h"><code class="docutils literal notranslate"><span class="pre">Collider.h</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.collider.Collider.update"><code class="docutils literal notranslate"><span class="pre">Collider.update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.collider.Collider.w"><code class="docutils literal notranslate"><span class="pre">Collider.w</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.collider.Collider.x"><code class="docutils literal notranslate"><span class="pre">Collider.x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.collider.Collider.y"><code class="docutils literal notranslate"><span class="pre">Collider.y</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.drawText">pygamepal.drawText</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.drawText.drawText"><code class="docutils literal notranslate"><span class="pre">drawText()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.flatten">pygamepal.flatten</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.flatten.flatten"><code class="docutils literal notranslate"><span class="pre">flatten()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.game">pygamepal.game</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.game.Game"><code class="docutils literal notranslate"><span class="pre">Game</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.addButton"><code class="docutils literal notranslate"><span class="pre">Game.addButton()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.addCollider"><code class="docutils literal notranslate"><span class="pre">Game.addCollider()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.addSprite"><code class="docutils literal notranslate"><span class="pre">Game.addSprite()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.addTrigger"><code class="docutils literal notranslate"><span class="pre">Game.addTrigger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.draw"><code class="docutils literal notranslate"><span class="pre">Game.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.icon"><code class="docutils literal notranslate"><span class="pre">Game.icon</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.init"><code class="docutils literal notranslate"><span class="pre">Game.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.quit"><code class="docutils literal notranslate"><span class="pre">Game.quit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.removeButton"><code class="docutils literal notranslate"><span class="pre">Game.removeButton()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.removeCollider"><code class="docutils literal notranslate"><span class="pre">Game.removeCollider()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.removeSprite"><code class="docutils literal notranslate"><span class="pre">Game.removeSprite()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.removeTrigger"><code class="docutils literal notranslate"><span class="pre">Game.removeTrigger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.run"><code class="docutils literal notranslate"><span class="pre">Game.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.game.Game.update"><code class="docutils literal notranslate"><span class="pre">Game.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.input">pygamepal.input</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.input.Input"><code class="docutils literal notranslate"><span class="pre">Input</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.getKeyDownDuration"><code class="docutils literal notranslate"><span class="pre">Input.getKeyDownDuration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.getKeyLongPressPercentage"><code class="docutils literal notranslate"><span class="pre">Input.getKeyLongPressPercentage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.getMouseButtonDownDuration"><code class="docutils literal notranslate"><span class="pre">Input.getMouseButtonDownDuration()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.getMouseButtonLongPressPercentage"><code class="docutils literal notranslate"><span class="pre">Input.getMouseButtonLongPressPercentage()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.getMouseCursorPosition"><code class="docutils literal notranslate"><span class="pre">Input.getMouseCursorPosition()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.getMouseDirection"><code class="docutils literal notranslate"><span class="pre">Input.getMouseDirection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.isKeyDoublePressed"><code class="docutils literal notranslate"><span class="pre">Input.isKeyDoublePressed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.isKeyDown"><code class="docutils literal notranslate"><span class="pre">Input.isKeyDown()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.isKeyLongDown"><code class="docutils literal notranslate"><span class="pre">Input.isKeyLongDown()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.isKeyLongPressed"><code class="docutils literal notranslate"><span class="pre">Input.isKeyLongPressed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.isKeyPressed"><code class="docutils literal notranslate"><span class="pre">Input.isKeyPressed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.isKeyReleased"><code class="docutils literal notranslate"><span class="pre">Input.isKeyReleased()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.isMouseButtonDoublePressed"><code class="docutils literal notranslate"><span class="pre">Input.isMouseButtonDoublePressed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.isMouseButtonDown"><code class="docutils literal notranslate"><span class="pre">Input.isMouseButtonDown()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.isMouseButtonLongDown"><code class="docutils literal notranslate"><span class="pre">Input.isMouseButtonLongDown()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.isMouseButtonLongPressed"><code class="docutils literal notranslate"><span class="pre">Input.isMouseButtonLongPressed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.isMouseButtonPressed"><code class="docutils literal notranslate"><span class="pre">Input.isMouseButtonPressed()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.isMouseButtonReleased"><code class="docutils literal notranslate"><span class="pre">Input.isMouseButtonReleased()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.input.Input.update"><code class="docutils literal notranslate"><span class="pre">Input.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.particles">pygamepal.particles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.particles.Particle"><code class="docutils literal notranslate"><span class="pre">Particle</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.particles.Particle.draw"><code class="docutils literal notranslate"><span class="pre">Particle.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.particles.Particle.update"><code class="docutils literal notranslate"><span class="pre">Particle.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.particles.Particles"><code class="docutils literal notranslate"><span class="pre">Particles</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.particles.Particles.draw"><code class="docutils literal notranslate"><span class="pre">Particles.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.particles.Particles.update"><code class="docutils literal notranslate"><span class="pre">Particles.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.scene">pygamepal.scene</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.scene.Scene"><code class="docutils literal notranslate"><span class="pre">Scene</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.addButton"><code class="docutils literal notranslate"><span class="pre">Scene.addButton()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.addCollider"><code class="docutils literal notranslate"><span class="pre">Scene.addCollider()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.addSprite"><code class="docutils literal notranslate"><span class="pre">Scene.addSprite()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.addTrigger"><code class="docutils literal notranslate"><span class="pre">Scene.addTrigger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.draw"><code class="docutils literal notranslate"><span class="pre">Scene.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.init"><code class="docutils literal notranslate"><span class="pre">Scene.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.onActive"><code class="docutils literal notranslate"><span class="pre">Scene.onActive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.onInactive"><code class="docutils literal notranslate"><span class="pre">Scene.onInactive()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.removeButton"><code class="docutils literal notranslate"><span class="pre">Scene.removeButton()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.removeCollider"><code class="docutils literal notranslate"><span class="pre">Scene.removeCollider()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.removeSprite"><code class="docutils literal notranslate"><span class="pre">Scene.removeSprite()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.removeTrigger"><code class="docutils literal notranslate"><span class="pre">Scene.removeTrigger()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.sortByBottom"><code class="docutils literal notranslate"><span class="pre">Scene.sortByBottom()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.sortByLeft"><code class="docutils literal notranslate"><span class="pre">Scene.sortByLeft()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.sortByRight"><code class="docutils literal notranslate"><span class="pre">Scene.sortByRight()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.sortByTop"><code class="docutils literal notranslate"><span class="pre">Scene.sortByTop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.sortByZ"><code class="docutils literal notranslate"><span class="pre">Scene.sortByZ()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.scene.Scene.update"><code class="docutils literal notranslate"><span class="pre">Scene.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.splitTexture">pygamepal.splitTexture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.splitTexture.splitTexture"><code class="docutils literal notranslate"><span class="pre">splitTexture()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.sprite">pygamepal.sprite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.sprite.Sprite"><code class="docutils literal notranslate"><span class="pre">Sprite</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.sprite.Sprite.getCenter"><code class="docutils literal notranslate"><span class="pre">Sprite.getCenter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.sprite.Sprite.init"><code class="docutils literal notranslate"><span class="pre">Sprite.init()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.sprite.Sprite.onAddedToScene"><code class="docutils literal notranslate"><span class="pre">Sprite.onAddedToScene()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.sprite.Sprite.onRemovedFromScene"><code class="docutils literal notranslate"><span class="pre">Sprite.onRemovedFromScene()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.sprite.Sprite.position"><code class="docutils literal notranslate"><span class="pre">Sprite.position</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.sprite.Sprite.touching"><code class="docutils literal notranslate"><span class="pre">Sprite.touching()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.sprite.Sprite.update"><code class="docutils literal notranslate"><span class="pre">Sprite.update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.sprite.Sprite.x"><code class="docutils literal notranslate"><span class="pre">Sprite.x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.sprite.Sprite.y"><code class="docutils literal notranslate"><span class="pre">Sprite.y</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.spriteImage">pygamepal.spriteImage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.spriteImage.SpriteImage"><code class="docutils literal notranslate"><span class="pre">SpriteImage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.spriteImage.SpriteImage.addTextures"><code class="docutils literal notranslate"><span class="pre">SpriteImage.addTextures()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.spriteImage.SpriteImage.alpha"><code class="docutils literal notranslate"><span class="pre">SpriteImage.alpha</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.spriteImage.SpriteImage.center"><code class="docutils literal notranslate"><span class="pre">SpriteImage.center</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.spriteImage.SpriteImage.draw"><code class="docutils literal notranslate"><span class="pre">SpriteImage.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.spriteImage.SpriteImage.reset"><code class="docutils literal notranslate"><span class="pre">SpriteImage.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.spriteImage.SpriteImage.state"><code class="docutils literal notranslate"><span class="pre">SpriteImage.state</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.spriteImage.SpriteImage.update"><code class="docutils literal notranslate"><span class="pre">SpriteImage.update()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.spriteTextureList">pygamepal.spriteTextureList</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.spriteTextureList.SpriteTextureList"><code class="docutils literal notranslate"><span class="pre">SpriteTextureList</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.transition">pygamepal.transition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.Transition"><code class="docutils literal notranslate"><span class="pre">Transition</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.Transition.draw"><code class="docutils literal notranslate"><span class="pre">Transition.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.Transition.reset"><code class="docutils literal notranslate"><span class="pre">Transition.reset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.Transition.update"><code class="docutils literal notranslate"><span class="pre">Transition.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.TransitionFade"><code class="docutils literal notranslate"><span class="pre">TransitionFade</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.TransitionFade.draw"><code class="docutils literal notranslate"><span class="pre">TransitionFade.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.TransitionFadeToBlack"><code class="docutils literal notranslate"><span class="pre">TransitionFadeToBlack</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.TransitionFadeToBlack.draw"><code class="docutils literal notranslate"><span class="pre">TransitionFadeToBlack.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.TransitionMoveDown"><code class="docutils literal notranslate"><span class="pre">TransitionMoveDown</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.TransitionMoveDown.draw"><code class="docutils literal notranslate"><span class="pre">TransitionMoveDown.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.TransitionMoveLeft"><code class="docutils literal notranslate"><span class="pre">TransitionMoveLeft</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.TransitionMoveLeft.draw"><code class="docutils literal notranslate"><span class="pre">TransitionMoveLeft.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.TransitionMoveRight"><code class="docutils literal notranslate"><span class="pre">TransitionMoveRight</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.TransitionMoveRight.draw"><code class="docutils literal notranslate"><span class="pre">TransitionMoveRight.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.TransitionMoveUp"><code class="docutils literal notranslate"><span class="pre">TransitionMoveUp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.TransitionMoveUp.draw"><code class="docutils literal notranslate"><span class="pre">TransitionMoveUp.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.TransitionWipeDown"><code class="docutils literal notranslate"><span class="pre">TransitionWipeDown</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.TransitionWipeDown.draw"><code class="docutils literal notranslate"><span class="pre">TransitionWipeDown.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.TransitionWipeLeft"><code class="docutils literal notranslate"><span class="pre">TransitionWipeLeft</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.TransitionWipeLeft.draw"><code class="docutils literal notranslate"><span class="pre">TransitionWipeLeft.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.TransitionWipeRight"><code class="docutils literal notranslate"><span class="pre">TransitionWipeRight</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.TransitionWipeRight.draw"><code class="docutils literal notranslate"><span class="pre">TransitionWipeRight.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.TransitionWipeUp"><code class="docutils literal notranslate"><span class="pre">TransitionWipeUp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.transition.TransitionWipeUp.draw"><code class="docutils literal notranslate"><span class="pre">TransitionWipeUp.draw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.bounceEaseOut"><code class="docutils literal notranslate"><span class="pre">bounceEaseOut()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.transition.linear"><code class="docutils literal notranslate"><span class="pre">linear()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.trigger">pygamepal.trigger</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pygamepal.trigger.Trigger"><code class="docutils literal notranslate"><span class="pre">Trigger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.trigger.Trigger.draw"><code class="docutils literal notranslate"><span class="pre">Trigger.draw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.trigger.Trigger.h"><code class="docutils literal notranslate"><span class="pre">Trigger.h</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.trigger.Trigger.update"><code class="docutils literal notranslate"><span class="pre">Trigger.update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.trigger.Trigger.w"><code class="docutils literal notranslate"><span class="pre">Trigger.w</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.trigger.Trigger.x"><code class="docutils literal notranslate"><span class="pre">Trigger.x</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pygamepal.trigger.Trigger.y"><code class="docutils literal notranslate"><span class="pre">Trigger.y</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PygamePal</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pygamepal package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pygamepal.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pygamepal-package">
+<h1>pygamepal package<a class="headerlink" href="#pygamepal-package" title="Link to this heading"></a></h1>
+<section id="module-pygamepal.button">
+<span id="pygamepal-button"></span><h2>pygamepal.button<a class="headerlink" href="#module-pygamepal.button" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.button.Button">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.button.</span></span><span class="sig-name descname"><span class="pre">Button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(100,</span> <span class="pre">50)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fgColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bgColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">borderWidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">borderColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onHighlighted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onSelected</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updateMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyCode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.button.Button" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.button.Button.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.button.Button.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.button.Button.drawBackground">
+<span class="sig-name descname"><span class="pre">drawBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.button.Button.drawBackground" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.button.Button.drawBorder">
+<span class="sig-name descname"><span class="pre">drawBorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.button.Button.drawBorder" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.button.Button.drawImage">
+<span class="sig-name descname"><span class="pre">drawImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.button.Button.drawImage" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.button.Button.drawText">
+<span class="sig-name descname"><span class="pre">drawText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.button.Button.drawText" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.button.Button.isHighlighted">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isHighlighted</span></span><a class="headerlink" href="#pygamepal.button.Button.isHighlighted" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.button.Button.isSelected">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">isSelected</span></span><a class="headerlink" href="#pygamepal.button.Button.isSelected" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.button.Button.setHighlighted">
+<span class="sig-name descname"><span class="pre">setHighlighted</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.button.Button.setHighlighted" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.button.Button.setSelected">
+<span class="sig-name descname"><span class="pre">setSelected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.button.Button.setSelected" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.button.Button.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.button.Button.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pygamepal.camera">
+<span id="pygamepal-camera"></span><h2>pygamepal.camera<a class="headerlink" href="#module-pygamepal.camera" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.camera.Camera">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.camera.</span></span><span class="sig-name descname"><span class="pre">Camera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(640,</span> <span class="pre">480)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lazyFollow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minZoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxZoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lazyZoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backgroundColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cornflowerblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">borderColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">borderThickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clampRect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">1000,</span> <span class="pre">1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oscillateSpeed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shakeMagnitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shakeDirection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shakeDampening</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shakeNoise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.camera.Camera" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A camera can be used to render any source surface to another destination
+surface, using its parameters (size, position, zoom, etc.).</p>
+<img alt="https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/cameraExample.gif?raw=true" src="https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/cameraExample.gif?raw=true" />
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/rik-cross/pygamepal/blob/main/examples/cameraExample.py">Example code</a></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<em>tuple</em><em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – the top-left (x, y) coordinate for the camera.</p></li>
+<li><p><strong>size</strong> (<em>tuple</em><em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – the size (w, h) of the camera (default = (640, 480), or the parent <cite>Scene</cite> size if used within a <cite>Scene</cite>).</p></li>
+<li><p><strong>target</strong> (<em>tuple</em><em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – the coordinate (x, y) of the source surface to draw at the center of the camera (default = (0, 0)).</p></li>
+<li><p><strong>lazyFollow</strong> (<em>float</em>) – the delay when updating the camera target. 0 = instant snap to target, 1 = no movement (default = 0).</p></li>
+<li><p><strong>zoom</strong> (<em>float</em>) – the amount to scale the source target (default = 1).</p></li>
+<li><p><strong>minZoom</strong> (<em>float</em>) – the minimum allowed zoom (default = 0.1).</p></li>
+<li><p><strong>maxZoom</strong> (<em>float</em>) – the maximum allowed zoom (default = 10).</p></li>
+<li><p><strong>lazyZoom</strong> (<em>float</em>) – the delay when updating the zoom calue. 0 = instant zoom, 1 = no change in zoom (default = 0).</p></li>
+<li><p><strong>backgroundColor</strong> (<em>pygame.Color</em>) – the background color (default = ‘cornflowerblue’).</p></li>
+<li><p><strong>borderColor</strong> (<em>pygame.Color</em>) – the color of the border (default = ‘black’).</p></li>
+<li><p><strong>borderThickness</strong> (<em>int</em>) – the thickness of the border(default = 2).</p></li>
+<li><p><strong>clamp</strong> (<em>bool</em>) – specifies whether the camera should stay within a specific boundary of the source surface (default = False).</p></li>
+<li><p><strong>clampRect</strong> (<em>tuple</em><em>(</em><em>int</em><em>, </em><em>int</em><em>, </em><em>int</em><em>, </em><em>int</em><em>)</em>) – the boundary (x, y, w, h) of the source surface that the camera should stay within.</p></li>
+<li><p><strong>oscillateSpeed</strong> (<em>float</em>) – the speed at which the camera should shake (default = 0.2).</p></li>
+<li><p><strong>shakeMagnitude</strong> (<em>int</em>) – the magnitude of the camera shake (default = 30).</p></li>
+<li><p><strong>shakeDirection</strong> (<em>tuple</em><em>(</em><em>float</em><em>, </em><em>float</em><em>)</em>) – the (x, y) direction of the shake (default = (1, 0)).</p></li>
+<li><p><strong>shakeDampening</strong> (<em>float</em>) – the reduction in camera shake magnitude each frame (default = 0.4).</p></li>
+<li><p><strong>shakeNoise</strong> (<em>float</em>) – the amount of random noise to add to the shake (default = 0.8).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.camera.Camera.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destSurface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.camera.Camera.draw" title="Link to this definition"></a></dt>
+<dd><p>Draws the source surface to the destination surface, using the camera parameters.
+This method must be called each frame if using a camera in isolation, but the method
+is called automatically for cameras with a parent scene.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>surface</strong> (<em>pygame.Surface</em>) – the surface to draw.</p></li>
+<li><p><strong>destSurface</strong> (<em>pygame.Surface</em>) – the surface to draw to.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.camera.Camera.lazyFollow">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lazyFollow</span></span><a class="headerlink" href="#pygamepal.camera.Camera.lazyFollow" title="Link to this definition"></a></dt>
+<dd><p>Get / set the lazy follow value, between 0 and 1.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.camera.Camera.lazyZoom">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lazyZoom</span></span><a class="headerlink" href="#pygamepal.camera.Camera.lazyZoom" title="Link to this definition"></a></dt>
+<dd><p>Get / set the lazy zoom value, between 0 and 1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.camera.Camera.setTarget">
+<span class="sig-name descname"><span class="pre">setTarget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.camera.Camera.setTarget" title="Link to this definition"></a></dt>
+<dd><p>Set the camera target position. This method permits the instant setting of a position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instant</strong> (<em>bool</em>) – set the position instantly, ignoring the stored ‘lazyFollow’ value (default = False).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.camera.Camera.setZoom">
+<span class="sig-name descname"><span class="pre">setZoom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.camera.Camera.setZoom" title="Link to this definition"></a></dt>
+<dd><p>Set the camera target zoom value. This method permits the instant setting of the zoom.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instant</strong> (<em>bool</em>) – set the zoom value instantly, ignoring the stored ‘lazyZoom’ value (default = False).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.camera.Camera.shake">
+<span class="sig-name descname"><span class="pre">shake</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.camera.Camera.shake" title="Link to this definition"></a></dt>
+<dd><p>Start a camera shake.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>direction</strong> (<em>tuple</em><em>(</em><em>float</em><em>, </em><em>float</em><em>)</em>) – the (x, y) direction of the shake (default = None, use the stored direction).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.camera.Camera.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.camera.Camera.update" title="Link to this definition"></a></dt>
+<dd><p>Updates the camera target position and, zoom and shake. This method must be called
+each frame if using a camera in isolation, but the method is called automatically
+for cameras with a parent scene.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deltaTime</strong> (<em>float</em>) – the game time elapsed since the last frame (default = 1).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.camera.Camera.zoom">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zoom</span></span><a class="headerlink" href="#pygamepal.camera.Camera.zoom" title="Link to this definition"></a></dt>
+<dd><p>Get / set the zoom value (between specified ‘minZoom’ and ‘maxZoom’ values).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pygamepal.collider">
+<span id="pygamepal-collider"></span><h2>pygamepal.collider<a class="headerlink" href="#module-pygamepal.collider" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.collider.Collider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.collider.</span></span><span class="sig-name descname"><span class="pre">Collider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'red'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.collider.Collider" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.collider.Collider.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.collider.Collider.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.collider.Collider.h">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">h</span></span><a class="headerlink" href="#pygamepal.collider.Collider.h" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.collider.Collider.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.collider.Collider.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.collider.Collider.w">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">w</span></span><a class="headerlink" href="#pygamepal.collider.Collider.w" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.collider.Collider.x">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#pygamepal.collider.Collider.x" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.collider.Collider.y">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#pygamepal.collider.Collider.y" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pygamepal.drawText">
+<span id="pygamepal-drawtext"></span><h2>pygamepal.drawText<a class="headerlink" href="#module-pygamepal.drawText" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygamepal.drawText.drawText">
+<span class="sig-prename descclassname"><span class="pre">pygamepal.drawText.</span></span><span class="sig-name descname"><span class="pre">drawText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">antialias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backgroundColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centerX</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">centerY</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.drawText.drawText" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-pygamepal.flatten">
+<span id="pygamepal-flatten"></span><h2>pygamepal.flatten<a class="headerlink" href="#module-pygamepal.flatten" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygamepal.flatten.flatten">
+<span class="sig-prename descclassname"><span class="pre">pygamepal.flatten.</span></span><span class="sig-name descname"><span class="pre">flatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.flatten.flatten" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-pygamepal.game">
+<span id="pygamepal-game"></span><h2>pygamepal.game<a class="headerlink" href="#module-pygamepal.game" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.game.Game">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.game.</span></span><span class="sig-name descname"><span class="pre">Game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(640,</span> <span class="pre">480)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">caption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fullscreen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.addButton">
+<span class="sig-name descname"><span class="pre">addButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">button</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.addButton" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.addCollider">
+<span class="sig-name descname"><span class="pre">addCollider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collider</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.addCollider" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.addSprite">
+<span class="sig-name descname"><span class="pre">addSprite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sprite</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.addSprite" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.addTrigger">
+<span class="sig-name descname"><span class="pre">addTrigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trigger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.addTrigger" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.game.Game.icon">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">icon</span></span><a class="headerlink" href="#pygamepal.game.Game.icon" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.init" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.quit">
+<span class="sig-name descname"><span class="pre">quit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.quit" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.removeButton">
+<span class="sig-name descname"><span class="pre">removeButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">button</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.removeButton" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.removeCollider">
+<span class="sig-name descname"><span class="pre">removeCollider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collider</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.removeCollider" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.removeSprite">
+<span class="sig-name descname"><span class="pre">removeSprite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sprite</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.removeSprite" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.removeTrigger">
+<span class="sig-name descname"><span class="pre">removeTrigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trigger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.removeTrigger" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.game.Game.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pygamepal.input">
+<span id="pygamepal-input"></span><h2>pygamepal.input<a class="headerlink" href="#module-pygamepal.input" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.input.Input">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.input.</span></span><span class="sig-name descname"><span class="pre">Input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">longPressDuration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doublePressTimeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.getKeyDownDuration">
+<span class="sig-name descname"><span class="pre">getKeyDownDuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.getKeyDownDuration" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.getKeyLongPressPercentage">
+<span class="sig-name descname"><span class="pre">getKeyLongPressPercentage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.getKeyLongPressPercentage" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.getMouseButtonDownDuration">
+<span class="sig-name descname"><span class="pre">getMouseButtonDownDuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouseButton</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.getMouseButtonDownDuration" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.getMouseButtonLongPressPercentage">
+<span class="sig-name descname"><span class="pre">getMouseButtonLongPressPercentage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouseButton</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.getMouseButtonLongPressPercentage" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.getMouseCursorPosition">
+<span class="sig-name descname"><span class="pre">getMouseCursorPosition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.getMouseCursorPosition" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.getMouseDirection">
+<span class="sig-name descname"><span class="pre">getMouseDirection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.getMouseDirection" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.isKeyDoublePressed">
+<span class="sig-name descname"><span class="pre">isKeyDoublePressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.isKeyDoublePressed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.isKeyDown">
+<span class="sig-name descname"><span class="pre">isKeyDown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.isKeyDown" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.isKeyLongDown">
+<span class="sig-name descname"><span class="pre">isKeyLongDown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.isKeyLongDown" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.isKeyLongPressed">
+<span class="sig-name descname"><span class="pre">isKeyLongPressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.isKeyLongPressed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.isKeyPressed">
+<span class="sig-name descname"><span class="pre">isKeyPressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.isKeyPressed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.isKeyReleased">
+<span class="sig-name descname"><span class="pre">isKeyReleased</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyCode</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.isKeyReleased" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.isMouseButtonDoublePressed">
+<span class="sig-name descname"><span class="pre">isMouseButtonDoublePressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouseButton</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.isMouseButtonDoublePressed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.isMouseButtonDown">
+<span class="sig-name descname"><span class="pre">isMouseButtonDown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouseButton</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.isMouseButtonDown" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.isMouseButtonLongDown">
+<span class="sig-name descname"><span class="pre">isMouseButtonLongDown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouseButton</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.isMouseButtonLongDown" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.isMouseButtonLongPressed">
+<span class="sig-name descname"><span class="pre">isMouseButtonLongPressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouseButton</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.isMouseButtonLongPressed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.isMouseButtonPressed">
+<span class="sig-name descname"><span class="pre">isMouseButtonPressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouseButton</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.isMouseButtonPressed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.isMouseButtonReleased">
+<span class="sig-name descname"><span class="pre">isMouseButtonReleased</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouseButton</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.isMouseButtonReleased" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.input.Input.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pygamepal.particles">
+<span id="pygamepal-particles"></span><h2>pygamepal.particles<a class="headerlink" href="#module-pygamepal.particles" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.particles.Particle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.particles.</span></span><span class="sig-name descname"><span class="pre">Particle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sizeDecay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.particles.Particle" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.particles.Particle.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.particles.Particle.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.particles.Particle.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.particles.Particle.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.particles.Particles">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.particles.</span></span><span class="sig-name descname"><span class="pre">Particles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emitterPosition</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emitterSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emitterLifetime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emitterVelocity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emitterAcceleration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emitterParticleDelay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particleVelocityMin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(-1,</span> <span class="pre">-1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particleVelocityMax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particleAccelerationMin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particleAccelerationMax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particleLifetime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particleSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particleSizeDecay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">particleColors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.particles.Particles" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.particles.Particles.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.particles.Particles.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.particles.Particles.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.particles.Particles.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pygamepal.scene">
+<span id="pygamepal-scene"></span><h2>pygamepal.scene<a class="headerlink" href="#module-pygamepal.scene" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.scene.</span></span><span class="sig-name descname"><span class="pre">Scene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">worldSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.addButton">
+<span class="sig-name descname"><span class="pre">addButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">button</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.addButton" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.addCollider">
+<span class="sig-name descname"><span class="pre">addCollider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collider</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.addCollider" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.addSprite">
+<span class="sig-name descname"><span class="pre">addSprite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sprite</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.addSprite" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.addTrigger">
+<span class="sig-name descname"><span class="pre">addTrigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trigger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.addTrigger" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.init" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.onActive">
+<span class="sig-name descname"><span class="pre">onActive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.onActive" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.onInactive">
+<span class="sig-name descname"><span class="pre">onInactive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.onInactive" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.removeButton">
+<span class="sig-name descname"><span class="pre">removeButton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">button</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.removeButton" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.removeCollider">
+<span class="sig-name descname"><span class="pre">removeCollider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collider</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.removeCollider" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.removeSprite">
+<span class="sig-name descname"><span class="pre">removeSprite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sprite</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.removeSprite" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.removeTrigger">
+<span class="sig-name descname"><span class="pre">removeTrigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trigger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.removeTrigger" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.sortByBottom">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sortByBottom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.sortByBottom" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.sortByLeft">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sortByLeft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.sortByLeft" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.sortByRight">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sortByRight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.sortByRight" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.sortByTop">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sortByTop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.sortByTop" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.sortByZ">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sortByZ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.sortByZ" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.scene.Scene.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.scene.Scene.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pygamepal.splitTexture">
+<span id="pygamepal-splittexture"></span><h2>pygamepal.splitTexture<a class="headerlink" href="#module-pygamepal.splitTexture" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pygamepal.splitTexture.splitTexture">
+<span class="sig-prename descclassname"><span class="pre">pygamepal.splitTexture.</span></span><span class="sig-name descname"><span class="pre">splitTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texture</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTextureWidth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTextureHeight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.splitTexture.splitTexture" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-pygamepal.sprite">
+<span id="pygamepal-sprite"></span><h2>pygamepal.sprite<a class="headerlink" href="#module-pygamepal.sprite" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.sprite.Sprite">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.sprite.</span></span><span class="sig-name descname"><span class="pre">Sprite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imageName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">texture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaleImage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collider</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trigger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.sprite.Sprite" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.sprite.Sprite.getCenter">
+<span class="sig-name descname"><span class="pre">getCenter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.sprite.Sprite.getCenter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.sprite.Sprite.init">
+<span class="sig-name descname"><span class="pre">init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.sprite.Sprite.init" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.sprite.Sprite.onAddedToScene">
+<span class="sig-name descname"><span class="pre">onAddedToScene</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.sprite.Sprite.onAddedToScene" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.sprite.Sprite.onRemovedFromScene">
+<span class="sig-name descname"><span class="pre">onRemovedFromScene</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.sprite.Sprite.onRemovedFromScene" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.sprite.Sprite.position">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">position</span></span><a class="headerlink" href="#pygamepal.sprite.Sprite.position" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.sprite.Sprite.touching">
+<span class="sig-name descname"><span class="pre">touching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">otherSprite</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.sprite.Sprite.touching" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.sprite.Sprite.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.sprite.Sprite.update" title="Link to this definition"></a></dt>
+<dd><p>method to control sprite behavior</p>
+<p>Sprite.update(<a href="#id1"><span class="problematic" id="id2">*</span></a>args, <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs):</p>
+<p>The default implementation of this method does nothing; it’s just a
+convenient “hook” that you can override. This method is called by
+Group.update() with whatever arguments you give it.</p>
+<p>There is no need to use this method if not using the convenience
+method by the same name in the Group class.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.sprite.Sprite.x">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#pygamepal.sprite.Sprite.x" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.sprite.Sprite.y">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#pygamepal.sprite.Sprite.y" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pygamepal.spriteImage">
+<span id="pygamepal-spriteimage"></span><h2>pygamepal.spriteImage<a class="headerlink" href="#module-pygamepal.spriteImage" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.spriteImage.</span></span><span class="sig-name descname"><span class="pre">SpriteImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">textures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">animationDelay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hFlip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vFlip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">255</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pause</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Maps states to a ‘SpriteTextureList’ object
+containing textures and associated info.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.addTextures">
+<span class="sig-name descname"><span class="pre">addTextures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">textures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">animationDelay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hFlip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vFlip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.addTextures" title="Link to this definition"></a></dt>
+<dd><p>Add one or more textures to a (new or existing) state.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.alpha">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alpha</span></span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.alpha" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.center">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">center</span></span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.center" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.draw" title="Link to this definition"></a></dt>
+<dd><p>Draws the current frame of the current state’s animation.
+Must be called once per frame.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.reset" title="Link to this definition"></a></dt>
+<dd><p>Clear object states and textures, and reset
+the object to default values.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.state">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.state" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.update" title="Link to this definition"></a></dt>
+<dd><p>Updates the current sprite animation.
+Must be called once per frame.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pygamepal.spriteTextureList">
+<span id="pygamepal-spritetexturelist"></span><h2>pygamepal.spriteTextureList<a class="headerlink" href="#module-pygamepal.spriteTextureList" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.spriteTextureList.SpriteTextureList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.spriteTextureList.</span></span><span class="sig-name descname"><span class="pre">SpriteTextureList</span></span><a class="headerlink" href="#pygamepal.spriteTextureList.SpriteTextureList" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Used for storing a list of textures (and other info)
+for a SpriteImage state.</p>
+</dd></dl>
+
+</section>
+<section id="module-pygamepal.transition">
+<span id="pygamepal-transition"></span><h2>pygamepal.transition<a class="headerlink" href="#module-pygamepal.transition" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.transition.Transition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">Transition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.Transition" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.Transition.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.Transition.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.Transition.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.Transition.reset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.Transition.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.Transition.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionFade">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">TransitionFade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction=&lt;function</span> <span class="pre">linear&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionFade" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygamepal.transition.Transition" title="pygamepal.transition.Transition"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transition</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionFade.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionFade.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionFadeToBlack">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">TransitionFadeToBlack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionFadeToBlack" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygamepal.transition.Transition" title="pygamepal.transition.Transition"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transition</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionFadeToBlack.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionFadeToBlack.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionMoveDown">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">TransitionMoveDown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionMoveDown" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygamepal.transition.Transition" title="pygamepal.transition.Transition"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transition</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionMoveDown.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionMoveDown.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionMoveLeft">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">TransitionMoveLeft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionMoveLeft" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygamepal.transition.Transition" title="pygamepal.transition.Transition"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transition</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionMoveLeft.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionMoveLeft.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionMoveRight">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">TransitionMoveRight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionMoveRight" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygamepal.transition.Transition" title="pygamepal.transition.Transition"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transition</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionMoveRight.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionMoveRight.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionMoveUp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">TransitionMoveUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionMoveUp" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygamepal.transition.Transition" title="pygamepal.transition.Transition"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transition</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionMoveUp.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionMoveUp.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionWipeDown">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">TransitionWipeDown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionWipeDown" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygamepal.transition.Transition" title="pygamepal.transition.Transition"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transition</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionWipeDown.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionWipeDown.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionWipeLeft">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">TransitionWipeLeft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionWipeLeft" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygamepal.transition.Transition" title="pygamepal.transition.Transition"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transition</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionWipeLeft.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionWipeLeft.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionWipeRight">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">TransitionWipeRight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionWipeRight" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygamepal.transition.Transition" title="pygamepal.transition.Transition"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transition</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionWipeRight.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionWipeRight.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionWipeUp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">TransitionWipeUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionWipeUp" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pygamepal.transition.Transition" title="pygamepal.transition.Transition"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transition</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.transition.TransitionWipeUp.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionWipeUp.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygamepal.transition.bounceEaseOut">
+<span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">bounceEaseOut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.bounceEaseOut" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygamepal.transition.linear">
+<span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.linear" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-pygamepal.trigger">
+<span id="pygamepal-trigger"></span><h2>pygamepal.trigger<a class="headerlink" href="#module-pygamepal.trigger" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.trigger.Trigger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.trigger.</span></span><span class="sig-name descname"><span class="pre">Trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">10)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onEnter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onCollide</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onExit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'yellow'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.trigger.Trigger" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.trigger.Trigger.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.trigger.Trigger.draw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.trigger.Trigger.h">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">h</span></span><a class="headerlink" href="#pygamepal.trigger.Trigger.h" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.trigger.Trigger.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.trigger.Trigger.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.trigger.Trigger.w">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">w</span></span><a class="headerlink" href="#pygamepal.trigger.Trigger.w" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.trigger.Trigger.x">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#pygamepal.trigger.Trigger.x" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.trigger.Trigger.y">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#pygamepal.trigger.Trigger.y" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pygamepal">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pygamepal" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to PygamePal’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Rik Cross.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

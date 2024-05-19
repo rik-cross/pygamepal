@@ -49,30 +49,31 @@ class Player(pygamepal.Sprite):
         self.spriteImage.addTextures(
             splitTextures[0][0], splitTextures[0][1],
             state = 'idle',
+            animationDelay = 8,
             offset = (17, 16)
         )
         self.spriteImage.addTextures(
             splitTextures[1][1], splitTextures[1][2], splitTextures[1][1], splitTextures[1][3],
             state = 'up',
-            animationDelay = 4,
+            animationDelay = 8,
             offset = (17, 16)
         )
         self.spriteImage.addTextures(
             splitTextures[0][1], splitTextures[0][2], splitTextures[0][1], splitTextures[0][3],
             state = 'down',
-            animationDelay = 4,
+            animationDelay = 8,
             offset = (17, 16)
         )
         self.spriteImage.addTextures(
             splitTextures[2][1], splitTextures[2][2], splitTextures[2][1], splitTextures[2][3],
             state = 'left',
-            animationDelay = 4,
+            animationDelay = 8,
             offset =(17, 16)
         )
         self.spriteImage.addTextures(
             splitTextures[3][1], splitTextures[3][2], splitTextures[3][1], splitTextures[3][3],
             state = 'right',
-            animationDelay = 4,
+            animationDelay = 8,
             offset = (17, 16)
         )
         self.trigger = pygamepal.Trigger(size = (24, 26), offset = (-5, -5))
@@ -256,7 +257,7 @@ class GameExample(pygamepal.Game):
 
 gameExample = GameExample(size=(800, 600), caption = 'Full game example')
 menuScene = MenuScene(gameExample)
-gameScene = GameScene(gameExample)
+gameScene = GameScene(gameExample, worldSize = (256, 256))
 
 #
 # set up game and run

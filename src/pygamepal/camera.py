@@ -10,36 +10,55 @@ from math import sin
 from random import uniform
 
 class Camera:
+    
+    '''
+    A camera can be used to render any source surface to another destination
+    surface, using its parameters (size, position, zoom, etc.).
+
+    .. image:: https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/cameraExample.gif?raw=true
+
+    * `Example code`_
+    .. _Example code: https://github.com/rik-cross/pygamepal/blob/main/examples/cameraExample.py
+
+    :param tuple(int, int) position: the top-left (x, y) coordinate for the camera.
+    :param tuple(int, int) size: the size (w, h) of the camera (default = (640, 480), or the parent `Scene` size if used within a `Scene`).
+    :param tuple(int, int) target: the coordinate (x, y) of the source surface to draw at the center of the camera (default = (0, 0)).
+    :param float lazyFollow: the delay when updating the camera target. 0 = instant snap to target, 1 = no movement (default = 0).
+    :param float zoom: the amount to scale the source target (default = 1).
+    :param float minZoom: the minimum allowed zoom (default = 0.1).
+    :param float maxZoom: the maximum allowed zoom (default = 10).
+    :param float lazyZoom: the delay when updating the zoom calue. 0 = instant zoom, 1 = no change in zoom (default = 0).
+    :param pygame.Color backgroundColor: the background color (default = 'cornflowerblue').
+    :param pygame.Color borderColor: the color of the border (default = 'black').
+    :param int borderThickness: the thickness of the border(default = 2).
+    :param bool clamp: specifies whether the camera should stay within a specific boundary of the source surface (default = False).
+    :param tuple(int, int, int, int) clampRect: the boundary (x, y, w, h) of the source surface that the camera should stay within.
+    :param float oscillateSpeed: the speed at which the camera should shake (default = 0.2).
+    :param int shakeMagnitude: the magnitude of the camera shake (default = 30).
+    :param tuple(float, float) shakeDirection: the (x, y) direction of the shake (default = (1, 0)).
+    :param float shakeDampening: the reduction in camera shake magnitude each frame (default = 0.4).
+    :param float shakeNoise: the amount of random noise to add to the shake (default = 0.8).
+    '''
 
     def __init__(
-            self, position = (0, 0), size = (640, 480),
-            target = (0, 0),
-            # follow delay is a (clamped) value between
-            # 0 (instant snap to target) and 1 (no movement)
-            lazyFollow = 0,
-            # passed value for 'zoom' will be clamped
-            # between 'minZoom' and 'maxZoom' values
-            zoom = 1, minZoom = 0.1, maxZoom = 10,
-            # zoom follow delay is a (clamped) value between
-            # 0 (instant zoom) and 1 (no zoom)
-            lazyZoom = 0,
-            backgroundColor = 'cornflowerblue',
-            borderColor='black', borderThickness = 2,
-            # camera doesn't move outside of the clamp
-            clamp = False, clampRect = (0, 0, 1000, 1000),
-            # camera shake
-            # oscillate speed (0 = no movement, 1 = fast)
-            oscillateSpeed = 0.2,
-            # amount of movement
-            shakeMagnitude = 30,
-            # movement vector
-            shakeDirection = (1, 0),
-            # shake dampening (0 = none, 1 = lots)
-            shakeDampening = 0.4,
-            # shake noise (0 = none, 10 = lots)
-            shakeNoise = 0.8
-            ):
-        
+        self, position = (0, 0),
+        size = (640, 480),
+        target = (0, 0),
+        lazyFollow = 0,
+        zoom = 1, minZoom = 0.1, maxZoom = 10,
+        lazyZoom = 0,
+        backgroundColor = 'cornflowerblue',
+        borderColor='black',
+        borderThickness = 2,
+        clamp = False,
+        clampRect = (0, 0, 1000, 1000),
+        oscillateSpeed = 0.2,
+        shakeMagnitude = 30,
+        shakeDirection = (1, 0),
+        shakeDampening = 0.4,
+        shakeNoise = 0.8
+        ):
+
         self.position = position
         self.size = size
 
@@ -76,7 +95,15 @@ class Camera:
         self._shakeCurrent = (0, 0)
         self._shakeCurrentMagnitude = 0
 
-    def update(self, deltaTime=1):
+    def update(self, deltaTime = 1):
+
+        '''
+        Updates the camera target position and, zoom and shake. This method must be called
+        each frame if using a camera in isolation, but the method is called automatically
+        for cameras with a parent scene.
+
+        :param float deltaTime: the game time elapsed since the last frame (default = 1).
+        '''
 
         #
         # clamp the camera to the clampRect if required
@@ -136,6 +163,15 @@ class Camera:
     # using the camera's attributes
     def draw(self, surface, destSurface):
 
+        '''
+        Draws the source surface to the destination surface, using the camera parameters.
+        This method must be called each frame if using a camera in isolation, but the method
+        is called automatically for cameras with a parent scene.
+
+        :param pygame.Surface surface: the surface to draw.
+        :param pygame.Surface destSurface: the surface to draw to.
+        '''
+
         # draw border
         pygame.draw.rect(destSurface, self.borderColor, 
                          (self.position[0] - self.borderThickness, self.position[1] - self.borderThickness, 
@@ -151,6 +187,7 @@ class Camera:
         # add screen shake
         x += self._shakeCurrent[0]
         y += self._shakeCurrent[1]
+
         # draw the surface to the destination using the correct position, size, center and zoom
         destSurface.blit(pygame.transform.scale(surface, (surface.get_width() * self._currentZoom, surface.get_height() * self._currentZoom)), 
                          self.position, 
@@ -160,18 +197,37 @@ class Camera:
         destSurface.set_clip()
 
     def shake(self, direction = None):
+
+        '''
+        Start a camera shake.
+
+        :param tuple(float, float) direction: the (x, y) direction of the shake (default = None, use the stored direction).
+        '''
+
         if direction is not None:
             self.shakeDirection = direction
         self._shakeCurrentMagnitude = self.shakeMagnitude
     
-    # permits the instant setting of target value
     def setTarget(self, value, instant = False):
+
+        '''
+        Set the camera target position. This method permits the instant setting of a position.
+
+        :param bool instant: set the position instantly, ignoring the stored 'lazyFollow' value (default = False).
+        '''
+
         self.target = value
         if instant is True:
             self._currentTarget = value
 
-    # permits the instant setting of zoom value
     def setZoom(self, value, instant = False):
+
+        '''
+        Set the camera target zoom value. This method permits the instant setting of the zoom.
+
+        :param bool instant: set the zoom value instantly, ignoring the stored 'lazyZoom' value (default = False).
+        '''
+
         self.zoom = value
         if instant is True:
             self._currentZoom = value
@@ -183,26 +239,33 @@ class Camera:
     # zoom property, clamped between 0 and 1
     @property
     def zoom(self):
+        '''
+        Get / set the zoom value (between specified 'minZoom' and 'maxZoom' values).
+        '''
         return self._zoom
     
     @zoom.setter
     def zoom(self, value):
         self._zoom = max(self.minZoom, min(self.maxZoom, value))    
-
-    # lazyZoom property, clamped between 0 and 1
-    @property
-    def lazyZoom(self):
-        return self._lazyZoom
-    
-    @lazyZoom.setter
-    def lazyZoom(self, value):
-        self._lazyZoom = max(0, min(1, value))
         
-    # lazyFollow property, clamped between 0 and 1
     @property
     def lazyFollow(self):
+        '''
+        Get / set the lazy follow value, between 0 and 1.
+        '''
         return self._lazyFollow
     
     @lazyFollow.setter
     def lazyFollow(self, value):
         self._lazyFollow = max(0, min(1, value))
+
+    @property
+    def lazyZoom(self):
+        '''
+        Get / set the lazy zoom value, between 0 and 1.
+        '''
+        return self._lazyZoom
+    
+    @lazyZoom.setter
+    def lazyZoom(self, value):
+        self._lazyZoom = max(0, min(1, value))

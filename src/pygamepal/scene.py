@@ -45,17 +45,23 @@ class Scene:
     # main scene methods
     #
 
-    def __init__(self, game):
+    def __init__(self, game, worldSize = None):
 
         from pygamepal import Camera
 
         # a reference to the main game object
         self.game = game
+
+        if worldSize is None:
+            self.worldSize = game.size
+        else:
+            self.worldSize = worldSize
+
         self.backgroundColor = 'cornflowerblue'
         # frame value is incremented each game tick
         self.frame = 0
         # scene and overlay (UI) surfaces
-        self.sceneSurface = pygame.Surface(game.size, pygame.SRCALPHA, 32)
+        self.sceneSurface = pygame.Surface(self.worldSize, pygame.SRCALPHA, 32)
         self.overlaySurface = pygame.Surface(game.size, pygame.SRCALPHA, 32)
         # default camera takes up the whole scene, target is the middle of the scene
         self.camera = Camera(position=(0, 0), size=game.size, target=(self.game.size[0] / 2, self.game.size[1] / 2))

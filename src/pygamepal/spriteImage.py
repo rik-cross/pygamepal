@@ -124,7 +124,7 @@ class SpriteImage():
 
         # add textures to list
         for texture in textures:
-            #texture = texture.convert_alpha()
+            texture = texture.convert_alpha()
             textureList._textures.append(texture)
         
         # add attributes for the current state
