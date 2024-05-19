@@ -1,5 +1,5 @@
-pygamepal package
-=================
+pygamepal
+=========
 
 pygamepal.button
 ----------------
@@ -117,14 +117,6 @@ pygamepal.trigger
 -----------------
 
 .. automodule:: pygamepal.trigger
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: pygamepal
    :members:
    :undoc-members:
    :show-inheritance:

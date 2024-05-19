@@ -6,8 +6,6 @@
 Welcome to PygamePal's documentation!
 =====================================
 
-test
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
