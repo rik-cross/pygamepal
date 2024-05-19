@@ -13,12 +13,11 @@ class Camera:
     
     '''
     A camera can be used to render any source surface to another destination
-    surface, using its parameters (size, position, zoom, etc.).
+    surface, using its parameters (size, position, target position, zoom, etc.). `Example code`_.
+
+    .. _Example code: https://github.com/rik-cross/pygamepal/blob/main/examples/cameraExample.py
 
     .. image:: https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/cameraExample.gif?raw=true
-
-    * `Example code`_
-    .. _Example code: https://github.com/rik-cross/pygamepal/blob/main/examples/cameraExample.py
 
     :param tuple(int, int) position: the top-left (x, y) coordinate for the camera.
     :param tuple(int, int) size: the size (w, h) of the camera (default = (640, 480), or the parent `Scene` size if used within a `Scene`).
