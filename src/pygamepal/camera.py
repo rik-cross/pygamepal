@@ -13,7 +13,7 @@ class Camera:
     
     '''
     A camera can be used to render any source surface to another destination
-    surface, using its parameters (size, position, target position, zoom, etc.). `Example code`_.
+    surface, using its attributes (size, position, target position, zoom, etc.). `Example code`_.
 
     .. _Example code: https://github.com/rik-cross/pygamepal/blob/main/examples/cameraExample.py
 
@@ -158,12 +158,10 @@ class Camera:
         # update the current zoom amount using the target and 'lazy zoom' values
         self._currentZoom = self._currentZoom * self._lazyZoom + self.zoom * (1 - self._lazyZoom)
                                   
-    # draws the surface to the destination surface
-    # using the camera's attributes
     def draw(self, surface, destSurface):
 
         '''
-        Draws the source surface to the destination surface, using the camera parameters.
+        Draws the source surface to the destination surface, using the camera attributes.
         This method must be called each frame if using a camera in isolation, but the method
         is called automatically for cameras with a parent scene.
 
