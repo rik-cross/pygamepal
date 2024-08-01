@@ -32,6 +32,7 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 - [Transitions](#transitions)
 - [Triggers](#triggers)
 - [Buttons](#buttons)
+- [Animator](#animator)
 - [Utility Functions](#functions)
 
 <a name="game"></a>Game (create a game with minimal setup) -- [Template](templates/gameTemplate.py) // [Example](examples/gameExample.py)
@@ -114,6 +115,9 @@ mysprite = MySprite(imageName=None, texture=None, position=(0, 0), size=(0, 0), 
 mySprite.getCenter()
 mySprite.touching(sprite)
 mySprite.getCollidingSprites(newPosition)
+# if using sprites without scenes:
+mySprite.updateWithoutParentScene(deltaTime=1)
+mySprite.drawWithoutParentScene(surface)
 
 # properties
 self.position
@@ -349,6 +353,21 @@ self.drawBackground(screen)
 self.drawImage(screen)
 self.drawText(screen)
 self.drawBorder(screen)
+```
+
+<a name="Animator"></a>Animator -- [Example](examples/animatorExample.py)
+
+<img src="examples/gifs/animatorExample.gif" width="480">
+
+```
+# create a new animator
+animator = Animator()
+
+# add an animation to the animator
+animator.addAnimation(object, parameter, newValue, duration=1, easingFunction=easeLinear, type=float)
+
+# update the animator each frame
+animator.update(deltaTime=1)
 ```
 
 <a name="functions"></a>Utility functions

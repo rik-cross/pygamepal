@@ -59,7 +59,7 @@ class Sprite(pygame.sprite.Sprite):
         # call the user-defined init() method
         self.init()
         
-    def _update(self):
+    def _update(self, deltaTime = 1):
 
         from pygamepal import Trigger, Collider
 
@@ -113,6 +113,12 @@ class Sprite(pygame.sprite.Sprite):
             if self.trigger is not None:
                 self.trigger.draw(surface)
     
+    def updateWithoutParentScene(self, deltaTime = 1):
+        self._update(deltaTime)
+
+    def drawWithoutParentScene(self, surface):
+        self._draw(surface)
+
     #
     # user-defined methods
     #

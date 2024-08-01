@@ -24,8 +24,6 @@ class Game:
         self.previousScene = None
         self.currentScene = pygamepal.Scene(self)
 
-        self.init()
-
         # start window in windowed or fullscreen mode
         if self.fullscreen:
             self.screen = pygame.display.set_mode(self.size, pygame.FULLSCREEN)
@@ -42,6 +40,8 @@ class Game:
         
         # store events so that they aren't 'consumed' by the class
         self.events = []
+
+        self.init()
 
     #
     # core methods

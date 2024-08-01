@@ -16,10 +16,12 @@ from .trigger import *
 from .button import *
 from .particles import *
 from .transition import *
+from .animator import *
 
 from .drawText import *
 from .spriteTextureList import *
 from .splitTexture import *
 from .flatten import *
+from .easingFunctions import *
 
 DEBUG = False

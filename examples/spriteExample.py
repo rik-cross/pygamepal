@@ -39,25 +39,37 @@ class Player(pygamepal.Sprite):
 class GameScene(pygamepal.Scene):
 
     def init(self):
+
+        #
+        # create sprites
+        #
+
+        self.player = Player(imageName = os.path.join('images', 'character.png'), position =  (140, 128), collider = pygamepal.Collider(offset = (0, 10), size = (12, 6)))
+
+        # create some tree sprites
+        self.trees = []
+        for x in range(10, 250, 50):
+            for y in range(10, 250, 50):
+                self.trees.append(pygamepal.Sprite(imageName = os.path.join('images', 'tree.png'), position = (x, y), collider = pygamepal.Collider(offset = (6, 25), size = (12, 5))))
+
         self.backgroundColor = 'black'
         # change some camera parameters
         self.camera.backgroundColor = 'black'
         self.camera.zoom = 4
-        self.camera.target = player.getCenter()
+        self.camera.target = self.player.getCenter()
         self.camera.clamp = True
         self.camera.clampRect = (0, 0, 256, 256)
         # add the player to the scene
         self.addSprite(self.player)
         # add the trees to the scene
-        for t in trees:
+        for t in self.trees:
             self.addSprite(t)
         # sort sprites by their bottoms
         self.sortKey = self.sortByBottom
 
-        
     def update(self):
         # camera centers on the middle of the player
-        self.camera.target = player.getCenter()
+        self.camera.target = self.player.getCenter()
     
     def draw(self):
         # draw a map to the scene surface
@@ -70,23 +82,13 @@ class GameScene(pygamepal.Scene):
 #
 
 class MyGame(pygamepal.Game):
+
     def init(self):
         # create a new scene and set as the current scene
         self.currentScene = GameScene(self)
 
-#
-# create sprites
-#
-
-player = Player(imageName = os.path.join('images', 'character.png'), position = pygame.math.Vector2(140, 128), collider = pygamepal.Collider(offset = (0, 10), size = (12, 6)))
-
-# create some tree sprites
-trees = []
-for x in range(10, 250, 50):
-    for y in range(10, 250, 50):
-        trees.append(pygamepal.Sprite(imageName = os.path.join('images', 'tree.png'), position = (x, y), collider = pygamepal.Collider(offset = (6, 25), size = (12, 5))))
-
 # uncomment the line below to see sprite sizes and colliders
 #pygamepal.DEBUG = True
+
 myGame = MyGame(caption = 'Sprite example')
 myGame.run()
