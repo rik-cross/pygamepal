@@ -47,7 +47,7 @@ class Scene:
 
     def __init__(self, game, worldSize = None):
 
-        from pygamepal import Camera
+        from pygamepal import Camera, Lighting
 
         # a reference to the main game object
         self.game = game
@@ -73,9 +73,12 @@ class Scene:
         self._colliders = []
         self._triggers = []
         self._buttons = []
+        
+        self.lighting = Lighting(self.worldSize, ambientLightLevel = 1)
 
         # run the user-defined sprite init() method
         self.init()
+
         # update the camera in case its state has changed
         if self.camera is not None:
             self.camera.update()
@@ -151,6 +154,9 @@ class Scene:
         for s in self.sprites:
             s._update()
 
+        # update the lighting
+        self.lighting.update()
+
         # call the user-defined update() method
         self.update()
 
@@ -182,6 +188,9 @@ class Scene:
             for collider in self._colliders:
                 collider.draw(self.sceneSurface)
         
+        # draw the lighting onto the scene screen
+        self.lighting.draw(self.sceneSurface)
+
         # use the camera to draw the scene
         if self.camera is not None:
             self.camera.draw(self.sceneSurface, self.game.screen)

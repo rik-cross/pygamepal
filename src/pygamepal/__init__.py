@@ -17,6 +17,7 @@ from .button import *
 from .particles import *
 from .transition import *
 from .animator import *
+from .lighting import *
 
 from .drawText import *
 from .spriteTextureList import *

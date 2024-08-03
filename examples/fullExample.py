@@ -76,6 +76,7 @@ class Player(pygamepal.Sprite):
             animationDelay = 8,
             offset = (17, 16)
         )
+
         self.trigger = pygamepal.Trigger(size = (24, 26), offset = (-5, -5))
     
     def update(self):
@@ -102,28 +103,39 @@ class Player(pygamepal.Sprite):
 
 class MenuScene(pygamepal.Scene):
     
+    # button callback to change game scene
     def startGameScene(self, button):
         self.game.currentScene = gameScene
 
     def init(self):
+
+        # add a button to the scene
         self.addButton(pygamepal.Button(self.game.input,position = (350, 275), label = 'Start', onSelected = self.startGameScene))
 
     def update(self):
 
+        # switch scene if return key is pressed
         if self.game.input.isKeyPressed(pygame.K_RETURN):
             self.game.currentScene = gameScene
 
 class GameScene(pygamepal.Scene):
     
+    # callback to set camera zoom level
     def zoomCamera(self, this, other, zoom):
         self.camera.zoom = zoom
     
+    # callback to set the state of the chest
     def setChestState(self, this, other, state):
         self.chest.spriteImage.pause = False
         self.chest.spriteImage.state = state
 
     def init(self):
         
+        # set some lighting
+        self.lighting.lightLevel = 0.1
+        self.lighting.addLight(pygamepal.Light((175+8, 175+7), radius = 150))
+        self.lighting.addLight(pygamepal.Light((50, 40), radius = 70))
+
         #
         # add textures
         #
@@ -233,6 +245,7 @@ class GameScene(pygamepal.Scene):
 
     def draw(self):
 
+        # draw the map
         self.sceneSurface.blit(self.map, (0, 0))
 
 #
