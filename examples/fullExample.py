@@ -34,7 +34,7 @@ class Player(pygamepal.Sprite):
         # load a texture
         playerSpritesheet = pygame.image.load(os.path.join('images','character_spritesheet.png'))
         # split texture into a 2D list of 48x48 sub-textures
-        splitTextures = pygamepal.splitTexture(playerSpritesheet, 48, 48)
+        splitTextures = pygamepal.splitTexture(playerSpritesheet, (48, 48))
         
         #
         # create a player
@@ -180,7 +180,7 @@ class GameScene(pygamepal.Scene):
         # load a texture
         chestSpritesheet = pygame.image.load(os.path.join('images','chest_spritesheet.png'))
         # split texture into a 2D list of sub-textures
-        splitTextures = pygamepal.splitTexture(chestSpritesheet, 48, 48)
+        splitTextures = pygamepal.splitTexture(chestSpritesheet, (48, 48))
         
         self.chest = pygamepal.Sprite(position = (175, 175), size = (16, 14))
         self.chest.collider = pygamepal.Collider(offset = (0, 8), size = (16, 6))
@@ -208,7 +208,7 @@ class GameScene(pygamepal.Scene):
         self.camera.setTarget(self.player.getCenter(), instant = True)
         self.camera.lazyFollow = 0.9
         self.camera.setZoom(4, instant = True)
-        self.camera.lazyZoom = 0.9
+        self.camera.lazyZoom = 0.95
         self.camera.clamp = True
         self.camera.clampRect = (0, 0, 256, 256)
         

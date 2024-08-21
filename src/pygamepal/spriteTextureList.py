@@ -10,8 +10,8 @@ import pygame
 class SpriteTextureList():
 
     '''
-    Used for storing a list of textures (and other info)
-    for a SpriteImage state.
+    Used for storing a list of textures (and other info) for a SpriteImage state.
+    (Users of the PygamePal library should not need to use this class directly. Instead, it is used by pygamepal.SpriteImage).
     '''
 
     def __init__(self):

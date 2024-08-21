@@ -13,9 +13,11 @@ class Camera:
     
     '''
     A camera can be used to render any source surface to another destination
-    surface, using its attributes (size, position, target position, zoom, etc.). `Example code`_.
+    surface, using its attributes (size, position, target position, zoom, etc.).
+    
+    `Example Camera code`_.
 
-    .. _Example code: https://github.com/rik-cross/pygamepal/blob/main/examples/cameraExample.py
+    .. _Example Camera code: https://github.com/rik-cross/pygamepal/blob/main/examples/cameraExample.py
 
     .. image:: https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/cameraExample.gif?raw=true
 

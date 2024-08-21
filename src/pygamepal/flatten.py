@@ -5,11 +5,15 @@
 #  -- run 'pip install pygamepal' to use
 #
 
-import pygame
-
-# flatten a 2D or [n]D list into a single list
-
 def flatten(list):
+
+    '''
+    Flatten a multi-dimensional list into a single list.
+
+    :param list(list(any)) list: the multi-dimensional list to flatten.
+    :return list(any) newList: the flattened, single list.
+    '''
+
     newList = []
     for i in list:
         for j in i:

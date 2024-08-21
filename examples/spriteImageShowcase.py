@@ -33,7 +33,7 @@ texture = pygame.image.load(os.path.join('images','character_spritesheet.png'))
 # double the texture size
 texture = pygame.transform.scale(texture, (texture.get_width() * 2, texture.get_height() * 2))
 # split texture into a 2D list of sub-textures
-splitTextures = pygamepal.splitTexture(texture, 96, 96)
+splitTextures = pygamepal.splitTexture(texture, (96, 96))
 
 # a sprite with a single texture
 spriteImage1 = pygamepal.SpriteImage()
@@ -114,11 +114,11 @@ while running:
 
     # draw sprites and accompanying text
     pygamepal.drawText(screen, 'Sprite 1 (single texture)', (420, 40))
-    spriteImage1.draw(screen, 500, 70)
+    spriteImage1.draw(screen, (500, 70))
     pygamepal.drawText(screen, 'Sprite 2 (space to pause/play)', (420, 140))
-    spriteImage2.draw(screen, 500, 170)
+    spriteImage2.draw(screen, (500, 170))
     pygamepal.drawText(screen, 'Sprite 3 (arrow keys to change)', (420, 240))
-    spriteImage3.draw(screen, 500, 270)
+    spriteImage3.draw(screen, (500, 270))
 
     # draw to screen
     pygame.display.flip()

@@ -11,40 +11,42 @@ from .spriteTextureList import SpriteTextureList
 class SpriteImage():
 
     '''
-    Maps states to a 'SpriteTextureList' object
-    containing textures and associated info.
+    Maps string states to a SpriteTextureList object containing textures and associated information.
+
+    `Example SpriteImage code`_.
+
+    .. _Example SpriteImage code: https://github.com/rik-cross/pygamepal/blob/main/examples/SpriteImageExample.py
+
+    .. image:: https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/spriteImageExample.gif?raw=true
+
+    Parameters for the first provided state:
+
+    :param pygame.texture textures: 0 or more textures to add to the first SpriteTextureList. Note that if more than 1 texture is added, the spriteImage becomes an animation.
+    :param str state: The state name to associate with added textures (default = None).
+    :param int animationDelay: The amount of time to display each texture (default = 8).
+    :param bool loop: Loop animation (ignored if only one image provided for a state, default = True).
+    :param bool hFlip: Horizontally flip images (default = False).
+    :param bool vFlip: Vertically flip textures (default = False).
+    :param (int, int) offset: Used to ignore part of the image when specifying a drawing position. Useful for sprites with whitespace or characters holding tools, etc. (default = (0, 0)).
+    
+    Parameters for all states:
+    
+    :param bool visible: Show image (default = True).
+    :param int alpha: The transparency value (between 0 and 255, default = 255).
+    :param bool pause: Stops animation (ignored for states with only one image, default = False).
     '''
 
     def __init__(self,
 
-        #
-        # parameters for first SpriteTextureList
-        #
-
-        # a list of 0 or more textures
         *textures,
-        # state to associate with textures
         state = None,
-        # delay between animation frames
         animationDelay = 8,
-        # looping animation
         loop = True,
-        # horizontal and vertical texture flip
         hFlip = False,
         vFlip = False,
-        # offset is used to discount part of the image
-        # when specifying a drawing position
-        # useful for sprites with whitespace or characters
-        # holding tools, etc.
         offset = (0, 0),
 
-        #
-        # parameters for all states and image lists
-        #
-
-        # spriteImage visibility
         visible = True,
-        # spriteImage alpha transparency (between 0 and 255)
         alpha = 255,
         pause = False):
 
@@ -58,11 +60,12 @@ class SpriteImage():
         if len(textures) > 0:
             self.addTextures(*textures, state = state, animationDelay = animationDelay, loop = loop, hFlip = hFlip, vFlip = vFlip, offset = offset)
 
-    def update(self):
+    def update(self, deltaTime = 1):
 
         '''
-        Updates the current sprite animation.
-        Must be called once per frame.
+        Updates the current sprite animation. Must be called once per frame.
+
+        :param float deltaTime: Time elapsed since last call (default = 1).
         '''
 
         # only animate if there's at least one image and it's not paused
@@ -83,11 +86,13 @@ class SpriteImage():
                 else:
                     self._animationIndex = len(self._textureLists[self._currentState]._textures) - 1
 
-    def draw(self, surface, x, y):
+    def draw(self, surface, position):
 
         '''
-        Draws the current frame of the current state's animation.
-        Must be called once per frame.
+        Draws the current frame of the current state's animation. Must be called once per frame.
+        
+        :param pygame.surface surface: The surface to draw to.
+        :param (int, int) position: The (x, y) position to draw to (default = (0, 0)).
         '''
 
         # don't draw if there's nothing to draw
@@ -99,10 +104,10 @@ class SpriteImage():
         currentTexture.set_alpha(self.alpha)
         # draw (optionally flipped) texture
         surface.blit(pygame.transform.flip(currentTexture,
-                                          self._textureLists[self._currentState]._hFlip,
-                                          self._textureLists[self._currentState]._vFlip),
-                    (x - self._textureLists[self._currentState]._offset[0],
-                     y - self._textureLists[self._currentState]._offset[1],
+                    self._textureLists[self._currentState]._hFlip,
+                    self._textureLists[self._currentState]._vFlip),
+                    (position[0] - self._textureLists[self._currentState]._offset[0],
+                     position[1] - self._textureLists[self._currentState]._offset[1],
                      currentTexture.get_width(),
                      currentTexture.get_height()))
 
@@ -110,6 +115,14 @@ class SpriteImage():
 
         '''
         Add one or more textures to a (new or existing) state.
+
+        :param pygame.texture textures: 0 or more textures to add to the first SpriteTextureList. Note that if more than 1 texture is added, the spriteImage becomes an animation.
+        :param str state: The state name to associate with added textures (default = None).
+        :param int animationDelay: The amount of time to display each texture (default = 8).
+        :param bool loop: Loop animation (ignored if only one image provided for a state, default = True).
+        :param bool hFlip: Horizontally flip images (default = False).
+        :param bool vFlip: Vertically flip textures (default = False).
+        :param (int, int) offset: Used to ignore part of the image when specifying a drawing position. Useful for sprites with whitespace or characters holding tools, etc. (default = (0, 0)).
         '''
 
         # allow textures with no attached state (for single-state images/animations)
@@ -145,8 +158,7 @@ class SpriteImage():
     def reset(self):
 
         '''
-        Clear object states and textures, and reset
-        the object to default values.
+        Clear object states and textures, and reset the object to default values.
         '''
 
         self.visible = True
@@ -176,6 +188,9 @@ class SpriteImage():
 
     @property
     def state(self):
+        '''
+        Get / set the current state.
+        '''
         return self._currentState
     
     @state.setter
@@ -192,6 +207,9 @@ class SpriteImage():
 
     @property
     def alpha(self):
+        '''
+        Get / set the current alpha value.
+        '''
         return self._alpha
     
     @alpha.setter
@@ -204,6 +222,9 @@ class SpriteImage():
 
     @property
     def center(self):
+        '''
+        Get the center positon for the current texture.
+        '''
         if self._currentState is None:
             return (0, 0)
         # get the current animation frame

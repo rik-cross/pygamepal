@@ -7,18 +7,27 @@
 
 import pygame
 
-def splitTexture(texture, newTextureWidth, newTextureHeight):
+def splitTexture(texture, newTextureSize):
+
+    '''
+    Split a texture into a 2D list of sub-textures, using the given size.
+    (Use pygamepal.flatten() to flatten the list returned into a single list.)
+
+    :param pygame.texture texture: the original texture to split.
+    :param tuple(int, int) newTextureSize: the size (w, h) of each of the new textures.
+    :return list(list(pygame.texture)) newTextures: the 2D list of new textures.
+    '''
 
     # the list of textures to return
     newTextures = []
 
     # use texture.subsurface to loop through the image
-    for row in range(0, texture.get_height(), newTextureHeight):
+    for row in range(0, texture.get_height(), newTextureSize[1]):
         newRow = []
-        for column in range(0, texture.get_width(), newTextureWidth):
+        for column in range(0, texture.get_width(), newTextureSize[0]):
             # add the cropped texture to the list
             newRow.append(texture.subsurface(
-                column, row, newTextureWidth, newTextureHeight))
+                column, row, newTextureSize[0], newTextureSize[1]))
         newTextures.append(newRow)
 
     return newTextures

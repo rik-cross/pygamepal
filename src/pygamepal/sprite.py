@@ -89,7 +89,7 @@ class Sprite(pygame.sprite.Sprite):
         from pygamepal import Game, drawText, smallFont, DEBUG
 
         if self.spriteImage is not None:
-            self.spriteImage.draw(surface, self.position[0], self.position[1])
+            self.spriteImage.draw(surface, self.position)
 
         if DEBUG is True:
             

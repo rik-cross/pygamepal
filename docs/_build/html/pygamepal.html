@@ -5,10 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>pygamepal package &#8212; PygamePal 0.6.0 documentation</title>
+    <title>pygamepal package &#8212; PygamePal 0.8.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
-    <script src="_static/documentation_options.js?v=8fa8b3e9"></script>
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=486e5634"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -99,7 +100,8 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.camera.</span></span><span class="sig-name descname"><span class="pre">Camera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(640,</span> <span class="pre">480)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lazyFollow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minZoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxZoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lazyZoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backgroundColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cornflowerblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">borderColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">borderThickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clamp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clampRect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">1000,</span> <span class="pre">1000)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oscillateSpeed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shakeMagnitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shakeDirection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shakeDampening</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shakeNoise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.camera.Camera" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A camera can be used to render any source surface to another destination
-surface, using its parameters (size, position, target position, zoom, etc.). <a class="reference external" href="https://github.com/rik-cross/pygamepal/blob/main/examples/cameraExample.py">Example code</a>.</p>
+surface, using its attributes (size, position, target position, zoom, etc.).</p>
+<p><a class="reference external" href="https://github.com/rik-cross/pygamepal/blob/main/examples/cameraExample.py">Example Camera code</a>.</p>
 <img alt="https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/cameraExample.gif?raw=true" src="https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/cameraExample.gif?raw=true" />
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -128,7 +130,7 @@ surface, using its parameters (size, position, target position, zoom, etc.). <a 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygamepal.camera.Camera.draw">
 <span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">destSurface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.camera.Camera.draw" title="Link to this definition">¶</a></dt>
-<dd><p>Draws the source surface to the destination surface, using the camera parameters.
+<dd><p>Draws the source surface to the destination surface, using the camera attributes.
 This method must be called each frame if using a camera in isolation, but the method
 is called automatically for cameras with a parent scene.</p>
 <dl class="field-list simple">
@@ -260,7 +262,16 @@ for cameras with a parent scene.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygamepal.flatten.flatten">
 <span class="sig-prename descclassname"><span class="pre">pygamepal.flatten.</span></span><span class="sig-name descname"><span class="pre">flatten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.flatten.flatten" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Flatten a multi-dimensional list into a single list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>list</strong> (<em>list</em><em>(</em><em>list</em><em>(</em><em>any</em><em>)</em><em>)</em>) – the multi-dimensional list to flatten.</p>
+</dd>
+<dt class="field-even">Return list(any) newList<span class="colon">:</span></dt>
+<dd class="field-even"><p>the flattened, single list.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 <section id="module-pygamepal.game">
@@ -336,7 +347,7 @@ for cameras with a parent scene.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygamepal.game.Game.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.update" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.game.Game.update" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -584,8 +595,21 @@ for cameras with a parent scene.</p>
 <span id="pygamepal-splittexture"></span><h2>pygamepal.splitTexture<a class="headerlink" href="#module-pygamepal.splitTexture" title="Link to this heading">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygamepal.splitTexture.splitTexture">
-<span class="sig-prename descclassname"><span class="pre">pygamepal.splitTexture.</span></span><span class="sig-name descname"><span class="pre">splitTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texture</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTextureWidth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTextureHeight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.splitTexture.splitTexture" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="sig-prename descclassname"><span class="pre">pygamepal.splitTexture.</span></span><span class="sig-name descname"><span class="pre">splitTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texture</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTextureSize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.splitTexture.splitTexture" title="Link to this definition">¶</a></dt>
+<dd><p>Split a texture into a 2D list of sub-textures, using the given size.
+(Use pygamepal.flatten() to flatten the list returned into a single list.)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>texture</strong> (<em>pygame.texture</em>) – the original texture to split.</p></li>
+<li><p><strong>newTextureSize</strong> (<em>tuple</em><em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – the size (w, h) of each of the new textures.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return list(list(pygame.texture)) newTextures<span class="colon">:</span></dt>
+<dd class="field-even"><p>the 2D list of new textures.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 <section id="module-pygamepal.sprite">
@@ -594,6 +618,11 @@ for cameras with a parent scene.</p>
 <dt class="sig sig-object py" id="pygamepal.sprite.Sprite">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.sprite.</span></span><span class="sig-name descname"><span class="pre">Sprite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imageName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">texture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaleImage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collider</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trigger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.sprite.Sprite" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.sprite.Sprite.drawWithoutParentScene">
+<span class="sig-name descname"><span class="pre">drawWithoutParentScene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.sprite.Sprite.drawWithoutParentScene" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="pygamepal.sprite.Sprite.getCenter">
 <span class="sig-name descname"><span class="pre">getCenter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.sprite.Sprite.getCenter" title="Link to this definition">¶</a></dt>
@@ -636,6 +665,11 @@ Group.update() with whatever arguments you give it.</p>
 method by the same name in the Group class.</p>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.sprite.Sprite.updateWithoutParentScene">
+<span class="sig-name descname"><span class="pre">updateWithoutParentScene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.sprite.Sprite.updateWithoutParentScene" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py" id="pygamepal.sprite.Sprite.x">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#pygamepal.sprite.Sprite.x" title="Link to this definition">¶</a></dt>
@@ -655,48 +689,99 @@ method by the same name in the Group class.</p>
 <dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.spriteImage.</span></span><span class="sig-name descname"><span class="pre">SpriteImage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">textures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">animationDelay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hFlip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vFlip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">255</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pause</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Maps states to a ‘SpriteTextureList’ object
-containing textures and associated info.</p>
+<p>Maps string states to a SpriteTextureList object containing textures and associated information.</p>
+<p><a class="reference external" href="https://github.com/rik-cross/pygamepal/blob/main/examples/SpriteImageExample.py">Example SpriteImage code</a>.</p>
+<img alt="https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/spriteImageExample.gif?raw=true" src="https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/spriteImageExample.gif?raw=true" />
+<p>Parameters for the first provided state:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>textures</strong> (<em>pygame.texture</em>) – 0 or more textures to add to the first SpriteTextureList. Note that if more than 1 texture is added, the spriteImage becomes an animation.</p></li>
+<li><p><strong>state</strong> (<em>str</em>) – The state name to associate with added textures (default = None).</p></li>
+<li><p><strong>animationDelay</strong> (<em>int</em>) – The amount of time to display each texture (default = 8).</p></li>
+<li><p><strong>loop</strong> (<em>bool</em>) – Loop animation (ignored if only one image provided for a state, default = True).</p></li>
+<li><p><strong>hFlip</strong> (<em>bool</em>) – Horizontally flip images (default = False).</p></li>
+<li><p><strong>vFlip</strong> (<em>bool</em>) – Vertically flip textures (default = False).</p></li>
+<li><p><strong>offset</strong> (<em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – Used to ignore part of the image when specifying a drawing position. Useful for sprites with whitespace or characters holding tools, etc. (default = (0, 0)).</p></li>
+</ul>
+</dd>
+</dl>
+<p>Parameters for all states:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>visible</strong> (<em>bool</em>) – Show image (default = True).</p></li>
+<li><p><strong>alpha</strong> (<em>int</em>) – The transparency value (between 0 and 255, default = 255).</p></li>
+<li><p><strong>pause</strong> (<em>bool</em>) – Stops animation (ignored for states with only one image, default = False).</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.addTextures">
 <span class="sig-name descname"><span class="pre">addTextures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">textures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">animationDelay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hFlip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vFlip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.addTextures" title="Link to this definition">¶</a></dt>
 <dd><p>Add one or more textures to a (new or existing) state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>textures</strong> (<em>pygame.texture</em>) – 0 or more textures to add to the first SpriteTextureList. Note that if more than 1 texture is added, the spriteImage becomes an animation.</p></li>
+<li><p><strong>state</strong> (<em>str</em>) – The state name to associate with added textures (default = None).</p></li>
+<li><p><strong>animationDelay</strong> (<em>int</em>) – The amount of time to display each texture (default = 8).</p></li>
+<li><p><strong>loop</strong> (<em>bool</em>) – Loop animation (ignored if only one image provided for a state, default = True).</p></li>
+<li><p><strong>hFlip</strong> (<em>bool</em>) – Horizontally flip images (default = False).</p></li>
+<li><p><strong>vFlip</strong> (<em>bool</em>) – Vertically flip textures (default = False).</p></li>
+<li><p><strong>offset</strong> (<em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – Used to ignore part of the image when specifying a drawing position. Useful for sprites with whitespace or characters holding tools, etc. (default = (0, 0)).</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.alpha">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alpha</span></span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.alpha" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get / set the current alpha value.</p>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.center">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">center</span></span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.center" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the center positon for the current texture.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.draw">
-<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.draw" title="Link to this definition">¶</a></dt>
-<dd><p>Draws the current frame of the current state’s animation.
-Must be called once per frame.</p>
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.draw" title="Link to this definition">¶</a></dt>
+<dd><p>Draws the current frame of the current state’s animation. Must be called once per frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>surface</strong> (<em>pygame.surface</em>) – The surface to draw to.</p></li>
+<li><p><strong>position</strong> (<em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – The (x, y) position to draw to (default = (0, 0)).</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.reset">
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.reset" title="Link to this definition">¶</a></dt>
-<dd><p>Clear object states and textures, and reset
-the object to default values.</p>
+<dd><p>Clear object states and textures, and reset the object to default values.</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.state">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.state" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get / set the current state.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygamepal.spriteImage.SpriteImage.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.update" title="Link to this definition">¶</a></dt>
-<dd><p>Updates the current sprite animation.
-Must be called once per frame.</p>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.spriteImage.SpriteImage.update" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the current sprite animation. Must be called once per frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deltaTime</strong> (<em>float</em>) – Time elapsed since last call (default = 1).</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -708,8 +793,8 @@ Must be called once per frame.</p>
 <dt class="sig sig-object py" id="pygamepal.spriteTextureList.SpriteTextureList">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.spriteTextureList.</span></span><span class="sig-name descname"><span class="pre">SpriteTextureList</span></span><a class="headerlink" href="#pygamepal.spriteTextureList.SpriteTextureList" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Used for storing a list of textures (and other info)
-for a SpriteImage state.</p>
+<p>Used for storing a list of textures (and other info) for a SpriteImage state.
+(Users of the PygamePal library should not need to use this class directly. Instead, it is used by pygamepal.SpriteImage).</p>
 </dd></dl>
 
 </section>
@@ -738,7 +823,7 @@ for a SpriteImage state.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pygamepal.transition.TransitionFade">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">TransitionFade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction=&lt;function</span> <span class="pre">linear&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionFade" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">TransitionFade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fromSurface=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">toSurface=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration=100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drawMethod=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">easingFunction=&lt;function</span> <span class="pre">easeLinear&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.TransitionFade" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pygamepal.transition.Transition" title="pygamepal.transition.Transition"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transition</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pygamepal.transition.TransitionFade.draw">
@@ -846,16 +931,6 @@ for a SpriteImage state.</p>
 
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="pygamepal.transition.bounceEaseOut">
-<span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">bounceEaseOut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.bounceEaseOut" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="pygamepal.transition.linear">
-<span class="sig-prename descclassname"><span class="pre">pygamepal.transition.</span></span><span class="sig-name descname"><span class="pre">linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.transition.linear" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </section>
 <section id="module-pygamepal.trigger">
 <span id="pygamepal-trigger"></span><h2>pygamepal.trigger<a class="headerlink" href="#module-pygamepal.trigger" title="Link to this heading">¶</a></h2>
@@ -906,7 +981,7 @@ for a SpriteImage state.</p>
           
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="index.html">PygamePal</a></h1>
 
@@ -917,7 +992,16 @@ for a SpriteImage state.</p>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">pygamepal package</a><ul>
@@ -949,16 +1033,6 @@ for a SpriteImage state.</p>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -975,8 +1049,8 @@ for a SpriteImage state.</p>
       &#169;2024, Rik Cross.
       
       |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
-      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |
       <a href="_sources/pygamepal.rst.txt"

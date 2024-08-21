@@ -107,7 +107,7 @@ class Game:
     def init(self):
         pass
 
-    def update(self):
+    def update(self, deltaTime=1):
         pass
 
     def draw(self):
