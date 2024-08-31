@@ -6,6 +6,21 @@ A library of classes and functions to support game development in Pygame.
 
 ![Example](https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/fullExample.gif?raw=true)
 
+Includes:
+
+- A Game class that extracts away a lot of Pygame boilerplate code
+- Scenes
+- Transitions
+- Cameras, including zoom, shake and clamp
+- Sprites
+- Sprite Images, for created sprites with multiple states (including animated sprites)
+- Input, including press, down, long-press and double-press
+- Buttons that can be controlled by mouse or key press
+- Lighting
+- Particle Emitters
+- Colliders, which have simple collision detection
+- Triggers, which execute user-defined functions on collision
+
 ### Usage
 
 - Install: `pip install pygamepal`, or
