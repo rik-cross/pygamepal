@@ -12,9 +12,13 @@ class Input():
     '''
     Handle Pygame input more easily, including key/mouse press, release, long-press and double-press.
 
-    `Example Input code`_.
+    `Example Key Input code`_.
 
-    .. _Example Input code: https://github.com/rik-cross/pygamepal/blob/main/examples/keyInputExample.py
+    .. _Example Key Input code: https://github.com/rik-cross/pygamepal/blob/main/examples/keyInputExample.py
+
+    `Example Mouse Input code`_.
+
+    .. _Example Mouse Input code: https://github.com/rik-cross/pygamepal/blob/main/examples/mouseInputExample.py
         
     :param int longPressDuration: The number of milliseconds/frames a key needs to be held to register a long press (default = 60).
     :param int mouseDoublePressTimeout: The maximum number of frames between mouse button presses to register a double-press (default = 30).
