@@ -36,6 +36,7 @@ class Game:
         self.input = pygamepal.Input()
         self.currentScene = None
         self.previousScene = None
+        
         self.currentScene = pygamepal.Scene(self)
 
         # start window in windowed or fullscreen mode

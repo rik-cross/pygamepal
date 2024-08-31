@@ -6,7 +6,9 @@
 PygamePal documentation!
 ========================
 
-PygamePal is ...
+PygamePal is a library of classes and functions to support game development in Pygame.
+
+PygamePal provides commonly-used features such as sprite animation, cameras, scenes, etc. which can be used together or independently. PygamePal integrates well with Pygame -- use PygamePal for the things you want, and continue to use Pygame for everything else!
 
 .. image:: ../examples/gifs/fullExample.gif
 

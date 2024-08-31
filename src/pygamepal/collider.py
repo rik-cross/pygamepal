@@ -14,6 +14,8 @@ class Collider:
     A collider is an area for which other colliders should not enter.
     A collider can be used independently, or as part of a sprite.
 
+    .. image:: https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/colliderExample.gif?raw=true
+
     `Example Collider code`_.
 
     .. _Example Collider code: https://github.com/rik-cross/pygamepal/blob/main/examples/colliderExample.py
