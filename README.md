@@ -14,9 +14,9 @@ A library of classes and functions to support game development in Pygame.
 ### Getting started
 
 - See the [Documentation](https://pygamepal.readthedocs.io/en/latest/) on readthedocs.org.
-- See the simple [examples](examples/) of functionality used (mostly) individually.
-- See the [Full example](examples/fullExample.py), using lots of PygamePal functionality.
+- See the simple [examples](https://github.com/rik-cross/pygamepal/tree/main/examples) of functionality used (mostly) individually.
+- See the [Full example](https://github.com/rik-cross/pygamepal/blob/main/examples/fullExample.py), using lots of PygamePal functionality.
 
 ### Licence
 
-Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/rik-cross/pygamepal/blob/main/LICENSE) for more information.
