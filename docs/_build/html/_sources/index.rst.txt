@@ -3,8 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to PygamePal's documentation!
-=====================================
+PygamePal documentation!
+========================
+
+PygamePal is ...
+
+.. image:: ../examples/gifs/fullExample.gif
 
 .. toctree::
    :maxdepth: 2

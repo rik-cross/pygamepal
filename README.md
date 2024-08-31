@@ -4,6 +4,8 @@ A library of classes and functions to support game development in Pygame.
 - Simple, beginner-friendly interface.
 - Choose the bits you want to use, and continue to use Pygame for everything else!
 
+![../examples/gifs.fullExample.gif](Example)
+
 ### Usage
 
 - Install: `pip install pygamepal`, or
