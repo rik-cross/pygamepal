@@ -13,9 +13,9 @@ def splitTexture(texture, newTextureSize):
     Split a texture into a 2D list of sub-textures, using the given size.
     (Use pygamepal.flatten() to flatten the list returned into a single list.)
 
-    :param pygame.texture texture: the original texture to split.
-    :param tuple(int, int) newTextureSize: the size (w, h) of each of the new textures.
-    :return list(list(pygame.texture)) newTextures: the 2D list of new textures.
+    :param pygame.texture texture: The original texture to split.
+    :param (int, int) newTextureSize: The size (w, h) of each of the new textures.
+    :return list(list(pygame.texture)) newTextures: The 2D list of new textures.
     '''
 
     # the list of textures to return

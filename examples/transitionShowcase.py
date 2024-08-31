@@ -72,8 +72,8 @@ transitionIndex = 0
 currentTransition = transitionList[transitionIndex]
 
 easingList = [
-    pygamepal.linear,
-    pygamepal.bounceEaseOut
+    pygamepal.easeLinear,
+    pygamepal.easeBounceOut
 ]
 easingIndex = 0
 currentEasingFunction = easingList[easingIndex]

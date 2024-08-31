@@ -14,16 +14,16 @@ class Camera:
     '''
     A camera can be used to render any source surface to another destination
     surface, using its attributes (size, position, target position, zoom, etc.).
+
+    .. image:: https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/cameraExample.gif?raw=true
     
     `Example Camera code`_.
 
     .. _Example Camera code: https://github.com/rik-cross/pygamepal/blob/main/examples/cameraExample.py
 
-    .. image:: https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/cameraExample.gif?raw=true
-
-    :param tuple(int, int) position: the top-left (x, y) coordinate for the camera.
-    :param tuple(int, int) size: the size (w, h) of the camera (default = (640, 480), or the parent `Scene` size if used within a `Scene`).
-    :param tuple(int, int) target: the coordinate (x, y) of the source surface to draw at the center of the camera (default = (0, 0)).
+    :param (int, int) position: the top-left (x, y) coordinate for the camera.
+    :param (int, int) size: the size (w, h) of the camera (default = (640, 480), or the parent `Scene` size if used within a `Scene`).
+    :param (int, int) target: the coordinate (x, y) of the source surface to draw at the center of the camera (default = (0, 0)).
     :param float lazyFollow: the delay when updating the camera target. 0 = instant snap to target, 1 = no movement (default = 0).
     :param float zoom: the amount to scale the source target (default = 1).
     :param float minZoom: the minimum allowed zoom (default = 0.1).
@@ -33,10 +33,10 @@ class Camera:
     :param pygame.Color borderColor: the color of the border (default = 'black').
     :param int borderThickness: the thickness of the border(default = 2).
     :param bool clamp: specifies whether the camera should stay within a specific boundary of the source surface (default = False).
-    :param tuple(int, int, int, int) clampRect: the boundary (x, y, w, h) of the source surface that the camera should stay within.
+    :param (int, int, int, int) clampRect: the boundary (x, y, w, h) of the source surface that the camera should stay within.
     :param float oscillateSpeed: the speed at which the camera should shake (default = 0.2).
     :param int shakeMagnitude: the magnitude of the camera shake (default = 30).
-    :param tuple(float, float) shakeDirection: the (x, y) direction of the shake (default = (1, 0)).
+    :param (float, float) shakeDirection: the (x, y) direction of the shake (default = (1, 0)).
     :param float shakeDampening: the reduction in camera shake magnitude each frame (default = 0.4).
     :param float shakeNoise: the amount of random noise to add to the shake (default = 0.8).
     '''

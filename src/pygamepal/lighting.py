@@ -10,20 +10,39 @@ import os
 
 class Light:
 
-    def __init__(self, position = (0, 0), radius = 100, name=None):
+    '''
+    A light to add to the pygamepal.Lighting system.
+
+    .. image:: https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/lightingExample.gif?raw=true
+    
+    `Example Lighting code`_.
+
+    .. _Example Lighting code: https://github.com/rik-cross/pygamepal/blob/main/examples/lightingExample.py
+
+    :param (int, int) position: Light position on the drawn surface.
+    :param int radius: The radius of the light.
+    :param str name: Light name (for getting and controlling if required, default = None).
+    :param bool on: Light visibility (default = True).
+    '''
+
+    def __init__(self, position = (0, 0), radius = 100, name = None, on = True):
         self.position = list(position)
         self.name = name
-        self.on = True
         self.radius = radius
+        self.on = True
     
     def toggle(self):
+
+        '''
+        Toggle the light visibility.
+        '''
+        
         self.on = not self.on
     
     #
     # properties
     #
 
-    # radius property, > 1
     @property
     def radius(self):
         '''
@@ -37,14 +56,22 @@ class Light:
 
 class Lighting:
 
-    def __init__(self, surfaceSize = None, ambientLightLevel = 1):
+    def __init__(self, surfaceSize, ambientLightLevel = 0):
+        # create a new lighting surface in the specified size
         self.surface = pygame.Surface(surfaceSize, pygame.SRCALPHA)
-        self.surface.fill( 'black' )
         self.lightLevel = ambientLightLevel
-        self.lights = []
+        # TODO ...
         self.lightMask = pygame.image.load('../src/pygamepal/lightMask.png')
+        
+        self.lights = []
+        self.surface.fill( 'black' )
 
     def update(self, deltaTime = 1):
+
+        '''
+        
+        '''
+        
         pass
 
     def draw(self, surface):
@@ -56,11 +83,12 @@ class Lighting:
         surface.blit(self.surface, (0,0))
         self.surface.set_alpha(255 * (1 - self.lightLevel))
 
-    def addLight(self, light):
-        self.lights.append(light)
-        
+    # TODO over time (duration)?
     def setLightLevel(self, lightLevel):
         self.lightLevel = min(max(0, lightLevel), 1)
+
+    def addLight(self, light):
+        self.lights.append(light)
 
     def getLight(self, name):
         for l in self.lights:

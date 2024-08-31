@@ -30,7 +30,7 @@ pygame.init()
 
 # setup screen to required size
 screen = pygame.display.set_mode((680, 460))
-pygame.display.set_caption('Triggers Example')
+pygame.display.set_caption('Trigger Example')
 clock = pygame.time.Clock() 
 
 # create 2 triggers

@@ -1,4 +1,4 @@
-__version__ = "0.8.0"
+__version__ = "0.9.0"
 __author__ = 'Rik Cross'
 __license__ = 'MIT'
 
@@ -14,9 +14,11 @@ from .spriteImage import *
 from .collider import *
 from .trigger import *
 from .button import *
-from .particles import *
+from .particle import *
+from .particleEmitter import *
 from .transition import *
 from .animator import *
+from .animation import *
 from .lighting import *
 
 from .drawText import *

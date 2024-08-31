@@ -28,7 +28,7 @@ input = pygamepal.Input()
 # (note that callbacks need the button as the first argument)
 
 def buttonClicked(button):
-    print(button.label, 'clicked!')
+    print(button.text, 'clicked!')
 
 def button2Update(button):
     # if creating your own button update method,
@@ -40,10 +40,10 @@ def button2Update(button):
     button.counter += 0.15
     # change the foreground and border if highlighted
     if button.isHighlighted:
-        button.fgColor = 'white'
+        button.foregroundColor = 'white'
         button.borderWidth = 1
     else:
-        button.fgColor = 'gray50'
+        button.foregroundColor = 'gray50'
         button.borderWidth = 0
 
 def button2Draw(button, screen):
@@ -68,14 +68,14 @@ def button2Draw(button, screen):
 # button 1 is a simple button implementation
 button1 = pygamepal.Button(input=input,
                            position = (100, 100),
-                           label = 'Button 1',
+                           text = 'Button 1',
                            onSelected = buttonClicked,
                            keyCode = pygame.K_1)
 
 # button 2 demonstrates more advanced features
 button2 = pygamepal.Button(input = input,
                            position = (100, 300),
-                           label = 'Button 2',
+                           text = 'Button 2',
                            updateMethod = button2Update,
                            drawMethod = button2Draw,
                            onSelected = buttonClicked,

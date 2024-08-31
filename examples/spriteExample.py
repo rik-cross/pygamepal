@@ -44,13 +44,13 @@ class GameScene(pygamepal.Scene):
         # create sprites
         #
 
-        self.player = Player(imageName = os.path.join('images', 'character.png'), position =  (140, 128), collider = pygamepal.Collider(offset = (0, 10), size = (12, 6)))
+        self.player = Player(textureURL = os.path.join('images', 'character.png'), position = (140, 128), collider = pygamepal.Collider(offset = (0, 10), size = (12, 6)))
 
         # create some tree sprites
         self.trees = []
         for x in range(10, 250, 50):
             for y in range(10, 250, 50):
-                self.trees.append(pygamepal.Sprite(imageName = os.path.join('images', 'tree.png'), position = (x, y), collider = pygamepal.Collider(offset = (6, 25), size = (12, 5))))
+                self.trees.append(pygamepal.Sprite(textureURL = os.path.join('images', 'tree.png'), position = (x, y), collider = pygamepal.Collider(offset = (6, 25), size = (12, 5))))
 
         self.backgroundColor = 'black'
         # change some camera parameters
@@ -88,7 +88,7 @@ class MyGame(pygamepal.Game):
         self.currentScene = GameScene(self)
 
 # uncomment the line below to see sprite sizes and colliders
-#pygamepal.DEBUG = True
+pygamepal.DEBUG = True
 
 myGame = MyGame(caption = 'Sprite example')
 myGame.run()

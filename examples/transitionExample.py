@@ -39,7 +39,7 @@ transition = pygamepal.TransitionWipeRight(
     surface1, 
     surface2, 
     duration = 200, 
-    easingFunction=pygamepal.bounceEaseOut)
+    easingFunction=pygamepal.easeBounceOut)
 
 # game loop
 running = True

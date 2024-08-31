@@ -1,6 +1,14 @@
 pygamepal package
 =================
 
+pygamepal.animator
+------------------
+
+.. automodule:: pygamepal.animator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 pygamepal.button
 ----------------
 
@@ -57,10 +65,26 @@ pygamepal.input
    :undoc-members:
    :show-inheritance:
 
+pygamepal.lighting
+------------------
+
+.. automodule:: pygamepal.lighting
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pygamepal.particleEmitter
+-------------------------
+
+.. automodule:: pygamepal.particleEmitter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 pygamepal.particles
 -------------------
 
-.. automodule:: pygamepal.particles
+.. automodule:: pygamepal.particle
    :members:
    :undoc-members:
    :show-inheritance:
@@ -93,14 +117,6 @@ pygamepal.spriteImage
 ---------------------
 
 .. automodule:: pygamepal.spriteImage
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-pygamepal.spriteTextureList
----------------------------
-
-.. automodule:: pygamepal.spriteTextureList
    :members:
    :undoc-members:
    :show-inheritance:

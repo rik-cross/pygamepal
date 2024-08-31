@@ -10,40 +10,66 @@ from .drawText import drawText
 
 class Button:
 
+    '''
+    Used to provide input, and can be controlled by mouse and/or keypress.
+
+    .. image:: https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/buttonExample.gif?raw=true
+
+    `Example Button code`_.
+
+    .. _Example Button code: https://github.com/rik-cross/pygamepal/blob/main/examples/buttonExample.py
+
+    :param pygamepal.Input input: The input object used to control the button.
+    :param (int, int) position: The (x, y) position of the button on the drawn surface (default = (0, 0)).
+    :param str text: Text to display on the button (default = None).
+    :param pygame.Color foregroundColor: Foreground color, used to draw the button text and border (default = 'white).
+    :param pygame.Color backgroundColor: Background color, used to draw the button background (default = 'black).
+    :param int borderWidth: Width of the button border (default = 1).
+    :param pygame.Color borderColor: Color of the button border (default = 'white').
+    :param pygame.Texture image: Button background image (default = None).
+    :param function(pygamepal.Button) onHighlighted: A function called when the mouse position intersects with the button position (default = None).
+    :param function(pygamepal.Button) onSelected: A function called when the button is clicked, or the relevant button pressed (default = None).
+    :param function(pygamepal.Button) updateMethod: Used to override the default update method of a button (default = None).
+    :param function(pygamepal.Button, pygame.Surface) drawMethod: Used to override the default draw method of a button (default = None).
+    :param pygame.Key keyCode: The keypress associated with selecting the button (default = None).
+    '''
+
     def __init__(self,
-                 # input is not optional
-                 input,
-                 position = (0, 0), size = (100, 50),
-                 label = None,
-                 fgColor = 'white', bgColor = 'black',
-                 borderWidth = 1,
-                 borderColor = 'white',
-                 image = None,
-                 # this method called when highlighted
-                 onHighlighted = None,
-                 # this method is called when selected
-                 onSelected = None,
-                 # updateMethod and drawMethod give the ability
-                 # to override default button befaviour
-                 updateMethod = None,
-                 drawMethod = None,
-                 # a keycode can also be associated with a button
-                 # (only works if pygamepal.input is specified)
-                 keyCode = None
-                 ):
+        # input is not optional
+        input,
+        position = (0, 0), size = (100, 50),
+        text = None,
+        foregroundColor = 'white', backgroundColor = 'black',
+        borderWidth = 1,
+        borderColor = 'white',
+        image = None,
+        # this method called when highlighted
+        onHighlighted = None,
+        # this method is called when selected
+        onSelected = None,
+        # updateMethod and drawMethod give the ability
+        # to override default button befaviour
+        updateMethod = None,
+        drawMethod = None,
+        # a keycode can also be associated with a button
+        # (only works if pygamepal.input is specified)
+        keyCode = None
+        ):
         
         self._scene = None
 
         self.input = input
         self.position = position
         self.size = size
-        self.label = label
+        self.text = text
+        
         if image is not None:
             self.image = pygame.image.load(image).convert_alpha()
         else:
             self.image = image
-        self.fgColor = fgColor
-        self.bgColor = bgColor
+
+        self.foregroundColor = foregroundColor
+        self.backgroundColor = backgroundColor
         self.borderWidth = borderWidth
         self.borderColor = borderColor
         self.onHighlighted = onHighlighted
@@ -57,6 +83,10 @@ class Button:
     
     def update(self):
 
+        '''
+        Must be called once per frame if the button is not used as part of a pygamepal.Scene.
+        '''
+
         if self.input is None:
             return
 
@@ -68,6 +98,12 @@ class Button:
         self.setSelected()
 
     def draw(self, surface):
+
+        '''
+        Must be called once per frame if the button is not being used as part of a pygamepal.Scene.
+
+        :param pygame.Surface surface: The surface to draw to.
+        '''
 
         if self.drawMethod is not None:
             self.drawMethod(self, surface)
@@ -84,7 +120,12 @@ class Button:
     #
 
     def setHighlighted(self):
-        # button is highlighted if mouse is within button bounds
+
+        '''
+        Should be called within a custom button.updateMethod in order to update the button 'highlighted' status.
+        A button is highlighted if the mouse is within the button bounds.
+        '''
+        
         self._isHighlighted = False
         cursor = self.input.getMouseCursorPosition()
         if self._isWithinBounds(cursor, (self.position[0], self.position[1], self.size[0], self.size[1])):
@@ -93,9 +134,12 @@ class Button:
                 self.onHighlighted(self)
 
     def setSelected(self):
-        # button is selected if either
-        # -- key is pressed, or
-        # -- mouse button is pressed and within bounds
+
+        '''
+        Should be called within a custom button.updateMethod in order to update the button 'selected' status.
+        A button is selected if either the keyCode is pressed, or if the mouse button is pressed within the button bounds.
+        '''
+
         self._isSelected = False
         cursor = self.input.getMouseCursorPosition()
         if (self.keyCode is not None and self.input.isKeyPressed(self.keyCode)) or \
@@ -106,32 +150,64 @@ class Button:
                 self.onSelected(self)
 
     def _isWithinBounds(self, position, rect):
-        # returns True if 'position' is inside 'rect'
+        
+        '''
+        returns True if an (x, y) 'position' (usually the mouse position) is inside the (x, y, w, h) 'rect' (usually the button).
+        
+        :param (int, int) position: The (x, y) position to test.
+        :param (int, int, int, int): The (x, y, w, h) rectangle to test against the position.
+        '''
+        
         return position[0] >= rect[0] and position[0] <= rect[0] + rect[2] and \
             position[1] >= rect[1] and position[1] <= rect[1] + rect[3]
     
-    def drawBackground(self, screen):
-        # draw background
-        pygame.draw.rect(screen,
-                         self.bgColor,
+    def drawBackground(self, surface):
+
+        '''
+        Draws the button background. Can be called from a custom button.drawMethod function.
+
+        :param pygame.Surface surface: The surface to draw to.
+        '''
+        
+        pygame.draw.rect(surface,
+                         self.backgroundColor,
                          (self.position[0], self.position[1], self.size[0], self.size[1]))
     
-    def drawImage(self, screen):
-        # draw image
+    def drawImage(self, surface):
+
+        '''
+        Draws the button image. Can be called from a custom button.drawMethod function.
+
+        :param pygame.Surface surface: The surface to draw to.
+        '''
+        
         if self.image is not None:
-            screen.blit(self.image, self.position)
+            surface.blit(self.image, self.position)
 
-    def drawText(self, screen):
-        # draw text
-        drawText(screen, text = self.label,
+    def drawText(self, surface):
+        
+
+        '''
+        Draws the button text. Can be called from a custom button.drawMethod function.
+
+        :param pygame.Surface surface: The surface to draw to.
+        '''
+
+        drawText(surface, text = self.text,
                  position = (self.position[0] + self.size[0] / 2, self.position[1] + self.size[1] / 2),
-                 color = self.fgColor, centerX = True, centerY = True)
+                 color = self.foregroundColor, centerX = True, centerY = True)
 
-    def drawBorder(self, screen):
-        # draw border
+    def drawBorder(self, surface):
+
+        '''
+        Draws the button border. Can be called from a custom button.drawMethod function.
+
+        :param pygame.Surface surface: The surface to draw to.
+        '''
+        
         if self.borderWidth > 0:
-            pygame.draw.rect(screen,
-                             self.fgColor,
+            pygame.draw.rect(surface,
+                             self.foregroundColor,
                              (self.position[0], self.position[1], self.size[0], self.size[1]),
                              width = 1)
     
@@ -142,9 +218,15 @@ class Button:
     # True when the button is hoghlighted
     @property
     def isHighlighted(self):
+        '''
+        Returns True is the mouse position intersents with the button.
+        '''
         return self._isHighlighted
     
     # True when the button is selected
     @property
     def isSelected(self):
+        '''
+        Returns True is the button keyCode is pressed, or if the button is clicked.
+        '''
         return self._isSelected   

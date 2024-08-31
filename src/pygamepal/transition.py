@@ -10,16 +10,29 @@ from .easingFunctions import easeLinear
 
 class Transition:
 
-    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
+    '''
+    The base class for transitions between 2 surfaces. This class does not need to be used directly.
+
+    .. image:: https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/transitionExample.gif?raw=true
+
+    `Example Transition code`_.
+
+    .. _Example Transition code: https://github.com/rik-cross/pygamepal/blob/main/transitionExample.py
+    
+    :param pygame.Surface from Surface: The surface to transition from.
+    :param pygame.Surface toSurface: The surface to transition to.
+    :param float duration: The time over which to transition between surfaces.
+    :param func easingFunction: The easing function to apply to the transition (default = pygamepal.easeLinear).
+    '''
+
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, easingFunction = None):
 
         self.fromSurface = fromSurface
         self.toSurface = toSurface
         self.duration = duration
-        self.drawMethod = drawMethod
-
         self.easingFunction = easingFunction
-        self.easeValue = 0
 
+        self.easeValue = 0
         self.currentPercentage = 0
         self.finished = False
 
@@ -44,8 +57,17 @@ class Transition:
 
 class TransitionFade(Transition):
 
-    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = easeLinear):
-        super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
+    '''
+    Fade between 2 surfaces.
+
+    :param pygame.Surface from Surface: The surface to transition from.
+    :param pygame.Surface toSurface: The surface to transition to.
+    :param float duration: The time over which to transition between surfaces.
+    :param func easingFunction: The easing function to apply to the transition (default = pygamepal.easeLinear).
+    '''
+
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, easingFunction = easeLinear):
+        super().__init__(fromSurface, toSurface, duration, easingFunction)
 
     def draw(self, surface):
         self.easeValue = self.easingFunction(self.currentPercentage)
@@ -61,8 +83,17 @@ class TransitionFade(Transition):
 
 class TransitionFadeToBlack(Transition):
 
-    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
-        super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
+    '''
+    Fade to black between 2 surfaces.
+
+    :param pygame.Surface from Surface: The surface to transition from.
+    :param pygame.Surface toSurface: The surface to transition to.
+    :param float duration: The time over which to transition between surfaces.
+    :param func easingFunction: The easing function to apply to the transition (default = pygamepal.easeLinear).
+    '''
+
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, easingFunction = None):
+        super().__init__(fromSurface, toSurface, duration, easingFunction)
         self.blacksurface = pygame.Surface((self.fromSurface.get_width(), self.fromSurface.get_height()), pygame.SRCALPHA, 32)
         self.blacksurface.fill('black')
 
@@ -82,8 +113,17 @@ class TransitionFadeToBlack(Transition):
 
 class TransitionWipeLeft(Transition):
 
-    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
-        super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
+    '''
+    Wipe left between 2 surfaces.
+
+    :param pygame.Surface from Surface: The surface to transition from.
+    :param pygame.Surface toSurface: The surface to transition to.
+    :param float duration: The time over which to transition between surfaces.
+    :param func easingFunction: The easing function to apply to the transition (default = pygamepal.easeLinear).
+    '''
+
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, easingFunction = None):
+        super().__init__(fromSurface, toSurface, duration, easingFunction)
 
     def draw(self, surface):
         self.easeValue = self.easingFunction(self.currentPercentage)
@@ -99,8 +139,17 @@ class TransitionWipeLeft(Transition):
 
 class TransitionWipeRight(Transition):
 
-    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
-        super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
+    '''
+    Wipe right between 2 surfaces.
+
+    :param pygame.Surface from Surface: The surface to transition from.
+    :param pygame.Surface toSurface: The surface to transition to.
+    :param float duration: The time over which to transition between surfaces.
+    :param func easingFunction: The easing function to apply to the transition (default = pygamepal.easeLinear).
+    '''
+
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, easingFunction = None):
+        super().__init__(fromSurface, toSurface, duration, easingFunction)
 
     def draw(self, surface):
         self.easeValue = self.easingFunction(self.currentPercentage)
@@ -116,8 +165,17 @@ class TransitionWipeRight(Transition):
 
 class TransitionWipeUp(Transition):
 
-    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
-        super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
+    '''
+    Wipe up between 2 surfaces.
+
+    :param pygame.Surface from Surface: The surface to transition from.
+    :param pygame.Surface toSurface: The surface to transition to.
+    :param float duration: The time over which to transition between surfaces.
+    :param func easingFunction: The easing function to apply to the transition (default = pygamepal.easeLinear).
+    '''
+
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, easingFunction = None):
+        super().__init__(fromSurface, toSurface, duration, easingFunction)
 
     def draw(self, surface):
         self.easeValue = self.easingFunction(self.currentPercentage)
@@ -133,8 +191,17 @@ class TransitionWipeUp(Transition):
 
 class TransitionWipeDown(Transition):
 
-    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
-        super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
+    '''
+    Wipe down between 2 surfaces.
+
+    :param pygame.Surface from Surface: The surface to transition from.
+    :param pygame.Surface toSurface: The surface to transition to.
+    :param float duration: The time over which to transition between surfaces.
+    :param func easingFunction: The easing function to apply to the transition (default = pygamepal.easeLinear).
+    '''
+
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, easingFunction = None):
+        super().__init__(fromSurface, toSurface, duration, easingFunction)
 
     def draw(self, surface):
         self.easeValue = self.easingFunction(self.currentPercentage)
@@ -150,8 +217,17 @@ class TransitionWipeDown(Transition):
 
 class TransitionMoveLeft(Transition):
 
-    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
-        super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
+    '''
+    Move left between 2 surfaces.
+
+    :param pygame.Surface from Surface: The surface to transition from.
+    :param pygame.Surface toSurface: The surface to transition to.
+    :param float duration: The time over which to transition between surfaces.
+    :param func easingFunction: The easing function to apply to the transition (default = pygamepal.easeLinear).
+    '''
+
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, easingFunction = None):
+        super().__init__(fromSurface, toSurface, duration, easingFunction)
 
     def draw(self, surface):
         self.easeValue = self.easingFunction(self.currentPercentage)
@@ -169,8 +245,17 @@ class TransitionMoveLeft(Transition):
 
 class TransitionMoveRight(Transition):
 
-    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
-        super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
+    '''
+    Move right between 2 surfaces.
+
+    :param pygame.Surface from Surface: The surface to transition from.
+    :param pygame.Surface toSurface: The surface to transition to.
+    :param float duration: The time over which to transition between surfaces.
+    :param func easingFunction: The easing function to apply to the transition (default = pygamepal.easeLinear).
+    '''
+
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, easingFunction = None):
+        super().__init__(fromSurface, toSurface, duration, easingFunction)
 
     def draw(self, surface):
         self.easeValue = self.easingFunction(self.currentPercentage)
@@ -188,8 +273,17 @@ class TransitionMoveRight(Transition):
 
 class TransitionMoveUp(Transition):
 
-    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
-        super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
+    '''
+    Move up between 2 surfaces.
+
+    :param pygame.Surface from Surface: The surface to transition from.
+    :param pygame.Surface toSurface: The surface to transition to.
+    :param float duration: The time over which to transition between surfaces.
+    :param func easingFunction: The easing function to apply to the transition (default = pygamepal.easeLinear).
+    '''
+
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, easingFunction = None):
+        super().__init__(fromSurface, toSurface, duration, easingFunction)
 
     def draw(self, surface):
         self.easeValue = self.easingFunction(self.currentPercentage)
@@ -207,8 +301,17 @@ class TransitionMoveUp(Transition):
 
 class TransitionMoveDown(Transition):
 
-    def __init__(self, fromSurface = None, toSurface = None, duration = 100, drawMethod = None, easingFunction = None):
-        super().__init__(fromSurface, toSurface, duration, drawMethod, easingFunction)
+    '''
+    Move down between 2 surfaces.
+
+    :param pygame.Surface from Surface: The surface to transition from.
+    :param pygame.Surface toSurface: The surface to transition to.
+    :param float duration: The time over which to transition between surfaces.
+    :param func easingFunction: The easing function to apply to the transition (default = pygamepal.easeLinear).
+    '''
+
+    def __init__(self, fromSurface = None, toSurface = None, duration = 100, easingFunction = None):
+        super().__init__(fromSurface, toSurface, duration, easingFunction)
 
     def draw(self, surface):
         self.easeValue = self.easingFunction(self.currentPercentage)

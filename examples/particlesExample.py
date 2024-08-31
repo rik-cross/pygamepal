@@ -21,7 +21,7 @@ clock = pygame.time.Clock()
 # snow particles
 #
 
-snow = pygamepal.Particles(
+snow = pygamepal.ParticleEmitter(
     # positioned at the top of the screen
     emitterPosition = (0, 0),
     # the particle emitter is the width of the screen
@@ -33,15 +33,14 @@ snow = pygamepal.Particles(
     particleVelocityMin = (0, 3),
     particleVelocityMax = (0, 3.5),
     particleSize = 2,
-    particleSizeDecay= 0 ,
-    particleColors = ['white']
+    particleSizeDecay = 0
 )
 
 #
 # confetti particles
 #
 
-confetti = pygamepal.Particles(
+confetti = pygamepal.ParticleEmitter(
     emitterPosition = (340, 460),
     # particle emitter never expires
     emitterLifetime = -1,
@@ -63,7 +62,7 @@ confetti = pygamepal.Particles(
 # dust particles
 #
 
-dust = pygamepal.Particles(
+dust = pygamepal.ParticleEmitter(
     emitterPosition = (340, 100),
     emitterLifetime = -1,
     emitterParticleDelay = 5,

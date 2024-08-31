@@ -6,9 +6,19 @@
 #
 
 def easeLinear(x):
+
+    '''
+    Linear easing function.
+    '''
+    
     return x
 
 def easeBounceOut(x):
+
+    '''
+    Ease bounce out easing function.
+    '''
+    
     x = x/100
     if x < 4 / 11:
         return (121 * x * x / 16) * 100

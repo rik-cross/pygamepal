@@ -11,13 +11,13 @@ from .spriteTextureList import SpriteTextureList
 class SpriteImage():
 
     '''
-    Maps string states to a SpriteTextureList object containing textures and associated information.
+    Maps string states to a pygamepal.SpriteTextureList object containing textures and associated information.
+
+    .. image:: https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/spriteImageExample.gif?raw=true
 
     `Example SpriteImage code`_.
 
-    .. _Example SpriteImage code: https://github.com/rik-cross/pygamepal/blob/main/examples/SpriteImageExample.py
-
-    .. image:: https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/spriteImageExample.gif?raw=true
+    .. _Example SpriteImage code: https://github.com/rik-cross/pygamepal/blob/main/examples/spriteImageExample.py
 
     Parameters for the first provided state:
 

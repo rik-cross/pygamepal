@@ -4,11 +4,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; PygamePal 0.8.0 documentation</title>
+    <title>Index &#8212; PygamePal 0.9.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
-    <script src="_static/documentation_options.js?v=486e5634"></script>
+    <script src="_static/documentation_options.js?v=39bb1c6d"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="#" />
@@ -60,6 +60,8 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pygamepal.html#pygamepal.animator.Animator.addAnimation">addAnimation() (pygamepal.animator.Animator method)</a>
+</li>
       <li><a href="pygamepal.html#pygamepal.game.Game.addButton">addButton() (pygamepal.game.Game method)</a>
 
       <ul>
@@ -72,6 +74,8 @@
         <li><a href="pygamepal.html#pygamepal.scene.Scene.addCollider">(pygamepal.scene.Scene method)</a>
 </li>
       </ul></li>
+      <li><a href="pygamepal.html#pygamepal.lighting.Lighting.addLight">addLight() (pygamepal.lighting.Lighting method)</a>
+</li>
       <li><a href="pygamepal.html#pygamepal.game.Game.addSprite">addSprite() (pygamepal.game.Game method)</a>
 
       <ul>
@@ -89,6 +93,10 @@
 </li>
       </ul></li>
       <li><a href="pygamepal.html#pygamepal.spriteImage.SpriteImage.alpha">alpha (pygamepal.spriteImage.SpriteImage property)</a>
+</li>
+      <li><a href="pygamepal.html#pygamepal.lighting.Lighting.ambientLightLevel">ambientLightLevel (pygamepal.lighting.Lighting property)</a>
+</li>
+      <li><a href="pygamepal.html#pygamepal.animator.Animator">Animator (class in pygamepal.animator)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -127,9 +135,11 @@
 </li>
         <li><a href="pygamepal.html#pygamepal.game.Game.draw">(pygamepal.game.Game method)</a>
 </li>
-        <li><a href="pygamepal.html#pygamepal.particles.Particle.draw">(pygamepal.particles.Particle method)</a>
+        <li><a href="pygamepal.html#pygamepal.lighting.Lighting.draw">(pygamepal.lighting.Lighting method)</a>
 </li>
-        <li><a href="pygamepal.html#pygamepal.particles.Particles.draw">(pygamepal.particles.Particles method)</a>
+        <li><a href="pygamepal.html#pygamepal.particle.Particle.draw">(pygamepal.particle.Particle method)</a>
+</li>
+        <li><a href="pygamepal.html#pygamepal.particleEmitter.ParticleEmitter.draw">(pygamepal.particleEmitter.ParticleEmitter method)</a>
 </li>
         <li><a href="pygamepal.html#pygamepal.scene.Scene.draw">(pygamepal.scene.Scene method)</a>
 </li>
@@ -200,6 +210,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pygamepal.html#pygamepal.lighting.Lighting.getLight">getLight() (pygamepal.lighting.Lighting method)</a>
+</li>
       <li><a href="pygamepal.html#pygamepal.input.Input.getMouseButtonDownDuration">getMouseButtonDownDuration() (pygamepal.input.Input method)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.input.Input.getMouseButtonLongPressPercentage">getMouseButtonLongPressPercentage() (pygamepal.input.Input method)</a>
@@ -276,9 +288,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pygamepal.html#pygamepal.camera.Camera.lazyFollow">lazyFollow (pygamepal.camera.Camera property)</a>
 </li>
+      <li><a href="pygamepal.html#pygamepal.camera.Camera.lazyZoom">lazyZoom (pygamepal.camera.Camera property)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="pygamepal.html#pygamepal.camera.Camera.lazyZoom">lazyZoom (pygamepal.camera.Camera property)</a>
+      <li><a href="pygamepal.html#pygamepal.lighting.Light">Light (class in pygamepal.lighting)</a>
+</li>
+      <li><a href="pygamepal.html#pygamepal.lighting.Lighting">Lighting (class in pygamepal.lighting)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -291,6 +307,8 @@
 
       <ul>
         <li><a href="pygamepal.html#module-pygamepal">pygamepal</a>
+</li>
+        <li><a href="pygamepal.html#module-pygamepal.animator">pygamepal.animator</a>
 </li>
         <li><a href="pygamepal.html#module-pygamepal.button">pygamepal.button</a>
 </li>
@@ -306,7 +324,11 @@
 </li>
         <li><a href="pygamepal.html#module-pygamepal.input">pygamepal.input</a>
 </li>
-        <li><a href="pygamepal.html#module-pygamepal.particles">pygamepal.particles</a>
+        <li><a href="pygamepal.html#module-pygamepal.lighting">pygamepal.lighting</a>
+</li>
+        <li><a href="pygamepal.html#module-pygamepal.particle">pygamepal.particle</a>
+</li>
+        <li><a href="pygamepal.html#module-pygamepal.particleEmitter">pygamepal.particleEmitter</a>
 </li>
         <li><a href="pygamepal.html#module-pygamepal.scene">pygamepal.scene</a>
 </li>
@@ -315,8 +337,6 @@
         <li><a href="pygamepal.html#module-pygamepal.sprite">pygamepal.sprite</a>
 </li>
         <li><a href="pygamepal.html#module-pygamepal.spriteImage">pygamepal.spriteImage</a>
-</li>
-        <li><a href="pygamepal.html#module-pygamepal.spriteTextureList">pygamepal.spriteTextureList</a>
 </li>
         <li><a href="pygamepal.html#module-pygamepal.transition">pygamepal.transition</a>
 </li>
@@ -345,9 +365,9 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="pygamepal.html#pygamepal.particles.Particle">Particle (class in pygamepal.particles)</a>
+      <li><a href="pygamepal.html#pygamepal.particle.Particle">Particle (class in pygamepal.particle)</a>
 </li>
-      <li><a href="pygamepal.html#pygamepal.particles.Particles">Particles (class in pygamepal.particles)</a>
+      <li><a href="pygamepal.html#pygamepal.particleEmitter.ParticleEmitter">ParticleEmitter (class in pygamepal.particleEmitter)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.sprite.Sprite.position">position (pygamepal.sprite.Sprite property)</a>
 </li>
@@ -356,6 +376,13 @@
 
       <ul>
         <li><a href="pygamepal.html#module-pygamepal">module</a>
+</li>
+      </ul></li>
+      <li>
+    pygamepal.animator
+
+      <ul>
+        <li><a href="pygamepal.html#module-pygamepal.animator">module</a>
 </li>
       </ul></li>
       <li>
@@ -410,10 +437,24 @@
 </li>
       </ul></li>
       <li>
-    pygamepal.particles
+    pygamepal.lighting
 
       <ul>
-        <li><a href="pygamepal.html#module-pygamepal.particles">module</a>
+        <li><a href="pygamepal.html#module-pygamepal.lighting">module</a>
+</li>
+      </ul></li>
+      <li>
+    pygamepal.particle
+
+      <ul>
+        <li><a href="pygamepal.html#module-pygamepal.particle">module</a>
+</li>
+      </ul></li>
+      <li>
+    pygamepal.particleEmitter
+
+      <ul>
+        <li><a href="pygamepal.html#module-pygamepal.particleEmitter">module</a>
 </li>
       </ul></li>
       <li>
@@ -445,13 +486,6 @@
 </li>
       </ul></li>
       <li>
-    pygamepal.spriteTextureList
-
-      <ul>
-        <li><a href="pygamepal.html#module-pygamepal.spriteTextureList">module</a>
-</li>
-      </ul></li>
-      <li>
     pygamepal.transition
 
       <ul>
@@ -479,6 +513,8 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pygamepal.html#pygamepal.lighting.Light.radius">radius (pygamepal.lighting.Light property)</a>
+</li>
       <li><a href="pygamepal.html#pygamepal.game.Game.removeButton">removeButton() (pygamepal.game.Game method)</a>
 
       <ul>
@@ -523,6 +559,8 @@
 </li>
       <li><a href="pygamepal.html#pygamepal.button.Button.setHighlighted">setHighlighted() (pygamepal.button.Button method)</a>
 </li>
+      <li><a href="pygamepal.html#pygamepal.lighting.Lighting.setLightLevel">setLightLevel() (pygamepal.lighting.Lighting method)</a>
+</li>
       <li><a href="pygamepal.html#pygamepal.button.Button.setSelected">setSelected() (pygamepal.button.Button method)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.camera.Camera.setTarget">setTarget() (pygamepal.camera.Camera method)</a>
@@ -533,23 +571,21 @@
 </li>
       <li><a href="pygamepal.html#pygamepal.scene.Scene.sortByBottom">sortByBottom() (pygamepal.scene.Scene static method)</a>
 </li>
-      <li><a href="pygamepal.html#pygamepal.scene.Scene.sortByLeft">sortByLeft() (pygamepal.scene.Scene static method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pygamepal.html#pygamepal.scene.Scene.sortByLayer">sortByLayer() (pygamepal.scene.Scene static method)</a>
+</li>
+      <li><a href="pygamepal.html#pygamepal.scene.Scene.sortByLeft">sortByLeft() (pygamepal.scene.Scene static method)</a>
+</li>
       <li><a href="pygamepal.html#pygamepal.scene.Scene.sortByRight">sortByRight() (pygamepal.scene.Scene static method)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.scene.Scene.sortByTop">sortByTop() (pygamepal.scene.Scene static method)</a>
-</li>
-      <li><a href="pygamepal.html#pygamepal.scene.Scene.sortByZ">sortByZ() (pygamepal.scene.Scene static method)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.splitTexture.splitTexture">splitTexture() (in module pygamepal.splitTexture)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.sprite.Sprite">Sprite (class in pygamepal.sprite)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.spriteImage.SpriteImage">SpriteImage (class in pygamepal.spriteImage)</a>
-</li>
-      <li><a href="pygamepal.html#pygamepal.spriteTextureList.SpriteTextureList">SpriteTextureList (class in pygamepal.spriteTextureList)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.spriteImage.SpriteImage.state">state (pygamepal.spriteImage.SpriteImage property)</a>
 </li>
@@ -559,6 +595,8 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pygamepal.html#pygamepal.lighting.Light.toggle">toggle() (pygamepal.lighting.Light method)</a>
+</li>
       <li><a href="pygamepal.html#pygamepal.sprite.Sprite.touching">touching() (pygamepal.sprite.Sprite method)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.transition.Transition">Transition (class in pygamepal.transition)</a>
@@ -593,9 +631,11 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="pygamepal.html#pygamepal.button.Button.update">update() (pygamepal.button.Button method)</a>
+      <li><a href="pygamepal.html#pygamepal.animator.Animator.update">update() (pygamepal.animator.Animator method)</a>
 
       <ul>
+        <li><a href="pygamepal.html#pygamepal.button.Button.update">(pygamepal.button.Button method)</a>
+</li>
         <li><a href="pygamepal.html#pygamepal.camera.Camera.update">(pygamepal.camera.Camera method)</a>
 </li>
         <li><a href="pygamepal.html#pygamepal.collider.Collider.update">(pygamepal.collider.Collider method)</a>
@@ -604,9 +644,11 @@
 </li>
         <li><a href="pygamepal.html#pygamepal.input.Input.update">(pygamepal.input.Input method)</a>
 </li>
-        <li><a href="pygamepal.html#pygamepal.particles.Particle.update">(pygamepal.particles.Particle method)</a>
+        <li><a href="pygamepal.html#pygamepal.lighting.Lighting.update">(pygamepal.lighting.Lighting method)</a>
 </li>
-        <li><a href="pygamepal.html#pygamepal.particles.Particles.update">(pygamepal.particles.Particles method)</a>
+        <li><a href="pygamepal.html#pygamepal.particle.Particle.update">(pygamepal.particle.Particle method)</a>
+</li>
+        <li><a href="pygamepal.html#pygamepal.particleEmitter.ParticleEmitter.update">(pygamepal.particleEmitter.ParticleEmitter method)</a>
 </li>
         <li><a href="pygamepal.html#pygamepal.scene.Scene.update">(pygamepal.scene.Scene method)</a>
 </li>

@@ -110,7 +110,7 @@ class MenuScene(pygamepal.Scene):
     def init(self):
 
         # add a button to the scene
-        self.addButton(pygamepal.Button(self.game.input,position = (350, 275), label = 'Start', onSelected = self.startGameScene))
+        self.addButton(pygamepal.Button(self.game.input,position = (350, 275), text = 'Start', onSelected = self.startGameScene))
 
     def update(self):
 
@@ -155,21 +155,21 @@ class GameScene(pygamepal.Scene):
 
         self.addSprite(
             pygamepal.Sprite(
-                imageName = os.path.join('images', 'tree.png'),
+                textureURL = os.path.join('images', 'tree.png'),
                 position = (40, 50),
                 collider = pygamepal.Collider(offset = (6, 25), size = (12, 5))
             )
         )
         self.addSprite(
             pygamepal.Sprite(
-                imageName = os.path.join('images', 'tree.png'),
+                textureURL = os.path.join('images', 'tree.png'),
                 position = (70, 40),
                 collider = pygamepal.Collider(offset = (6, 25), size = (12, 5))
             )
         )
         self.addSprite(
             pygamepal.Sprite(
-                imageName = os.path.join('images', 'tree.png'),
+                textureURL = os.path.join('images', 'tree.png'),
                 position = (20, 10),
                 collider = pygamepal.Collider(offset = (6, 25), size = (12, 5))
             )

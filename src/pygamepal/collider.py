@@ -10,6 +10,21 @@ from pygamepal import Game
 
 class Collider:
 
+    '''
+    A collider is an area for which other colliders should not enter.
+    A collider can be used independently, or as part of a sprite.
+
+    `Example Collider code`_.
+
+    .. _Example Collider code: https://github.com/rik-cross/pygamepal/blob/main/examples/colliderExample.py
+
+    `Example Sprite Collider code`_.
+
+    .. _Example Sprite Collider code: https://github.com/rik-cross/pygamepal/blob/main/examples/spriteExample.py
+
+    :param:
+    '''
+
     # a static list of all colliders created, to facilitate
     # collision detection for all colliders including those
     # that don't belong to a scene or sprite
@@ -25,12 +40,22 @@ class Collider:
         self.drawColor = drawColor
     
     def update(self):
+
+        '''
+        Update method needs to be called for a collider if used independently (i.e. if not as part of a pygamepal.Scene or pygamepal.Sprite).
+        '''
+
         # update position if attached to a sprite
         if self._sprite is not None and self._sprite.position is not None:
             self.x = self._sprite.x + self.offset[0]
             self.y = self._sprite.y + self.offset[1]
 
     def draw(self, surface):
+
+        '''
+        Draw method doesn't need to be called, unless the collider is being used independently and needs to be seen.
+        (Note: to see colliders used as part of a pygamepal.Scene or pygamepal.Sprite, set pygamepal.DEGUG = True.)
+        '''
         
         from pygamepal import drawText, smallFont
         
@@ -45,6 +70,12 @@ class Collider:
             color = self.drawColor)
 
     def _getCollisions(self, newPosition):
+
+        '''
+        Returns a list of all colliders intersecting with newPosition, and using all existing offset and size data.
+
+        :param (int, int) newPosition: The new (x, y) position to check collisions against.
+        '''
 
         # build the list of collisions to return
         collisionList = []
@@ -68,22 +99,43 @@ class Collider:
 
     @property
     def x(self):
+        '''
+        Get / set the x position.
+        '''
         return self._rect.x
     
     @x.setter
     def x(self, value):
-        self._rect.x = value
+        # handle collision directly if not part of a scene
+        if self._sprite is None:
+            newPosition = (value, self.y)
+            if len(self._getCollisions(newPosition)) == 0:
+                self._rect.x = value
+        else:
+            self._rect.x = value
 
     @property
     def y(self):
+        '''
+        Get / set the y position.
+        '''
         return self._rect.y
     
     @y.setter
     def y(self, value):
-        self._rect.y = value
+        # handle collision directly if not part of a scene
+        if self._sprite is None:
+            newPosition = (self.x, value)
+            if len(self._getCollisions(newPosition)) == 0:
+                self._rect.y = value
+        else:
+            self._rect.y = value
 
     @property
     def w(self):
+        '''
+        Get / set the width.
+        '''
         return self._rect.w
     
     @w.setter
@@ -92,6 +144,9 @@ class Collider:
 
     @property
     def h(self):
+        '''
+        Get / set the height.
+        '''
         return self._rect.h
     
     @h.setter

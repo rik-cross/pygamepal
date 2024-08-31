@@ -9,8 +9,17 @@ import pygame
 
 class Input():
 
-    # longPressDuraton: the number of milliseconds/frames a key needs to be held to register a long press
-    # mouseDoublePressTimeout: the maximum number of frames between mouse button presses to register a double-press
+    '''
+    Handle Pygame input more easily, including key/mouse press, release, long-press and double-press.
+
+    `Example Input code`_.
+
+    .. _Example Input code: https://github.com/rik-cross/pygamepal/blob/main/examples/keyInputExample.py
+        
+    :param int longPressDuration: The number of milliseconds/frames a key needs to be held to register a long press (default = 60).
+    :param int mouseDoublePressTimeout: The maximum number of frames between mouse button presses to register a double-press (default = 30).
+    '''
+
     def __init__(self, longPressDuration = 60, doublePressTimeout = 30):
         
         self.longPressDuration = longPressDuration
@@ -40,6 +49,13 @@ class Input():
         self._mousePressStates = ["none" for _ in range(len(self.currentMouseButtonStates))]
 
     def update(self, deltaTime = 1):
+
+        '''
+        Call once per frame to update.
+        (Note: only needs to be called if using independently (i.e. not as part of a game).)
+
+        :param float deltaTime: Time elapsed since last frame (default = 1).
+        '''
 
         #
         # update key press info
@@ -125,60 +141,113 @@ class Input():
     # key methods
     #
 
-    # returns true if the key denoted by keyCode
-    # is held down during the current frame
     def isKeyDown(self, keyCode):
+
+        '''
+        Returns true if the key denoted by keyCode is held down during the current frame.
+
+        :param pygame.Key keyCode: The key to check.
+        '''
+        
         if self.currentKeyStates is None or self.previousKeyStates is None:
             return False
         return self.currentKeyStates[keyCode] == True
 
-    # returns true if the key denoted by keyCode
-    # has been pressed down during the current frame
     def isKeyPressed(self, keyCode):
+
+        '''
+        Returns true if the key denoted by keyCode has been pressed down during the current frame.
+
+        :param pygame.Key keyCode: The key to check.
+        '''
+        
         if self.currentKeyStates is None or self.previousKeyStates is None:
             return False
         return self.currentKeyStates[keyCode] == True and self.previousKeyStates[keyCode] == False
 
-    # returns true if the key denoted by keyCode
-    # has been double-pressed during the current frame
     def isKeyDoublePressed(self, keyCode):
+
+        '''
+        Returns true if the key denoted by keyCode has been double-pressed during the current frame.
+
+        :param pygame.Key keyCode: The key to check.
+        '''
+        
         return self._keyPressStates[keyCode] == "double"
     
-    # returns true if the key denoted by keyCode
-    # has been released during the current frame
     def isKeyReleased(self, keyCode):
+
+        '''
+        Returns true if the key denoted by keyCode has been released during the current frame.
+
+        :param pygame.Key keyCode: The key to check.
+        '''
+        
         if self.currentKeyStates is None or self.previousKeyStates is None:
             return False
         return self.currentKeyStates[keyCode] == False and self.previousKeyStates[keyCode] == True
 
-    # returns the number of frames a keyCode has been held down
     def getKeyDownDuration(self, keyCode):
+
+        '''
+        Returns the number of frames a keyCode has been held down.
+
+        :param pygame.Key keyCode: The key to check.
+        '''
+        
         return self._keyPressDurations[keyCode]
 
-    # returns true if the key denoted by keyCode
-    # is held down for a long press during the current frame
     def isKeyLongDown(self, keyCode):
+
+        '''
+        Returns true if the key denoted by keyCode is held down for a long press during the current frame.
+
+        :param pygame.Key keyCode: The key to check.
+        '''
+        
         return self._keyPressDurations[keyCode] >= self.longPressDuration
 
-    # returns true if the key denoted by keyCode
-    # has achieved a long press in the current frame
     def isKeyLongPressed(self, keyCode):
+
+        '''
+        Returns true if the key denoted by keyCode has achieved a long press in the current frame.
+
+        :param pygame.Key keyCode: The key to check.
+        '''
+        
         return self._keyPressDurations[keyCode] == self.longPressDuration
 
-    # returns keyCode progress towards a long press (0%-100%)
     def getKeyLongPressPercentage(self, keyCode):
+
+        '''
+        Returns keyCode progress towards a long press (0%-100%).
+
+        :param pygame.Key keyCode: The key to check.
+        '''
+        
         return min(100, self._keyPressDurations[keyCode] / self.longPressDuration * 100)
 
     #
     # mouse methods
     #
 
-    # returns the pygame mouse pointer position
     def getMouseCursorPosition(self):
+
+        '''
+        Returns the pygame mouse pointer position.
+        '''
+        
         return self.currentMousePosition
 
-    # returns the (x,y) movement of the mouse
     def getMouseDirection(self):
+
+        '''
+        Returns the (x,y) movement of the mouse.
+        e.g:
+        - (-1, -1) = North-West movement.
+        - (1, 1) = South-East movement.
+        '''
+        
         direction = (0, 0)
         currentPosition = self.currentMousePosition
         if currentPosition[0] < self.previousMousePosition[0]:
@@ -191,46 +260,88 @@ class Input():
             direction = (direction[0], 1)
         return direction
 
-    # returns true if the mouse button specified
-    # is held down during the current frame
     def isMouseButtonDown(self, mouseButton):
+
+        '''
+        Returns true if the mouse button specified is held down during the current frame.
+
+        :param int mouseButton: The mouse button to check.
+        '''
+        
         if self.currentMouseButtonStates is None or self.previousMouseButtonStates is None:
             return False
         return self.currentMouseButtonStates[mouseButton] == True
     
-    # returns true if the mouse button specified
-    # has been pressed in the current frame
     def isMouseButtonPressed(self, mouseButton):
+
+        '''
+        Returns true if the mouse button specified has been pressed in the current frame.
+
+        :param int mouseButton: The mouse button to check.
+        '''
+        
         if self.currentMouseButtonStates is None or self.previousMouseButtonStates is None:
             return False
         return self.currentMouseButtonStates[mouseButton] == True and self.previousMouseButtonStates[mouseButton] == False
 
-    # returns true if the mouse button specified
-    # has been double-pressed in the current frame
     def isMouseButtonDoublePressed(self, mouseButton):
+
+        '''
+        Returns true if the mouse button specified has been double-pressed in the current frame.
+
+        :param int mouseButton: The mouse button to check.
+        '''
+        
         return self._mousePressStates[mouseButton] == "double"
 
-    # returns true if the mouse button specified
-    # has been released in the current frame
     def isMouseButtonReleased(self, mouseButton):
+
+        '''
+        Returns true if the mouse button specified has been released in the current frame.
+
+        :param int mouseButton: The mouse button to check.
+        '''
+        
         if self.currentMouseButtonStates is None or self.previousMouseButtonStates is None:
             return False
         return self.currentMouseButtonStates[mouseButton] == False and self.previousMouseButtonStates[mouseButton] == True
 
-    # returns the number of frames a mouse button has been held down
     def getMouseButtonDownDuration(self, mouseButton):
+
+        '''
+        Returns the number of frames a mouse button has been held down.
+
+        :param int mouseButton: The mouse button to check.
+        '''
+        
         return self._mouseButtonDurations[mouseButton]
 
-    # returns true if the mouse button specified
-    # is held down for a long press during the current frame
     def isMouseButtonLongDown(self, mouseButton):
+
+        '''
+        Returns true if the mouse button specified is held down for a long press during the current frame.
+
+        :param int mouseButton: The mouse button to check.
+        '''
+        
         return self._mouseButtonDurations[mouseButton] >= self.longPressDuration
 
-    # returns true if the mouse button specified
-    # has achieved a long press in the current frame
     def isMouseButtonLongPressed(self, mouseButton):
+
+        '''
+        Returns true if the mouse button specified has achieved a long press in the current frame.
+
+        :param int mouseButton: The mouse button to check.
+        '''
+        
         return self._mouseButtonDurations[mouseButton] == self.longPressDuration
 
-    # returns mouse button progress towards a long press (0%-100%)
     def getMouseButtonLongPressPercentage(self, mouseButton):
+
+        '''
+        Returns mouse button progress towards a long press (0%-100%).
+
+        :param int mouseButton: The mouse button to check.
+        '''
+        
         return min(100, self._mouseButtonDurations[mouseButton] / self.longPressDuration * 100)

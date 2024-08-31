@@ -13,8 +13,8 @@ A library of classes and functions to support game development in Pygame.
 
 ### Getting started
 
-- See the [Documentation](https://pygamepal.readthedocs.io/en/latest/) on readthedocs.org
-- See the [Full example](examples/fullExample.py), using lots of pygamepal functionality
+- See the [Documentation](https://pygamepal.readthedocs.io/en/latest/) on readthedocs.org.
+- See the [Full example](examples/fullExample.py), using lots of pygamepal functionality.
 
 ### Licence
 
