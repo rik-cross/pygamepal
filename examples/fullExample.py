@@ -270,7 +270,7 @@ class GameExample(pygamepal.Game):
 
 gameExample = GameExample(size=(800, 600), caption = 'Full game example')
 menuScene = MenuScene(gameExample)
-gameScene = GameScene(gameExample, worldSize = (256, 256))
+gameScene = GameScene(gameExample, surfaceSize = (256, 256))
 
 #
 # set up game and run
