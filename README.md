@@ -22,3 +22,5 @@ A library of classes and functions to support game development in Pygame.
 ### Licence
 
 Distributed under the MIT License. See [LICENSE](https://github.com/rik-cross/pygamepal/blob/main/LICENSE) for more information.
+
+All images taken from [Sprout Lands](https://cupnooble.itch.io/sprout-lands-asset-pack) asset pack by [Cup Nooble](https://cupnooble.itch.io/) and used under a non-commercial license.
