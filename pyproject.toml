@@ -25,4 +25,5 @@ classifiers = [
 exclude = [
   "/docs",
   "/examples",
+  "/templates",
 ]
