@@ -16,6 +16,9 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+dependencies = [
+  "pygame-ce",
+]
 
 [project.urls]
 "Homepage" = "https://github.com/rik-cross/pygamepal"
