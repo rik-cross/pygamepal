@@ -23,7 +23,7 @@ clock = pygame.time.Clock()
 input = pygamepal.Input()
 
 # create a new lighting object and add a light
-lighting = pygamepal.Lighting(surfaceSize=(680, 460), ambientLightLevel=0.1)
+lighting = pygamepal.Lighting(surfaceSize=(680, 460), lightLevel=0.1)
 lighting.addLight(pygamepal.Light(position=(340, 230), radius=300, name='testLight'))
 
 # add a map texture
