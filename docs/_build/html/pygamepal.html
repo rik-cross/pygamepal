@@ -7,8 +7,7 @@
 
     <title>pygamepal package &#8212; PygamePal 1.0.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
-    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
     <script src="_static/documentation_options.js?v=8d563738"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
@@ -558,7 +557,8 @@ Called once per frame of the game.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.input.</span></span><span class="sig-name descname"><span class="pre">Input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">longPressDuration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doublePressTimeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.input.Input" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Handle Pygame input more easily, including key/mouse press, release, long-press and double-press.</p>
-<p><a class="reference external" href="https://github.com/rik-cross/pygamepal/blob/main/examples/keyInputExample.py">Example Input code</a>.</p>
+<p><a class="reference external" href="https://github.com/rik-cross/pygamepal/blob/main/examples/keyInputExample.py">Example Key Input code</a>.</p>
+<p><a class="reference external" href="https://github.com/rik-cross/pygamepal/blob/main/examples/mouseInputExample.py">Example Mouse Input code</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -808,38 +808,57 @@ e.g:
 
 <dl class="py class">
 <dt class="sig sig-object py" id="pygamepal.lighting.Lighting">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.lighting.</span></span><span class="sig-name descname"><span class="pre">Lighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surfaceSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ambientLightLevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.lighting.Lighting" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.lighting.</span></span><span class="sig-name descname"><span class="pre">Lighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surfaceSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lightLevel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.lighting.Lighting" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pygamepal.lighting.Lighting.addLight">
 <span class="sig-name descname"><span class="pre">addLight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">light</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.lighting.Lighting.addLight" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="pygamepal.lighting.Lighting.ambientLightLevel">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ambientLightLevel</span></span><a class="headerlink" href="#pygamepal.lighting.Lighting.ambientLightLevel" title="Link to this definition">¶</a></dt>
-<dd><p>Get / set the ambient light value (which is set between 0 and 1).</p>
+<dd><p>Adds a light to the lighting system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pygamepal.Light</strong> – The light to add.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygamepal.lighting.Lighting.draw">
 <span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.lighting.Lighting.draw" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Draws all light in the lighting system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>surface</strong> (<em>pygame.Surface</em>) – The surface to draw to.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygamepal.lighting.Lighting.getLight">
 <span class="sig-name descname"><span class="pre">getLight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.lighting.Lighting.getLight" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get light by name. Returns None if no light exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – The name of the light to get.</p>
+</dd>
+</dl>
+</dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="pygamepal.lighting.Lighting.setLightLevel">
-<span class="sig-name descname"><span class="pre">setLightLevel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lightLevel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.lighting.Lighting.setLightLevel" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.lighting.Lighting.lightLevel">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lightLevel</span></span><a class="headerlink" href="#pygamepal.lighting.Lighting.lightLevel" title="Link to this definition">¶</a></dt>
+<dd><p>Get / Set the ambient light level (between 0 (dark) and 1 (light), default = 0).</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="pygamepal.lighting.Lighting.update">
 <span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.lighting.Lighting.update" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Updates the lighting system, including all lights.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deltaTime</strong> (<em>float</em>) – The elapsed time cince the last update (default = 1).</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -1717,16 +1736,7 @@ when used as part of a pygamepal.Game or pygamepal.Scene)</p>
 
 
 
-
-<search id="searchbox" style="display: none" role="search">
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<h3>Navigation</h3>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">pygamepal package</a><ul>
@@ -1760,6 +1770,16 @@ when used as part of a pygamepal.Game or pygamepal.Scene)</p>
   </ul></li>
 </ul>
 </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -1776,8 +1796,8 @@ when used as part of a pygamepal.Game or pygamepal.Scene)</p>
       &#169;2024, Rik Cross.
       
       |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
-      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
       
       |
       <a href="_sources/pygamepal.rst.txt"
