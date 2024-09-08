@@ -8,6 +8,8 @@
 import pygame
 import os
 
+from .globals import ROOT_DIR
+
 class Light:
 
     '''
@@ -56,12 +58,23 @@ class Light:
 
 class Lighting:
 
-    def __init__(self, surfaceSize, ambientLightLevel = 0):
+    @property
+    def lightLevel(self):
+        '''
+        Get / Set the ambient light level (between 0 (dark) and 1 (light), default = 0).
+        '''
+        return self._lightLevel
+    
+    @lightLevel.setter
+    def lightLevel(self, value):
+        self._lightLevel = min(max(0, value), 1)
+
+    def __init__(self, surfaceSize, lightLevel = 0):
+        
         # create a new lighting surface in the specified size
         self.surface = pygame.Surface(surfaceSize, pygame.SRCALPHA)
-        self.lightLevel = ambientLightLevel
-        # TODO ...
-        self.lightMask = pygame.image.load('../src/pygamepal/lightMask.png')
+        self.lightLevel = lightLevel
+        self.lightMask = pygame.image.load(os.path.join(ROOT_DIR, 'lightMask.png'))
         
         self.lights = []
         self.surface.fill( 'black' )
@@ -69,12 +82,20 @@ class Lighting:
     def update(self, deltaTime = 1):
 
         '''
-        
+        Updates the lighting system, including all lights.
+
+        :param float deltaTime: The elapsed time cince the last update (default = 1).
         '''
         
         pass
 
     def draw(self, surface):
+
+        '''
+        Draws all light in the lighting system.
+
+        :param pygame.Surface surface: The surface to draw to.
+        '''
         
         self.surface.fill('black')
         for l in [x for x in self.lights if x.on]:
@@ -83,31 +104,25 @@ class Lighting:
         surface.blit(self.surface, (0,0))
         self.surface.set_alpha(255 * (1 - self.lightLevel))
 
-    # TODO over time (duration)?
-    def setLightLevel(self, lightLevel):
-        self.lightLevel = min(max(0, lightLevel), 1)
-
     def addLight(self, light):
+        
+        '''
+        Adds a light to the lighting system.
+
+        :param pygamepal.Light: The light to add.
+        '''
+        
         self.lights.append(light)
 
     def getLight(self, name):
+
+        '''
+        Get light by name. Returns None if no light exists.
+
+        :param str name: The name of the light to get.
+        '''
+        
         for l in self.lights:
             if l.name == name:
                 return l
         return None
-
-    #
-    # properties
-    #
-
-    # ambient light property, between 0 and 1
-    @property
-    def ambientLightLevel(self):
-        '''
-        Get / set the ambient light value (which is set between 0 and 1).
-        '''
-        return self._ambientLightLevel
-    
-    @ambientLightLevel.setter
-    def ambientLightLevel(self, value):
-        self._radius = min(max(0, value), 1)

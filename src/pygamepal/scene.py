@@ -110,7 +110,7 @@ class Scene:
         self._triggers = []
         self._buttons = []
         
-        self.lighting = Lighting(self.surfaceSize, ambientLightLevel = 1)
+        self.lighting = Lighting(self.surfaceSize, lightLevel = 1)
 
         # run the user-defined sprite init() method
         self.init()

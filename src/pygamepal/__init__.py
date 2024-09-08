@@ -4,6 +4,8 @@ __license__ = 'MIT'
 
 import pygame
 
+from .globals import *
+
 from .game import *
 from .scene import *
 from .sprite import *
