@@ -40,7 +40,8 @@ class Trigger:
         onEnter = None,
         onCollide = None,
         onExit = None,
-        drawColor = 'yellow'):
+        drawColor = 'yellow'
+    ):
         
         # add the trigger to the static list
         Trigger._allTriggers.append(self)

@@ -5,10 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>pygamepal package &#8212; PygamePal 1.0.0 documentation</title>
+    <title>pygamepal package &#8212; PygamePal 1.1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
-    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=fc837d61"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -359,6 +360,148 @@ A collider can be used independently, or as part of a sprite.</p>
 </dd></dl>
 
 </section>
+<section id="module-pygamepal.dialogue">
+<span id="pygamepal-dialogue"></span><h2>pygamepal.dialogue<a class="headerlink" href="#module-pygamepal.dialogue" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pygamepal.dialogue.Dialogue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.dialogue.</span></span><span class="sig-name descname"><span class="pre">Dialogue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(200,</span> <span class="pre">100)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backgroundColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">borderColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">borderWidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textEffect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickSpeed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">advanceTextSymbol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'&gt;'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickSound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">borderRadius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custonDrawMethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.dialogue.Dialogue" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Displays one or more pages of dialogue.</p>
+<img alt="https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/dialogueExample.gif?raw=true" src="https://github.com/rik-cross/pygamepal/blob/main/examples/gifs/dialogueExample.gif?raw=true" />
+<p><a class="reference external" href="https://github.com/rik-cross/pygamepal/blob/main/examples/dialogueExample.py">Example Dialogue code</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>position</strong> (<em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – The (x, y) top-left position of the box (default = (0, 0)).</p></li>
+<li><p><strong>size</strong> (<em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – The (width, height) size of the box (default = (50, 50)).</p></li>
+<li><p><strong>font</strong> (<em>pygame.Font</em>) – The text font (default = None, which uses pygamepal.sysFont).</p></li>
+<li><p><strong>backgroundColor</strong> (<em>pygame.Color</em>) – Dialogue box background color (default = None).</p></li>
+<li><p><strong>textColor</strong> (<em>pygame.Color</em>) – Text color (default = ‘black’).</p></li>
+<li><p><strong>borderColor</strong> (<em>pygame.Color</em>) – Box and texture border color (default = ‘black’).</p></li>
+<li><p><strong>borderWidth</strong> (<em>int</em>) – The width of the border, in pixels (default = 0).</p></li>
+<li><p><strong>paddingWidth</strong> (<em>int</em>) – The space in pixels between elements (default = 10).</p></li>
+<li><p><strong>textEffect</strong> (<em>str</em>) – Either ‘none’ or ‘tick’ (default = ‘none’).</p></li>
+<li><p><strong>tickSpeed</strong> (<em>int</em>) – The delay between showing each character (if textEffect == ‘tick’ only, default = 4).</p></li>
+<li><p><strong>advanceTextSymbol</strong> (<em>str</em>) – The string to show at the end of pages 0 to n-1 of dialogue (default = ‘&gt;’).</p></li>
+<li><p><strong>tickSound</strong> (<em>pygame.Sound</em>) – Sound to play when advancing the text (if textEffect == ‘tick’ only, default = None).</p></li>
+<li><p><strong>borderRadius</strong> (<em>int</em>) – Bevel on the edges of the borders (default = 0).</p></li>
+<li><p><strong>visible</strong> (<em>bool</em>) – Vibisility of the dialogue box (default = True).</p></li>
+<li><p><strong>customDrawMethod</strong> (<em>function</em>) – Provide an alternative draw() method (default = None).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.dialogue.Dialogue.addPage">
+<span class="sig-name descname"><span class="pre">addPage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">texture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textureAlignment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'left'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textureBackgroundColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.dialogue.Dialogue.addPage" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a page of dialogue to the dialogue box.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<em>str</em>) – The text to display.</p></li>
+<li><p><strong>texture</strong> (<em>pygame.texture</em>) – The texture to display with the text (default = None).</p></li>
+<li><p><strong>textureAlignment</strong> (<em>str</em>) – Position of the texture (‘left’ or ‘right’, default = ‘left’).</p></li>
+<li><p><strong>textureBackgroundColor</strong> (<em>pygame.Color</em>) – The texture background color (default = None).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.dialogue.Dialogue.advance">
+<span class="sig-name descname"><span class="pre">advance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.dialogue.Dialogue.advance" title="Link to this definition">¶</a></dt>
+<dd><p>Advances the dialogue. This means firstly showing all text for the current page, and then
+moving to the next page of dialogue.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.dialogue.Dialogue.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.dialogue.Dialogue.draw" title="Link to this definition">¶</a></dt>
+<dd><p>Draws the dialogue box, along with the current page of text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deltaTime</strong> (<em>float</em>) – the game time elapsed since the last frame (default = 1).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.dialogue.Dialogue.getText">
+<span class="sig-name descname"><span class="pre">getText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.dialogue.Dialogue.getText" title="Link to this definition">¶</a></dt>
+<dd><p>Get the current page of text. If the text has a ‘tick’ effect,
+only the currently visible text is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>split</strong> (<em>bool</em>) – Returns a list of text, split according to the available</p>
+</dd>
+</dl>
+<p>text width (default = True).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.dialogue.Dialogue.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">deltaTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.dialogue.Dialogue.update" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the dialogue box, once per frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>deltaTime</strong> (<em>float</em>) – the game time elapsed since the last frame (default = 1).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="pygamepal-dialoguepage">
+<h2>pygamepal.dialoguePage<a class="headerlink" href="#pygamepal-dialoguepage" title="Link to this heading">¶</a></h2>
+<dl class="py class" id="module-pygamepal.dialoguePage">
+<dt class="sig sig-object py" id="pygamepal.dialoguePage.DialoguePage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.dialoguePage.</span></span><span class="sig-name descname"><span class="pre">DialoguePage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">texture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textureAlignment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'left'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textureBackgroundColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.dialoguePage.DialoguePage" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Pages for the Dialogue class
+(Users of the PygamePal library should not need to use this class directly. Instead, it is used by pygamepal.Dialogue).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parent</strong> (<em>pygamepal.Dialogue</em>) – The Dialogue object in which the DialoguePage exists.</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – The page of text.</p></li>
+<li><p><strong>texture</strong> (<em>pygame.Texture</em>) – The texture to display with the text (default = None).</p></li>
+<li><p><strong>alignment</strong> (<em>string</em>) – The alignment of the texture (either ‘left’ or ‘right’, default = ‘left’).</p></li>
+<li><p><strong>textureBackgroundColor</strong> (<em>pygamepal.Color</em>) – The color to disply behind the texture (default = None).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.dialoguePage.DialoguePage.calculateTextOffset">
+<span class="sig-name descname"><span class="pre">calculateTextOffset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.dialoguePage.DialoguePage.calculateTextOffset" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.dialoguePage.DialoguePage.calculateTextWidth">
+<span class="sig-name descname"><span class="pre">calculateTextWidth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.dialoguePage.DialoguePage.calculateTextWidth" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the available width for the text.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.dialoguePage.DialoguePage.calculateTexturePosition">
+<span class="sig-name descname"><span class="pre">calculateTexturePosition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.dialoguePage.DialoguePage.calculateTexturePosition" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the (x, y) position of the texture.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pygamepal.dialoguePage.DialoguePage.calculateTextureSize">
+<span class="sig-name descname"><span class="pre">calculateTextureSize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.dialoguePage.DialoguePage.calculateTextureSize" title="Link to this definition">¶</a></dt>
+<dd><p>Calculates the (w, h) size of the texture, based on the available space.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="pygamepal.dialoguePage.DialoguePage.text">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">text</span></span><a class="headerlink" href="#pygamepal.dialoguePage.DialoguePage.text" title="Link to this definition">¶</a></dt>
+<dd><p>Get / set the page text.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-pygamepal.drawText">
 <span id="pygamepal-drawtext"></span><h2>pygamepal.drawText<a class="headerlink" href="#module-pygamepal.drawText" title="Link to this heading">¶</a></h2>
 <dl class="py function">
@@ -381,6 +524,11 @@ A collider can be used independently, or as part of a sprite.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pygamepal.drawText.splitText">
+<span class="sig-prename descclassname"><span class="pre">pygamepal.drawText.</span></span><span class="sig-name descname"><span class="pre">splitText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.drawText.splitText" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </section>
 <section id="module-pygamepal.flatten">
@@ -1736,7 +1884,16 @@ when used as part of a pygamepal.Game or pygamepal.Scene)</p>
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">pygamepal package</a><ul>
@@ -1744,6 +1901,8 @@ when used as part of a pygamepal.Game or pygamepal.Scene)</p>
 <li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.button">pygamepal.button</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.camera">pygamepal.camera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.collider">pygamepal.collider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.dialogue">pygamepal.dialogue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pygamepal-dialoguepage">pygamepal.dialoguePage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.drawText">pygamepal.drawText</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.flatten">pygamepal.flatten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.game">pygamepal.game</a></li>
@@ -1770,16 +1929,6 @@ when used as part of a pygamepal.Game or pygamepal.Scene)</p>
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -1796,8 +1945,8 @@ when used as part of a pygamepal.Game or pygamepal.Scene)</p>
       &#169;2024, Rik Cross.
       
       |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
-      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
       |
       <a href="_sources/pygamepal.rst.txt"

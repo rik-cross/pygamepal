@@ -1,4 +1,4 @@
-__version__ = "1.0.2"
+__version__ = "1.1.0"
 __author__ = 'Rik Cross'
 __license__ = 'MIT'
 
@@ -22,11 +22,15 @@ from .transition import *
 from .animator import *
 from .animation import *
 from .lighting import *
+from .dialogue import *
+from .dialoguePage import *
 
 from .drawText import *
 from .spriteTextureList import *
 from .splitTexture import *
 from .flatten import *
 from .easingFunctions import *
+
+pygame.init()
 
 DEBUG = False

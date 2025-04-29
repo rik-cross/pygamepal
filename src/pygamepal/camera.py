@@ -58,7 +58,7 @@ class Camera:
         shakeDirection = (1, 0),
         shakeDampening = 0.4,
         shakeNoise = 0.8
-        ):
+    ):
 
         self.position = position
         self.size = size

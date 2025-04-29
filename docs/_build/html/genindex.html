@@ -4,10 +4,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; PygamePal 1.0.0 documentation</title>
+    <title>Index &#8212; PygamePal 1.1.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
-    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=fc837d61"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="#" />
@@ -75,6 +76,8 @@
       </ul></li>
       <li><a href="pygamepal.html#pygamepal.lighting.Lighting.addLight">addLight() (pygamepal.lighting.Lighting method)</a>
 </li>
+      <li><a href="pygamepal.html#pygamepal.dialogue.Dialogue.addPage">addPage() (pygamepal.dialogue.Dialogue method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pygamepal.html#pygamepal.game.Game.addSprite">addSprite() (pygamepal.game.Game method)</a>
@@ -91,6 +94,8 @@
         <li><a href="pygamepal.html#pygamepal.scene.Scene.addTrigger">(pygamepal.scene.Scene method)</a>
 </li>
       </ul></li>
+      <li><a href="pygamepal.html#pygamepal.dialogue.Dialogue.advance">advance() (pygamepal.dialogue.Dialogue method)</a>
+</li>
       <li><a href="pygamepal.html#pygamepal.spriteImage.SpriteImage.alpha">alpha (pygamepal.spriteImage.SpriteImage property)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.animator.Animator">Animator (class in pygamepal.animator)</a>
@@ -109,10 +114,18 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="pygamepal.html#pygamepal.camera.Camera">Camera (class in pygamepal.camera)</a>
+      <li><a href="pygamepal.html#pygamepal.dialoguePage.DialoguePage.calculateTextOffset">calculateTextOffset() (pygamepal.dialoguePage.DialoguePage method)</a>
+</li>
+      <li><a href="pygamepal.html#pygamepal.dialoguePage.DialoguePage.calculateTexturePosition">calculateTexturePosition() (pygamepal.dialoguePage.DialoguePage method)</a>
+</li>
+      <li><a href="pygamepal.html#pygamepal.dialoguePage.DialoguePage.calculateTextureSize">calculateTextureSize() (pygamepal.dialoguePage.DialoguePage method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pygamepal.html#pygamepal.dialoguePage.DialoguePage.calculateTextWidth">calculateTextWidth() (pygamepal.dialoguePage.DialoguePage method)</a>
+</li>
+      <li><a href="pygamepal.html#pygamepal.camera.Camera">Camera (class in pygamepal.camera)</a>
+</li>
       <li><a href="pygamepal.html#pygamepal.spriteImage.SpriteImage.center">center (pygamepal.spriteImage.SpriteImage property)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.collider.Collider">Collider (class in pygamepal.collider)</a>
@@ -123,12 +136,18 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pygamepal.html#pygamepal.dialogue.Dialogue">Dialogue (class in pygamepal.dialogue)</a>
+</li>
+      <li><a href="pygamepal.html#pygamepal.dialoguePage.DialoguePage">DialoguePage (class in pygamepal.dialoguePage)</a>
+</li>
       <li><a href="pygamepal.html#pygamepal.button.Button.draw">draw() (pygamepal.button.Button method)</a>
 
       <ul>
         <li><a href="pygamepal.html#pygamepal.camera.Camera.draw">(pygamepal.camera.Camera method)</a>
 </li>
         <li><a href="pygamepal.html#pygamepal.collider.Collider.draw">(pygamepal.collider.Collider method)</a>
+</li>
+        <li><a href="pygamepal.html#pygamepal.dialogue.Dialogue.draw">(pygamepal.dialogue.Dialogue method)</a>
 </li>
         <li><a href="pygamepal.html#pygamepal.game.Game.draw">(pygamepal.game.Game method)</a>
 </li>
@@ -205,10 +224,10 @@
 </li>
       <li><a href="pygamepal.html#pygamepal.input.Input.getKeyLongPressPercentage">getKeyLongPressPercentage() (pygamepal.input.Input method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pygamepal.html#pygamepal.lighting.Lighting.getLight">getLight() (pygamepal.lighting.Lighting method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pygamepal.html#pygamepal.input.Input.getMouseButtonDownDuration">getMouseButtonDownDuration() (pygamepal.input.Input method)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.input.Input.getMouseButtonLongPressPercentage">getMouseButtonLongPressPercentage() (pygamepal.input.Input method)</a>
@@ -216,6 +235,8 @@
       <li><a href="pygamepal.html#pygamepal.input.Input.getMouseCursorPosition">getMouseCursorPosition() (pygamepal.input.Input method)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.input.Input.getMouseDirection">getMouseDirection() (pygamepal.input.Input method)</a>
+</li>
+      <li><a href="pygamepal.html#pygamepal.dialogue.Dialogue.getText">getText() (pygamepal.dialogue.Dialogue method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -315,6 +336,10 @@
 </li>
         <li><a href="pygamepal.html#module-pygamepal.collider">pygamepal.collider</a>
 </li>
+        <li><a href="pygamepal.html#module-pygamepal.dialogue">pygamepal.dialogue</a>
+</li>
+        <li><a href="pygamepal.html#module-pygamepal.dialoguePage">pygamepal.dialoguePage</a>
+</li>
         <li><a href="pygamepal.html#module-pygamepal.drawText">pygamepal.drawText</a>
 </li>
         <li><a href="pygamepal.html#module-pygamepal.flatten">pygamepal.flatten</a>
@@ -406,6 +431,20 @@
 </li>
       </ul></li>
       <li>
+    pygamepal.dialogue
+
+      <ul>
+        <li><a href="pygamepal.html#module-pygamepal.dialogue">module</a>
+</li>
+      </ul></li>
+      <li>
+    pygamepal.dialoguePage
+
+      <ul>
+        <li><a href="pygamepal.html#module-pygamepal.dialoguePage">module</a>
+</li>
+      </ul></li>
+      <li>
     pygamepal.drawText
 
       <ul>
@@ -419,6 +458,8 @@
         <li><a href="pygamepal.html#module-pygamepal.flatten">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     pygamepal.game
 
@@ -426,8 +467,6 @@
         <li><a href="pygamepal.html#module-pygamepal.game">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     pygamepal.input
 
@@ -568,15 +607,17 @@
 </li>
       <li><a href="pygamepal.html#pygamepal.scene.Scene.sortByBottom">sortByBottom() (pygamepal.scene.Scene static method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pygamepal.html#pygamepal.scene.Scene.sortByLayer">sortByLayer() (pygamepal.scene.Scene static method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="pygamepal.html#pygamepal.scene.Scene.sortByLeft">sortByLeft() (pygamepal.scene.Scene static method)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.scene.Scene.sortByRight">sortByRight() (pygamepal.scene.Scene static method)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.scene.Scene.sortByTop">sortByTop() (pygamepal.scene.Scene static method)</a>
+</li>
+      <li><a href="pygamepal.html#pygamepal.drawText.splitText">splitText() (in module pygamepal.drawText)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.splitTexture.splitTexture">splitTexture() (in module pygamepal.splitTexture)</a>
 </li>
@@ -592,6 +633,8 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pygamepal.html#pygamepal.dialoguePage.DialoguePage.text">text (pygamepal.dialoguePage.DialoguePage property)</a>
+</li>
       <li><a href="pygamepal.html#pygamepal.lighting.Light.toggle">toggle() (pygamepal.lighting.Light method)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.sprite.Sprite.touching">touching() (pygamepal.sprite.Sprite method)</a>
@@ -604,10 +647,10 @@
 </li>
       <li><a href="pygamepal.html#pygamepal.transition.TransitionMoveDown">TransitionMoveDown (class in pygamepal.transition)</a>
 </li>
-      <li><a href="pygamepal.html#pygamepal.transition.TransitionMoveLeft">TransitionMoveLeft (class in pygamepal.transition)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="pygamepal.html#pygamepal.transition.TransitionMoveLeft">TransitionMoveLeft (class in pygamepal.transition)</a>
+</li>
       <li><a href="pygamepal.html#pygamepal.transition.TransitionMoveRight">TransitionMoveRight (class in pygamepal.transition)</a>
 </li>
       <li><a href="pygamepal.html#pygamepal.transition.TransitionMoveUp">TransitionMoveUp (class in pygamepal.transition)</a>
@@ -636,6 +679,8 @@
         <li><a href="pygamepal.html#pygamepal.camera.Camera.update">(pygamepal.camera.Camera method)</a>
 </li>
         <li><a href="pygamepal.html#pygamepal.collider.Collider.update">(pygamepal.collider.Collider method)</a>
+</li>
+        <li><a href="pygamepal.html#pygamepal.dialogue.Dialogue.update">(pygamepal.dialogue.Dialogue method)</a>
 </li>
         <li><a href="pygamepal.html#pygamepal.game.Game.update">(pygamepal.game.Game method)</a>
 </li>
@@ -730,7 +775,16 @@
 
 
 
-<h3>Navigation</h3>
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pygamepal.html">pygamepal package</a></li>
@@ -743,16 +797,6 @@
   </ul></li>
 </ul>
 </div>
-<search id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</search>
-<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -769,8 +813,8 @@
       &#169;2024, Rik Cross.
       
       |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.4.7</a>
-      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
       
     </div>
 

@@ -54,7 +54,7 @@ class Button:
         # a keycode can also be associated with a button
         # (only works if pygamepal.input is specified)
         keyCode = None
-        ):
+    ):
         
         self._scene = None
 

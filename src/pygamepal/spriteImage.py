@@ -37,7 +37,6 @@ class SpriteImage():
     '''
 
     def __init__(self,
-
         *textures,
         state = None,
         animationDelay = 8,
@@ -45,10 +44,10 @@ class SpriteImage():
         hFlip = False,
         vFlip = False,
         offset = (0, 0),
-
         visible = True,
         alpha = 255,
-        pause = False):
+        pause = False
+    ):
 
         # reset the object
         self.reset()

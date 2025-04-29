@@ -33,6 +33,22 @@ pygamepal.collider
    :undoc-members:
    :show-inheritance:
 
+pygamepal.dialogue
+------------------
+
+.. automodule:: pygamepal.dialogue
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pygamepal.dialoguePage
+------------------
+
+.. automodule:: pygamepal.dialoguePage
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 pygamepal.drawText
 ------------------
 

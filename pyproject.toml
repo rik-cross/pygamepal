@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pygamepal"
-version = "1.0.2"
+version = "1.0.3"
 authors = [
   { name="Rik Cross", email="rik.j.cross@gmail.com" },
 ]

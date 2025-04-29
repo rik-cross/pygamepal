@@ -37,7 +37,8 @@ class Sprite(pygame.sprite.Sprite):
         scaleTexture = False,
         collider = None,
         trigger = None,
-        drawColor = 'white'):
+        drawColor = 'white'
+    ):
 
         # ensure compatibility with pygame.Sprites
         pygame.sprite.Sprite.__init__(self)

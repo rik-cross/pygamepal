@@ -11,6 +11,8 @@ import pygame
 pygame.font.init()
 sysFont = pygame.font.SysFont(None, 24)
 smallFont = pygame.font.SysFont(None, 14)
+regularFont = pygame.font.SysFont(None, 24)
+largeFont = pygame.font.SysFont(None, 34)
 
 def drawText(surface, text,
              position = [0, 0],
@@ -39,6 +41,8 @@ def drawText(surface, text,
 
     # create text surface
     textSurface = font.render(text, antialias, color, backgroundColor)
+    if len(color) > 3:
+        textSurface.set_alpha(color[3])
 
     # center
     if centerX == True:
@@ -48,3 +52,44 @@ def drawText(surface, text,
 
     # draw text to surface
     surface.blit(textSurface, position)
+
+def splitText(text = None, width = None, font = None):
+
+    if font is None:
+        font = sysFont
+    
+    #print('>>>font')
+    #print(font)
+
+    returnList = []
+    h = font.get_height()
+    
+    words = text.split(' ')
+    #print(words)
+
+    position = 0
+    currentLine = ''
+
+    fin = False
+    while not fin:
+        currentLine += words[position] + ' '
+        position += 1
+        #print(currentLine)
+        if font.size(currentLine)[0] >= width:
+            #print('ggg')
+            #print(currentLine.split(' ')[:-2])
+            currentLine = ' '.join(currentLine.split(' ')[:-2]) + ' '
+            position -= 1
+            returnList.append(currentLine)
+            currentLine = ''
+        if position >= len(words):
+            fin = True
+    if len(currentLine) > 0:
+        returnList.append(currentLine)
+    # remove trailing space
+    returnList[-1] = returnList[-1][:-1]
+    #print(returnList[-1][-1])
+    #print('***')
+    #print(returnList[-1])
+    #print(returnList)
+    return returnList
