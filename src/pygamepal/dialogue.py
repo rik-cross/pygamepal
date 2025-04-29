@@ -63,10 +63,7 @@ class Dialogue:
         else:
             self.font = font
 
-        if backgroundColor is None:
-            self.backgroundColor = (255, 255, 255, 0)
-        else:
-            self.backgroundColor = backgroundColor
+        self.backgroundColor = backgroundColor
 
         self.textColor = textColor
         self.borderColor = borderColor
@@ -75,7 +72,7 @@ class Dialogue:
         self.textEffect = textEffect
         self.tickSpeed = tickSpeed
         self.advanceTextSymbol = advanceTextSymbol
-        self._tickSound = tickSound
+        self.tickSound = tickSound
         self.borderRadius = borderRadius
         self.visible = visible
         self.customDrawMethod = custonDrawMethod
@@ -119,8 +116,8 @@ class Dialogue:
                 self._tickTimer = 0
                 self._characterIndex += 1
                 # play a sound if one has been specified
-                if self._tickSound is not None:
-                    pygame.mixer.Sound.play(self._tickSound)
+                if self.tickSound is not None:
+                    pygame.mixer.Sound.play(self.tickSound)
 
     def draw(self, surface):
 
@@ -147,12 +144,13 @@ class Dialogue:
         self._surface.fill((0, 0, 0, 0), (0, 0, *self.size))
 
         # draw background
-        pygame.draw.rect(
-            self._surface,
-            self.backgroundColor,
-            (0, 0, *self.size),
-            border_radius=self.borderRadius
-        )
+        if self.backgroundColor is not None:
+            pygame.draw.rect(
+                self._surface,
+                self.backgroundColor,
+                (0, 0, *self.size),
+                border_radius=self.borderRadius
+            )
         
         # draw border
         if self.borderWidth > 0 and self.borderColor is not None:
