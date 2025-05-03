@@ -42,7 +42,7 @@ pygamepal.dialogue
    :show-inheritance:
 
 pygamepal.dialoguePage
-------------------
+----------------------
 
 .. automodule:: pygamepal.dialoguePage
    :members:

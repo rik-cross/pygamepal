@@ -39,8 +39,12 @@ def drawText(surface, text,
     if font is None:
         font = sysFont
 
+    # ensure the color is a pygame color
+    color = pygame.Color(color)
+
     # create text surface
     textSurface = font.render(text, antialias, color, backgroundColor)
+    #print(color)
     if len(color) > 3:
         textSurface.set_alpha(color[3])
 

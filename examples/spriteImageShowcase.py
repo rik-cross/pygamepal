@@ -107,8 +107,8 @@ while running:
     screen.fill('cornflowerblue')
     
     # draw split texture
-    for col in range(len(splitTextures)):
-        for row in range(len(splitTextures[0])):
+    for row in range(len(splitTextures)):
+        for col in range(len(splitTextures[0])):
             pygame.draw.rect(screen, 'gray10', (col * 100, row * 100, 96, 96), False)
             screen.blit(splitTextures[row][col], (col * 100, row * 100, 96, 96))
 

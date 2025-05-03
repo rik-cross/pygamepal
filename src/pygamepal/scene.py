@@ -188,7 +188,7 @@ class Scene:
             collider._scene = self
             collider.update()
 
-        # set the sprite colliderr's scene for all sprites
+        # set the sprite collider's scene for all sprites
         # in the current scene
         for sprite in self.sprites:
             if hasattr(sprite, 'collider') and sprite.collider is not None:

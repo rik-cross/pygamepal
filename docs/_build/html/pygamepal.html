@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>pygamepal package &#8212; PygamePal 1.1.0 documentation</title>
+    <title>pygamepal package &#8212; PygamePal 1.1.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
     <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
-    <script src="_static/documentation_options.js?v=fc837d61"></script>
+    <script src="_static/documentation_options.js?v=58fbf978"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -451,9 +451,9 @@ only the currently visible text is returned.</p>
 </dd></dl>
 
 </section>
-<section id="pygamepal-dialoguepage">
-<h2>pygamepal.dialoguePage<a class="headerlink" href="#pygamepal-dialoguepage" title="Link to this heading">¶</a></h2>
-<dl class="py class" id="module-pygamepal.dialoguePage">
+<section id="module-pygamepal.dialoguePage">
+<span id="pygamepal-dialoguepage"></span><h2>pygamepal.dialoguePage<a class="headerlink" href="#module-pygamepal.dialoguePage" title="Link to this heading">¶</a></h2>
+<dl class="py class">
 <dt class="sig sig-object py" id="pygamepal.dialoguePage.DialoguePage">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pygamepal.dialoguePage.</span></span><span class="sig-name descname"><span class="pre">DialoguePage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">texture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textureAlignment</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'left'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">textureBackgroundColor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.dialoguePage.DialoguePage" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
@@ -1288,7 +1288,7 @@ Everything added to a scene is handled automatically, with optional init(), upda
 <span id="pygamepal-splittexture"></span><h2>pygamepal.splitTexture<a class="headerlink" href="#module-pygamepal.splitTexture" title="Link to this heading">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="pygamepal.splitTexture.splitTexture">
-<span class="sig-prename descclassname"><span class="pre">pygamepal.splitTexture.</span></span><span class="sig-name descname"><span class="pre">splitTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texture</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTextureSize</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.splitTexture.splitTexture" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">pygamepal.splitTexture.</span></span><span class="sig-name descname"><span class="pre">splitTexture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">texture</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newTextureSize</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clippingRect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pygamepal.splitTexture.splitTexture" title="Link to this definition">¶</a></dt>
 <dd><p>Split a texture into a 2D list of sub-textures, using the given size.
 (Use pygamepal.flatten() to flatten the list returned into a single list.)</p>
 <dl class="field-list simple">
@@ -1296,6 +1296,9 @@ Everything added to a scene is handled automatically, with optional init(), upda
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>texture</strong> (<em>pygame.texture</em>) – The original texture to split.</p></li>
 <li><p><strong>newTextureSize</strong> (<em>(</em><em>int</em><em>, </em><em>int</em><em>)</em>) – The size (w, h) of each of the new textures.</p></li>
+<li><p><strong>rows</strong> (<em>int</em>) – The number of rows down to split (default = 0, which means split all available rows).</p></li>
+<li><p><strong>columns</strong> (<em>int</em>) – The number of columns scross to split (default = 0, which means split all available columns).</p></li>
+<li><p><strong>clippingRect</strong> (<em>pygame.Rect</em>) – The (x, y, w, h) portion of the source image to split (default = None, which uses all of the source image).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return list(list(pygame.texture)) newTextures<span class="colon">:</span></dt>
@@ -1902,7 +1905,7 @@ when used as part of a pygamepal.Game or pygamepal.Scene)</p>
 <li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.camera">pygamepal.camera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.collider">pygamepal.collider</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.dialogue">pygamepal.dialogue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pygamepal-dialoguepage">pygamepal.dialoguePage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.dialoguePage">pygamepal.dialoguePage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.drawText">pygamepal.drawText</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.flatten">pygamepal.flatten</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-pygamepal.game">pygamepal.game</a></li>
