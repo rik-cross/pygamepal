@@ -14,6 +14,7 @@ Includes:
 - Cameras, including zoom, shake and clamp
 - Sprites
 - Sprite Images, for creating images and/or animations for multiples states
+- Dialogue for displaying pages of text
 - Input, including press, down, long-press and double-press
 - Buttons that can be controlled by mouse or key press
 - Lighting
